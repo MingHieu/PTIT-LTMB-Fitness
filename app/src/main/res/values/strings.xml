@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Fitness</string>
+
+    <!-- common  -->
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Cancel</string>
+
+    <!-- Home -->
+    <string name="home_screen_title">Home</string>
+
+    <!-- Setting -->
+    <string name="setting_screen_title">Setting</string>
+</resources>
