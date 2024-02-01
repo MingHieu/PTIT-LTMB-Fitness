@@ -10,8 +10,4 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     override val layoutId get() = R.layout.fragment_home
 
-    override fun initialize() {
-        super.initialize()
-        viewModel.isLogin()
-    }
 }
