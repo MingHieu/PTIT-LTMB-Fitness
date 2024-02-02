@@ -30,8 +30,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="16dp">
 
+                <com.ltmb.fitness.widget.exercisegroupcardview.ExerciseGroupCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp" />
+
+                <com.ltmb.fitness.widget.exercisecardview.ExerciseCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

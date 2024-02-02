@@ -7,4 +7,16 @@
         <attr name="android:hint" format="string" />
         <attr name="android:inputType" />
     </declare-styleable>
+
+    <declare-styleable name="ExerciseCardView">
+        <attr name="ecv_thumbnail_src" format="string" />
+        <attr name="ecv_title" format="string" />
+        <attr name="ecv_sub_title" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="ExerciseGroupCardView">
+        <attr name="egc_thumbnail_src" format="string" />
+        <attr name="egc_title" format="string" />
+        <attr name="egc_sub_title" format="string" />
+    </declare-styleable>
 </resources>
