@@ -11,6 +11,6 @@ class HomeViewModel @Inject constructor(
 ) : BaseAndroidViewModel(application) {
 
     fun onSearchBoxClicked() {
-        println("onSearchBoxClicked")
+        navigate(HomeFragmentDirections.toSearch())
     }
 }

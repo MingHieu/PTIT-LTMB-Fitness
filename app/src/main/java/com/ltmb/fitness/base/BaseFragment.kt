@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.annotation.LayoutRes
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
@@ -15,6 +16,7 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.ltmb.fitness.BR
+import com.ltmb.fitness.R
 import com.ltmb.fitness.internal.extension.observeNonNull
 import com.ltmb.fitness.internal.extension.showPopup
 import com.ltmb.fitness.navigation.NavigationCommand
@@ -65,6 +67,7 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
         super.onActivityCreated(savedInstanceState)
 
         observeNavigation()
+        handleBackButton()
     }
 
     private fun observeNavigation() {
@@ -98,5 +101,11 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
     }
 
     open fun getExtras(): FragmentNavigator.Extras = FragmentNavigatorExtras()
+
+    private fun handleBackButton() {
+        view?.findViewById<ImageView>(R.id.action_back_button)?.setOnClickListener {
+            viewModel.navigateBack()
+        }
+    }
 }
 

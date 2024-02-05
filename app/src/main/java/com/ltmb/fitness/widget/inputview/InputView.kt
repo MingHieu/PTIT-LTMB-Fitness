@@ -6,11 +6,14 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
+import android.view.inputmethod.InputMethodManager
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.BindingAdapter
 import com.ltmb.fitness.R
 import com.ltmb.fitness.databinding.ViewInputViewBinding
+import com.ltmb.fitness.internal.util.functional.setBackgroundRadius
 
 @BindingAdapter("iv_onClick")
 fun setOnClick(input: InputView, cb: () -> Unit) {
@@ -38,7 +41,7 @@ class InputView @JvmOverloads constructor(
     init {
         readAttributes(attrs)
         bindOnClickListeners()
-        setupEditTextTextChangedListener()
+        listenEditTextTextChanged()
     }
 
     private fun readAttributes(attrs: AttributeSet?) {
@@ -55,11 +58,31 @@ class InputView @JvmOverloads constructor(
                 binding.ivLeftIcon.visibility = GONE
             }
 
+            if (hasValue(R.styleable.InputView_iv_left_icon_tint)) {
+                val leftIconTint = getResourceId(R.styleable.InputView_iv_left_icon_tint, 0)
+                binding.ivLeftIcon.setColorFilter(
+                    ContextCompat.getColor(
+                        context,
+                        leftIconTint
+                    )
+                )
+            }
+
             if (hasValue(R.styleable.InputView_iv_right_icon)) {
                 val rightIcon = getResourceId(R.styleable.InputView_iv_right_icon, 0)
                 binding.ivRightIcon.setImageResource(rightIcon)
             } else {
                 binding.ivRightIcon.visibility = GONE
+            }
+
+            if (hasValue(R.styleable.InputView_iv_right_icon_tint)) {
+                val rightIconTint = getResourceId(R.styleable.InputView_iv_right_icon_tint, 0)
+                binding.ivRightIcon.setColorFilter(
+                    ContextCompat.getColor(
+                        context,
+                        rightIconTint
+                    )
+                )
             }
 
             if (hasValue(R.styleable.InputView_iv_enabled)) {
@@ -79,6 +102,44 @@ class InputView @JvmOverloads constructor(
                 binding.ivEditText.inputType =
                     getInt(R.styleable.InputView_android_inputType, InputType.TYPE_CLASS_TEXT)
             }
+
+            if (hasValue(R.styleable.InputView_iv_background)) {
+                val backgroundColor = getResourceId(R.styleable.InputView_iv_background, 0)
+                setBackgroundRadius(
+                    binding.ivRoot,
+                    24f,
+                    ContextCompat.getColor(
+                        context,
+                        backgroundColor
+                    )
+                )
+            }
+
+            if (hasValue(R.styleable.InputView_android_textColor)) {
+                val textColor = getResourceId(
+                    R.styleable.InputView_android_textColor,
+                    0
+                )
+                binding.ivEditText.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        textColor
+                    )
+                )
+            }
+
+            if (hasValue(R.styleable.InputView_android_textColorHint)) {
+                val hintTextColor = getResourceId(
+                    R.styleable.InputView_android_textColorHint,
+                    0
+                )
+                binding.ivEditText.setHintTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        hintTextColor
+                    )
+                )
+            }
         }
     }
 
@@ -93,9 +154,17 @@ class InputView @JvmOverloads constructor(
         onClick?.invoke()
     }
 
-    private fun setupEditTextTextChangedListener() {
+    private fun listenEditTextTextChanged() {
         binding.ivEditText.doOnTextChanged { text, _, _, _ ->
             onTextChanged?.invoke(text.toString())
         }
+    }
+
+    fun focus() {
+        binding.ivEditText.postDelayed(Runnable {
+            binding.ivEditText.requestFocus()
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(binding.ivEditText, InputMethodManager.SHOW_IMPLICIT)
+        }, 100)
     }
 }

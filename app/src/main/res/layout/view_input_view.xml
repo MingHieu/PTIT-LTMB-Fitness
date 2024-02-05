@@ -5,15 +5,15 @@
         android:id="@+id/iv_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border"
         android:gravity="center"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="18dp">
 
         <ImageView
             android:id="@+id/iv_left_icon"
-            android:layout_width="16dp"
-            android:layout_height="16dp" />
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
 
         <EditText
             android:id="@+id/iv_edit_text"
@@ -21,11 +21,12 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_weight="1"
-            android:background="@color/transparent" />
+            android:background="@color/transparent"
+            android:textSize="16sp" />
 
         <ImageView
             android:id="@+id/iv_right_icon"
-            android:layout_width="16dp"
-            android:layout_height="16dp" />
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
     </LinearLayout>
 </layout>

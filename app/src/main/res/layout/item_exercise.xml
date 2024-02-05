@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +26,8 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:orientation="horizontal"
-            android:paddingHorizontal="10dp">
+            android:paddingStart="20dp"
+            android:paddingEnd="10dp">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -40,18 +42,18 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginBottom="10dp"
-                    android:text="Tolal Body Tune-up"
                     android:textColor="@color/ecv_title"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="Tolal Body Tune-up" />
 
                 <TextView
                     android:id="@+id/ecv_sub_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="30 mins - Beginner"
                     android:textColor="@color/ecv_sub_title"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    tools:text="30 mins - Beginner" />
             </LinearLayout>
 
             <ImageView

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="searchAdapter"
+            type="com.ltmb.fitness.scene.search.SearchAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.ltmb.fitness.scene.search.SearchViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp">
+
+            <include layout="@layout/view_back_button_view" />
+
+            <com.ltmb.fitness.widget.inputview.InputView
+                android:id="@+id/search_box"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:hint="@string/search_workout"
+                android:textColorHint="@color/sv_text_hint_color"
+                app:iv_background="@color/sv_background"
+                app:iv_left_icon="@drawable/ic_search"
+                app:iv_left_icon_tint="@color/text_primary" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            app:adapter="@{searchAdapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:submitList="@{viewModel.searchResults}"
+            tools:listitem="@layout/item_search" />
+    </LinearLayout>
+</layout>

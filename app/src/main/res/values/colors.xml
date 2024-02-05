@@ -10,9 +10,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#808080</color>
+    <color name="lighter_gray">#DDDDDD</color>
 
     <!-- theme -->
     <color name="primary">@color/purple_200</color>
+    <color name="text_primary">@color/black</color>
 
     <!-- component -->
     <color name="ecv_surface">#66000000</color>
@@ -21,4 +23,7 @@
 
     <color name="egc_title">@color/white</color>
     <color name="egc_sub_title">@color/white</color>
+
+    <color name="sv_background">#FAFAFA</color>
+    <color name="sv_text_hint_color">#B5B4B8</color>
 </resources>

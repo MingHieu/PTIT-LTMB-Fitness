@@ -4,9 +4,9 @@
     <!-- common  -->
     <string name="common_ok">OK</string>
     <string name="common_cancel">Cancel</string>
+    <string name="search_workout">Search workout plan …</string>
 
     <!-- Home -->
-    <string name="home_search_hint">Search</string>
     <string name="home_screen_title">Home</string>
 
     <!-- Setting -->
