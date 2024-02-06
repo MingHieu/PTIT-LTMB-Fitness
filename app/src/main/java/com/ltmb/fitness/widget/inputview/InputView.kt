@@ -1,0 +1,170 @@
+package com.ltmb.fitness.widget.inputview
+
+import android.content.Context
+import android.text.InputType
+import android.util.AttributeSet
+import android.view.LayoutInflater
+import android.view.View
+import android.view.View.OnClickListener
+import android.view.inputmethod.InputMethodManager
+import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
+import androidx.core.widget.doOnTextChanged
+import androidx.databinding.BindingAdapter
+import com.ltmb.fitness.R
+import com.ltmb.fitness.databinding.ViewInputViewBinding
+import com.ltmb.fitness.internal.util.functional.setBackgroundRadius
+
+@BindingAdapter("iv_onClick")
+fun setOnClick(input: InputView, cb: () -> Unit) {
+    input.onClick = cb
+}
+
+@BindingAdapter("iv_onTextChanged")
+fun setOnTextChanged(input: InputView, cb: (text: String) -> Unit) {
+    input.onTextChanged = cb
+}
+
+class InputView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null
+) : LinearLayout(context, attrs), OnClickListener {
+
+    private val binding = ViewInputViewBinding.inflate(
+        LayoutInflater.from(context),
+        this,
+        true
+    )
+    var onClick: (() -> Unit)? = null
+    var onTextChanged: ((text: String) -> Unit)? = null
+
+    init {
+        readAttributes(attrs)
+        bindOnClickListeners()
+        listenEditTextTextChanged()
+    }
+
+    private fun readAttributes(attrs: AttributeSet?) {
+        context.theme.obtainStyledAttributes(
+            attrs,
+            R.styleable.InputView,
+            0,
+            0
+        ).apply {
+            if (hasValue(R.styleable.InputView_iv_left_icon)) {
+                val leftIcon = getResourceId(R.styleable.InputView_iv_left_icon, 0)
+                binding.ivLeftIcon.setImageResource(leftIcon)
+            } else {
+                binding.ivLeftIcon.visibility = GONE
+            }
+
+            if (hasValue(R.styleable.InputView_iv_left_icon_tint)) {
+                val leftIconTint = getResourceId(R.styleable.InputView_iv_left_icon_tint, 0)
+                binding.ivLeftIcon.setColorFilter(
+                    ContextCompat.getColor(
+                        context,
+                        leftIconTint
+                    )
+                )
+            }
+
+            if (hasValue(R.styleable.InputView_iv_right_icon)) {
+                val rightIcon = getResourceId(R.styleable.InputView_iv_right_icon, 0)
+                binding.ivRightIcon.setImageResource(rightIcon)
+            } else {
+                binding.ivRightIcon.visibility = GONE
+            }
+
+            if (hasValue(R.styleable.InputView_iv_right_icon_tint)) {
+                val rightIconTint = getResourceId(R.styleable.InputView_iv_right_icon_tint, 0)
+                binding.ivRightIcon.setColorFilter(
+                    ContextCompat.getColor(
+                        context,
+                        rightIconTint
+                    )
+                )
+            }
+
+            if (hasValue(R.styleable.InputView_iv_enabled)) {
+                val enabled = getBoolean(R.styleable.InputView_iv_enabled, true)
+                with(binding.ivEditText) {
+                    isCursorVisible = enabled
+                    isFocusable = enabled
+                    isClickable = true
+                }
+            }
+
+            if (hasValue(R.styleable.InputView_android_hint)) {
+                binding.ivEditText.hint = getString(R.styleable.InputView_android_hint)
+            }
+
+            if (hasValue(R.styleable.InputView_android_inputType)) {
+                binding.ivEditText.inputType =
+                    getInt(R.styleable.InputView_android_inputType, InputType.TYPE_CLASS_TEXT)
+            }
+
+            if (hasValue(R.styleable.InputView_iv_background)) {
+                val backgroundColor = getResourceId(R.styleable.InputView_iv_background, 0)
+                setBackgroundRadius(
+                    binding.ivRoot,
+                    24f,
+                    ContextCompat.getColor(
+                        context,
+                        backgroundColor
+                    )
+                )
+            }
+
+            if (hasValue(R.styleable.InputView_android_textColor)) {
+                val textColor = getResourceId(
+                    R.styleable.InputView_android_textColor,
+                    0
+                )
+                binding.ivEditText.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        textColor
+                    )
+                )
+            }
+
+            if (hasValue(R.styleable.InputView_android_textColorHint)) {
+                val hintTextColor = getResourceId(
+                    R.styleable.InputView_android_textColorHint,
+                    0
+                )
+                binding.ivEditText.setHintTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        hintTextColor
+                    )
+                )
+            }
+        }
+    }
+
+    private fun bindOnClickListeners() {
+        for (i in 0..<binding.ivRoot.childCount) {
+            binding.ivRoot.getChildAt(i).setOnClickListener(this)
+        }
+        setOnClickListener(this)
+    }
+
+    override fun onClick(v: View?) {
+        onClick?.invoke()
+    }
+
+    private fun listenEditTextTextChanged() {
+        binding.ivEditText.doOnTextChanged { text, _, _, _ ->
+            onTextChanged?.invoke(text.toString())
+        }
+    }
+
+    fun focus() {
+        binding.ivEditText.postDelayed(Runnable {
+            binding.ivEditText.requestFocus()
+            val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(binding.ivEditText, InputMethodManager.SHOW_IMPLICIT)
+        }, 100)
+    }
+}

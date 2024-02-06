@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="InputView">
+        <attr name="iv_enabled" format="boolean" />
+        <attr name="iv_left_icon" format="reference" />
+        <attr name="iv_left_icon_tint" format="reference" />
+        <attr name="iv_right_icon" format="reference" />
+        <attr name="iv_right_icon_tint" format="reference" />
+        <attr name="iv_background" format="reference" />
+        <attr name="android:hint" format="string" />
+        <attr name="android:inputType" />
+        <attr name="android:textColor" format="reference" />
+        <attr name="android:textColorHint" format="reference" />
+    </declare-styleable>
+</resources>
