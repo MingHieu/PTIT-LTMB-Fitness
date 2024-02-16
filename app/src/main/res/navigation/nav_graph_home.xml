@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_home"
     app:startDestination="@id/homeFragment">
+
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.ltmb.fitness.scene.home.HomeFragment"
@@ -14,6 +15,7 @@
             app:destination="@id/searchFragment"
             app:enterAnim="@android:anim/fade_in" />
     </fragment>
+
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.ltmb.fitness.scene.search.SearchFragment"

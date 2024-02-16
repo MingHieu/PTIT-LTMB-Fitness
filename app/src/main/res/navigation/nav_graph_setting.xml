@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_setting"
     app:startDestination="@id/settingFragment">
+
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.ltmb.fitness.scene.setting.SettingFragment"
@@ -13,6 +14,7 @@
             android:id="@+id/to_login"
             app:destination="@id/loginFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ltmb.fitness.scene.login.LoginFragment"

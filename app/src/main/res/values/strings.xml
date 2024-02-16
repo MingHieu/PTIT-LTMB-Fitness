@@ -9,6 +9,18 @@
     <!-- Home -->
     <string name="home_screen_title">Home</string>
 
+    <!-- Discover -->
+    <string name="discover_screen_title">Discover</string>
+    <string name="discover_workout_plan_card">Workout Plan</string>
+    <string name="discover_meal_plan_card">Meal Plan</string>
+    <string name="discover_music_library_card">Music Library</string>
+
+    <!-- Bookmark -->
+    <string name="bookmark_screen_title">Bookmark</string>
+
+    <!-- Progress -->
+    <string name="progress_screen_title">Progress</string>
+
     <!-- Setting -->
     <string name="setting_screen_title">Setting</string>
 </resources>

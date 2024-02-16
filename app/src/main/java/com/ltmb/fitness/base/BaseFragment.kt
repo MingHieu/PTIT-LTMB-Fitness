@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
@@ -106,6 +107,15 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
         view?.findViewById<ImageView>(R.id.action_back_button)?.setOnClickListener {
             viewModel.navigateBack()
         }
+    }
+
+    fun setupScreen(title: String, canGoBack: Boolean = false) {
+        val actionBackButton = view?.findViewById<ImageView>(R.id.action_back_button)
+        actionBackButton?.visibility = when (canGoBack) {
+            true -> View.VISIBLE
+            false -> View.GONE
+        }
+        view?.findViewById<TextView>(R.id.action_bar_title)?.text = title
     }
 }
 

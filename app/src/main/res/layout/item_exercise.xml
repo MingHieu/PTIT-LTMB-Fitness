@@ -18,7 +18,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img_exercise_thumbnail" />
+                android:src="@drawable/img_exercise_sample" />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
