@@ -3,26 +3,26 @@
 
     <item
         android:id="@+id/nav_graph_home"
-        android:title="@string/home_screen_title"
-        android:icon="@drawable/selector_home"/>
+        android:icon="@drawable/selector_home"
+        android:title="@string/home_screen_title" />
 
     <item
         android:id="@+id/nav_graph_discover"
-        android:title="@string/discover_screen_title"
-        android:icon="@drawable/selector_discover"/>
+        android:icon="@drawable/selector_discover"
+        android:title="@string/discover_screen_title" />
 
     <item
         android:id="@+id/nav_graph_bookmark"
-        android:title="@string/bookmark_screen_title"
-        android:icon="@drawable/selector_bookmark"/>
+        android:icon="@drawable/selector_bookmark"
+        android:title="@string/bookmark_screen_title" />
 
     <item
         android:id="@+id/nav_graph_progress"
-        android:title="@string/progress_screen_title"
-        android:icon="@drawable/selector_progess"/>
+        android:icon="@drawable/selector_progess"
+        android:title="@string/progress_screen_title" />
 
     <item
         android:id="@+id/nav_graph_setting"
-        android:title="@string/setting_screen_title"
-        android:icon="@drawable/selector_setting"/>
+        android:icon="@drawable/selector_setting"
+        android:title="@string/setting_screen_title" />
 </menu>

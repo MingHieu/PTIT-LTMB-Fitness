@@ -17,7 +17,7 @@ import com.ltmb.fitness.internal.util.functional.setBackgroundRadius
 
 @BindingAdapter("iv_onClick")
 fun setOnClick(input: InputView, cb: () -> Unit) {
-    input.onClick = cb
+    input.onInputClick = cb
 }
 
 @BindingAdapter("iv_onTextChanged")
@@ -35,7 +35,7 @@ class InputView @JvmOverloads constructor(
         this,
         true
     )
-    var onClick: (() -> Unit)? = null
+    var onInputClick: (() -> Unit)? = null
     var onTextChanged: ((text: String) -> Unit)? = null
 
     init {
@@ -151,7 +151,7 @@ class InputView @JvmOverloads constructor(
     }
 
     override fun onClick(v: View?) {
-        onClick?.invoke()
+        onInputClick?.invoke() ?: focus()
     }
 
     private fun listenEditTextTextChanged() {
@@ -161,7 +161,7 @@ class InputView @JvmOverloads constructor(
     }
 
     fun focus() {
-        binding.ivEditText.postDelayed(Runnable {
+        binding.ivEditText.postDelayed({
             binding.ivEditText.requestFocus()
             val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.showSoftInput(binding.ivEditText, InputMethodManager.SHOW_IMPLICIT)

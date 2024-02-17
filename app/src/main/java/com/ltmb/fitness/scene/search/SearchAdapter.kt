@@ -21,7 +21,7 @@ class SearchAdapter(private val searchCb: SearchCallback) :
                 .load(item.getImagePath())
                 .placeholder(R.drawable.animation_skeleton)
                 .error(R.drawable.img_exercise_sample)
-                .into(binding.thumbnail)
+                .into(thumbnail)
             callback = searchCb
             search = item
         }

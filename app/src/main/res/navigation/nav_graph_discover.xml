@@ -9,5 +9,19 @@
         android:id="@+id/discoverFragment"
         android:name="com.ltmb.fitness.scene.discover.DiscoverFragment"
         android:label="DiscoverFragment"
-        tools:layout="@layout/fragment_discover" />
+        tools:layout="@layout/fragment_discover">
+        <action
+            android:id="@+id/to_workoutPlanFragment"
+            app:destination="@id/workoutPlanFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutPlanFragment"
+        android:name="com.ltmb.fitness.scene.workoutplan.WorkoutPlanFragment"
+        android:label="WorkoutPlanFragment"
+        tools:layout="@layout/fragment_workout_plan">
+        <argument
+            android:name="@string/arg_hide_bottom_nav"
+            android:defaultValue="true" />
+    </fragment>
 </navigation>

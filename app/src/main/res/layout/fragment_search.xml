@@ -34,10 +34,10 @@
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:hint="@string/search_workout"
-                android:textColorHint="@color/sv_text_hint_color"
-                app:iv_background="@color/sv_background"
+                android:textColorHint="?colorSearchViewTextHintColor"
+                app:iv_background="?colorSearchViewBackground"
                 app:iv_left_icon="@drawable/ic_search"
-                app:iv_left_icon_tint="@color/text_primary" />
+                app:iv_left_icon_tint="?colorText" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

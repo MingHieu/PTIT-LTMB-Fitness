@@ -13,5 +13,22 @@
         <item name="android:statusBarColor">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
+        <item name="colorText">@color/black</item>
+        <item name="colorBackground">@color/white</item>
+
+        <!-- component -->
+        <item name="colorWorkoutSurface">@color/black40</item>
+        <item name="colorWorkoutTitle">@color/black</item>
+        <item name="colorWorkoutSubTitle">@color/gray</item>
+
+        <item name="colorWorkoutPlanTitle">@color/white</item>
+        <item name="colorWorkoutPlanSubTitle">@color/white</item>
+
+        <item name="colorSearchViewBackground">@color/alabaster</item>
+        <item name="colorSearchViewTextHintColor">@color/bombay</item>
+
+        <!-- screen -->
+        <item name="colorDiscoverScreenCardText">@color/white</item>
+        <item name="colorDiscoverScreenCardSurface">@color/black50</item>
     </style>
 </resources>

@@ -8,4 +8,9 @@ import javax.inject.Inject
 @HiltViewModel
 class DiscoverViewModel @Inject constructor(
     application: Application
-) : BaseAndroidViewModel(application)
+) : BaseAndroidViewModel(application) {
+
+    fun goToWorkoutPlan() {
+        navigate(DiscoverFragmentDirections.toWorkoutPlanFragment())
+    }
+}

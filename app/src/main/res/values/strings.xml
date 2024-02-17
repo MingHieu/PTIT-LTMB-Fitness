@@ -23,4 +23,7 @@
 
     <!-- Setting -->
     <string name="setting_screen_title">Setting</string>
+
+    <!-- Workout Plan -->
+    <string name="workout_plan_screen_title">Workout Plan</string>
 </resources>

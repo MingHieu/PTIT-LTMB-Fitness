@@ -12,8 +12,7 @@
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/to_search"
-            app:destination="@id/searchFragment"
-            app:enterAnim="@android:anim/fade_in" />
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment
