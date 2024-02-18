@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.annotation.LayoutRes
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
@@ -12,6 +13,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.HasDefaultViewModelProviderFactory
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -81,7 +83,12 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
     protected open fun handleNavigation(command: NavigationCommand) {
         when (command) {
             is NavigationCommand.ToDirection -> {
-                findNavController().navigate(command.directions, getExtras())
+                findNavController().navigate(
+                    command.directions.actionId,
+                    command.directions.arguments,
+                    getNavOptions(),
+                    getExtras()
+                )
             }
 
             is NavigationCommand.ToDeepLink -> {
@@ -102,10 +109,28 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
 
     open fun getExtras(): FragmentNavigator.Extras = FragmentNavigatorExtras()
 
+    open fun getNavOptions(): NavOptions? {
+        return NavOptions.Builder()
+            .setEnterAnim(androidx.appcompat.R.anim.abc_slide_in_bottom)
+            .setExitAnim(androidx.appcompat.R.anim.abc_fade_out)
+            .setPopEnterAnim(androidx.appcompat.R.anim.abc_fade_in)
+            .setPopExitAnim(androidx.appcompat.R.anim.abc_slide_out_bottom)
+            .build()
+    }
+
     private fun handleBackButton() {
         view?.findViewById<ImageView>(R.id.action_back_button)?.setOnClickListener {
             viewModel.navigateBack()
         }
+    }
+
+    fun setupScreen(title: String, canGoBack: Boolean = false) {
+        val actionBackButton = view?.findViewById<ImageView>(R.id.action_back_button)
+        actionBackButton?.visibility = when (canGoBack) {
+            true -> View.VISIBLE
+            false -> View.GONE
+        }
+        view?.findViewById<TextView>(R.id.action_bar_title)?.text = title
     }
 }
 

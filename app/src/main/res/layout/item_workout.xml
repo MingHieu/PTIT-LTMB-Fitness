@@ -14,11 +14,11 @@
             app:cardCornerRadius="8dp">
 
             <ImageView
-                android:id="@+id/ecv_thumbnail"
+                android:id="@+id/thumbnail"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/img_exercise_thumbnail" />
+                tools:src="@drawable/img_exercise_sample" />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
@@ -37,21 +37,19 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/ecv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
                     android:layout_marginBottom="10dp"
-                    android:textColor="@color/ecv_title"
+                    android:textColor="?colorWorkoutTitle"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     tools:text="Tolal Body Tune-up" />
 
                 <TextView
-                    android:id="@+id/ecv_sub_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="@color/ecv_sub_title"
+                    android:textColor="?colorWorkoutSubTitle"
                     android:textSize="12sp"
                     tools:text="30 mins - Beginner" />
             </LinearLayout>

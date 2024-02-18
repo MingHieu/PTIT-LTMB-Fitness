@@ -20,8 +20,8 @@ class SearchAdapter(private val searchCb: SearchCallback) :
             Picasso.get()
                 .load(item.getImagePath())
                 .placeholder(R.drawable.animation_skeleton)
-                .error(R.drawable.img_exercise_thumbnail)
-                .into(binding.thumbnail)
+                .error(R.drawable.img_exercise_sample)
+                .into(thumbnail)
             callback = searchCb
             search = item
         }

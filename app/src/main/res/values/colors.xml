@@ -8,22 +8,12 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="black40">#66000000</color>
+    <color name="black50">#80000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#808080</color>
     <color name="lighter_gray">#DDDDDD</color>
-
-    <!-- theme -->
-    <color name="primary">@color/purple_200</color>
-    <color name="text_primary">@color/black</color>
-
-    <!-- component -->
-    <color name="ecv_surface">#66000000</color>
-    <color name="ecv_title">@color/black</color>
-    <color name="ecv_sub_title">@color/gray</color>
-
-    <color name="egc_title">@color/white</color>
-    <color name="egc_sub_title">@color/white</color>
-
-    <color name="sv_background">#FAFAFA</color>
-    <color name="sv_text_hint_color">#B5B4B8</color>
+    <color name="blue_ribbon">#0C3FFB</color>
+    <color name="alabaster">#FAFAFA</color>
+    <color name="bombay">#B5B4B8</color>
 </resources>
