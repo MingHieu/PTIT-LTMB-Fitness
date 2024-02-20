@@ -1,41 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <variable
+            name="bodyAreaAdapter"
+            type="com.ltmb.fitness.scene.home.BodyAreaAdapter" />
 
         <variable
             name="viewModel"
             type="com.ltmb.fitness.scene.home.HomeViewModel" />
     </data>
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="match_parent">
 
-        <com.ltmb.fitness.widget.inputview.InputView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/search_workout"
-            android:textColorHint="?colorSearchViewTextHintColor"
-            app:iv_background="?colorSearchViewBackground"
-            app:iv_enabled="false"
-            app:iv_left_icon="@drawable/ic_search"
-            app:iv_left_icon_tint="?colorText"
-            app:iv_onClick="@{()->viewModel.onSearchBoxClicked()}" />
+            android:orientation="vertical">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:paddingTop="16dp">
+            <com.ltmb.fitness.widget.inputview.InputView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:hint="@string/search_workout"
+                android:textColorHint="?colorSearchViewTextHintColor"
+                app:iv_background="?colorSearchViewBackground"
+                app:iv_enabled="false"
+                app:iv_left_icon="@drawable/ic_search"
+                app:iv_left_icon_tint="?colorText"
+                app:iv_onClick="@{() -> viewModel.onSearchBoxClicked()}" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
-        </ScrollView>
-    </LinearLayout>
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:paddingHorizontal="16dp"
+                    android:text="@string/home_screen_body_area_focus_title"
+                    android:textColor="?colorText"
+                    android:textSize="18sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:paddingHorizontal="8dp"
+                    app:adapter="@{bodyAreaAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    app:submitList="@{viewModel.bodyAreas}"
+                    tools:listitem="@layout/item_body_area" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </layout>

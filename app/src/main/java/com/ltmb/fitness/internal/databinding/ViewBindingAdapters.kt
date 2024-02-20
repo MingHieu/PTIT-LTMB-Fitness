@@ -1,5 +1,6 @@
 package com.ltmb.fitness.internal.databinding
 
+import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
@@ -18,4 +19,9 @@ fun setAdapter(view: RecyclerView, adapter: BaseListAdapter<ViewDataBinding, Lis
     adapter?.let {
         view.adapter = it
     }
+}
+
+@BindingAdapter("image_resource")
+fun setImageResource(view: ImageView, res: Int) {
+    view.setImageResource(res)
 }

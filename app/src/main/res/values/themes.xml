@@ -27,6 +27,9 @@
         <item name="colorSearchViewBackground">@color/alabaster</item>
         <item name="colorSearchViewTextHintColor">@color/bombay</item>
 
+        <item name="colorBodyAreaText">@color/white</item>
+        <item name="colorBodyAreaSurface">@color/black30</item>
+
         <!-- screen -->
         <item name="colorDiscoverScreenCardText">@color/white</item>
         <item name="colorDiscoverScreenCardSurface">@color/black50</item>
