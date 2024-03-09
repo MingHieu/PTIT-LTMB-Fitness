@@ -23,5 +23,18 @@
         <argument
             android:name="@string/arg_hide_bottom_nav"
             android:defaultValue="true" />
+        <action
+            android:id="@+id/to_workoutPlanDetailFragment"
+            app:destination="@id/workoutPlanDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutPlanDetailFragment"
+        android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
+        android:label="WorkoutPlanDetailFragment"
+        tools:layout="@layout/fragment_workout_plan_detail">
+        <argument
+            android:name="@string/arg_hide_bottom_nav"
+            android:defaultValue="true" />
     </fragment>
 </navigation>

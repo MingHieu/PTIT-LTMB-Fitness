@@ -7,7 +7,7 @@ import com.ltmb.fitness.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(), BodyAreaCallback {
+class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     override val layoutId get() = R.layout.fragment_home
 
@@ -21,10 +21,10 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(), BodyAre
     override fun initialize() {
         super.initialize()
 
-        binding.bodyAreaAdapter = BodyAreaAdapter(this)
-    }
-
-    override fun onItemClick() {
-        TODO("Not yet implemented")
+        binding.bodyAreaAdapter = BodyAreaAdapter(object : BodyAreaCallback {
+            override fun onItemClick() {
+                TODO("Not yet implemented")
+            }
+        })
     }
 }

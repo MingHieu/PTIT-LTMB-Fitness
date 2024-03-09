@@ -15,6 +15,7 @@
 
     <!-- theme -->
     <attr name="colorText" format="color" />
+    <attr name="colorSubText" format="color" />
     <attr name="colorBackground" format="color" />
     <attr name="colorWorkoutSurface" format="color" />
     <attr name="colorWorkoutTitle" format="color" />

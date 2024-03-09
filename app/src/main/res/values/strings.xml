@@ -27,4 +27,7 @@
 
     <!-- Workout Plan -->
     <string name="workout_plan_screen_title">Workout Plan</string>
+    <string name="workouts">workouts</string>
+    <string name="minutes">minutes</string>
+    <string name="kcal">kcal</string>
 </resources>

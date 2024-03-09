@@ -20,13 +20,10 @@ class WorkoutPlanViewModel @Inject constructor(
         for (i in 1..10) {
             val workoutPlan = WorkoutPlanUiModel(
                 id = i.toLong(),
-                name = "Full Body Workout $i",
                 thumbnail = "https://wallpaperbat.com/img/69222-wallpaper-power-pose-back-fitness-gym-image-for-desktop.jpg",
+                name = "Full Body Workout $i",
                 level = "Intermediate",
-                description = "This workout plan targets all major muscle groups.",
                 duration = 60,
-                kcal = 300,
-                workouts = arrayOf()
             )
             workoutPlansList.add(workoutPlan)
         }

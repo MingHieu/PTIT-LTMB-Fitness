@@ -3,9 +3,12 @@ package com.ltmb.fitness.internal.databinding
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ViewDataBinding
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseListAdapter
 import com.ltmb.fitness.base.ListAdapterItem
+import com.squareup.picasso.Picasso
 
 @Suppress("UNCHECKED_CAST")
 @BindingAdapter("submitList")
@@ -21,7 +24,21 @@ fun setAdapter(view: RecyclerView, adapter: BaseListAdapter<ViewDataBinding, Lis
     }
 }
 
-@BindingAdapter("image_resource")
+@BindingAdapter("itemTouchHelper")
+fun setItemTouchHelper(view: RecyclerView, itemTouchHelper: ItemTouchHelper) {
+    itemTouchHelper.attachToRecyclerView(view)
+}
+
+@BindingAdapter("imageResource")
 fun setImageResource(view: ImageView, res: Int) {
     view.setImageResource(res)
+}
+
+@BindingAdapter("imageUrl")
+fun setImageUrl(view: ImageView, url: String) {
+    Picasso.get()
+        .load(url)
+        .placeholder(R.drawable.animation_skeleton)
+        .error(R.drawable.animation_skeleton)
+        .into(view)
 }

@@ -5,8 +5,7 @@ import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
 import com.ltmb.fitness.databinding.FragmentWorkoutPlanBinding
 
-class WorkoutPlanFragment : BaseFragment<WorkoutPlanViewModel, FragmentWorkoutPlanBinding>(),
-    WorkoutPlanCallback {
+class WorkoutPlanFragment : BaseFragment<WorkoutPlanViewModel, FragmentWorkoutPlanBinding>() {
 
     override val layoutId get() = R.layout.fragment_workout_plan
 
@@ -19,10 +18,10 @@ class WorkoutPlanFragment : BaseFragment<WorkoutPlanViewModel, FragmentWorkoutPl
     override fun initialize() {
         super.initialize()
 
-        binding.workoutPlanAdapter = WorkoutPlanAdapter(this)
-    }
-
-    override fun onItemClick() {
-        TODO("Not yet implemented")
+        binding.workoutPlanAdapter = WorkoutPlanAdapter(object : WorkoutPlanCallback {
+            override fun onItemClick() {
+                viewModel.navigate(WorkoutPlanFragmentDirections.toWorkoutPlanDetailFragment())
+            }
+        })
     }
 }
