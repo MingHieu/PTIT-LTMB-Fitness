@@ -14,3 +14,10 @@ fun convertSecondsToMinutesAndSeconds(seconds: Long): String {
 
     return "$formattedMinutes:$formattedSeconds"
 }
+
+@RequiresApi(Build.VERSION_CODES.O)
+fun convertSecondsToMinutes(seconds: Long): String {
+    val time = LocalTime.MIN.plus(Duration.ofSeconds(seconds))
+
+    return String.format("%d", time.minute)
+}

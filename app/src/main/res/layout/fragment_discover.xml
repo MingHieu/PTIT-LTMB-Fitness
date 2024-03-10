@@ -14,7 +14,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/view_action_bar_view" />
+        <com.ltmb.fitness.widget.actionbarview.ActionBarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:abv_can_go_back="false"
+            app:abv_title="@string/discover_screen_title" />
 
         <ScrollView
             android:layout_width="match_parent"
@@ -86,39 +90,6 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/discover_meal_plan_card"
-                                android:textColor="?colorDiscoverScreenCardText"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </FrameLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    app:cardCornerRadius="8dp">
-
-                    <FrameLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="140dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/img_song_sample" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="?colorDiscoverScreenCardSurface"
-                            android:padding="30dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/discover_music_library_card"
                                 android:textColor="?colorDiscoverScreenCardText"
                                 android:textSize="24sp"
                                 android:textStyle="bold" />

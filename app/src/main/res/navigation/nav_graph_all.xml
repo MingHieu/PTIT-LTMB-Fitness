@@ -8,7 +8,7 @@
 
     <include app:graph="@navigation/nav_graph_discover" />
 
-    <include app:graph="@navigation/nav_graph_bookmark" />
+    <include app:graph="@navigation/nav_graph_ranking" />
 
     <include app:graph="@navigation/nav_graph_progress" />
 

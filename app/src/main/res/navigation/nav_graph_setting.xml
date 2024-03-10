@@ -10,6 +10,9 @@
         android:name="com.ltmb.fitness.scene.setting.SettingFragment"
         android:label="SettingFragment"
         tools:layout="@layout/fragment_setting">
+        <argument
+            android:name="@string/arg_show_bottom_nav"
+            android:defaultValue="true" />
         <action
             android:id="@+id/to_login"
             app:destination="@id/loginFragment" />
@@ -20,9 +23,6 @@
         android:name="com.ltmb.fitness.scene.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
-        <argument
-            android:name="@string/arg_hide_bottom_nav"
-            android:defaultValue="true" />
         <action
             android:id="@+id/to_home"
             app:destination="@+id/nav_graph_all"
