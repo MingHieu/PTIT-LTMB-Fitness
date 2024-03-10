@@ -13,6 +13,9 @@
 
     <!-- Bookmark -->
     <string name="bookmark_workout_plan_screen_title">Workout Plan Bookmark</string>
+    <string name="bookmark_workout_plan_select_all">Select all</string>
+    <string name="bookmark_workout_plan_cancel">Cancel</string>
+    <string name="bookmark_workout_plan_delete">Delete</string>
 
     <!-- Body Area -->
     <string name="body_area_screen_title">Body Focus Area</string>
