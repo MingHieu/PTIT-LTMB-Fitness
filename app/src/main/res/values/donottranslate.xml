@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="arg_hide_bottom_nav">hideBottomNavigation</string>
+    <string name="arg_show_bottom_nav">showBottomNavigation</string>
 </resources>

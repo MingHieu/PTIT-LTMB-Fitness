@@ -1,8 +1,8 @@
-package com.ltmb.fitness.scene.workoutplan
+package com.ltmb.fitness.scene.bodyarea
 
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseListAdapter
-import com.ltmb.fitness.databinding.ItemWorkoutPlanBinding
+import com.ltmb.fitness.databinding.ItemWorkoutPlan2Binding
 import com.ltmb.fitness.internal.extension.executeAfter
 import com.ltmb.fitness.uimodel.WorkoutPlanUiModel
 
@@ -11,10 +11,10 @@ interface WorkoutPlanCallback {
 }
 
 class WorkoutPlanAdapter(private val workoutPlanCb: WorkoutPlanCallback) :
-    BaseListAdapter<ItemWorkoutPlanBinding, WorkoutPlanUiModel>() {
+    BaseListAdapter<ItemWorkoutPlan2Binding, WorkoutPlanUiModel>() {
 
-    override val layoutRes: Int get() = R.layout.item_workout_plan
-    override fun bind(binding: ItemWorkoutPlanBinding, item: WorkoutPlanUiModel) {
+    override val layoutRes: Int get() = R.layout.item_workout_plan_2
+    override fun bind(binding: ItemWorkoutPlan2Binding, item: WorkoutPlanUiModel) {
         binding.executeAfter {
             callback = workoutPlanCb
             workoutPlan = item
