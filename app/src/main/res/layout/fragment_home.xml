@@ -24,6 +24,7 @@
             android:orientation="vertical">
 
             <com.ltmb.fitness.widget.inputview.InputView
+                android:id="@+id/search_box"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -32,8 +33,7 @@
                 app:iv_background="?colorSearchViewBackground"
                 app:iv_enabled="false"
                 app:iv_left_icon="@drawable/ic_search"
-                app:iv_left_icon_tint="?colorText"
-                app:iv_onClick="@{() -> viewModel.onSearchBoxClicked()}" />
+                app:iv_left_icon_tint="?colorText" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -47,7 +47,8 @@
                     android:paddingHorizontal="16dp"
                     android:text="@string/home_screen_body_area_focus_title"
                     android:textColor="?colorText"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"

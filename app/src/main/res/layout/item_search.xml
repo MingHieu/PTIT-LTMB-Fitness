@@ -31,7 +31,7 @@
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:scaleType="centerCrop"
-                android:src="@{search.imagePath}"
+                app:imageUrl="@{search.imagePath}"
                 tools:src="@drawable/img_exercise_sample" />
         </androidx.cardview.widget.CardView>
 

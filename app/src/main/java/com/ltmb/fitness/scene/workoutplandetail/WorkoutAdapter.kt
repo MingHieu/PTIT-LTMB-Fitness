@@ -6,17 +6,17 @@ import com.ltmb.fitness.databinding.ItemWorkoutDraggableBinding
 import com.ltmb.fitness.internal.extension.executeAfter
 import com.ltmb.fitness.uimodel.WorkoutUiModel
 
-interface WorkoutPlanDetailCallback {
+interface WorkoutCallback {
     fun onItemClick()
 }
 
-class WorkoutPlanDetailAdapter(private val workoutPlanDetailCb: WorkoutPlanDetailCallback) :
+class WorkoutAdapter(private val workoutCb: WorkoutCallback) :
     BaseListAdapter<ItemWorkoutDraggableBinding, WorkoutUiModel>() {
 
     override val layoutRes: Int get() = R.layout.item_workout_draggable
     override fun bind(binding: ItemWorkoutDraggableBinding, item: WorkoutUiModel) {
         binding.executeAfter {
-            callback = workoutPlanDetailCb
+            callback = workoutCb
             workout = item
         }
     }

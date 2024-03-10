@@ -112,7 +112,7 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
 
     open fun getExtras(): FragmentNavigator.Extras = FragmentNavigatorExtras()
 
-    open fun getNavOptions(): NavOptions? {
+    open fun getNavOptions(): NavOptions {
         return NavOptions.Builder()
             .setEnterAnim(androidx.appcompat.R.anim.abc_slide_in_bottom)
             .setExitAnim(androidx.appcompat.R.anim.abc_fade_out)
@@ -127,7 +127,7 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
         }
     }
 
-    fun setupScreen(title: String, canGoBack: Boolean = false, color: Int = R.color.black) {
+    fun setupScreen(title: String, canGoBack: Boolean = true, color: Int = R.color.black) {
         val actionBackButton = view?.findViewById<ImageView>(R.id.action_back_button)
         actionBackButton?.visibility = when (canGoBack) {
             true -> View.VISIBLE

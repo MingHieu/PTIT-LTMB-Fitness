@@ -10,18 +10,36 @@
         android:name="com.ltmb.fitness.scene.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
+        <argument
+            android:name="@string/arg_show_bottom_nav"
+            android:defaultValue="true" />
         <action
             android:id="@+id/to_search"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/to_body_area"
+            app:destination="@id/bodyAreaFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.ltmb.fitness.scene.search.SearchFragment"
         android:label="SearchFragment"
-        tools:layout="@layout/fragment_search">
-        <argument
-            android:name="@string/arg_hide_bottom_nav"
-            android:defaultValue="true" />
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
+        android:id="@+id/bodyAreaFragment"
+        android:name="com.ltmb.fitness.scene.bodyarea.BodyAreaFragment"
+        android:label="BodyAreaFragment"
+        tools:layout="@layout/fragment_body_area" >
+        <action
+            android:id="@+id/to_workout_plan_detail"
+            app:destination="@id/workoutPlanDetailFragment2" />
     </fragment>
+
+    <fragment
+        android:id="@+id/workoutPlanDetailFragment2"
+        android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
+        android:label="WorkoutPlanDetailFragment"
+        tools:layout="@layout/fragment_workout_plan_detail"/>
 </navigation>

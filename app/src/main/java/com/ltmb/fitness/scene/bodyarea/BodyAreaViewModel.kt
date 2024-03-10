@@ -1,13 +1,15 @@
-package com.ltmb.fitness.scene.workoutplan
+package com.ltmb.fitness.scene.bodyarea
 
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.uimodel.WorkoutPlanUiModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-class WorkoutPlanViewModel @Inject constructor(
+@HiltViewModel
+class BodyAreaViewModel @Inject constructor(
     application: Application
 ) : BaseAndroidViewModel(application) {
 
@@ -32,6 +34,6 @@ class WorkoutPlanViewModel @Inject constructor(
     }
 
     fun onWorkoutPlanItemClick() {
-        navigate(WorkoutPlanFragmentDirections.toWorkoutPlanDetail())
+        navigate(BodyAreaFragmentDirections.toWorkoutPlanDetail())
     }
 }

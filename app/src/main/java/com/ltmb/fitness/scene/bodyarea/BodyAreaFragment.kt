@@ -1,18 +1,19 @@
-package com.ltmb.fitness.scene.workoutplan
+package com.ltmb.fitness.scene.bodyarea
 
 import android.os.Bundle
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
-import com.ltmb.fitness.databinding.FragmentWorkoutPlanBinding
+import com.ltmb.fitness.databinding.FragmentBodyAreaBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-class WorkoutPlanFragment : BaseFragment<WorkoutPlanViewModel, FragmentWorkoutPlanBinding>() {
-
-    override val layoutId get() = R.layout.fragment_workout_plan
+@AndroidEntryPoint
+class BodyAreaFragment : BaseFragment<BodyAreaViewModel, FragmentBodyAreaBinding>() {
+    override val layoutId get() = R.layout.fragment_body_area
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        setupScreen(getString(R.string.workout_plan_screen_title), true)
+        setupScreen(getString(R.string.body_area_screen_title))
     }
 
     override fun initialize() {

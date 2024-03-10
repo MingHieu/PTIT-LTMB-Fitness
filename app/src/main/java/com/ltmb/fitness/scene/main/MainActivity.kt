@@ -32,7 +32,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     private fun listenDestinationChanges() {
         navController.addOnDestinationChangedListener { _, _, args ->
-            val visibility = if (shouldHideBottomNav(args)) View.GONE else View.VISIBLE
+            val visibility = if (shouldShowBottomNav(args)) View.VISIBLE else View.GONE
 
             if (binding.mainBottomNav.visibility != visibility) {
                 binding.mainBottomNav.visibility = visibility
@@ -40,7 +40,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         }
     }
 
-    private fun shouldHideBottomNav(args: Bundle?): Boolean {
-        return args?.getBoolean(getString(R.string.arg_hide_bottom_nav)) == true
+    private fun shouldShowBottomNav(args: Bundle?): Boolean {
+        return args?.getBoolean(getString(R.string.arg_show_bottom_nav)) == true
     }
 }

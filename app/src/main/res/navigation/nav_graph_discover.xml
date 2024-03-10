@@ -10,6 +10,9 @@
         android:name="com.ltmb.fitness.scene.discover.DiscoverFragment"
         android:label="DiscoverFragment"
         tools:layout="@layout/fragment_discover">
+        <argument
+            android:name="@string/arg_show_bottom_nav"
+            android:defaultValue="true" />
         <action
             android:id="@+id/to_workoutPlanFragment"
             app:destination="@id/workoutPlanFragment" />
@@ -20,11 +23,8 @@
         android:name="com.ltmb.fitness.scene.workoutplan.WorkoutPlanFragment"
         android:label="WorkoutPlanFragment"
         tools:layout="@layout/fragment_workout_plan">
-        <argument
-            android:name="@string/arg_hide_bottom_nav"
-            android:defaultValue="true" />
         <action
-            android:id="@+id/to_workoutPlanDetailFragment"
+            android:id="@+id/to_workout_plan_detail"
             app:destination="@id/workoutPlanDetailFragment" />
     </fragment>
 
@@ -32,9 +32,5 @@
         android:id="@+id/workoutPlanDetailFragment"
         android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
         android:label="WorkoutPlanDetailFragment"
-        tools:layout="@layout/fragment_workout_plan_detail">
-        <argument
-            android:name="@string/arg_hide_bottom_nav"
-            android:defaultValue="true" />
-    </fragment>
+        tools:layout="@layout/fragment_workout_plan_detail" />
 </navigation>

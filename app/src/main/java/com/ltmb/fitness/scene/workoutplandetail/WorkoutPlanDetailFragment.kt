@@ -21,8 +21,8 @@ class WorkoutPlanDetailFragment :
     override fun initialize() {
         super.initialize()
 
-        binding.workoutPlanDetailAdapter =
-            WorkoutPlanDetailAdapter(object : WorkoutPlanDetailCallback {
+        binding.workoutAdapter =
+            WorkoutAdapter(object : WorkoutCallback {
                 override fun onItemClick() {
                     TODO("Not yet implemented")
                 }

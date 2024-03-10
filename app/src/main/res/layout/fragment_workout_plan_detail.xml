@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="workoutPlanDetailAdapter"
-            type="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailAdapter" />
+            name="workoutAdapter"
+            type="com.ltmb.fitness.scene.workoutplandetail.WorkoutAdapter" />
 
         <variable
             name="itemTouchHelper"
@@ -18,199 +18,218 @@
             type="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailViewModel" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?colorBackground">
+        android:background="?colorBackground"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/animation_skeleton"
+                        app:imageUrl="@{viewModel.workoutPlan.thumbnail}"
+                        tools:src="@drawable/img_exercise_sample" />
+
+                    <include layout="@layout/view_action_bar_view" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@{viewModel.workoutPlan.name}"
+                        android:textColor="?colorText"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        tools:text="Yoga &amp; Mindfulness" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:lineSpacingExtra="6sp"
+                        android:text="@{viewModel.workoutPlan.description}"
+                        android:textColor="?colorSubText"
+                        android:textSize="16sp"
+                        tools:text="Find balance and tranquility with his yoga and mindfulness program. It focuses on flexibility, relaxation, and mental well-being." />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        app:cardCornerRadius="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_marginBottom="6dp"
+                                android:src="@drawable/ic_run" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="6dp"
+                                android:text="@{String.valueOf(viewModel.workoutPlan.workoutsNumber), default=0}"
+                                android:textColor="?colorText"
+                                android:textStyle="bold"
+                                tools:text="11" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/workouts"
+                                android:textColor="?colorText" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        app:cardCornerRadius="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_marginBottom="6dp"
+                                android:src="@drawable/ic_clock" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="6dp"
+                                android:text="@{viewModel.workoutPlan.durationInMinutes, default=0}"
+                                android:textColor="?colorText"
+                                android:textStyle="bold"
+                                tools:text="10" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/minutes"
+                                android:textColor="?colorText" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="10dp"
+                        android:layout_height="0dp" />
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/border"
+                        app:cardCornerRadius="10dp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <ImageView
+                                android:layout_width="22dp"
+                                android:layout_height="22dp"
+                                android:layout_marginBottom="6dp"
+                                android:src="@drawable/ic_fire" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="6dp"
+                                android:text="@{String.valueOf(viewModel.workoutPlan.kcal), default=0}"
+                                android:textColor="?colorText"
+                                android:textStyle="bold"
+                                tools:text="200" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/kcal"
+                                android:textColor="?colorText" />
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:clipToPadding="false"
+                    android:padding="16dp"
+                    app:adapter="@{workoutAdapter}"
+                    app:itemTouchHelper="@{itemTouchHelper}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:submitList="@{viewModel.workouts}"
+                    tools:listitem="@layout/item_workout_draggable" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:padding="16dp">
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/animation_skeleton"
-                    app:imageUrl="@{viewModel.workoutPlan.thumbnail}"
-                    tools:src="@drawable/img_exercise_sample" />
-
-                <include layout="@layout/view_action_bar_view" />
-            </FrameLayout>
-
-            <LinearLayout
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:text="@{viewModel.workoutPlan.name}"
-                    android:textColor="?colorText"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    tools:text="Yoga &amp; Mindfulness" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:lineSpacingExtra="6sp"
-                    android:text="@{viewModel.workoutPlan.description}"
-                    android:textColor="?colorSubText"
-                    android:textSize="16sp"
-                    tools:text="Find balance and tranquility with his yoga and mindfulness program. It focuses on flexibility, relaxation, and mental well-being." />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingHorizontal="16dp">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/border"
-                    app:cardCornerRadius="10dp"
-                    app:cardUseCompatPadding="true">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:layout_marginBottom="6dp"
-                            android:src="@drawable/ic_run" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="6dp"
-                            android:text="@{String.valueOf(viewModel.workoutPlan.workoutsNumber), default=0}"
-                            android:textColor="?colorText"
-                            android:textStyle="bold"
-                            tools:text="11" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/workouts"
-                            android:textColor="?colorText" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <LinearLayout
-                    android:layout_width="10dp"
-                    android:layout_height="0dp" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/border"
-                    app:cardCornerRadius="10dp"
-                    app:cardUseCompatPadding="true">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:layout_marginBottom="6dp"
-                            android:src="@drawable/ic_clock" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="6dp"
-                            android:text="@{viewModel.workoutPlan.durationInMinutes, default=0}"
-                            android:textColor="?colorText"
-                            android:textStyle="bold"
-                            tools:text="10" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/minutes"
-                            android:textColor="?colorText" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <LinearLayout
-                    android:layout_width="10dp"
-                    android:layout_height="0dp" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/border"
-                    app:cardCornerRadius="10dp"
-                    app:cardUseCompatPadding="true">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <ImageView
-                            android:layout_width="22dp"
-                            android:layout_height="22dp"
-                            android:layout_marginBottom="6dp"
-                            android:src="@drawable/ic_fire" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="6dp"
-                            android:text="@{String.valueOf(viewModel.workoutPlan.kcal), default=0}"
-                            android:textColor="?colorText"
-                            android:textStyle="bold"
-                            tools:text="200" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/kcal"
-                            android:textColor="?colorText" />
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:clipToPadding="false"
-                android:padding="16dp"
-                app:adapter="@{workoutPlanDetailAdapter}"
-                app:itemTouchHelper="@{itemTouchHelper}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:submitList="@{viewModel.workouts}"
-                tools:listitem="@layout/item_workout_draggable" />
+                android:text="@string/start_workout"
+                app:cornerRadius="32dp" />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 </layout>

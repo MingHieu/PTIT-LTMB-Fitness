@@ -14,6 +14,6 @@ class DiscoverFragment : BaseFragment<DiscoverViewModel, FragmentDiscoverBinding
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        setupScreen(getString(R.string.discover_screen_title))
+        setupScreen(getString(R.string.discover_screen_title), false)
     }
 }

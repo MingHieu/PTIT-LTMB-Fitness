@@ -30,4 +30,8 @@ class HomeViewModel @Inject constructor(
     fun onSearchBoxClicked() {
         navigate(HomeFragmentDirections.toSearch())
     }
+
+    fun onBodyAreaItemClick() {
+        navigate(HomeFragmentDirections.toBodyArea())
+    }
 }

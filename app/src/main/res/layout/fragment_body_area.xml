@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="workoutPlanAdapter"
+            type="com.ltmb.fitness.scene.bodyarea.WorkoutPlanAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.ltmb.fitness.scene.bodyarea.BodyAreaViewModel" />
+    </data>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <include layout="@layout/view_action_bar_view" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:paddingHorizontal="16dp"
+                app:adapter="@{workoutPlanAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:submitList="@{viewModel.workoutPlans}"
+                tools:listitem="@layout/item_workout_plan_2" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

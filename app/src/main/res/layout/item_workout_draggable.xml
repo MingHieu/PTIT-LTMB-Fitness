@@ -7,7 +7,7 @@
 
         <variable
             name="callback"
-            type="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailCallback" />
+            type="com.ltmb.fitness.scene.workoutplandetail.WorkoutCallback" />
 
         <variable
             name="workout"
