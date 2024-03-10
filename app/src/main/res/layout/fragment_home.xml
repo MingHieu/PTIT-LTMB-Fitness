@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="workoutPlanAdapter"
+            type="com.ltmb.fitness.scene.workoutplan.WorkoutPlanAdapter" />
+
+        <variable
             name="bodyAreaAdapter"
             type="com.ltmb.fitness.scene.home.BodyAreaAdapter" />
 
@@ -14,7 +18,7 @@
             type="com.ltmb.fitness.scene.home.HomeViewModel" />
     </data>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -23,11 +27,40 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:weightSum="3">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_run"
+                        app:tint="?colorPrimary" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/app_name"
+                    android:textAlignment="center"
+                    android:textColor="?colorText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
             <com.ltmb.fitness.widget.inputview.InputView
                 android:id="@+id/search_box"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginHorizontal="16dp"
                 android:hint="@string/search_workout"
                 android:textColorHint="?colorSearchViewTextHintColor"
                 app:iv_background="?colorSearchViewBackground"
@@ -40,10 +73,50 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="16dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:layout_weight="1"
+                        android:text="@string/home_screen_workout_plan_title"
+                        android:textColor="?colorText"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:onClick="@{() -> viewModel.onViewMoreWorkoutPlanClick()}"
+                        android:src="@drawable/ic_arrow_right" />
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="8dp"
+                    app:adapter="@{workoutPlanAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:submitList="@{viewModel.workoutPlans}"
+                    tools:listitem="@layout/item_workout_plan" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginVertical="10dp"
                     android:paddingHorizontal="16dp"
                     android:text="@string/home_screen_body_area_focus_title"
                     android:textColor="?colorText"
@@ -53,8 +126,6 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:overScrollMode="never"
                     android:paddingHorizontal="8dp"
                     app:adapter="@{bodyAreaAdapter}"
                     app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
@@ -63,5 +134,5 @@
                     tools:listitem="@layout/item_body_area" />
             </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </layout>

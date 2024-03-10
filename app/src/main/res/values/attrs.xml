@@ -13,6 +13,14 @@
         <attr name="android:textColorHint" format="reference" />
     </declare-styleable>
 
+    <declare-styleable name="ActionBarView">
+        <attr name="abv_title" format="string" />
+        <attr name="abv_left_icon" format="reference" />
+        <attr name="abv_right_icon" format="reference" />
+        <attr name="abv_can_go_back" format="boolean" />
+        <attr name="abv_color" format="reference" />
+    </declare-styleable>
+
     <!-- theme -->
     <attr name="colorText" format="color" />
     <attr name="colorSubText" format="color" />
@@ -28,4 +36,5 @@
     <attr name="colorDiscoverScreenCardSurface" format="color" />
     <attr name="colorBodyAreaText" format="color" />
     <attr name="colorBodyAreaSurface" format="color" />
+    <attr name="colorWorkoutPlanDetailActionBar" format="color" />
 </resources>

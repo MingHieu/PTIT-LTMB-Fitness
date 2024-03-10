@@ -8,7 +8,11 @@
 
     <!-- Home -->
     <string name="home_screen_title">Home</string>
+    <string name="home_screen_workout_plan_title">Workout Plan For You</string>
     <string name="home_screen_body_area_focus_title">Body Focus Area</string>
+
+    <!-- Bookmark -->
+    <string name="bookmark_workout_plan_screen_title">Workout Plan Bookmark</string>
 
     <!-- Body Area -->
     <string name="body_area_screen_title">Body Focus Area</string>
@@ -19,8 +23,8 @@
     <string name="discover_meal_plan_card">Meal Plan</string>
     <string name="discover_music_library_card">Music Library</string>
 
-    <!-- Bookmark -->
-    <string name="bookmark_screen_title">Bookmark</string>
+    <!-- Ranking -->
+    <string name="ranking_screen_title">Ranking</string>
 
     <!-- Progress -->
     <string name="progress_screen_title">Progress</string>

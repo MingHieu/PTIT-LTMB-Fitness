@@ -19,6 +19,12 @@
         <action
             android:id="@+id/to_body_area"
             app:destination="@id/bodyAreaFragment" />
+        <action
+            android:id="@+id/to_workout_plan_detail"
+            app:destination="@id/workoutPlanDetailFragment2" />
+        <action
+            android:id="@+id/to_bookmark_workout_plan"
+            app:destination="@id/bookmarkWorkoutPlanFragment" />
     </fragment>
 
     <fragment
@@ -42,4 +48,10 @@
         android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
         android:label="WorkoutPlanDetailFragment"
         tools:layout="@layout/fragment_workout_plan_detail"/>
+
+    <fragment
+        android:id="@+id/bookmarkWorkoutPlanFragment"
+        android:name="com.ltmb.fitness.scene.bookmarkworkoutplan.BookmarkWorkoutPlanFragment"
+        android:label="BookmarkWorkoutPlanFragment"
+        tools:layout="@layout/fragment_bookmark_workout_plan"/>
 </navigation>

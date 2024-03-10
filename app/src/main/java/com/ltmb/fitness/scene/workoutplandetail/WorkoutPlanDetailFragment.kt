@@ -1,6 +1,5 @@
 package com.ltmb.fitness.scene.workoutplandetail
 
-import android.os.Bundle
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.ltmb.fitness.R
@@ -11,12 +10,6 @@ class WorkoutPlanDetailFragment :
     BaseFragment<WorkoutPlanDetailViewModel, FragmentWorkoutPlanDetailBinding>() {
 
     override val layoutId get() = R.layout.fragment_workout_plan_detail
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        setupScreen("", true, R.color.white)
-    }
 
     override fun initialize() {
         super.initialize()

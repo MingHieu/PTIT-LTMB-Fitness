@@ -46,7 +46,11 @@
                         app:imageUrl="@{viewModel.workoutPlan.thumbnail}"
                         tools:src="@drawable/img_exercise_sample" />
 
-                    <include layout="@layout/view_action_bar_view" />
+                    <com.ltmb.fitness.widget.actionbarview.ActionBarView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:abv_viewModel="@{viewModel}"
+                        app:abv_color="?colorWorkoutPlanDetailActionBar"/>
                 </FrameLayout>
 
                 <LinearLayout
@@ -228,6 +232,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:stateListAnimator="@null"
                 android:text="@string/start_workout"
                 app:cornerRadius="32dp" />
         </LinearLayout>

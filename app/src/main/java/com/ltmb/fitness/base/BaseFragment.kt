@@ -1,14 +1,11 @@
 package com.ltmb.fitness.base
 
-import android.graphics.PorterDuff
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.LayoutRes
-import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -124,25 +121,6 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
     private fun handleBackButton() {
         view?.findViewById<ImageView>(R.id.action_back_button)?.setOnClickListener {
             viewModel.navigateBack()
-        }
-    }
-
-    fun setupScreen(title: String, canGoBack: Boolean = true, color: Int = R.color.black) {
-        val actionBackButton = view?.findViewById<ImageView>(R.id.action_back_button)
-        actionBackButton?.visibility = when (canGoBack) {
-            true -> View.VISIBLE
-            false -> View.GONE
-        }
-
-        val actionTitle = view?.findViewById<TextView>(R.id.action_bar_title)
-        actionTitle?.text = title
-
-        if (context != null) {
-            actionBackButton?.setColorFilter(
-                ContextCompat.getColor(requireContext(), color),
-                PorterDuff.Mode.SRC_IN
-            )
-            actionTitle?.setTextColor(ContextCompat.getColor(requireContext(), color))
         }
     }
 }
