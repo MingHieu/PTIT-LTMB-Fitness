@@ -29,7 +29,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="@{bookmarkWorkoutPlan.selected}"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
             android:onCheckedChanged="@{(buttonView, isChecked) -> callback.onItemSelectedChanged(bookmarkWorkoutPlan.id, isChecked)}"
+            android:theme="@style/CheckBoxTheme"
             android:visibility="@{bookmarkWorkoutPlan.selecting ? View.VISIBLE : View.GONE}" />
 
         <androidx.cardview.widget.CardView

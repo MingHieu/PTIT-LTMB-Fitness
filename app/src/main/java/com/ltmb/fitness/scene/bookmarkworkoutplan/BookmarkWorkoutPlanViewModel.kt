@@ -16,7 +16,7 @@ class BookmarkWorkoutPlanViewModel @Inject constructor(
     private val _bookmarkWorkoutPlans = MutableLiveData<List<BookmarkWorkoutPlanUiModel>>()
     val bookmarkWorkoutPlans: LiveData<List<BookmarkWorkoutPlanUiModel>> = _bookmarkWorkoutPlans
     var selecting = MutableLiveData(false)
-    var selected = MutableLiveData(false)
+    private var selected = MutableLiveData(false)
 
     init {
         val workoutPlansList = mutableListOf<BookmarkWorkoutPlanUiModel>()
@@ -40,28 +40,40 @@ class BookmarkWorkoutPlanViewModel @Inject constructor(
     fun onAddButtonClick() {}
 
     fun changeItemSelecting(isSelecting: Boolean) {
-        val workoutPlansList = _bookmarkWorkoutPlans.value!!.toMutableList()
-        for (i in workoutPlansList.indices) {
-            val item = workoutPlansList[i]
-            item.selecting = isSelecting
+        val workoutPlansList = _bookmarkWorkoutPlans.value!!.map {
+            val newItem = it.copy()
+            newItem.selecting = isSelecting
             if (!isSelecting) {
-                item.selected = false
+                newItem.selected = false
             }
+            newItem
         }
         _bookmarkWorkoutPlans.value = workoutPlansList
+        if (!isSelecting) {
+            selected.value = false
+        }
     }
 
-    fun changeItemSelected(id: Long, isSelected: Boolean) {
-        val workoutPlansList = _bookmarkWorkoutPlans.value!!.toMutableList()
-        for (i in workoutPlansList.indices) {
-            val item = workoutPlansList[i]
-            if (item.id == id) {
-                item.selected = isSelected
+    fun changeItemSelected(id: Long?, isSelected: Boolean) {
+        val workoutPlansList = _bookmarkWorkoutPlans.value!!.map {
+            val newItem = it.copy()
+            if (newItem.id == id || id == null) {
+                newItem.selected = isSelected
             }
+            newItem
         }
         _bookmarkWorkoutPlans.value = workoutPlansList
 
-        val firstSelectedItem = _bookmarkWorkoutPlans.value?.find { it.selected }
-        selected.value = firstSelectedItem != null
+        selected.value = _bookmarkWorkoutPlans.value?.find { it.selected } != null
+    }
+
+    fun setSelectingValue(value: Boolean) {
+        selecting.value = value
+    }
+
+    fun deleteItems() {
+        val workoutPlansList = _bookmarkWorkoutPlans.value!!.filter { !it.selected }
+        _bookmarkWorkoutPlans.value = workoutPlansList
+        selecting.value = false
     }
 }

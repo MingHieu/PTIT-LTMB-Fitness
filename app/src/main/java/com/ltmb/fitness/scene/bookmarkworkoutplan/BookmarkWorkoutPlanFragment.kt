@@ -20,7 +20,7 @@ class BookmarkWorkoutPlanFragment :
             }
 
             override fun onItemLongClick(): Boolean {
-                viewModel.selecting.value = true
+                viewModel.setSelectingValue(true)
                 return true
             }
 
@@ -29,9 +29,7 @@ class BookmarkWorkoutPlanFragment :
             }
         })
 
-        binding.cancelButton.setOnClickListener {
-            viewModel.selecting.value = false
-        }
+        binding.workoutPlanRecyclerView.itemAnimator = null
 
         viewModel.selecting.observeNonNull(viewLifecycleOwner) {
             viewModel.changeItemSelecting(it)
