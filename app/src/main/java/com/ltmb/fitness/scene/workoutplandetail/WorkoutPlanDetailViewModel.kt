@@ -50,4 +50,8 @@ class WorkoutPlanDetailViewModel @Inject constructor(
         Collections.swap(workouts, currentIndex, destinationIndex)
         _workouts.value = workouts
     }
+
+    fun onStartClick() {
+        navigate(WorkoutPlanDetailFragmentDirections.toWorkoutDetail())
+    }
 }

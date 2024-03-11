@@ -76,4 +76,8 @@ class BookmarkWorkoutPlanViewModel @Inject constructor(
         _bookmarkWorkoutPlans.value = workoutPlansList
         selecting.value = false
     }
+
+    fun onItemClick() {
+        navigate(BookmarkWorkoutPlanFragmentDirections.toWorkoutPlanDetail())
+    }
 }

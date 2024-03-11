@@ -32,5 +32,15 @@
         android:id="@+id/workoutPlanDetailFragment"
         android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
         android:label="WorkoutPlanDetailFragment"
-        tools:layout="@layout/fragment_workout_plan_detail" />
+        tools:layout="@layout/fragment_workout_plan_detail" >
+        <action
+            android:id="@+id/to_workout_detail"
+            app:destination="@id/workoutDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.ltmb.fitness.scene.workoutdetail.WorkoutDetailFragment"
+        android:label="WorkoutDetailFragment"
+        tools:layout="@layout/fragment_workout_detail"/>
 </navigation>

@@ -6,6 +6,12 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.ltmb.fitness.scene.workoutdetail.WorkoutDetailFragment"
+        android:label="WorkoutDetailFragment"
+        tools:layout="@layout/fragment_workout_detail" />
+
+    <fragment
         android:id="@+id/homeFragment"
         android:name="com.ltmb.fitness.scene.home.HomeFragment"
         android:label="HomeFragment"
@@ -47,11 +53,19 @@
         android:id="@+id/workoutPlanDetailFragment2"
         android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
         android:label="WorkoutPlanDetailFragment"
-        tools:layout="@layout/fragment_workout_plan_detail"/>
+        tools:layout="@layout/fragment_workout_plan_detail">
+        <action
+            android:id="@+id/to_workout_detail"
+            app:destination="@id/workoutDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/bookmarkWorkoutPlanFragment"
         android:name="com.ltmb.fitness.scene.bookmarkworkoutplan.BookmarkWorkoutPlanFragment"
         android:label="BookmarkWorkoutPlanFragment"
-        tools:layout="@layout/fragment_bookmark_workout_plan"/>
+        tools:layout="@layout/fragment_bookmark_workout_plan">
+        <action
+            android:id="@+id/to_workout_plan_detail"
+            app:destination="@id/workoutPlanDetailFragment2" />
+    </fragment>
 </navigation>

@@ -16,7 +16,7 @@ class BookmarkWorkoutPlanFragment :
 
         binding.adapter = BookmarkWorkoutPlanAdapter(object : BookmarkWorkoutPlanCallback {
             override fun onItemClick() {
-
+                viewModel.onItemClick()
             }
 
             override fun onItemLongClick(): Boolean {

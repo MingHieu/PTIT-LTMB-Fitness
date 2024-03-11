@@ -6,6 +6,9 @@
     <string name="common_cancel">Cancel</string>
     <string name="search_workout">Search workout plan …</string>
     <string name="common_delete">Delete</string>
+    <string name="common_pause">Pause</string>
+    <string name="common_previous">Previous</string>
+    <string name="common_skip">Skip</string>
 
     <!-- Home -->
     <string name="home_screen_title">Home</string>

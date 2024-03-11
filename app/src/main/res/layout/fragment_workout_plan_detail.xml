@@ -244,7 +244,8 @@
                     android:layout_height="wrap_content"
                     android:stateListAnimator="@null"
                     android:text="@string/start_workout"
-                    app:cornerRadius="32dp" />
+                    app:cornerRadius="32dp"
+                    android:onClick="@{() -> viewModel.onStartClick()}"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
