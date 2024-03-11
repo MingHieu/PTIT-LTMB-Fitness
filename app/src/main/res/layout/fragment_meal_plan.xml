@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="mealPlanAdapter"
+            type="com.ltmb.fitness.scene.mealplan.MealPlanAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.ltmb.fitness.scene.mealplan.MealPlanViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorBackground"
+        android:orientation="vertical">
+
+        <include layout="@layout/view_action_bar_view" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.ltmb.fitness.widget.inputview.InputView
+                android:id="@+id/search_box"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_meal"
+                android:paddingHorizontal="16dp"
+                android:textColorHint="?colorSearchViewTextHintColor"
+                app:iv_background="?colorSearchViewBackground"
+                app:iv_left_icon="@drawable/ic_search"
+                app:iv_left_icon_tint="?colorText" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:clipToPadding="false"
+                android:padding="16dp"
+                app:adapter="@{mealPlanAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:submitList="@{viewModel.mealPlans}"
+                tools:listitem="@layout/item_meal_plan" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>
