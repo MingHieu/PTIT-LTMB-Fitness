@@ -37,4 +37,6 @@
     <attr name="colorBodyAreaText" format="color" />
     <attr name="colorBodyAreaSurface" format="color" />
     <attr name="colorWorkoutPlanDetailActionBar" format="color" />
+    <attr name="colorError" format="color" />
+    <attr name="colorDivider" format="color" />
 </resources>
