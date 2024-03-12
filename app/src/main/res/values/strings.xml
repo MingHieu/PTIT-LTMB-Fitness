@@ -45,4 +45,10 @@
     <string name="minutes">minutes</string>
     <string name="kcal">kcal</string>
     <string name="start_workout">start</string>
+
+    <!-- Workout -->
+    <string name="congratulations">Congratulations!</string>
+    <string name="completed_workout">You\'ve completed the workout!</string>
+    <string name="go_home">Go to Homepage</string>
+    <string name="view_report">View Report</string>
 </resources>

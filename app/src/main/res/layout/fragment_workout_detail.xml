@@ -132,6 +132,7 @@
                         android:layout_height="60dp"
                         android:layout_weight="1"
                         android:backgroundTint="?colorPrimaryVariant"
+                        android:onClick="@{() -> viewModel.onSkipClick()}"
                         android:stateListAnimator="@null"
                         android:text="@string/common_skip"
                         android:textAllCaps="false"

@@ -10,4 +10,7 @@ class WorkoutDetailViewModel @Inject constructor(
     application: Application
 ) : BaseAndroidViewModel(application) {
 
+    fun onSkipClick() {
+        navigate(WorkoutDetailFragmentDirections.toWorkoutFinish())
+    }
 }

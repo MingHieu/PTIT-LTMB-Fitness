@@ -6,12 +6,6 @@
     app:startDestination="@id/homeFragment">
 
     <fragment
-        android:id="@+id/workoutDetailFragment"
-        android:name="com.ltmb.fitness.scene.workoutdetail.WorkoutDetailFragment"
-        android:label="WorkoutDetailFragment"
-        tools:layout="@layout/fragment_workout_detail" />
-
-    <fragment
         android:id="@+id/homeFragment"
         android:name="com.ltmb.fitness.scene.home.HomeFragment"
         android:label="HomeFragment"
@@ -43,7 +37,17 @@
         android:id="@+id/bodyAreaFragment"
         android:name="com.ltmb.fitness.scene.bodyarea.BodyAreaFragment"
         android:label="BodyAreaFragment"
-        tools:layout="@layout/fragment_body_area" >
+        tools:layout="@layout/fragment_body_area">
+        <action
+            android:id="@+id/to_workout_plan_detail"
+            app:destination="@id/workoutPlanDetailFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bookmarkWorkoutPlanFragment"
+        android:name="com.ltmb.fitness.scene.bookmarkworkoutplan.BookmarkWorkoutPlanFragment"
+        android:label="BookmarkWorkoutPlanFragment"
+        tools:layout="@layout/fragment_bookmark_workout_plan">
         <action
             android:id="@+id/to_workout_plan_detail"
             app:destination="@id/workoutPlanDetailFragment2" />
@@ -60,12 +64,26 @@
     </fragment>
 
     <fragment
-        android:id="@+id/bookmarkWorkoutPlanFragment"
-        android:name="com.ltmb.fitness.scene.bookmarkworkoutplan.BookmarkWorkoutPlanFragment"
-        android:label="BookmarkWorkoutPlanFragment"
-        tools:layout="@layout/fragment_bookmark_workout_plan">
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.ltmb.fitness.scene.workoutdetail.WorkoutDetailFragment"
+        android:label="WorkoutDetailFragment"
+        tools:layout="@layout/fragment_workout_detail">
         <action
-            android:id="@+id/to_workout_plan_detail"
-            app:destination="@id/workoutPlanDetailFragment2" />
+            android:id="@+id/to_workout_finish"
+            app:destination="@id/workoutFinishFragment2"
+            app:popUpTo="@id/workoutPlanDetailFragment2"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutFinishFragment2"
+        android:name="com.ltmb.fitness.scene.workoutfinish.WorkoutFinishFragment"
+        android:label="WorkoutFinishFragment"
+        tools:layout="@layout/fragment_workout_finish">
+        <action
+            android:id="@+id/to_home"
+            app:destination="@+id/nav_graph_all"
+            app:popUpTo="@id/nav_graph_all"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
