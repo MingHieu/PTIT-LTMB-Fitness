@@ -33,7 +33,7 @@
             android:textColor="?colorText"
             android:textSize="20sp"
             android:textStyle="bold"
-            tools:text="Screen Title" />
+            tools:text="Meal Plan" />
 
         <LinearLayout
             android:layout_width="0dp"

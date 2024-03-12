@@ -16,6 +16,9 @@
         <action
             android:id="@+id/to_workoutPlanFragment"
             app:destination="@id/workoutPlanFragment" />
+        <action
+            android:id="@+id/to_mealPlanFragment"
+            app:destination="@id/mealPlanFragment" />
     </fragment>
 
     <fragment
@@ -29,8 +32,16 @@
     </fragment>
 
     <fragment
+        android:id="@+id/mealPlanFragment"
+        android:name="com.ltmb.fitness.scene.mealplan.MealPlanFragment"
+        android:label="MealPlanFragment"
+        tools:layout="@layout/fragment_meal_plan">
+    </fragment>
+
+    <fragment
         android:id="@+id/workoutPlanDetailFragment"
         android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
         android:label="WorkoutPlanDetailFragment"
         tools:layout="@layout/fragment_workout_plan_detail" />
+
 </navigation>

@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{mealPlan.thumbnail}"
+                app:imageResource="@{mealPlan.thumbnail}"
                 tools:src="@drawable/img_meal_sample" />
 
             <LinearLayout

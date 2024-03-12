@@ -28,5 +28,14 @@
             app:destination="@+id/nav_graph_all"
             app:popUpTo="@id/nav_graph_all"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/to_personInfoFragment"
+            app:destination="@id/personInfoFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/personInfoFragment"
+        android:name="com.ltmb.fitness.scene.personinfor.PersonInfoFragment"
+        android:label="PersonInfoFragment"
+        tools:layout="@layout/fragment_person_info"/>
 </navigation>

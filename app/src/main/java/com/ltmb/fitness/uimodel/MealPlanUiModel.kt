@@ -7,7 +7,7 @@ import java.io.Serializable
 
 data class MealPlanUiModel(
     override val id: Long,
-    val thumbnail: String,
+    val thumbnail: Int,
     val name: String,
     val kcal: Double,
     val type: String,

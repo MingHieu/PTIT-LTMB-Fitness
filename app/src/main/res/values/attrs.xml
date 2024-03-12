@@ -11,6 +11,9 @@
         <attr name="android:inputType" />
         <attr name="android:textColor" format="reference" />
         <attr name="android:textColorHint" format="reference" />
+        <attr name="android:textSize" format="reference" />
+        <attr name="android:textStyle" format="reference" />
+
     </declare-styleable>
 
     <declare-styleable name="ActionBarView">
@@ -37,4 +40,10 @@
     <attr name="colorBodyAreaText" format="color" />
     <attr name="colorBodyAreaSurface" format="color" />
     <attr name="colorWorkoutPlanDetailActionBar" format="color" />
+    <attr name="colorSecondary" format="color"/>
+    <attr name="colorPrimary" format="color"/>
+    <attr name="colorWarring" format="color"/>
+
+
+
 </resources>

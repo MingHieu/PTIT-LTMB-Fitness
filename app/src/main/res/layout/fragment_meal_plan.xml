@@ -20,7 +20,13 @@
         android:background="?colorBackground"
         android:orientation="vertical">
 
-        <include layout="@layout/view_action_bar_view" />
+<!--        <include layout="@layout/view_action_bar_view" />-->
+
+        <com.ltmb.fitness.widget.actionbarview.ActionBarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:abv_title="@string/meal_plan_screen_title"
+            app:abv_viewModel="@{viewModel}"/>
 
         <LinearLayout
             android:layout_width="match_parent"

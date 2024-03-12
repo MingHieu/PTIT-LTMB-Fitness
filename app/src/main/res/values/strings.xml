@@ -41,4 +41,13 @@
 
     <!--    food-->
     <string name="search_meal">Search meal plan …</string>
+    <string name="meal_plan_screen_title">Meal Plan</string>
+
+
+    <!--    ProFile-->
+    <string name="profile">Profile</string>
+    <string name="change_avatar">Change avatar</string>
+    <string name="name">Name</string>
+    <string name="delete_account">Delete Account</string>
+
 </resources>

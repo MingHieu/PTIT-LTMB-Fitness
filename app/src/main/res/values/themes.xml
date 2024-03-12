@@ -35,5 +35,8 @@
         <item name="colorDiscoverScreenCardText">@color/white</item>
         <item name="colorDiscoverScreenCardSurface">@color/black50</item>
         <item name="colorWorkoutPlanDetailActionBar">@color/white</item>
+
+        <item name="colorWarring">#EC0B0B</item>
+
     </style>
 </resources>

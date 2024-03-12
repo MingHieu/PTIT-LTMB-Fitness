@@ -79,4 +79,7 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-storage")
     implementation("com.google.firebase:firebase-messaging")
+
+    //Circle Image
+    implementation("de.hdodenhof:circleimageview:2.1.0")
 }
