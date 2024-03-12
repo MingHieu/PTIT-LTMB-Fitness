@@ -79,4 +79,8 @@ dependencies {
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-storage")
     implementation("com.google.firebase:firebase-messaging")
+
+    // Lombok
+    compileOnly("org.projectlombok:lombok:1.18.30")
+
 }

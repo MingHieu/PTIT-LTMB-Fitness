@@ -1,36 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <data>
         <variable
             name="viewModel"
             type="com.ltmb.fitness.scene.ranking.RankingViewModel" />
     </data>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <!-- Avatar -->
-        <ImageView
-            android:id="@+id/user_avatar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/icon_person" />
-
-        <LinearLayout
-            android:layout_width="0dp"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/ranking_tabLayout"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:paddingStart="16dp">
-            <TextView
-                android:id="@+id/user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="User Name"
-                android:textAppearance="?attr/textAppearanceListItem" />
-        </LinearLayout>
+            android:layout_width="match_parent">
 
-        <!-- Additional user details can be added here -->
-    </LinearLayout>
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ranking_tabItem1"
+                android:text="@string/ranking_tab_icon1"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ranking_tabItem2"
+                android:text="@string/ranking_tab_icon2"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ranking_tabItem3"
+                android:text="@string/ranking_tab_icon3"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ranking_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
 </layout>
