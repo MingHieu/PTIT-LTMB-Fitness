@@ -17,4 +17,7 @@
     <color name="blue_ribbon">#0C3FFB</color>
     <color name="alabaster">#FAFAFA</color>
     <color name="bombay">#B5B4B8</color>
+    <color name="red">#FF0000</color>
+    <color name="gallery">#EEEEEE</color>
+    <color name="zircon">#F0F3FF</color>
 </resources>
