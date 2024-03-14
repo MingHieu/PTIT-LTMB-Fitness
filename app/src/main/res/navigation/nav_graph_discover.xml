@@ -47,7 +47,7 @@
             android:id="@+id/to_workout_finish"
             app:destination="@id/workoutFinishFragment"
             app:popUpTo="@id/workoutPlanDetailFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment

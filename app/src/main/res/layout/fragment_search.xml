@@ -34,8 +34,8 @@
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
                 android:hint="@string/search_workout"
-                android:textColorHint="?colorSearchViewTextHintColor"
-                app:iv_background="?colorSearchViewBackground"
+                android:textColorHint="?colorInputTextHintColor"
+                app:iv_background="?colorInputBackground"
                 app:iv_left_icon="@drawable/ic_search"
                 app:iv_left_icon_tint="?colorText" />
         </LinearLayout>

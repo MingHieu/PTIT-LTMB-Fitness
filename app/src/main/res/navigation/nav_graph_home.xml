@@ -51,7 +51,16 @@
         <action
             android:id="@+id/to_workout_plan_detail"
             app:destination="@id/workoutPlanDetailFragment2" />
+        <action
+            android:id="@+id/to_create_workout_plan"
+            app:destination="@id/createWorkoutPlanFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/createWorkoutPlanFragment"
+        android:name="com.ltmb.fitness.scene.createworkoutplan.CreateWorkoutPlanFragment"
+        android:label="CreateWorkoutPlanFragment"
+        tools:layout="@layout/fragment_create_workout_plan" />
 
     <fragment
         android:id="@+id/workoutPlanDetailFragment2"
@@ -72,7 +81,7 @@
             android:id="@+id/to_workout_finish"
             app:destination="@id/workoutFinishFragment2"
             app:popUpTo="@id/workoutPlanDetailFragment2"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
