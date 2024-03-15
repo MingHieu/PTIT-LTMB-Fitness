@@ -8,5 +8,4 @@ import javax.inject.Inject
 @HiltViewModel
 class CreateWorkoutPlanViewModel @Inject constructor(
     application: Application
-) : BaseAndroidViewModel(application) {
-}
+) : BaseAndroidViewModel(application)

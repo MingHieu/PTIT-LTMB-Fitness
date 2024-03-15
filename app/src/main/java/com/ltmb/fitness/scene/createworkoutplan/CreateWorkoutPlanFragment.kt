@@ -17,7 +17,10 @@ class CreateWorkoutPlanFragment :
 
         binding.addWorkoutButton.setOnClickListener {
             val workoutSelectionFragment = WorkoutSelectionFragment()
-            workoutSelectionFragment.setStyle(DialogFragment.STYLE_NORMAL, R.style.TransparentDialog)
+            workoutSelectionFragment.setStyle(
+                DialogFragment.STYLE_NORMAL,
+                R.style.TransparentDialog
+            )
             workoutSelectionFragment.show(parentFragmentManager, workoutSelectionFragment.tag)
         }
     }
