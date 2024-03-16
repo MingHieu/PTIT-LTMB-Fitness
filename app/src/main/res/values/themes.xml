@@ -3,7 +3,7 @@
     <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue_ribbon</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">@color/zircon</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -35,6 +35,13 @@
         <item name="colorDiscoverScreenCardText">@color/white</item>
         <item name="colorDiscoverScreenCardSurface">@color/black50</item>
         <item name="colorWorkoutPlanDetailActionBar">@color/white</item>
+        <item name="colorError">@color/red</item>
+        <item name="colorDivider">@color/bombay</item>
+    </style>
+
+    <style name="CheckBoxTheme" parent="AppTheme">
+        <item name="colorAccent">@color/blue_ribbon</item>
+        <item name="android:textColorSecondary">@color/bombay</item>
     </style>
 
     <style name="MyCustomTabLayoutRanking" parent="TextAppearance.Design.Tab">

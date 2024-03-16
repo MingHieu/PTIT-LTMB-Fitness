@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ltmb.fitness.scene.workoutdetail.WorkoutDetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorBackground"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/action_back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_close" />
+
+            <com.google.android.material.slider.Slider
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:layout_weight="1"
+                android:maxWidth="100dp"
+                app:thumbRadius="@null"
+                app:trackColorInactive="@color/gallery"
+                app:trackHeight="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:adjustViewBounds="true"
+                android:textColor="?colorText"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="1 / 5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp">
+
+                    <VideoView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textColor="?colorText"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Warrior 1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:textColor="?colorText"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    tools:text="00:46" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:stateListAnimator="@null"
+                    android:text="@string/common_pause"
+                    app:cornerRadius="60dp"
+                    app:icon="@drawable/ic_pause"
+                    app:iconGravity="textStart"
+                    app:iconSize="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="?colorPrimaryVariant"
+                        android:stateListAnimator="@null"
+                        android:text="@string/common_previous"
+                        android:textAllCaps="false"
+                        android:textColor="?colorPrimary"
+                        app:cornerRadius="60dp"
+                        app:icon="@drawable/ic_previous"
+                        app:iconGravity="textStart"
+                        app:iconSize="16dp"
+                        app:iconTint="?colorPrimary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:layout_width="0dp"
+                        android:layout_height="60dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="?colorPrimaryVariant"
+                        android:onClick="@{() -> viewModel.onSkipClick()}"
+                        android:stateListAnimator="@null"
+                        android:text="@string/common_skip"
+                        android:textAllCaps="false"
+                        android:textColor="?colorPrimary"
+                        app:cornerRadius="60dp"
+                        app:icon="@drawable/ic_next"
+                        app:iconGravity="textEnd"
+                        app:iconSize="16dp"
+                        app:iconTint="?colorPrimary" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

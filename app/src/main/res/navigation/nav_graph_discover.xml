@@ -32,5 +32,33 @@
         android:id="@+id/workoutPlanDetailFragment"
         android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
         android:label="WorkoutPlanDetailFragment"
-        tools:layout="@layout/fragment_workout_plan_detail" />
+        tools:layout="@layout/fragment_workout_plan_detail">
+        <action
+            android:id="@+id/to_workout_detail"
+            app:destination="@id/workoutDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutDetailFragment"
+        android:name="com.ltmb.fitness.scene.workoutdetail.WorkoutDetailFragment"
+        android:label="WorkoutDetailFragment"
+        tools:layout="@layout/fragment_workout_detail">
+        <action
+            android:id="@+id/to_workout_finish"
+            app:destination="@id/workoutFinishFragment"
+            app:popUpTo="@id/workoutPlanDetailFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/workoutFinishFragment"
+        android:name="com.ltmb.fitness.scene.workoutfinish.WorkoutFinishFragment"
+        android:label="WorkoutFinishFragment"
+        tools:layout="@layout/fragment_workout_finish">
+        <action
+            android:id="@+id/to_home"
+            app:destination="@+id/nav_graph_all"
+            app:popUpTo="@id/nav_graph_all"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
