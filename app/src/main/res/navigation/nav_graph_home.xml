@@ -68,12 +68,25 @@
         tools:layout="@layout/fragment_bookmark_workout_plan">
         <action
             android:id="@+id/to_workout_plan_detail"
-            app:destination="@id/workoutPlanDetailFragment2"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom" />
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:destination="@id/workoutPlanDetailFragment2" />
+        <action
+            android:id="@+id/to_create_workout_plan"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:destination="@id/createWorkoutPlanFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/createWorkoutPlanFragment"
+        android:name="com.ltmb.fitness.scene.createworkoutplan.CreateWorkoutPlanFragment"
+        android:label="CreateWorkoutPlanFragment"
+        tools:layout="@layout/fragment_create_workout_plan" />
 
     <fragment
         android:id="@+id/workoutPlanDetailFragment2"

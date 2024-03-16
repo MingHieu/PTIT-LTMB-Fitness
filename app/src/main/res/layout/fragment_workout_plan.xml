@@ -37,8 +37,8 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/search_workout"
                 android:paddingHorizontal="16dp"
-                android:textColorHint="?colorSearchViewTextHintColor"
-                app:iv_background="?colorSearchViewBackground"
+                android:textColorHint="?colorInputTextHintColor"
+                app:iv_background="?colorInputBackground"
                 app:iv_left_icon="@drawable/ic_search"
                 app:iv_left_icon_tint="?colorText" />
 

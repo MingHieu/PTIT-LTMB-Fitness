@@ -9,6 +9,12 @@
     <string name="common_pause">Pause</string>
     <string name="common_previous">Previous</string>
     <string name="common_skip">Skip</string>
+    <string name="common_save">Save</string>
+    <string name="common_require">*</string>
+    <string name="search_all_filter">All</string>
+    <string name="search_workout_filter">Workout</string>
+    <string name="search_food_filter">Food</string>
+    <string name="results">Results</string>
 
     <!-- Home -->
     <string name="home_screen_title">Home</string>
@@ -54,5 +60,12 @@
     <string name="completed_workout">You\'ve completed the workout!</string>
     <string name="go_home">Go to Homepage</string>
     <string name="view_report">View Report</string>
-</resources>
 
+    <!-- Create Workout Plan -->
+    <string name="create_workout_plan_screen_title">Create Workout Plan</string>
+    <string name="name_input_label">Name</string>
+    <string name="name_input_hint">Ex: Gain Weight Quickly</string>
+    <string name="description_input_label">Description</string>
+    <string name="description_input_hint">Ex: Suitable for all fitness levels, this plan ensures efficient muscle stimulation and optimal growth</string>
+    <string name="workouts_input_label">Workouts</string>
+</resources>
