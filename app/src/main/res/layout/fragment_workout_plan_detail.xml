@@ -242,10 +242,10 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.onStartClick()}"
                     android:stateListAnimator="@null"
                     android:text="@string/start_workout"
-                    app:cornerRadius="32dp"
-                    android:onClick="@{() -> viewModel.onStartClick()}"/>
+                    app:cornerRadius="32dp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

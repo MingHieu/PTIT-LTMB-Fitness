@@ -61,7 +61,6 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
         binding.lifecycleOwner = viewLifecycleOwner
         binding.setVariable(BR.viewModel, viewModel)
         initialize()
-
         return binding.root
     }
 

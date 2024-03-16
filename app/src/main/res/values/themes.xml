@@ -43,4 +43,10 @@
         <item name="colorAccent">@color/blue_ribbon</item>
         <item name="android:textColorSecondary">@color/bombay</item>
     </style>
+
+    <style name="MyCustomTabLayoutRanking" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 </resources>
