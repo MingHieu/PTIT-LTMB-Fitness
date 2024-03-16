@@ -15,8 +15,4 @@ public class RankingViewModel extends BaseAndroidViewModel {
     public RankingViewModel(Application application ) {
         super(application);
     }
-
-    public void onClick() {
-        Log.d("Ranking", "123");
-    }
 }

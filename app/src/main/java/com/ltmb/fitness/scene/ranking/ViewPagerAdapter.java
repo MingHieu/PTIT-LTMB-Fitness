@@ -12,7 +12,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     ArrayList<String> fragmentTitle = new ArrayList<>();
 
     public ViewPagerAdapter(@NonNull FragmentManager fm) {
-        super(fm, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        super(fm, FragmentPagerAdapter.BEHAVIOR_SET_USER_VISIBLE_HINT);
     }
 
     @NonNull

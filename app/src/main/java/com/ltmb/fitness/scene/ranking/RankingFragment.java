@@ -2,6 +2,8 @@ package com.ltmb.fitness.scene.ranking;
 
 import android.view.View;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
@@ -26,28 +28,30 @@ public class RankingFragment extends BaseFragment<RankingViewModel, FragmentRank
     @Override
     public void initialize() {
         super.initialize();
-//        List<RankingPersonUiModel> rankingItemList = new ArrayList<>();
-//        rankingItemList.add(new RankingPersonUiModel("123", "ducanh", 123));
-//        rankingItemList.add(new RankingPersonUiModel("123", "ducanh", 123));
-//        rankingItemList.add(new RankingPersonUiModel("123", "ducanh", 123));
-//        rankingItemList.add(new RankingPersonUiModel("123", "ducanh", 123));
-//        rankingItemList.add(new RankingPersonUiModel("123", "ducanh", 123));
-//        rankingItemList.add(new RankingPersonUiModel("123", "ducanh", 123));
-//
-//        RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(rankingItemList);
-//        RecyclerView recyclerView = binding.rankingListItem;
-//        recyclerView.setAdapter(recyclerRankingAdapter);
 
         TabLayout tabLayout = binding.rankingTabLayout;
-//        ViewPager viewPager = binding.rankingViewPager;
-//
-//        tabLayout.setupWithViewPager(viewPager);
-//
-//        ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getFragmentManager());
-//        vpAdapter.addFragment(new RankingFragmentDailyTrainingHours(), getString(R.string.ranking_tab_icon1));
-//        vpAdapter.addFragment(new RankingFragmentWeeklyTrainingDays(), getString(R.string.ranking_tab_icon2));
-//        vpAdapter.addFragment(new RankingFragmentTotalTrainingDayd(), getString(R.string.ranking_tab_icon3));
-//        viewPager.setAdapter(vpAdapter);
+        ViewPager viewPager = binding.rankingViewPager;
 
+        ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getFragmentManager());
+        List<Fragment> listFragmentTab = new ArrayList<>();
+        listFragmentTab.add(new RankingFragmentDailyTrainingHours());
+        listFragmentTab.add(new RankingFragmentDailyTrainingHours());
+        listFragmentTab.add(new RankingFragmentDailyTrainingHours());
+//        listFragmentTab.add(new RankingFragmentWeeklyTrainingDays());
+//        listFragmentTab.add(new RankingFragmentTotalTrainingDayd());
+
+        vpAdapter.addFragment(listFragmentTab.get(0), getString(R.string.ranking_tab_icon1));
+        vpAdapter.addFragment(listFragmentTab.get(1), getString(R.string.ranking_tab_icon2));
+        vpAdapter.addFragment(listFragmentTab.get(2), getString(R.string.ranking_tab_icon3));
+
+        viewPager.setAdapter(vpAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+        this.setUpTabLayoutIcon(tabLayout);
+    }
+
+    private void setUpTabLayoutIcon(@NonNull TabLayout tabLayout) {
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_tab_items_clock);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_tab_items_calendar);
+        tabLayout.getTabAt(2).setIcon(R.drawable.ic_tab_items_dumbbell);
     }
 }

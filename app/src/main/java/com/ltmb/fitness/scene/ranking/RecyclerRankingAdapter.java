@@ -1,5 +1,6 @@
 package com.ltmb.fitness.scene.ranking;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ltmb.fitness.R;
 import com.ltmb.fitness.uimodel.RankingPersonUiModel;
+import com.ltmb.fitness.utils.CircleTransform;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -60,14 +63,20 @@ public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRanking
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
+
+        String avt = rankingItem.getAvt();
+
+        Picasso.get()
+                .load(avt)
+                .transform(new CircleTransform())
+                .into(viewHolder.avt);
         viewHolder.username.setText(rankingItem.getName());
-        viewHolder.experience.setText(String.valueOf(rankingItem.getExperience()));
+        viewHolder.experience.setText(rankingItem.getExperience() + " KN");
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        Log.d("SIZE", String.valueOf(localDataSet.size()));
         return localDataSet.size();
     }
 }

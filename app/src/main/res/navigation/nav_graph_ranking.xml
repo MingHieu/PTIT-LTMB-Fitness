@@ -4,6 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_bookmark"
     app:startDestination="@id/rankingFragment">
+    <argument
+        android:name="@string/arg_show_bottom_nav"
+        android:defaultValue="true" />
+
     <fragment
         android:id="@+id/rankingFragment"
         android:name="com.ltmb.fitness.scene.ranking.RankingFragment"
