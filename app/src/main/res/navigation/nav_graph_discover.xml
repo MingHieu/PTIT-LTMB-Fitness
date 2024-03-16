@@ -15,7 +15,11 @@
             android:defaultValue="true" />
         <action
             android:id="@+id/to_workoutPlanFragment"
-            app:destination="@id/workoutPlanFragment" />
+            app:destination="@id/workoutPlanFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
@@ -25,7 +29,11 @@
         tools:layout="@layout/fragment_workout_plan">
         <action
             android:id="@+id/to_workout_plan_detail"
-            app:destination="@id/workoutPlanDetailFragment" />
+            app:destination="@id/workoutPlanDetailFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
@@ -35,7 +43,11 @@
         tools:layout="@layout/fragment_workout_plan_detail">
         <action
             android:id="@+id/to_workout_detail"
-            app:destination="@id/workoutDetailFragment" />
+            app:destination="@id/workoutDetailFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
@@ -46,8 +58,12 @@
         <action
             android:id="@+id/to_workout_finish"
             app:destination="@id/workoutFinishFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/workoutPlanDetailFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -58,6 +74,10 @@
         <action
             android:id="@+id/to_home"
             app:destination="@+id/nav_graph_all"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/nav_graph_all"
             app:popUpToInclusive="true" />
     </fragment>

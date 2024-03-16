@@ -2,15 +2,16 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph_bookmark"
+    android:id="@+id/nav_graph_ranking"
     app:startDestination="@id/rankingFragment">
-    <argument
-        android:name="@string/arg_show_bottom_nav"
-        android:defaultValue="true" />
 
     <fragment
         android:id="@+id/rankingFragment"
         android:name="com.ltmb.fitness.scene.ranking.RankingFragment"
         android:label="RankingFragment"
-        tools:layout="@layout/fragment_ranking" />
+        tools:layout="@layout/fragment_ranking">
+        <argument
+            android:name="@string/arg_show_bottom_nav"
+            android:defaultValue="true" />
+    </fragment>
 </navigation>
