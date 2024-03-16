@@ -4,43 +4,40 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        >
+        android:layout_marginBottom="10dp">
 
         <ImageView
             android:id="@+id/rankingItemAvt"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/icon_person"
-            android:layout_marginLeft="8dp"
             android:layout_gravity="center"
-            />
+            android:layout_marginLeft="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icon_person" />
 
         <TextView
             android:id="@+id/rankingUserName"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:textAppearance="?attr/textAppearanceListItem"
-            android:text="Nguyễn Đức Anh"
             android:gravity="center"
-            android:textSize="16sp"
             android:paddingLeft="8dp"
-            />
+            android:text="Nguyễn Đức Anh"
+            android:textAppearance="?attr/textAppearanceListItem"
+            android:textSize="16sp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/rankingExperience"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="332 KN"
-                android:textSize="16sp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="8dp"
-                />
+                android:text="332 KN"
+                android:textSize="16sp" />
         </RelativeLayout>
     </LinearLayout>
 </layout>

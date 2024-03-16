@@ -5,7 +5,9 @@ public class RankingPersonUiModel {
     String name;
     int experience;
 
-    public RankingPersonUiModel() {}
+    public RankingPersonUiModel() {
+    }
+
     public RankingPersonUiModel(String avt, String name, int experience) {
         this.avt = avt;
         this.name = name;

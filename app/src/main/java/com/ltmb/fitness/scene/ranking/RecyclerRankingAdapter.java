@@ -1,7 +1,5 @@
 package com.ltmb.fitness.scene.ranking;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,29 +16,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRankingAdapter.ViewHolder>  {
+public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRankingAdapter.ViewHolder> {
     List<RankingPersonUiModel> localDataSet;
-    /**
-     * Provide a reference to the type of views that you are using
-     * (custom ViewHolder)
-     */
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView username, experience;
-        ImageView avt;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            username = (TextView) itemView.findViewById(R.id.rankingUserName);
-            avt = (ImageView) itemView.findViewById(R.id.rankingItemAvt);
-            experience = (TextView) itemView.findViewById(R.id.rankingExperience);
-        }
-    }
 
     /**
      * Initialize the dataset of the Adapter
      *
      * @param dataSet String[] containing the data to populate views to be used
-     * by RecyclerView
+     *                by RecyclerView
      */
     public RecyclerRankingAdapter(List<RankingPersonUiModel> dataSet) {
         this.localDataSet = dataSet;
@@ -78,5 +61,21 @@ public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRanking
     @Override
     public int getItemCount() {
         return localDataSet.size();
+    }
+
+    /**
+     * Provide a reference to the type of views that you are using
+     * (custom ViewHolder)
+     */
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        TextView username, experience;
+        ImageView avt;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+            username = (TextView) itemView.findViewById(R.id.rankingUserName);
+            avt = (ImageView) itemView.findViewById(R.id.rankingItemAvt);
+            experience = (TextView) itemView.findViewById(R.id.rankingExperience);
+        }
     }
 }

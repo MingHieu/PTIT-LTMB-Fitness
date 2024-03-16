@@ -24,7 +24,7 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
 
         RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(fetchData());
         RecyclerView recyclerView = binding.listRankingDailyTrainingHours;
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false ));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(recyclerRankingAdapter);
     }
 

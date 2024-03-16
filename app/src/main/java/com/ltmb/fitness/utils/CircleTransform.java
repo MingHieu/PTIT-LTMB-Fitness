@@ -1,17 +1,17 @@
 package com.ltmb.fitness.utils;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Shader;
 
 import com.squareup.picasso.Transformation;
 
 public class CircleTransform implements Transformation {
 
-    private int BORDER_COLOR = Color.WHITE;
     private final int BORDER_RADIUS = 5;
+    private int BORDER_COLOR = Color.WHITE;
 
     public CircleTransform() {
 

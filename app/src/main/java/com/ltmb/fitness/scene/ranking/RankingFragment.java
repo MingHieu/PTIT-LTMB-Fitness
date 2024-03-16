@@ -1,17 +1,13 @@
 package com.ltmb.fitness.scene.ranking;
 
-import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.material.tabs.TabLayout;
 import com.ltmb.fitness.R;
 import com.ltmb.fitness.base.BaseFragment;
 import com.ltmb.fitness.databinding.FragmentRankingBinding;
-import com.ltmb.fitness.uimodel.RankingPersonUiModel;
 
 import java.util.ArrayList;
 import java.util.List;
