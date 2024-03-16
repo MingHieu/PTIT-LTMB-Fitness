@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:abv_title="@string/workout_plan_screen_title"
-            app:abv_viewModel="@{viewModel}"/>
+            app:abv_viewModel="@{viewModel}" />
 
         <LinearLayout
             android:layout_width="match_parent"

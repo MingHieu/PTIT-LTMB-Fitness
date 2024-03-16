@@ -38,6 +38,9 @@
 
     <!-- Ranking -->
     <string name="ranking_screen_title">Ranking</string>
+    <string name="ranking_tab_icon1"> Daily Training Hours </string>
+    <string name="ranking_tab_icon2"> Weekly Training Days </string>
+    <string name="ranking_tab_icon3"> Total Training Days </string>
 
     <!-- Progress -->
     <string name="progress_screen_title">Progress</string>

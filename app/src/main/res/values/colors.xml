@@ -20,5 +20,8 @@
     <color name="red">#FF0000</color>
     <color name="gallery">#EEEEEE</color>
     <color name="zircon">#F0F3FF</color>
+    <color name="rankingTop1">#F4B742</color>
+    <color name="rankingTop2">#9AA9CF</color>
+    <color name="rankingTop3">#EB9956</color>
     <color name="athens_gray">#EDEDEF</color>
 </resources>

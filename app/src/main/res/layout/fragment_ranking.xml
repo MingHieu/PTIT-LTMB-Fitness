@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ltmb.fitness.scene.ranking.RankingViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/ranking_tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="fixed"
+            app:tabPaddingBottom="0dp"
+            app:tabPaddingEnd="0dp"
+            app:tabPaddingStart="5dp"
+            app:tabPaddingTop="5dp"
+            app:tabTextAppearance="@style/MyCustomTabLayoutRanking">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ranking_tabItem1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:icon="@drawable/ic_tab_items_clock"
+                android:text="@string/ranking_tab_icon1"
+                android:textSize="16sp" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ranking_tabItem2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:icon="@drawable/ic_tab_items_calendar"
+                android:text="@string/ranking_tab_icon2"
+                android:textSize="16sp"
+
+                />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ranking_tabItem3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:icon="@drawable/ic_tab_items_dumbbell"
+                android:text="@string/ranking_tab_icon3" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ranking_viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.viewpager.widget.ViewPager>
+
+        <include layout="@layout/fragment_ranking_dailytraninghours" />
+    </LinearLayout>
+</layout>
