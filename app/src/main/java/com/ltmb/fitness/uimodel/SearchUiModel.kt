@@ -17,7 +17,7 @@ enum class SearchFilter {
 }
 
 data class ExerciseSearchUiModel(
-    override val id: Long,
+    override val id: String,
     val name: String,
     val duration: Long,
     val level: String,

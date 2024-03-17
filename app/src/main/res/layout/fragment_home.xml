@@ -67,7 +67,7 @@
                 app:iv_enabled="false"
                 app:iv_left_icon="@drawable/ic_search"
                 app:iv_left_icon_tint="?colorText"
-                app:iv_onClick="@{() -> viewModel.onSearchBoxClicked()}"/>
+                app:iv_onClick="@{() -> viewModel.onSearchBoxClicked()}" />
 
             <LinearLayout
                 android:layout_width="match_parent"

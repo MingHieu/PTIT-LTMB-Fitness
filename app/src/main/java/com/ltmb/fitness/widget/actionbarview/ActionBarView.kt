@@ -88,4 +88,8 @@ class ActionBarView @JvmOverloads constructor(
             }
         }
     }
+
+    fun setTitle(text: String) {
+        binding.abvTitle.text = text
+    }
 }

@@ -23,7 +23,7 @@ class BookmarkWorkoutPlanViewModel @Inject constructor(
 
         for (i in 1..10) {
             val workoutPlan = BookmarkWorkoutPlanUiModel(
-                id = i.toLong(),
+                id = "$i",
                 thumbnail = "https://wallpaperbat.com/img/69222-wallpaper-power-pose-back-fitness-gym-image-for-desktop.jpg",
                 name = "Full Body Workout $i",
                 level = "Intermediate",
@@ -56,10 +56,10 @@ class BookmarkWorkoutPlanViewModel @Inject constructor(
         }
     }
 
-    fun changeItemSelected(id: Long?, isSelected: Boolean) {
+    fun changeItemSelected(id: String, isSelected: Boolean) {
         val workoutPlansList = _bookmarkWorkoutPlans.value!!.map {
             val newItem = it.copy()
-            if (newItem.id == id || id == null) {
+            if (newItem.id == id) {
                 newItem.selected = isSelected
             }
             newItem

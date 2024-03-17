@@ -9,7 +9,7 @@ import com.ltmb.fitness.uimodel.WorkoutSelectionUiModel
 interface WorkoutCallback {
     fun onItemClick()
 
-    fun onItemSelectedChanged(id: Long, isSelected: Boolean)
+    fun onItemSelectedChanged(id: String, isSelected: Boolean)
 }
 
 class WorkoutSelectionAdapter(private val workoutCb: WorkoutCallback) :

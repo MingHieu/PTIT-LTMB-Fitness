@@ -30,14 +30,14 @@ class SearchViewModel @Inject constructor(
     init {
         _searchResults.value = listOf(
             ExerciseSearchUiModel(
-                1,
+                "1",
                 "Name",
                 120,
                 "Beginner",
                 "https://wallpaperbat.com/img/69222-wallpaper-power-pose-back-fitness-gym-image-for-desktop.jpg"
             ),
             ExerciseSearchUiModel(
-                2,
+                "2",
                 "Name",
                 90,
                 "Beginner",

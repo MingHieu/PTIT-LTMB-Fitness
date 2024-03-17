@@ -7,7 +7,7 @@ import com.ltmb.fitness.internal.util.functional.convertSecondsToMinutesAndSecon
 import java.io.Serializable
 
 data class WorkoutSelectionUiModel(
-    override val id: Long,
+    override val id: String,
     val thumbnail: String,
     val name: String,
     val duration: Long,

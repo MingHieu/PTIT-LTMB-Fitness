@@ -5,6 +5,7 @@ import com.ltmb.fitness.base.BaseFragment
 import com.ltmb.fitness.databinding.FragmentHomeBinding
 import com.ltmb.fitness.scene.workoutplan.WorkoutPlanAdapter
 import com.ltmb.fitness.scene.workoutplan.WorkoutPlanCallback
+import com.ltmb.fitness.uimodel.BodyAreaUiModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -23,8 +24,8 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         })
 
         binding.bodyAreaAdapter = BodyAreaAdapter(object : BodyAreaCallback {
-            override fun onItemClick() {
-                viewModel.onBodyAreaItemClick()
+            override fun onItemClick(bodyArea: BodyAreaUiModel) {
+                viewModel.onBodyAreaItemClick(bodyArea)
             }
         })
     }

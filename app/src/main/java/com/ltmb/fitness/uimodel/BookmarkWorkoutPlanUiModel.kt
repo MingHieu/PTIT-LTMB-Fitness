@@ -7,7 +7,7 @@ import com.ltmb.fitness.internal.util.functional.convertSecondsToMinutes
 import java.io.Serializable
 
 data class BookmarkWorkoutPlanUiModel(
-    override val id: Long,
+    override val id: String,
     val thumbnail: String,
     val name: String,
     val level: String,

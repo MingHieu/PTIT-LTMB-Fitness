@@ -1,7 +1,7 @@
 package com.ltmb.fitness.base
 
 interface ListAdapterItem {
-    val id: Long
+    val id: String
 
     override fun equals(other: Any?): Boolean
 }
