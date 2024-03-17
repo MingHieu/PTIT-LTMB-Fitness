@@ -79,6 +79,12 @@
 
     <!--    Start app-->
     <string name="start_app_name">Zenfit</string>
+    <string name="start_app_skip">Skip</string>
+    <string name="start_app_continue">Continue</string>
     <string name="start_app_1_title">Your Fitness Journey Starts Here</string>
-    <string name="start_app_1_sub_title">Get ready to embark on a transformative fitness journey with Zenfit. Discover a wide range of workout, tailored to your goal</string>
+    <string name="start_app_1_sub_title">Get ready to embark on a transformative fitness journey with Zenfit. Discover a wide range of workout, tailored to your goal.</string>
+    <string name="start_app_2_title">Tailored Exercise Plan for Your Needs</string>
+    <string name="start_app_2_sub_title">Zenfit personalizes workouts just for you. Whether you are a beginner or a fitness enthusiast, our app adapts to your needs.</string>
+    <string name="start_app_3_title">Stay Informed About Your Fitness Progress</string>
+    <string name="start_app_3_sub_title">Stay motivated and track your progress effortlessly. Start your fitness journey today and achieve the results you are always wanted.</string>
 </resources>
