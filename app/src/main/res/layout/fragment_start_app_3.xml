@@ -83,18 +83,6 @@
                 android:layout_weight="0.45"
                 android:layout_height="60dp"
                 app:cornerRadius="60dp"
-                android:textColor="?colorPrimary"
-                android:backgroundTint="?colorInputBackground"
-                android:text="@string/start_app_skip"/>
-            <Space
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.1"/>
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="0.45"
-                android:layout_height="60dp"
-                app:cornerRadius="60dp"
                 android:textSize="12sp"
                 android:text="@string/start_app_continue"/>
         </LinearLayout>
