@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Fitness</string>
 
     <!-- common  -->
@@ -87,4 +87,22 @@
     <string name="start_app_2_sub_title">Zenfit personalizes workouts just for you. Whether you are a beginner or a fitness enthusiast, our app adapts to your needs.</string>
     <string name="start_app_3_title">Stay Informed About Your Fitness Progress</string>
     <string name="start_app_3_sub_title">Stay motivated and track your progress effortlessly. Start your fitness journey today and achieve the results you are always wanted.</string>
+
+    <!--    Get started-->
+    <string name="get_started_title">Let\'s Get Started!</string>
+    <string name="get_started_sub_title">Embank on a fitness and workout adventure</string>
+    <string name="get_started_login">Login</string>
+    <string name="get_started_signup">Signup</string>
+    <string name="get_started_policy">Privacy Policy • Terms of Service</string>
+
+
+    <!--    Signup-->
+    <string name="signup_title">Create Your Account</string>
+    <string name="signup_sub_title">Sign up now to get access to personalized workouts and achieve your fitness goals.</string>
+    <string name="signup_email">Email</string>
+    <string name="signup_password">Password</string>
+    <string name="signup_retype_password">Retype password</string>
+    <string name="signup_have_account">Already have an account?</string>
+    <string name="signup_login">Login</string>
+    <string name="signup">Sign up</string>
 </resources>

@@ -2,6 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.ltmb.fitness.scene.startapp3.StartApp3ViewModel" />
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -84,6 +89,7 @@
                 android:layout_height="60dp"
                 app:cornerRadius="60dp"
                 android:textSize="12sp"
+                android:onClick="@{()-> viewModel.onClickContinue()}"
                 android:text="@string/start_app_continue"/>
         </LinearLayout>
     </LinearLayout>

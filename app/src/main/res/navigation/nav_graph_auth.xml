@@ -6,35 +6,50 @@
 
 
     <fragment
-        android:id="@+id/startAppFragment"
-        android:name="com.ltmb.fitness.scene.startapp.StartAppFragment"
-        android:label="StartAppFragment" >
-        <action
-            android:id="@+id/action_startAppFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-    <fragment
         android:id="@+id/loginFragment"
         android:name="com.ltmb.fitness.scene.login.LoginFragment"
         android:label="LoginFragment" />
     <fragment
         android:id="@+id/startApp2Fragment"
-        android:name="com.ltmb.fitness.scene.startapp1.StartApp2Fragment"
+        android:name="com.ltmb.fitness.scene.startapp2.StartApp2Fragment"
         android:label="StartApp2Fragment" >
         <action
-            android:id="@+id/action_startApp2Fragment_to_startApp3Fragment2"
-            app:destination="@id/startApp3Fragment2" />
+            android:id="@+id/to_start_app_3"
+            app:destination="@id/startApp3Fragment" />
     </fragment>
     <fragment
         android:id="@+id/startApp1Fragment"
         android:name="com.ltmb.fitness.scene.startapp1.StartApp1Fragment"
         android:label="StartApp1Fragment" >
         <action
-            android:id="@+id/action_startApp1Fragment_to_startApp2Fragment"
+            android:id="@+id/to_start_app_2"
             app:destination="@id/startApp2Fragment" />
     </fragment>
     <fragment
-        android:id="@+id/startApp3Fragment2"
-        android:name="com.ltmb.fitness.scene.startapp1.StartApp3Fragment"
-        android:label="StartApp3Fragment" />
+        android:id="@+id/startApp3Fragment"
+        android:name="com.ltmb.fitness.scene.startapp3.StartApp3Fragment"
+        android:label="StartApp3Fragment" >
+        <action
+            android:id="@+id/to_getStarted"
+            app:destination="@id/getStartedFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/getStartedFragment"
+        android:name="com.ltmb.fitness.scene.getstarted.GetStartedFragment"
+        android:label="GetStartedFragment" >
+        <action
+            android:id="@+id/to_login"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/to_signup"
+            app:destination="@id/signupFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupFragment"
+        android:name="com.ltmb.fitness.scene.signup.SignupFragment"
+        android:label="SignupFragment" >
+        <action
+            android:id="@+id/to_signup_login"
+            app:destination="@id/loginFragment" />
+    </fragment>
 </navigation>

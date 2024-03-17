@@ -1,4 +1,4 @@
-package com.ltmb.fitness.scene.startapp1
+package com.ltmb.fitness.scene.startapp2
 
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment

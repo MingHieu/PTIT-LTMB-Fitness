@@ -5,7 +5,7 @@
 
         <variable
             name="viewModel"
-            type="com.ltmb.fitness.scene.startapp1.StartApp2ViewModel" />
+            type="com.ltmb.fitness.scene.startapp2.StartApp2ViewModel" />
     </data>
     <LinearLayout
         android:layout_width="match_parent"

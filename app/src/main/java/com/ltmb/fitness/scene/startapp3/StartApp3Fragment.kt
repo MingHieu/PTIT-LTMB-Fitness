@@ -1,8 +1,7 @@
-package com.ltmb.fitness.scene.startapp1
+package com.ltmb.fitness.scene.startapp3
 
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
-import com.ltmb.fitness.databinding.FragmentStartApp1Binding
 import com.ltmb.fitness.databinding.FragmentStartApp3Binding
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -1,7 +1,8 @@
-package com.ltmb.fitness.scene.startapp1
+package com.ltmb.fitness.scene.startapp2
 
 import android.app.Application
 import com.ltmb.fitness.base.BaseAndroidViewModel
+import com.ltmb.fitness.scene.startapp2.StartApp2FragmentDirections
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -10,6 +11,6 @@ class StartApp2ViewModel @Inject constructor(
     application: Application,
 ) : BaseAndroidViewModel(application) {
     fun onClickContinue(){
-        navigate(StartApp2FragmentDirections.actionStartApp2FragmentToStartApp3Fragment2())
+        navigate(StartApp2FragmentDirections.toStartApp3())
     }
 }
