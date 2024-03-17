@@ -24,7 +24,7 @@ class WorkoutPlanDetailViewModel @Inject constructor(
 
         for (i in 1..10) {
             val workout = WorkoutUiModel(
-                id = i.toLong(),
+                id = "$i",
                 thumbnail = "https://wallpaperbat.com/img/69222-wallpaper-power-pose-back-fitness-gym-image-for-desktop.jpg",
                 name = "Full Body Workout $i",
                 duration = 120,
@@ -33,7 +33,7 @@ class WorkoutPlanDetailViewModel @Inject constructor(
         }
 
         _workoutPlan.value = WorkoutPlanDetailUiModel(
-            id = 0,
+            id = "0",
             thumbnail = "https://wallpaperbat.com/img/69222-wallpaper-power-pose-back-fitness-gym-image-for-desktop.jpg",
             name = "Yoga & Mindfulness",
             description = "Find balance and tranquility with his yoga and mindfulness program. It focuses on flexibility, relaxation, and mental well-being.",

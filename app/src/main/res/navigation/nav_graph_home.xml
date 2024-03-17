@@ -52,6 +52,10 @@
         android:name="com.ltmb.fitness.scene.bodyarea.BodyAreaFragment"
         android:label="BodyAreaFragment"
         tools:layout="@layout/fragment_body_area">
+        <argument
+            android:name="bodyArea"
+            app:argType="com.ltmb.fitness.uimodel.BodyAreaUiModel" />
+
         <action
             android:id="@+id/to_workout_plan_detail"
             app:destination="@id/workoutPlanDetailFragment2"
@@ -68,18 +72,18 @@
         tools:layout="@layout/fragment_bookmark_workout_plan">
         <action
             android:id="@+id/to_workout_plan_detail"
+            app:destination="@id/workoutPlanDetailFragment2"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom"
-            app:destination="@id/workoutPlanDetailFragment2" />
+            app:popExitAnim="@anim/slide_out_bottom" />
         <action
             android:id="@+id/to_create_workout_plan"
+            app:destination="@id/createWorkoutPlanFragment"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom"
-            app:destination="@id/createWorkoutPlanFragment" />
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment

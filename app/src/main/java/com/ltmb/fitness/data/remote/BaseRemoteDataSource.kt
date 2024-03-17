@@ -9,7 +9,7 @@ open class BaseRemoteDataSource {
         return try {
             serviceFunction()
         } catch (exception: Exception) {
-            throw asFailure(exception)
+            throw exception
         }
     }
 

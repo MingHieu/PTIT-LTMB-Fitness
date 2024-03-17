@@ -18,7 +18,7 @@ class WorkoutSelectionFragment :
                 TODO("Not yet implemented")
             }
 
-            override fun onItemSelectedChanged(id: Long, isSelected: Boolean) {
+            override fun onItemSelectedChanged(id: String, isSelected: Boolean) {
                 TODO("Not yet implemented")
             }
         })

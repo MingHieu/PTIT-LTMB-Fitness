@@ -7,7 +7,7 @@ import com.ltmb.fitness.internal.extension.executeAfter
 import com.ltmb.fitness.uimodel.BodyAreaUiModel
 
 interface BodyAreaCallback {
-    fun onItemClick()
+    fun onItemClick(bodyArea: BodyAreaUiModel)
 }
 
 class BodyAreaAdapter(private val bodyAreaCb: BodyAreaCallback) :

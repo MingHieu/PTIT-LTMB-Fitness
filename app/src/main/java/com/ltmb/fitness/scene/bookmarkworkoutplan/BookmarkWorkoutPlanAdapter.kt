@@ -11,7 +11,7 @@ interface BookmarkWorkoutPlanCallback {
 
     fun onItemLongClick(): Boolean
 
-    fun onItemSelectedChanged(id: Long, isSelected: Boolean)
+    fun onItemSelectedChanged(id: String, isSelected: Boolean)
 }
 
 class BookmarkWorkoutPlanAdapter(private val bookmarkWorkoutPlanCb: BookmarkWorkoutPlanCallback) :

@@ -27,7 +27,7 @@ class HomeViewModel @Inject constructor(
 
         for (i in 1..2) {
             val workoutPlan = WorkoutPlanUiModel(
-                id = i.toLong(),
+                id = "$i",
                 thumbnail = "https://wallpaperbat.com/img/69222-wallpaper-power-pose-back-fitness-gym-image-for-desktop.jpg",
                 name = "Full Body Workout $i",
                 level = "Intermediate",
@@ -39,12 +39,12 @@ class HomeViewModel @Inject constructor(
         _workoutPlans.value = workoutPlansList
 
         _bodyAreas.value = listOf(
-            BodyAreaUiModel(id = 1, name = "Shoulders", drawableRes = R.drawable.img_shoulder),
-            BodyAreaUiModel(id = 2, name = "Chest", drawableRes = R.drawable.img_chest),
-            BodyAreaUiModel(id = 3, name = "Arms", drawableRes = R.drawable.img_arm),
-            BodyAreaUiModel(id = 4, name = "Back", drawableRes = R.drawable.img_back),
-            BodyAreaUiModel(id = 5, name = "Stomach", drawableRes = R.drawable.img_stomach),
-            BodyAreaUiModel(id = 6, name = "Legs", drawableRes = R.drawable.img_leg)
+            BodyAreaUiModel(id = "1", name = "Shoulders", drawableRes = R.drawable.img_shoulder),
+            BodyAreaUiModel(id = "2", name = "Chest", drawableRes = R.drawable.img_chest),
+            BodyAreaUiModel(id = "3", name = "Arms", drawableRes = R.drawable.img_arm),
+            BodyAreaUiModel(id = "4", name = "Back", drawableRes = R.drawable.img_back),
+            BodyAreaUiModel(id = "5", name = "Stomach", drawableRes = R.drawable.img_stomach),
+            BodyAreaUiModel(id = "6", name = "Legs", drawableRes = R.drawable.img_leg)
         )
     }
 
@@ -60,7 +60,7 @@ class HomeViewModel @Inject constructor(
         navigate(HomeFragmentDirections.toBookmarkWorkoutPlan())
     }
 
-    fun onBodyAreaItemClick() {
-        navigate(HomeFragmentDirections.toBodyArea())
+    fun onBodyAreaItemClick(bodyArea: BodyAreaUiModel) {
+        navigate(HomeFragmentDirections.toBodyArea(bodyArea))
     }
 }
