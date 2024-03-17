@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.uimodel.ExerciseSearchUiModel
+import com.ltmb.fitness.uimodel.SearchFilter
 import com.ltmb.fitness.uimodel.SearchUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -14,8 +15,17 @@ class SearchViewModel @Inject constructor(
     application: Application
 ) : BaseAndroidViewModel(application) {
 
+    private val _keySearch = MutableLiveData("")
+    val keySearch: LiveData<String> = _keySearch
+
     private val _searchResults = MutableLiveData<List<SearchUiModel>>()
     val searchResults: LiveData<List<SearchUiModel>> = _searchResults
+
+    private val _filterSelected = MutableLiveData(SearchFilter.ALL)
+    val filterSelected: LiveData<SearchFilter> = _filterSelected
+
+    private val _loading = MutableLiveData(false)
+    val loading: LiveData<Boolean> = _loading
 
     init {
         _searchResults.value = listOf(
@@ -34,5 +44,14 @@ class SearchViewModel @Inject constructor(
                 null
             )
         )
+    }
+
+    fun setFilterSelected(filter: SearchFilter) {
+        _filterSelected.value = filter
+    }
+
+    fun onSearch(text: String) {
+        println("Search: $text")
+        _keySearch.value = text
     }
 }

@@ -61,7 +61,6 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
         binding.lifecycleOwner = viewLifecycleOwner
         binding.setVariable(BR.viewModel, viewModel)
         initialize()
-
         return binding.root
     }
 
@@ -82,14 +81,7 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
 
     protected open fun handleNavigation(command: NavigationCommand) {
         when (command) {
-            is NavigationCommand.ToDirection -> {
-                findNavController().navigate(
-                    command.directions.actionId,
-                    command.directions.arguments,
-                    getNavOptions(),
-                    getExtras()
-                )
-            }
+            is NavigationCommand.ToDirection -> findNavController().navigate(command.directions)
 
             is NavigationCommand.ToDeepLink -> {
                 (activity as? MainActivity)?.navController?.navigate(

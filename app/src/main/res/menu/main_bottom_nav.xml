@@ -12,13 +12,13 @@
         android:title="@string/discover_screen_title" />
 
     <item
-        android:id="@+id/nav_graph_bookmark"
-        android:icon="@drawable/selector_bookmark"
+        android:id="@+id/nav_graph_ranking"
+        android:icon="@drawable/selector_ranking"
         android:title="@string/ranking_screen_title" />
 
     <item
         android:id="@+id/nav_graph_progress"
-        android:icon="@drawable/selector_progess"
+        android:icon="@drawable/selector_progress"
         android:title="@string/progress_screen_title" />
 
     <item
