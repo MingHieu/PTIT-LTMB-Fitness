@@ -1,4 +1,4 @@
-package com.ltmb.fitness.utils;
+package com.ltmb.fitness.internal.util;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;

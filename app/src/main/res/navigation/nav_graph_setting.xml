@@ -15,21 +15,11 @@
             android:defaultValue="true" />
         <action
             android:id="@+id/to_login"
-            app:destination="@id/loginFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.ltmb.fitness.scene.login.LoginFragment"
-        android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/to_home"
-            app:destination="@+id/nav_graph_all"
+            app:destination="@+id/nav_graph_auth"
             app:popUpTo="@id/nav_graph_all"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/to_personInfoFragment"
+            android:id="@+id/to_person_info"
             app:destination="@id/personInfoFragment" />
     </fragment>
 
@@ -37,5 +27,5 @@
         android:id="@+id/personInfoFragment"
         android:name="com.ltmb.fitness.scene.personinfor.PersonInfoFragment"
         android:label="PersonInfoFragment"
-        tools:layout="@layout/fragment_person_info"/>
+        tools:layout="@layout/fragment_person_info" />
 </navigation>

@@ -12,7 +12,11 @@ class SettingViewModel @Inject constructor(
     private val userRepository: UserRepository
 ) : BaseAndroidViewModel(application) {
 
-    fun goToLogin() {
+    fun goToPersonalInfo(){
+        navigate(SettingFragmentDirections.toPersonInfo())
+    }
+
+    fun logout() {
         navigate(SettingFragmentDirections.toLogin())
     }
 }

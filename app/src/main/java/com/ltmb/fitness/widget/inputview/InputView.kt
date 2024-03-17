@@ -46,7 +46,8 @@ class InputView @JvmOverloads constructor(
         listenEditTextTextChanged()
 
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.InputView)
-        val textSizePx = typedArray.getDimensionPixelSize(R.styleable.InputView_android_textSize, -1)
+        val textSizePx =
+            typedArray.getDimensionPixelSize(R.styleable.InputView_android_textSize, -1)
         if (textSizePx != -1) {
             binding.ivEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizePx.toFloat())
         }
@@ -157,7 +158,7 @@ class InputView @JvmOverloads constructor(
                 binding.ivEditText.minLines = lines
                 binding.ivEditText.maxLines = 5
             }
-            
+
             if (hasValue(R.styleable.InputView_android_textSize)) {
                 val textSize = getResourceId(
                     R.styleable.InputView_android_textSize,

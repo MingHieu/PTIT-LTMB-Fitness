@@ -24,15 +24,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:onClick="@{() -> viewModel.navigateBack()}"
-                android:text="Back to home" />
+                android:onClick="@{() -> viewModel.goToPersonalInfo()}"
+                android:text="Personal Info" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:onClick="@{() -> viewModel.goToLogin()}"
-                android:text="Go to Login" />
+                android:onClick="@{() -> viewModel.logout()}"
+                android:text="Logout" />
         </LinearLayout>
     </LinearLayout>
 </layout>

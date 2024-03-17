@@ -6,6 +6,4 @@ import javax.inject.Inject
 
 class PersonInfoViewModel @Inject constructor(
     application: Application
-) : BaseAndroidViewModel(application) {
-
-}
+) : BaseAndroidViewModel(application)

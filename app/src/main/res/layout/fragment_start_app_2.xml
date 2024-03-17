@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
 
         <variable
             name="viewModel"
             type="com.ltmb.fitness.scene.startapp2.StartApp2ViewModel" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -61,9 +63,8 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="30dp"
                     android:layout_height="20dp"
-                    app:cornerRadius="8dp"
                     android:layout_marginHorizontal="6dp"
-                    />
+                    app:cornerRadius="8dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="8dp"
@@ -100,9 +101,9 @@
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_weight="0.45"
+                android:onClick="@{()-> viewModel.onClickContinue()}"
                 android:text="@string/start_app_continue"
                 android:textSize="12sp"
-                android:onClick="@{()-> viewModel.onClickContinue()}"
                 app:cornerRadius="60dp" />
         </LinearLayout>
     </LinearLayout>

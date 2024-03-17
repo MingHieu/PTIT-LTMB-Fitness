@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ltmb.fitness.R;
+import com.ltmb.fitness.internal.util.CircleTransform;
 import com.ltmb.fitness.uimodel.RankingPersonUiModel;
-import com.ltmb.fitness.utils.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

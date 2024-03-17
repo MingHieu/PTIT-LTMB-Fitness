@@ -3,10 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.ltmb.fitness.scene.startapp1.StartApp1ViewModel" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -48,9 +50,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:layout_marginTop="10dp">
+                android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="30dp"
@@ -60,16 +62,15 @@
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="8dp"
                     android:layout_height="20dp"
-                    app:cornerRadius="8dp"
                     android:layout_marginHorizontal="6dp"
-                    android:backgroundTint="?colorDivider"/>
+                    android:backgroundTint="?colorDivider"
+                    app:cornerRadius="8dp" />
 
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="8dp"
                     android:layout_height="20dp"
-                    app:cornerRadius="8dp"
                     android:backgroundTint="?colorDivider"
-                   />
+                    app:cornerRadius="8dp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -78,30 +79,32 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
 
-            android:orientation="horizontal"
             android:gravity="bottom"
-            android:padding="20dp"
-            >
+            android:orientation="horizontal"
+            android:padding="20dp">
+
             <Button
                 android:layout_width="0dp"
-                android:layout_weight="0.45"
                 android:layout_height="60dp"
-                app:cornerRadius="60dp"
-                android:textColor="?colorPrimary"
+                android:layout_weight="0.45"
                 android:backgroundTint="?colorInputBackground"
-                android:text="@string/start_app_skip"/>
+                android:text="@string/start_app_skip"
+                android:textColor="?colorPrimary"
+                app:cornerRadius="60dp" />
+
             <Space
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.1"/>
+                android:layout_weight="0.1" />
+
             <Button
                 android:layout_width="0dp"
-                android:layout_weight="0.45"
                 android:layout_height="60dp"
-                app:cornerRadius="60dp"
-                android:textSize="12sp"
+                android:layout_weight="0.45"
                 android:onClick="@{() -> viewModel.onClickContinue()}"
-                android:text="@string/start_app_continue"/>
+                android:text="@string/start_app_continue"
+                android:textSize="12sp"
+                app:cornerRadius="60dp" />
         </LinearLayout>
     </LinearLayout>
 </layout>

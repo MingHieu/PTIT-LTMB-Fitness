@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.ltmb.fitness.scene.getstarted.GetStartedViewModel" />
     </data>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,8 +58,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:text="@string/get_started_signup"
                 android:onClick="@{()-> viewModel.onClickSignup()}"
+                android:text="@string/get_started_signup"
                 app:cornerRadius="60dp" />
 
             <Button
@@ -66,8 +67,8 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="?colorInputBackground"
-                android:text="@string/get_started_login"
                 android:onClick="@{()-> viewModel.onClickLogin()}"
+                android:text="@string/get_started_login"
                 android:textColor="?colorPrimary"
                 app:cornerRadius="60dp" />
 

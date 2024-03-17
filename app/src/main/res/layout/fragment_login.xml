@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -30,82 +29,83 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lg_title"
                     android:textColor="@color/black"
                     android:textSize="28sp"
-                    android:textStyle="bold"
-                    />
+                    android:textStyle="bold" />
+
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="26dp"
                     android:layout_marginStart="10dp"
-                    android:src="@drawable/ic_wave"
-                    />
+                    android:src="@drawable/ic_wave" />
             </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/lg_sub_title"
                 android:layout_marginTop="14dp"
                 android:lineSpacingExtra="6dp"
-                android:textSize="16sp"
-                />
+                android:text="@string/lg_sub_title"
+                android:textSize="16sp" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="@string/lg_email"
                 android:textColor="@color/black"
-                android:layout_marginTop="20dp"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
+
             <com.ltmb.fitness.widget.inputview.InputView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:hint="@string/lg_email"
                 android:textColorHint="?colorInputTextHintColor"
                 app:iv_background="?colorInputBackground"
                 app:iv_left_icon="@drawable/ic_mail"
-                app:iv_left_icon_tint="?colorText"
-                android:layout_marginTop="12dp"
-                android:layout_height="wrap_content"/>
+                app:iv_left_icon_tint="?colorText" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="@string/lg_password"
                 android:textColor="@color/black"
-                android:layout_marginTop="20dp"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <com.ltmb.fitness.widget.inputview.InputView
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
                 android:hint="@string/lg_password"
+                android:inputType="textPassword"
                 android:textColorHint="?colorInputTextHintColor"
                 app:iv_background="?colorInputBackground"
                 app:iv_left_icon="@drawable/ic_lock"
-                app:iv_left_icon_tint="?colorText"
-                android:layout_marginTop="12dp"
-                android:inputType="textPassword"
-                android:layout_height="wrap_content"/>
+                app:iv_left_icon_tint="?colorText" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginVertical="20dp"
-                android:gravity="end">
+                android:gravity="end"
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/lg_forgot_password"
-                    android:textColor="?colorPrimary"
-                    />
+                    android:textColor="?colorPrimary" />
             </LinearLayout>
+
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="60dp"

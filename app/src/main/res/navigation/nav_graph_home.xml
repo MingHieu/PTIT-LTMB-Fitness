@@ -27,7 +27,7 @@
             app:popExitAnim="@anim/slide_out_bottom" />
         <action
             android:id="@+id/to_workout_plan_detail"
-            app:destination="@id/workoutPlanDetailFragment2"
+            app:destination="@+id/nav_graph_workout_plan"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
@@ -58,7 +58,7 @@
 
         <action
             android:id="@+id/to_workout_plan_detail"
-            app:destination="@id/workoutPlanDetailFragment2"
+            app:destination="@+id/nav_graph_workout_plan"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
@@ -72,7 +72,7 @@
         tools:layout="@layout/fragment_bookmark_workout_plan">
         <action
             android:id="@+id/to_workout_plan_detail"
-            app:destination="@id/workoutPlanDetailFragment2"
+            app:destination="@+id/nav_graph_workout_plan"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
@@ -91,50 +91,4 @@
         android:name="com.ltmb.fitness.scene.createworkoutplan.CreateWorkoutPlanFragment"
         android:label="CreateWorkoutPlanFragment"
         tools:layout="@layout/fragment_create_workout_plan" />
-
-    <fragment
-        android:id="@+id/workoutPlanDetailFragment2"
-        android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
-        android:label="WorkoutPlanDetailFragment"
-        tools:layout="@layout/fragment_workout_plan_detail">
-        <action
-            android:id="@+id/to_workout_detail"
-            app:destination="@id/workoutDetailFragment"
-            app:enterAnim="@anim/slide_in_bottom"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/workoutDetailFragment"
-        android:name="com.ltmb.fitness.scene.workoutdetail.WorkoutDetailFragment"
-        android:label="WorkoutDetailFragment"
-        tools:layout="@layout/fragment_workout_detail">
-        <action
-            android:id="@+id/to_workout_finish"
-            app:destination="@id/workoutFinishFragment2"
-            app:enterAnim="@anim/slide_in_bottom"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom"
-            app:popUpTo="@id/workoutPlanDetailFragment2"
-            app:popUpToInclusive="false" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/workoutFinishFragment2"
-        android:name="com.ltmb.fitness.scene.workoutfinish.WorkoutFinishFragment"
-        android:label="WorkoutFinishFragment"
-        tools:layout="@layout/fragment_workout_finish">
-        <action
-            android:id="@+id/to_home"
-            app:destination="@+id/nav_graph_all"
-            app:enterAnim="@anim/slide_in_bottom"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom"
-            app:popUpTo="@id/nav_graph_all"
-            app:popUpToInclusive="true" />
-    </fragment>
 </navigation>

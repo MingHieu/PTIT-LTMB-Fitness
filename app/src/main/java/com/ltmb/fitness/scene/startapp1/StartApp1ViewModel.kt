@@ -9,7 +9,7 @@ import javax.inject.Inject
 class StartApp1ViewModel @Inject constructor(
     application: Application,
 ) : BaseAndroidViewModel(application) {
-    fun onClickContinue(){
+    fun onClickContinue() {
         navigate(StartApp1FragmentDirections.toStartApp2())
     }
 }

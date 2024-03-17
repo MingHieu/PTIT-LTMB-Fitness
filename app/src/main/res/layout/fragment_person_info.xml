@@ -19,8 +19,8 @@
         <com.ltmb.fitness.widget.actionbarview.ActionBarView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:abv_viewModel="@{viewModel}"
-            app:abv_title="@string/profile" />
+            app:abv_title="@string/profile"
+            app:abv_viewModel="@{viewModel}" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                 android:textColorHint="?colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="italic"
-                app:iv_background="?colorSearchViewBackground"
+                app:iv_background="?colorInputBackground"
                 tools:hint="Duy" />
 
             <TextView
@@ -93,7 +93,7 @@
                 android:textColorHint="?colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="italic"
-                app:iv_background="?colorSearchViewBackground"
+                app:iv_background="?colorInputBackground"
                 tools:hint="DuyLH1109" />
 
             <TextView
@@ -114,7 +114,7 @@
                 android:textColorHint="?colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="italic"
-                app:iv_background="?colorSearchViewBackground"
+                app:iv_background="?colorInputBackground"
                 tools:hint="*********" />
 
             <TextView
@@ -136,22 +136,21 @@
                 android:textColorHint="?colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="italic"
-                app:iv_background="?colorSearchViewBackground"
+                app:iv_background="?colorInputBackground"
                 tools:hint="duy1192002@gmai.com" />
 
 
-
-               <com.google.android.material.button.MaterialButton
-                   android:layout_marginTop="4dp"
-                   android:layout_gravity="center"
-                   android:backgroundTint="?colorSearchViewTextHintColor"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:text="@string/delete_account"
-                   android:textColor="?colorWarring"
-                   android:textStyle="bold"
-                   app:cornerRadius="32dp"
-                   android:stateListAnimator="@null"/>
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="?colorInputBackground"
+                android:stateListAnimator="@null"
+                android:text="@string/delete_account"
+                android:textColor="?colorWarring"
+                android:textStyle="bold"
+                app:cornerRadius="32dp" />
         </LinearLayout>
 
     </LinearLayout>

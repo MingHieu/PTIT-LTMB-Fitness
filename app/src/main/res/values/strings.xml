@@ -69,7 +69,7 @@
     <string name="description_input_hint">Ex: Suitable for all fitness levels, this plan ensures efficient muscle stimulation and optimal growth</string>
     <string name="workouts_input_label">Workouts</string>
 
-    <!--    Login-->
+    <!-- Login-->
     <string name="lg_title">Welcome Back</string>
     <string name="lg_sub_title">Sign in to access your personalized workouts and track your progress</string>
     <string name="lg_email">Email</string>
@@ -77,7 +77,7 @@
     <string name="lg_forgot_password">Forgot Password</string>
     <string name="lg_login">Login</string>
 
-    <!--    Start app-->
+    <!-- Start app-->
     <string name="start_app_name">Zenfit</string>
     <string name="start_app_skip">Skip</string>
     <string name="start_app_continue">Continue</string>
@@ -88,7 +88,7 @@
     <string name="start_app_3_title">Stay Informed About Your Fitness Progress</string>
     <string name="start_app_3_sub_title">Stay motivated and track your progress effortlessly. Start your fitness journey today and achieve the results you are always wanted.</string>
 
-    <!--    Get started-->
+    <!-- Get started-->
     <string name="get_started_title">Let\'s Get Started!</string>
     <string name="get_started_sub_title">Embank on a fitness and workout adventure</string>
     <string name="get_started_login">Login</string>
@@ -96,7 +96,7 @@
     <string name="get_started_policy">Privacy Policy • Terms of Service</string>
 
 
-    <!--    Signup-->
+    <!-- Signup-->
     <string name="signup_title">Create Your Account</string>
     <string name="signup_sub_title">Sign up now to get access to personalized workouts and achieve your fitness goals.</string>
     <string name="signup_email">Email</string>
@@ -109,6 +109,9 @@
     <!-- Food-->
     <string name="search_meal">Search meal plan …</string>
     <string name="meal_plan_screen_title">Meal Plan</string>
+    <string name="calories">Calories</string>
+    <string name="sugars">Sugars</string>
+    <string name="protein">Protein</string>
 
     <!-- Profile-->
     <string name="profile">Profile</string>

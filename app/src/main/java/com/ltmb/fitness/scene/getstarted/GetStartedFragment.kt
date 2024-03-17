@@ -6,7 +6,6 @@ import com.ltmb.fitness.databinding.FragmentGetStartedBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class GetStartedFragment: BaseFragment<GetStartedViewModel, FragmentGetStartedBinding>()
-{
+class GetStartedFragment : BaseFragment<GetStartedViewModel, FragmentGetStartedBinding>() {
     override val layoutId get() = R.layout.fragment_get_started
 }

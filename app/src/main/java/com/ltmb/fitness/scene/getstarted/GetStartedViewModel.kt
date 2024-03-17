@@ -8,11 +8,12 @@ import javax.inject.Inject
 @HiltViewModel
 class GetStartedViewModel @Inject constructor(
     application: Application
-) :BaseAndroidViewModel(application) {
-    fun onClickLogin(){
+) : BaseAndroidViewModel(application) {
+    fun onClickLogin() {
         navigate(GetStartedFragmentDirections.toLogin())
     }
-    fun onClickSignup(){
+
+    fun onClickSignup() {
         navigate(GetStartedFragmentDirections.toSignup())
     }
 }

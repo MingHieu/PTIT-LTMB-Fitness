@@ -19,10 +19,10 @@ class MealPlanViewModel @Inject constructor(
 
         for (i in 1..10) {
             val mealPlan = MealPlanUiModel(
-                id = i.toLong(),
+                id = "$i",
                 thumbnail = R.drawable.img_meal_sample,
                 name = "Meal $i",
-                kcal = (i*10).toDouble(),
+                kcal = (i * 10).toDouble(),
                 type = "Fruit",
             )
             mealPlansList.add(mealPlan)

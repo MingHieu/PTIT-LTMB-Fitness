@@ -8,8 +8,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SignupViewModel @Inject constructor(
     application: Application
-) :BaseAndroidViewModel(application){
-    fun onClickLogin(){
+) : BaseAndroidViewModel(application) {
+    fun onClickLogin() {
         navigate(SignupFragmentDirections.toSignupLogin())
     }
 }

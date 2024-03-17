@@ -10,6 +10,8 @@
 
     <include app:graph="@navigation/nav_graph_discover" />
 
+    <include app:graph="@navigation/nav_graph_workout_plan" />
+
     <include app:graph="@navigation/nav_graph_ranking" />
 
     <include app:graph="@navigation/nav_graph_progress" />
