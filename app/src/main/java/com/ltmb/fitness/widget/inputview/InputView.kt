@@ -152,12 +152,12 @@ class InputView @JvmOverloads constructor(
                 )
             }
 
-//            if (hasValue(R.styleable.InputView_android_textSize)) {
-//
-//                val textSize = getResourceId(R.styleable.InputView_android_textSize, 0)
-//                val textSizePixels = resources.getDimensionPixelSize(textSize).toFloat()
-//                binding.ivEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizePixels)
-//            }
+            if (hasValue(R.styleable.InputView_android_minLines)) {
+                val lines = getInt(R.styleable.InputView_android_minLines, 1)
+                binding.ivEditText.minLines = lines
+                binding.ivEditText.maxLines = 5
+            }
+            
             if (hasValue(R.styleable.InputView_android_textSize)) {
                 val textSize = getResourceId(
                     R.styleable.InputView_android_textSize,
@@ -177,7 +177,6 @@ class InputView @JvmOverloads constructor(
                 )
                 binding.ivEditText.setTypeface(null, textStyle)
             }
-
         }
     }
 

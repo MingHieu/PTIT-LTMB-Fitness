@@ -49,8 +49,8 @@
                     <com.ltmb.fitness.widget.actionbarview.ActionBarView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:abv_viewModel="@{viewModel}"
-                        app:abv_color="?colorWorkoutPlanDetailActionBar"/>
+                        app:abv_color="?colorWorkoutPlanDetailActionBar"
+                        app:abv_viewModel="@{viewModel}" />
                 </FrameLayout>
 
                 <LinearLayout
@@ -84,13 +84,14 @@
                     android:layout_height="wrap_content"
                     android:paddingHorizontal="16dp">
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
                         app:cardCornerRadius="10dp"
-                        app:cardUseCompatPadding="true">
+                        app:cardUseCompatPadding="true"
+                        app:strokeColor="@color/athens_gray"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -121,19 +122,20 @@
                                 android:textColor="?colorText" />
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
                         android:layout_width="10dp"
                         android:layout_height="0dp" />
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
                         app:cardCornerRadius="10dp"
-                        app:cardUseCompatPadding="true">
+                        app:cardUseCompatPadding="true"
+                        app:strokeColor="@color/athens_gray"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -164,19 +166,20 @@
                                 android:textColor="?colorText" />
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
 
                     <LinearLayout
                         android:layout_width="10dp"
                         android:layout_height="0dp" />
 
-                    <androidx.cardview.widget.CardView
+                    <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:background="@drawable/border"
                         app:cardCornerRadius="10dp"
-                        app:cardUseCompatPadding="true">
+                        app:cardUseCompatPadding="true"
+                        app:strokeColor="@color/athens_gray"
+                        app:strokeWidth="1dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -207,7 +210,7 @@
                                 android:textColor="?colorText" />
                         </LinearLayout>
 
-                    </androidx.cardview.widget.CardView>
+                    </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -227,14 +230,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp">
+            android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?colorDivider" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:stateListAnimator="@null"
-                android:text="@string/start_workout"
-                app:cornerRadius="32dp" />
+                android:padding="16dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> viewModel.onStartClick()}"
+                    android:stateListAnimator="@null"
+                    android:text="@string/start_workout"
+                    app:cornerRadius="32dp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </layout>

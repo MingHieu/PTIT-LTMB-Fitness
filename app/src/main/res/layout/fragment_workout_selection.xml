@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="com.ltmb.fitness.scene.workoutselection.WorkoutSelectionAdapter" />
+
+        <variable
+            name="viewModel"
+            type="com.ltmb.fitness.scene.workoutselection.WorkoutSelectionViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_top_radius"
+        android:backgroundTint="?colorBackground"
+        android:orientation="vertical">
+
+        <com.ltmb.fitness.widget.inputview.InputView
+            android:id="@+id/search_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="@string/search_workout"
+            android:textColorHint="?colorInputTextHintColor"
+            app:iv_background="?colorInputBackground"
+            app:iv_left_icon="@drawable/ic_search"
+            app:iv_left_icon_tint="?colorText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="16dp"
+            app:adapter="@{adapter}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:submitList="@{viewModel.workouts}"
+            tools:listitem="@layout/item_search" />
+    </LinearLayout>
+</layout>

@@ -1,27 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="adapter"
+            type="com.ltmb.fitness.scene.bookmarkworkoutplan.BookmarkWorkoutPlanAdapter" />
 
         <variable
             name="viewModel"
             type="com.ltmb.fitness.scene.bookmarkworkoutplan.BookmarkWorkoutPlanViewModel" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="?colorBackground"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.ltmb.fitness.widget.actionbarview.ActionBarView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:abv_onRightIconClick="@{() -> viewModel.onAddButtonClick()}"
+                    app:abv_right_icon="@drawable/ic_add"
+                    app:abv_title="@string/bookmark_workout_plan_screen_title"
+                    app:abv_viewModel="@{viewModel}" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/workout_plan_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="false"
+                    android:clipToPadding="false"
+                    android:paddingHorizontal="16dp"
+                    app:adapter="@{adapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:submitList="@{viewModel.bookmarkWorkoutPlans}"
+                    tools:listitem="@layout/item_bookmark_workout_plan" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{viewModel.selecting ? View.VISIBLE : View.GONE}">
 
-            <com.ltmb.fitness.widget.actionbarview.ActionBarView
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?colorDivider" />
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:abv_title="@string/bookmark_workout_plan_screen_title"
-                app:abv_viewModel="@{viewModel}" />
+                android:gravity="center"
+                android:padding="6dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:onClick="@{() -> viewModel.setSelectingValue(false)}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_cancel" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/common_cancel"
+                            android:textColor="?colorText"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:onClick="@{() -> viewModel.deleteItems()}"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_delete"
+                            app:tint="?colorError" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/common_delete"
+                            android:textColor="?colorError"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 </layout>

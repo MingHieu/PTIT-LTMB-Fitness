@@ -11,9 +11,9 @@
         <attr name="android:inputType" />
         <attr name="android:textColor" format="reference" />
         <attr name="android:textColorHint" format="reference" />
+        <attr name="android:minLines" format="reference" />
         <attr name="android:textSize" format="reference" />
         <attr name="android:textStyle" format="reference" />
-
     </declare-styleable>
 
     <declare-styleable name="ActionBarView">
@@ -33,17 +33,14 @@
     <attr name="colorWorkoutSubTitle" format="color" />
     <attr name="colorWorkoutPlanTitle" format="color" />
     <attr name="colorWorkoutPlanSubTitle" format="color" />
-    <attr name="colorSearchViewBackground" format="color" />
-    <attr name="colorSearchViewTextHintColor" format="color" />
+    <attr name="colorInputBackground" format="color" />
+    <attr name="colorInputTextHintColor" format="color" />
     <attr name="colorDiscoverScreenCardText" format="color" />
     <attr name="colorDiscoverScreenCardSurface" format="color" />
     <attr name="colorBodyAreaText" format="color" />
     <attr name="colorBodyAreaSurface" format="color" />
     <attr name="colorWorkoutPlanDetailActionBar" format="color" />
-    <attr name="colorSecondary" format="color"/>
-    <attr name="colorPrimary" format="color"/>
+    <attr name="colorError" format="color" />
+    <attr name="colorDivider" format="color" />
     <attr name="colorWarring" format="color"/>
-
-
-
 </resources>

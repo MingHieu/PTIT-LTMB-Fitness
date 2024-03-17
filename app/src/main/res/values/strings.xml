@@ -5,6 +5,16 @@
     <string name="common_ok">OK</string>
     <string name="common_cancel">Cancel</string>
     <string name="search_workout">Search workout plan …</string>
+    <string name="common_delete">Delete</string>
+    <string name="common_pause">Pause</string>
+    <string name="common_previous">Previous</string>
+    <string name="common_skip">Skip</string>
+    <string name="common_save">Save</string>
+    <string name="common_require">*</string>
+    <string name="search_all_filter">All</string>
+    <string name="search_workout_filter">Workout</string>
+    <string name="search_food_filter">Food</string>
+    <string name="results">Results</string>
 
     <!-- Home -->
     <string name="home_screen_title">Home</string>
@@ -13,6 +23,9 @@
 
     <!-- Bookmark -->
     <string name="bookmark_workout_plan_screen_title">Workout Plan Bookmark</string>
+    <string name="bookmark_workout_plan_select_all">Select all</string>
+    <string name="bookmark_workout_plan_cancel">Cancel</string>
+    <string name="bookmark_workout_plan_delete">Delete</string>
 
     <!-- Body Area -->
     <string name="body_area_screen_title">Body Focus Area</string>
@@ -25,6 +38,9 @@
 
     <!-- Ranking -->
     <string name="ranking_screen_title">Ranking</string>
+    <string name="ranking_tab_icon1"> Daily Training Hours </string>
+    <string name="ranking_tab_icon2"> Weekly Training Days </string>
+    <string name="ranking_tab_icon3"> Total Training Days </string>
 
     <!-- Progress -->
     <string name="progress_screen_title">Progress</string>
@@ -39,15 +55,27 @@
     <string name="kcal">kcal</string>
     <string name="start_workout">start</string>
 
-    <!--    food-->
+    <!-- Workout -->
+    <string name="congratulations">Congratulations!</string>
+    <string name="completed_workout">You\'ve completed the workout!</string>
+    <string name="go_home">Go to Homepage</string>
+    <string name="view_report">View Report</string>
+
+    <!-- Create Workout Plan -->
+    <string name="create_workout_plan_screen_title">Create Workout Plan</string>
+    <string name="name_input_label">Name</string>
+    <string name="name_input_hint">Ex: Gain Weight Quickly</string>
+    <string name="description_input_label">Description</string>
+    <string name="description_input_hint">Ex: Suitable for all fitness levels, this plan ensures efficient muscle stimulation and optimal growth</string>
+    <string name="workouts_input_label">Workouts</string>
+  
+    <!-- Food-->
     <string name="search_meal">Search meal plan …</string>
     <string name="meal_plan_screen_title">Meal Plan</string>
 
-
-    <!--    ProFile-->
+    <!-- Profile-->
     <string name="profile">Profile</string>
     <string name="change_avatar">Change avatar</string>
     <string name="name">Name</string>
     <string name="delete_account">Delete Account</string>
-
 </resources>

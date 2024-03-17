@@ -12,13 +12,13 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1">
 
             <ImageView
                 android:id="@+id/abv_left_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginEnd="10dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/ic_back" />
         </LinearLayout>
@@ -38,6 +38,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:gravity="end">
 
@@ -45,7 +46,6 @@
                 android:id="@+id/abv_right_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginEnd="10dp"
                 android:adjustViewBounds="true" />
         </LinearLayout>
     </LinearLayout>

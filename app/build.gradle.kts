@@ -80,6 +80,13 @@ dependencies {
     implementation("com.google.firebase:firebase-storage")
     implementation("com.google.firebase:firebase-messaging")
 
+    // Lottie
+    implementation("com.airbnb.android:lottie:6.4.0")
+    
+    // Lombok
+    compileOnly("org.projectlombok:lombok:1.18.30")
+    
     //Circle Image
     implementation("de.hdodenhof:circleimageview:2.1.0")
+
 }
