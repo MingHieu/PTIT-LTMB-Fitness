@@ -12,6 +12,10 @@ sealed class SearchUiModel : ListAdapterItem, Serializable {
     open fun getImagePath(): String = "https://placehold.co/100x100"
 }
 
+enum class SearchFilter {
+    ALL, WORKOUT, FOOD
+}
+
 data class ExerciseSearchUiModel(
     override val id: Long,
     val name: String,

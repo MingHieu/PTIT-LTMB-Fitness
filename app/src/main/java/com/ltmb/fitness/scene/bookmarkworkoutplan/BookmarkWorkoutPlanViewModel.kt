@@ -37,7 +37,9 @@ class BookmarkWorkoutPlanViewModel @Inject constructor(
         _bookmarkWorkoutPlans.value = workoutPlansList
     }
 
-    fun onAddButtonClick() {}
+    fun onAddButtonClick() {
+        navigate(BookmarkWorkoutPlanFragmentDirections.toCreateWorkoutPlan())
+    }
 
     fun changeItemSelecting(isSelecting: Boolean) {
         val workoutPlansList = _bookmarkWorkoutPlans.value!!.map {

@@ -15,16 +15,30 @@
             android:defaultValue="true" />
         <action
             android:id="@+id/to_search"
-            app:destination="@id/searchFragment" />
+            app:destination="@id/searchFragment"
+            app:enterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out" />
         <action
             android:id="@+id/to_body_area"
-            app:destination="@id/bodyAreaFragment" />
+            app:destination="@id/bodyAreaFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
         <action
             android:id="@+id/to_workout_plan_detail"
-            app:destination="@id/workoutPlanDetailFragment2" />
+            app:destination="@id/workoutPlanDetailFragment2"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
         <action
             android:id="@+id/to_bookmark_workout_plan"
-            app:destination="@id/bookmarkWorkoutPlanFragment" />
+            app:destination="@id/bookmarkWorkoutPlanFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
@@ -40,7 +54,11 @@
         tools:layout="@layout/fragment_body_area">
         <action
             android:id="@+id/to_workout_plan_detail"
-            app:destination="@id/workoutPlanDetailFragment2" />
+            app:destination="@id/workoutPlanDetailFragment2"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
@@ -50,8 +68,25 @@
         tools:layout="@layout/fragment_bookmark_workout_plan">
         <action
             android:id="@+id/to_workout_plan_detail"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
             app:destination="@id/workoutPlanDetailFragment2" />
+        <action
+            android:id="@+id/to_create_workout_plan"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:destination="@id/createWorkoutPlanFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/createWorkoutPlanFragment"
+        android:name="com.ltmb.fitness.scene.createworkoutplan.CreateWorkoutPlanFragment"
+        android:label="CreateWorkoutPlanFragment"
+        tools:layout="@layout/fragment_create_workout_plan" />
 
     <fragment
         android:id="@+id/workoutPlanDetailFragment2"
@@ -60,7 +95,11 @@
         tools:layout="@layout/fragment_workout_plan_detail">
         <action
             android:id="@+id/to_workout_detail"
-            app:destination="@id/workoutDetailFragment" />
+            app:destination="@id/workoutDetailFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
@@ -71,8 +110,12 @@
         <action
             android:id="@+id/to_workout_finish"
             app:destination="@id/workoutFinishFragment2"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/workoutPlanDetailFragment2"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="false" />
     </fragment>
 
     <fragment
@@ -83,6 +126,10 @@
         <action
             android:id="@+id/to_home"
             app:destination="@+id/nav_graph_all"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/nav_graph_all"
             app:popUpToInclusive="true" />
     </fragment>

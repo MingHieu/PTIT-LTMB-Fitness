@@ -140,6 +140,12 @@ class InputView @JvmOverloads constructor(
                     )
                 )
             }
+
+            if (hasValue(R.styleable.InputView_android_minLines)) {
+                val lines = getInt(R.styleable.InputView_android_minLines, 1)
+                binding.ivEditText.minLines = lines
+                binding.ivEditText.maxLines = 5
+            }
         }
     }
 
