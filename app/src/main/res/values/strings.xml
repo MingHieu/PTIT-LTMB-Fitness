@@ -105,4 +105,14 @@
     <string name="signup_have_account">Already have an account?</string>
     <string name="signup_login">Login</string>
     <string name="signup">Sign up</string>
+  
+    <!-- Food-->
+    <string name="search_meal">Search meal plan …</string>
+    <string name="meal_plan_screen_title">Meal Plan</string>
+
+    <!-- Profile-->
+    <string name="profile">Profile</string>
+    <string name="change_avatar">Change avatar</string>
+    <string name="name">Name</string>
+    <string name="delete_account">Delete Account</string>
 </resources>

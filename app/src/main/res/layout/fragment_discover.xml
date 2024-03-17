@@ -28,13 +28,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="@{() -> viewModel.goToWorkoutPlan()}"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
+                    android:onClick="@{() -> viewModel.goToWorkoutPlan()}"
                     app:cardCornerRadius="8dp">
 
                     <FrameLayout
@@ -68,6 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="16dp"
+                    android:onClick="@{() -> viewModel.goToMealPlane()}"
                     app:cardCornerRadius="8dp">
 
                     <FrameLayout

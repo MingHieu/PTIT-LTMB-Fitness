@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.data.repository.AuthRepository
 import com.ltmb.fitness.internal.util.Failure
+import com.ltmb.fitness.scene.discover.DiscoverFragmentDirections
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,5 +25,9 @@ class LoginViewModel @Inject constructor(
             }
             navigate(LoginFragmentDirections.toHome())
         }
+    }
+
+    fun goToPersonInfor() {
+        navigate(LoginFragmentDirections.toPersonInfoFragment())
     }
 }
