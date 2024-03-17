@@ -2,8 +2,17 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph_auth"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/startAppFragment">
 
+
+    <fragment
+        android:id="@+id/startAppFragment"
+        android:name="com.ltmb.fitness.scene.startapp.StartAppFragment"
+        android:label="StartAppFragment" >
+        <action
+            android:id="@+id/action_startAppFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.ltmb.fitness.scene.login.LoginFragment"
