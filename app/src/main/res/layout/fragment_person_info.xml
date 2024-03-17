@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ltmb.fitness.scene.personinfor.PersonInfoViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorBackground"
+        android:orientation="vertical">
+
+        <com.ltmb.fitness.widget.actionbarview.ActionBarView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:abv_viewModel="@{viewModel}"
+            app:abv_title="@string/profile" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/img_avatar"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/change_avatar"
+                android:textColor="?colorPrimary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="Change avatar" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:text="@string/name"
+                android:textColor="?colorText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Name" />
+
+            <com.ltmb.fitness.widget.inputview.InputView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:textColorHint="?colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:iv_background="?colorSearchViewBackground"
+                tools:hint="Duy" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"
+                android:text="@string/name"
+                android:textColor="?colorText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="User" />
+
+            <com.ltmb.fitness.widget.inputview.InputView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:text="@string/change_avatar"
+                android:textColorHint="?colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:iv_background="?colorSearchViewBackground"
+                tools:hint="DuyLH1109" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"
+                android:text="@string/name"
+                android:textColor="?colorText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="PassWord" />
+
+            <com.ltmb.fitness.widget.inputview.InputView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:textColorHint="?colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:iv_background="?colorSearchViewBackground"
+                tools:hint="*********" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="6dp"
+                android:text="@string/name"
+                android:textColor="?colorText"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:text="Email" />
+
+            <com.ltmb.fitness.widget.inputview.InputView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/name"
+                android:text="@string/change_avatar"
+                android:textColorHint="?colorPrimary"
+                android:textSize="18sp"
+                android:textStyle="italic"
+                app:iv_background="?colorSearchViewBackground"
+                tools:hint="duy1192002@gmai.com" />
+
+
+
+               <com.google.android.material.button.MaterialButton
+                   android:layout_marginTop="4dp"
+                   android:layout_gravity="center"
+                   android:backgroundTint="?colorSearchViewTextHintColor"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/delete_account"
+                   android:textColor="?colorWarring"
+                   android:textStyle="bold"
+                   app:cornerRadius="32dp"
+                   android:stateListAnimator="@null"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

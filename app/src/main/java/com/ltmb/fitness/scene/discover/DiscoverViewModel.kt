@@ -13,4 +13,8 @@ class DiscoverViewModel @Inject constructor(
     fun goToWorkoutPlan() {
         navigate(DiscoverFragmentDirections.toWorkoutPlanFragment())
     }
+
+    fun goToMealPlane() {
+        navigate(DiscoverFragmentDirections.toMealPlanFragment())
+    }
 }

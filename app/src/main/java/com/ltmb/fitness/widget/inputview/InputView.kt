@@ -1,8 +1,10 @@
 package com.ltmb.fitness.widget.inputview
 
 import android.content.Context
+import android.graphics.Typeface
 import android.text.InputType
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
@@ -42,6 +44,15 @@ class InputView @JvmOverloads constructor(
         readAttributes(attrs)
         bindOnClickListeners()
         listenEditTextTextChanged()
+
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.InputView)
+        val textSizePx = typedArray.getDimensionPixelSize(R.styleable.InputView_android_textSize, -1)
+        if (textSizePx != -1) {
+            binding.ivEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizePx.toFloat())
+        }
+        typedArray.recycle()
+
+
     }
 
     private fun readAttributes(attrs: AttributeSet?) {
@@ -145,6 +156,26 @@ class InputView @JvmOverloads constructor(
                 val lines = getInt(R.styleable.InputView_android_minLines, 1)
                 binding.ivEditText.minLines = lines
                 binding.ivEditText.maxLines = 5
+            }
+            
+            if (hasValue(R.styleable.InputView_android_textSize)) {
+                val textSize = getResourceId(
+                    R.styleable.InputView_android_textSize,
+                    0
+                )
+                // Kiểm tra nếu textSize là một dimen resource ID
+                if (textSize != 0 && resources.getResourceTypeName(textSize) == "dimen") {
+                    val textSizePx = resources.getDimensionPixelSize(textSize)
+                    binding.ivEditText.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSizePx.toFloat())
+                }
+            }
+
+            if (hasValue(R.styleable.InputView_android_textStyle)) {
+                val textStyle = getInt(
+                    R.styleable.InputView_android_textStyle,
+                    Typeface.NORMAL
+                )
+                binding.ivEditText.setTypeface(null, textStyle)
             }
         }
     }

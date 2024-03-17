@@ -68,4 +68,14 @@
     <string name="description_input_label">Description</string>
     <string name="description_input_hint">Ex: Suitable for all fitness levels, this plan ensures efficient muscle stimulation and optimal growth</string>
     <string name="workouts_input_label">Workouts</string>
+  
+    <!-- Food-->
+    <string name="search_meal">Search meal plan …</string>
+    <string name="meal_plan_screen_title">Meal Plan</string>
+
+    <!-- Profile-->
+    <string name="profile">Profile</string>
+    <string name="change_avatar">Change avatar</string>
+    <string name="name">Name</string>
+    <string name="delete_account">Delete Account</string>
 </resources>

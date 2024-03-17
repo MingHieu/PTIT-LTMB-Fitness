@@ -37,6 +37,7 @@
         <item name="colorWorkoutPlanDetailActionBar">@color/white</item>
         <item name="colorError">@color/red</item>
         <item name="colorDivider">@color/bombay</item>
+        <item name="colorWarring">#EC0B0B</item>
     </style>
 
     <style name="CheckBoxTheme" parent="AppTheme">
