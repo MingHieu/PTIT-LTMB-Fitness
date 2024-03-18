@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseAndroidViewModel
+import com.ltmb.fitness.scene.discover.DiscoverFragmentDirections
 import com.ltmb.fitness.uimodel.MealPlanUiModel
 import javax.inject.Inject
 
@@ -24,11 +25,16 @@ class MealPlanViewModel @Inject constructor(
                 name = "Meal $i",
                 kcal = (i * 10).toDouble(),
                 type = "Fruit",
+                categorie = "Muscle"
             )
             mealPlansList.add(mealPlan)
         }
 
         _mealPlane.value = mealPlansList
+    }
+
+    fun goToMealPlanDetail() {
+        navigate(MealPlanFragmentDirections.toMealPlanDetailFragment())
     }
 
 }

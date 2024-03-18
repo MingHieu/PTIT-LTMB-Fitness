@@ -3,11 +3,13 @@ package com.ltmb.fitness.uimodel
 import com.ltmb.fitness.base.ListAdapterItem
 import java.io.Serializable
 
-data class MealPlanUiModel(
+data class MealPlanDetailUiModel(
     override val id: String,
     val thumbnail: Int,
     val name: String,
-    val kcal: Double,
-    val type: String,
-    val categorie: String
-) : ListAdapterItem, Serializable
+    val description: String,
+    val calors: Double,
+    val sugars: Double,
+    val protein: Double,
+
+    ) : ListAdapterItem, Serializable

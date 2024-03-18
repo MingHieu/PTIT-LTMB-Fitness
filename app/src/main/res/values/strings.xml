@@ -113,6 +113,11 @@
     <string name="sugars">Sugars</string>
     <string name="protein">Protein</string>
 
+
+    <string name="muscle">Muscle</string>
+
+    <string name="more_like_this">More Like This:</string>
+
     <!-- Profile-->
     <string name="profile">Profile</string>
     <string name="change_avatar">Change avatar</string>
