@@ -118,4 +118,13 @@
     <string name="change_avatar">Change avatar</string>
     <string name="name">Name</string>
     <string name="delete_account">Delete Account</string>
+
+    <!--    Select-->
+    <string name="select_skip">Skip</string>
+    <string name="select_continue">Continue</string>
+    <string name="select_gender_status">1/10</string>
+    <string name="select_gender_title">Select Your Gender</string>
+    <string name="select_gender_sub_title">Help us understand you better.</string>
+    <string name="select_gender_male">Man</string>
+    <string name="select_gender_female">Woman</string>
 </resources>

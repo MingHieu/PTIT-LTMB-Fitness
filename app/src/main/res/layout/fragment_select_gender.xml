@@ -1,13 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent">
+
+            <com.ltmb.fitness.widget.actionbarview.ActionBarView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:abv_title=""
+                app:abv_viewModel="" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="80dp"
+                android:max="100"
+                android:progress="10"
+                android:progressTint="?colorPrimary" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="20dp"
+                android:gravity="end|center"
+                android:text="@string/select_gender_status"
+                android:textColor="?colorText"
+                android:textSize="16sp" />
+        </FrameLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Select gender" />
+            android:gravity="center"
+            android:text="@string/select_gender_title"
+            android:textColor="?colorText"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/select_gender_sub_title"
+            android:textColor="?colorSubText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            tools:ignore="UselessLeaf">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="435dp"
+                            app:tint="?colorPrimary"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitEnd"
+                            android:src="@drawable/ic_select_eclip" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_marginTop="30dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/img_select_male" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/select_gender_male"
+                    android:textColor="?colorText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="435dp"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitEnd"
+                            app:tint="?colorInputTextHintColor"
+                            android:src="@drawable/ic_select_eclip" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_marginTop="30dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/img_select_female" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/select_gender_female"
+                    android:textColor="?colorText"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="0.45"
+                android:backgroundTint="?colorInputBackground"
+                android:text="@string/start_app_skip"
+                android:textColor="?colorPrimary"
+                app:cornerRadius="60dp" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.1" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_weight="0.45"
+                android:text="@string/start_app_continue"
+                android:textSize="12sp"
+                app:cornerRadius="60dp" />
+        </LinearLayout>
     </LinearLayout>
+
 
 </layout>
