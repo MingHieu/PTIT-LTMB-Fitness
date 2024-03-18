@@ -79,19 +79,19 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:layout_marginHorizontal="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="435dp"
-                            app:tint="?colorPrimary"
+                            android:layout_marginHorizontal="15dp"
                             android:importantForAccessibility="no"
                             android:scaleType="fitEnd"
-                            android:src="@drawable/ic_select_eclip" />
+                            android:src="@drawable/ic_select_eclip"
+                            app:tint="?colorPrimary" />
                     </LinearLayout>
 
                     <ImageView
-                        android:layout_marginTop="30dp"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
+                        android:layout_marginTop="30dp"
                         android:importantForAccessibility="no"
                         android:src="@drawable/img_select_male" />
 
@@ -123,19 +123,19 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:layout_marginHorizontal="15dp"
                             android:layout_width="match_parent"
                             android:layout_height="435dp"
+                            android:layout_marginHorizontal="15dp"
                             android:importantForAccessibility="no"
                             android:scaleType="fitEnd"
-                            app:tint="?colorInputTextHintColor"
-                            android:src="@drawable/ic_select_eclip" />
+                            android:src="@drawable/ic_select_eclip"
+                            app:tint="?colorInputTextHintColor" />
                     </LinearLayout>
 
                     <ImageView
-                        android:layout_marginTop="30dp"
                         android:layout_width="match_parent"
                         android:layout_height="400dp"
+                        android:layout_marginTop="30dp"
                         android:importantForAccessibility="no"
                         android:src="@drawable/img_select_female" />
 
