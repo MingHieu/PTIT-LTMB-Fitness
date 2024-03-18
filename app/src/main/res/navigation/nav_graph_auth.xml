@@ -52,6 +52,9 @@
             app:destination="@+id/nav_graph_home"
             app:popUpTo="@id/nav_graph_all"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/to_select_gender"
+            app:destination="@id/selectGenderFragment" />
     </fragment>
 
     <fragment
@@ -62,4 +65,8 @@
             android:id="@+id/to_signup_login"
             app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/selectGenderFragment"
+        android:name="com.ltmb.fitness.scene.selectgender.SelectGenderFragment"
+        android:label="SelectGenderFragment" />
 </navigation>

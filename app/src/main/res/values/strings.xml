@@ -127,4 +127,17 @@
     <string name="select_gender_sub_title">Help us understand you better.</string>
     <string name="select_gender_male">Man</string>
     <string name="select_gender_female">Woman</string>
+
+    <string name="select_end_title">Creating Personalized Workout Plan For You</string>
+    <string name="select_end_sub_title">Please Wait...</string>
+    <string name="select_end_progress">75%</string>
+    <string name="select_end_continue">This will just take a moment. Get ready to transform your fitness journey!</string>
+
+    <string name="select_get_started_title">Your Workout Plan is Ready!</string>
+    <string name="select_get_started_sub_title">Your personalized workout plan has been generated based on your goals &amp; fitness level.</string>
+    <string name="select_get_started_img_name">Full Body Stretching</string>
+    <string name="select_get_started_img_title">20 mins • Intermediate</string>
+    <string name="select_get_started_goto">Go to Homepage</string>
+    <string name="select_get_started">Get Started</string>
+
 </resources>
