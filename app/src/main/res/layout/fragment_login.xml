@@ -112,6 +112,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:stateListAnimator="@null"
                 android:onClick="@{() -> viewModel.onClickLogin()}"
                 android:text="@string/lg_login"
                 app:cornerRadius="60dp" />

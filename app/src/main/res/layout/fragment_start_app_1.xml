@@ -89,6 +89,7 @@
                 android:layout_weight="0.45"
                 android:backgroundTint="?colorInputBackground"
                 android:text="@string/start_app_skip"
+                android:stateListAnimator="@null"
                 android:textColor="?colorPrimary"
                 app:cornerRadius="60dp" />
 
@@ -104,6 +105,7 @@
                 android:onClick="@{() -> viewModel.onClickContinue()}"
                 android:text="@string/start_app_continue"
                 android:textSize="12sp"
+                android:stateListAnimator="@null"
                 app:cornerRadius="60dp" />
         </LinearLayout>
     </LinearLayout>

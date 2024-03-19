@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_auth"
-    app:startDestination="@id/startApp1Fragment">
+    app:startDestination="@id/startAppFragment">
+
+    <fragment
+        android:id="@+id/startAppFragment"
+        android:name="com.ltmb.fitness.scene.startapp.StartAppFragment"
+        android:label="StartAppFragment"
+        tools:layout="@layout/fragment_start_app" >
+        <action
+            android:id="@+id/to_start_app_1"
+            app:destination="@id/startApp1Fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/startApp1Fragment"
         android:name="com.ltmb.fitness.scene.startapp1.StartApp1Fragment"
-        android:label="StartApp1Fragment">
+        android:label="StartApp1Fragment"
+        tools:layout="@layout/fragment_start_app_1">
         <action
             android:id="@+id/to_start_app_2"
             app:destination="@id/startApp2Fragment" />
@@ -15,6 +27,7 @@
 
     <fragment
         android:id="@+id/startApp2Fragment"
+        tools:layout="@layout/fragment_start_app_2"
         android:name="com.ltmb.fitness.scene.startapp2.StartApp2Fragment"
         android:label="StartApp2Fragment">
         <action
@@ -24,6 +37,7 @@
 
     <fragment
         android:id="@+id/startApp3Fragment"
+        tools:layout="@layout/fragment_start_app_3"
         android:name="com.ltmb.fitness.scene.startapp3.StartApp3Fragment"
         android:label="StartApp3Fragment">
         <action
@@ -33,6 +47,7 @@
 
     <fragment
         android:id="@+id/getStartedFragment"
+        tools:layout="@layout/fragment_get_started"
         android:name="com.ltmb.fitness.scene.getstarted.GetStartedFragment"
         android:label="GetStartedFragment">
         <action
@@ -45,6 +60,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
+        tools:layout="@layout/fragment_login"
         android:name="com.ltmb.fitness.scene.login.LoginFragment"
         android:label="LoginFragment">
         <action
@@ -59,14 +75,18 @@
 
     <fragment
         android:id="@+id/signupFragment"
+        tools:layout="@layout/fragment_signup"
         android:name="com.ltmb.fitness.scene.signup.SignupFragment"
         android:label="SignupFragment">
         <action
             android:id="@+id/to_signup_login"
             app:destination="@id/loginFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/selectGenderFragment"
+        tools:layout="@layout/fragment_select_gender"
         android:name="com.ltmb.fitness.scene.selectgender.SelectGenderFragment"
         android:label="SelectGenderFragment" />
+
 </navigation>
