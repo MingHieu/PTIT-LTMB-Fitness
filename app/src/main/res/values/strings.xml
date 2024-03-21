@@ -15,6 +15,8 @@
     <string name="search_workout_filter">Workout</string>
     <string name="search_food_filter">Food</string>
     <string name="results">Results</string>
+    <string name="text">Text</string>
+    <string name="video">Video</string>
 
     <!-- Home -->
     <string name="home_screen_title">Home</string>
