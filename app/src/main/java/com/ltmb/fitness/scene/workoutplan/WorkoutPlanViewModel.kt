@@ -5,8 +5,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.uimodel.WorkoutPlanUiModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
+@HiltViewModel
 class WorkoutPlanViewModel @Inject constructor(
     application: Application
 ) : BaseAndroidViewModel(application) {

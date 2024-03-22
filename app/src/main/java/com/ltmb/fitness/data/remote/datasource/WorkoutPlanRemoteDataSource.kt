@@ -1,27 +1,20 @@
 package com.ltmb.fitness.data.remote.datasource
 
+import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ltmb.fitness.data.remote.BaseRemoteDataSource
 import com.ltmb.fitness.data.remote.FirestoreCollections
+import com.ltmb.fitness.data.remote.model.workout.WorkoutModel
+import com.ltmb.fitness.data.remote.model.workoutplan.WorkoutPlanDetailModel
 import com.ltmb.fitness.data.remote.model.workoutplan.WorkoutPlanModel
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class WorkoutPlanRemoteDataSource @Inject constructor(
-    private val firestore: FirebaseFirestore,
+    firestore: FirebaseFirestore,
 ) : BaseRemoteDataSource() {
 
     private val collection = firestore.collection(FirestoreCollections.WORKOUT_PLAN)
-
-    suspend fun getWorkoutPlanList() = invoke {
-        val result = mutableListOf<WorkoutPlanModel>()
-        val querySnapshot = collection.get().await()
-        for (document in querySnapshot.documents) {
-            val model = document.toObject(WorkoutPlanModel::class.java)
-            model?.let { result.add(it) }
-        }
-        result
-    }
 
     suspend fun getWorkoutPlanListByBodyArea(bodyAreaId: String) = invoke {
         collection
@@ -34,5 +27,29 @@ class WorkoutPlanRemoteDataSource @Inject constructor(
                 }
             }
             .toList()
+    }
+
+    suspend fun getWorkoutPlanDetail(workoutPlanId: String) = invoke {
+        val workoutPlanDocument = collection.document(workoutPlanId).get().await()
+        val workoutPlanData = workoutPlanDocument.data
+
+        workoutPlanData?.let { data ->
+            val workouts = (data["workouts"] as? List<DocumentReference>)
+                ?.mapNotNull { workoutReference ->
+                    workoutReference.get().await().toObject(WorkoutModel::class.java)
+                } ?: emptyList()
+
+            WorkoutPlanDetailModel(
+                id = workoutPlanId,
+                name = data["name"] as? String ?: "",
+                description = data["description"] as? String ?: "",
+                thumbnail = data["thumbnail"] as? String ?: "",
+                level = data["level"] as? String ?: "",
+                duration = data["duration"] as? Long ?: 0,
+                kcal = data["kcal"] as? Long ?: 0,
+                bodyAreaId = data["bodyAreaId"] as? String ?: "",
+                workouts = workouts
+            )
+        }
     }
 }

@@ -35,7 +35,10 @@ fun setImageResource(view: ImageView, res: Int) {
 }
 
 @BindingAdapter("imageUrl")
-fun setImageUrl(view: ImageView, url: String) {
+fun setImageUrl(view: ImageView, url: String?) {
+    if (url.isNullOrEmpty()) {
+        return
+    }
     Picasso.get()
         .load(url)
         .placeholder(R.drawable.animation_skeleton)

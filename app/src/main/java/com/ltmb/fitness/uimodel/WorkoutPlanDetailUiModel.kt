@@ -7,13 +7,13 @@ import com.ltmb.fitness.internal.util.functional.convertSecondsToMinutes
 import java.io.Serializable
 
 data class WorkoutPlanDetailUiModel(
-    override val id: String,
-    val thumbnail: String,
-    val name: String,
-    val description: String,
-    val workouts: List<WorkoutUiModel>,
-    val duration: Long,
-    val kcal: Long,
+    override val id: String = "",
+    val thumbnail: String = "",
+    val name: String = "",
+    val description: String = "",
+    val workouts: List<WorkoutUiModel> = listOf(),
+    val duration: Long = 0,
+    val kcal: Long = 0,
 ) : ListAdapterItem, Serializable {
 
     @RequiresApi(Build.VERSION_CODES.O)

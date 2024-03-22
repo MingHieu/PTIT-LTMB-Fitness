@@ -19,21 +19,26 @@ class WorkoutDetailFragment : BaseFragment<WorkoutDetailViewModel, FragmentWorko
 
         viewModel.tutorialType.observeNonNull(viewLifecycleOwner) {
             val textColor = getColorInTheme(requireContext(), R.attr.colorText)
-            val primaryColor = getColorInTheme(requireContext(), androidx.appcompat.R.attr.colorPrimary)
-            val onPrimaryColor = getColorInTheme(requireContext(), com.google.android.material.R.attr.colorOnPrimary)
+            val primaryColor =
+                getColorInTheme(requireContext(), androidx.appcompat.R.attr.colorPrimary)
+            val onPrimaryColor =
+                getColorInTheme(requireContext(), com.google.android.material.R.attr.colorOnPrimary)
             val transparentColor = ContextCompat.getColor(requireContext(), R.color.transparent)
 
             when (it) {
                 TutorialType.TEXT -> {
                     binding.textSelection.backgroundTintList = ColorStateList.valueOf(primaryColor)
                     binding.textSelectionTitle.setTextColor(onPrimaryColor)
-                    binding.videoSelection.backgroundTintList = ColorStateList.valueOf(transparentColor)
+                    binding.videoSelection.backgroundTintList =
+                        ColorStateList.valueOf(transparentColor)
                     binding.videoSelectionTitle.setTextColor(textColor)
                 }
+
                 TutorialType.VIDEO -> {
                     binding.videoSelection.backgroundTintList = ColorStateList.valueOf(primaryColor)
                     binding.videoSelectionTitle.setTextColor(onPrimaryColor)
-                    binding.textSelection.backgroundTintList = ColorStateList.valueOf(transparentColor)
+                    binding.textSelection.backgroundTintList =
+                        ColorStateList.valueOf(transparentColor)
                     binding.textSelectionTitle.setTextColor(textColor)
                 }
             }

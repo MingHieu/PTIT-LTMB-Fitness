@@ -18,8 +18,8 @@ class BodyAreaFragment : BaseFragment<BodyAreaViewModel, FragmentBodyAreaBinding
         viewModel.getWorkoutPlanList(args.bodyArea.id)
 
         binding.workoutPlanAdapter = WorkoutPlanAdapter(object : WorkoutPlanCallback {
-            override fun onItemClick() {
-                viewModel.onWorkoutPlanItemClick()
+            override fun onItemClick(workoutPlanId: String) {
+                viewModel.onWorkoutPlanItemClick(workoutPlanId)
             }
         })
     }

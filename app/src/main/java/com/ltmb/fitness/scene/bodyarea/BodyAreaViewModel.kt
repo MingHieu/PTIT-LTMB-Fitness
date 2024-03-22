@@ -20,8 +20,8 @@ class BodyAreaViewModel @Inject constructor(
     private val _workoutPlans = MutableLiveData<List<WorkoutPlanUiModel>>()
     val workoutPlans: LiveData<List<WorkoutPlanUiModel>> = _workoutPlans
 
-    fun onWorkoutPlanItemClick() {
-        navigate(BodyAreaFragmentDirections.toWorkoutPlanDetail())
+    fun onWorkoutPlanItemClick(workoutPlanId: String) {
+        navigate(BodyAreaFragmentDirections.toWorkoutPlanDetail(workoutPlanId))
     }
 
     fun getWorkoutPlanList(bodyAreaId: String) {
