@@ -205,4 +205,8 @@ class InputView @JvmOverloads constructor(
             imm.showSoftInput(binding.ivEditText, InputMethodManager.SHOW_IMPLICIT)
         }, 100)
     }
+
+    fun setValue(value: String) {
+        binding.ivEditText.setText(value)
+    }
 }
