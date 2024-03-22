@@ -1,4 +1,4 @@
-package com.ltmb.fitness.scene.workoutselection
+package com.ltmb.fitness.widget.workoutselection
 
 import android.app.Application
 import androidx.lifecycle.LiveData

@@ -14,7 +14,7 @@ import javax.inject.Inject
 @HiltViewModel
 class BodyAreaViewModel @Inject constructor(
     application: Application,
-    private val workoutPlanRepository: WorkoutPlanRepository
+    private val workoutPlanRepository: WorkoutPlanRepository,
 ) : BaseAndroidViewModel(application) {
 
     private val _workoutPlans = MutableLiveData<List<WorkoutPlanUiModel>>()
@@ -25,10 +25,14 @@ class BodyAreaViewModel @Inject constructor(
     }
 
     fun getWorkoutPlanList(bodyAreaId: String) {
+        if (_workoutPlans.value != null) {
+            return
+        }
         viewModelScope.launch {
+            setLoading(true)
             val workoutPlanList = workoutPlanRepository.getWorkoutPlanList(bodyAreaId)
-            println(workoutPlanList)
             _workoutPlans.value = workoutPlanList
+            setLoading(false)
         }
     }
 }

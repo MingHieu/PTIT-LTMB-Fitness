@@ -13,6 +13,7 @@ class BodyAreaFragment : BaseFragment<BodyAreaViewModel, FragmentBodyAreaBinding
 
     override fun initialize() {
         super.initialize()
+
         binding.actionBar.setTitle(args.bodyArea.name)
 
         viewModel.getWorkoutPlanList(args.bodyArea.id)

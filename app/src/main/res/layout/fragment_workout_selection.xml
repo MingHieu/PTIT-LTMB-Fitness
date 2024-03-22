@@ -7,11 +7,11 @@
 
         <variable
             name="adapter"
-            type="com.ltmb.fitness.scene.workoutselection.WorkoutSelectionAdapter" />
+            type="com.ltmb.fitness.widget.workoutselection.WorkoutSelectionAdapter" />
 
         <variable
             name="viewModel"
-            type="com.ltmb.fitness.scene.workoutselection.WorkoutSelectionViewModel" />
+            type="com.ltmb.fitness.widget.workoutselection.WorkoutSelectionViewModel" />
     </data>
 
     <LinearLayout

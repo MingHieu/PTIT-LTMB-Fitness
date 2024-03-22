@@ -28,9 +28,6 @@ class SearchViewModel @Inject constructor(
     private val _filterSelected = MutableLiveData(SearchFilter.ALL)
     val filterSelected: LiveData<SearchFilter> = _filterSelected
 
-    private val _loading = MutableLiveData(false)
-    val loading: LiveData<Boolean> = _loading
-
     init {
         _searchResults.value = listOf(
             ExerciseSearchUiModel(
