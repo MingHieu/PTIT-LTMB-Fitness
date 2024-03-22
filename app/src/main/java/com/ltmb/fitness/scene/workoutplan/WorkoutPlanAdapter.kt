@@ -7,7 +7,7 @@ import com.ltmb.fitness.internal.extension.executeAfter
 import com.ltmb.fitness.uimodel.WorkoutPlanUiModel
 
 interface WorkoutPlanCallback {
-    fun onItemClick()
+    fun onItemClick(workoutPlanId: String)
 }
 
 class WorkoutPlanAdapter(private val workoutPlanCb: WorkoutPlanCallback) :

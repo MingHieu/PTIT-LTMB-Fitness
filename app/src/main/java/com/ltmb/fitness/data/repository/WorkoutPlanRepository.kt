@@ -11,7 +11,19 @@ class WorkoutPlanRepository @Inject constructor(
     private val remoteDataSource: WorkoutPlanRemoteDataSource
 ) {
 
-    suspend fun getWorkoutPlanList(bodyAreaId: String): List<WorkoutPlanUiModel> {
+    suspend fun getWorkoutPlanList(keySearch: String = ""): List<WorkoutPlanUiModel> {
+        var workoutPlanList = listOf<WorkoutPlanUiModel>()
+        try {
+            workoutPlanList = remoteDataSource
+                .getWorkoutPlanList(keySearch)
+                .map { it.toWorkoutPlanUiModel() }
+        } catch (e: Exception) {
+            println(e)
+        }
+        return workoutPlanList
+    }
+
+    suspend fun getWorkoutPlanListByBodyAreaId(bodyAreaId: String): List<WorkoutPlanUiModel> {
         var workoutPlanList = listOf<WorkoutPlanUiModel>()
         try {
             workoutPlanList = remoteDataSource

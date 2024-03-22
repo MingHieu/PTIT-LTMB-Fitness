@@ -30,7 +30,7 @@ class BodyAreaViewModel @Inject constructor(
         }
         viewModelScope.launch {
             setLoading(true)
-            val workoutPlanList = workoutPlanRepository.getWorkoutPlanList(bodyAreaId)
+            val workoutPlanList = workoutPlanRepository.getWorkoutPlanListByBodyAreaId(bodyAreaId)
             _workoutPlans.value = workoutPlanList
             setLoading(false)
         }

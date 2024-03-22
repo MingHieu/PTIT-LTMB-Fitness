@@ -23,7 +23,7 @@ fun setOnClick(input: InputView, cb: () -> Unit) {
 }
 
 @BindingAdapter("iv_onTextChanged")
-fun setOnTextChanged(input: InputView, cb: (text: String) -> Unit) {
+fun setOnTextChanged(input: InputView, cb: ((text: String) -> Unit)) {
     input.onTextChanged = cb
 }
 

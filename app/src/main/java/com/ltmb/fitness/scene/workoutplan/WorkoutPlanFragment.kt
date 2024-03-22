@@ -13,9 +13,13 @@ class WorkoutPlanFragment : BaseFragment<WorkoutPlanViewModel, FragmentWorkoutPl
     override fun initialize() {
         super.initialize()
 
+        binding.searchBox.onTextChanged = { text ->
+            viewModel.onSearch(text)
+        }
+
         binding.workoutPlanAdapter = WorkoutPlanAdapter(object : WorkoutPlanCallback {
-            override fun onItemClick() {
-                viewModel.onWorkoutPlanItemClick()
+            override fun onItemClick(workoutPlanId: String) {
+                viewModel.onWorkoutPlanItemClick(workoutPlanId)
             }
         })
     }
