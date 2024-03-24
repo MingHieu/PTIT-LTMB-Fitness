@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.ltmb.fitness.scene.selectgender.SelectGenderViewModel" />
-    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,8 +17,7 @@
             <com.ltmb.fitness.widget.actionbarview.ActionBarView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:abv_title=""
-                app:abv_viewModel="@{viewModel}" />
+                app:abv_title="" />
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
@@ -33,7 +26,7 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="80dp"
                 android:max="100"
-                android:progress="10"
+                android:progress="30"
                 android:progressTint="?colorPrimary" />
 
 
@@ -42,7 +35,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="20dp"
                 android:gravity="end|center"
-                android:text="@string/select_gender_status"
+                android:text="@string/select_age_status"
                 android:textColor="?colorText"
                 android:textSize="16sp" />
         </FrameLayout>
@@ -51,7 +44,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/select_gender_title"
+            android:text="@string/select_age_title"
             android:textColor="?colorText"
             android:textSize="26sp"
             android:textStyle="bold" />
@@ -61,18 +54,20 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="@string/select_gender_sub_title"
+            android:text="@string/select_age_sub_title"
             android:textColor="?colorSubText" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
+            android:gravity="center"
             tools:ignore="UselessLeaf">
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+            <NumberPicker
+                android:id="@+id/numberPickerAge"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 

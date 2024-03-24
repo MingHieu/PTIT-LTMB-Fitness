@@ -128,6 +128,11 @@
     <string name="select_gender_male">Man</string>
     <string name="select_gender_female">Woman</string>
 
+    <!--    Select age-->
+    <string name="select_age_status">3/10</string>
+    <string name="select_age_title">Enter Your Age</string>
+    <string name="select_age_sub_title">Your age helps us design suitable workouts.</string>
+
     <string name="select_end_title">Creating Personalized Workout Plan For You</string>
     <string name="select_end_sub_title">Please Wait...</string>
     <string name="select_end_progress">75%</string>

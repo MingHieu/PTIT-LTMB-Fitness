@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_auth"
-    app:startDestination="@id/startAppFragment">
+    app:startDestination="@id/reportFragment">
 
     <fragment
         android:id="@+id/startAppFragment"
@@ -23,6 +23,9 @@
         <action
             android:id="@+id/to_start_app_2"
             app:destination="@id/startApp2Fragment" />
+        <action
+            android:id="@+id/to_getStarted"
+            app:destination="@id/getStartedFragment" />
     </fragment>
 
     <fragment
@@ -33,6 +36,9 @@
         <action
             android:id="@+id/to_start_app_3"
             app:destination="@id/startApp3Fragment" />
+        <action
+            android:id="@+id/action_startApp2Fragment_to_getStartedFragment"
+            app:destination="@id/getStartedFragment" />
     </fragment>
 
     <fragment
@@ -87,6 +93,20 @@
         android:id="@+id/selectGenderFragment"
         tools:layout="@layout/fragment_select_gender"
         android:name="com.ltmb.fitness.scene.selectgender.SelectGenderFragment"
-        android:label="SelectGenderFragment" />
+        android:label="SelectGenderFragment" >
+        <action
+            android:id="@+id/to_select_age"
+            app:destination="@id/selectAgeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectAgeFragment"
+        tools:layout="@layout/fragment_select_age"
+        android:name="com.ltmb.fitness.scene.selectage.SelectAgeFragment"
+        android:label="SelectAgeFragment" />
+    <fragment
+        android:id="@+id/reportFragment"
+        tools:layout="@layout/fragment_report"
+        android:name="com.ltmb.fitness.scene.report.ReportFragment"
+        android:label="ReportFragment" />
 
 </navigation>
