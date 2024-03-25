@@ -55,7 +55,7 @@
                 android:icon="@drawable/ic_gain_weight"
                 android:text="@string/ranking_tab_icon2"
                 android:textSize="16sp"
-
+                tools:text="Gain Weight"
                 />
 
             <com.google.android.material.tabs.TabItem
@@ -63,14 +63,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:icon="@drawable/ic_lose_weight"
-                android:text="@string/ranking_tab_icon3" />
+                android:text="@string/ranking_tab_icon3"
+                tools:text="Lose Weight"/>
 
             <com.google.android.material.tabs.TabItem
                 android:id="@+id/meal_tabItem4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:icon="@drawable/ic_favorite"
-                android:text="@string/ranking_tab_icon3" />
+                android:text="@string/ranking_tab_icon3"
+                tools:text="Favorite"/>
 
         </com.google.android.material.tabs.TabLayout>
 

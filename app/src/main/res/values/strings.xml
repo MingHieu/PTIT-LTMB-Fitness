@@ -123,4 +123,6 @@
     <string name="change_avatar">Change avatar</string>
     <string name="name">Name</string>
     <string name="delete_account">Delete Account</string>
+
+    <string name="workout_preferences">Workout Preferences</string>
 </resources>
