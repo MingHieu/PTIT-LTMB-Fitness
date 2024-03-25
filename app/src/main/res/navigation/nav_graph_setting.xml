@@ -21,6 +21,9 @@
         <action
             android:id="@+id/to_person_info"
             app:destination="@id/personInfoFragment" />
+        <action
+            android:id="@+id/to_workoutPreferencesFragment"
+            app:destination="@id/workoutPreferencesFragment" />
     </fragment>
 
     <fragment
@@ -28,4 +31,9 @@
         android:name="com.ltmb.fitness.scene.personinfor.PersonInfoFragment"
         android:label="PersonInfoFragment"
         tools:layout="@layout/fragment_person_info" />
+    <fragment
+        android:id="@+id/workoutPreferencesFragment"
+        android:name="com.ltmb.fitness.scene.workoutpreferences.WorkoutPreferencesFragment"
+        android:label="WorkoutPreferencesFragment"
+        tools:layout="@layout/fragment_workout_preferences"/>
 </navigation>
