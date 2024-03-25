@@ -11,10 +11,13 @@
     <string name="common_skip">Skip</string>
     <string name="common_save">Save</string>
     <string name="common_require">*</string>
+    <string name="search">Search</string>
     <string name="search_all_filter">All</string>
     <string name="search_workout_filter">Workout</string>
     <string name="search_food_filter">Food</string>
     <string name="results">Results</string>
+    <string name="text">Text</string>
+    <string name="video">Video</string>
 
     <!-- Home -->
     <string name="home_screen_title">Home</string>

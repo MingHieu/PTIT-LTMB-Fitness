@@ -19,7 +19,7 @@
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom"/>
+            app:popExitAnim="@anim/slide_out_bottom" />
         <action
             android:id="@+id/to_mealPlanFragment"
             app:destination="@id/mealPlanFragment"
@@ -40,7 +40,11 @@
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom" />
+            app:popExitAnim="@anim/slide_out_bottom">
+            <argument
+                android:name="workoutPlanId"
+                app:argType="string" />
+        </action>
     </fragment>
 
     <fragment
@@ -52,6 +56,7 @@
             android:id="@+id/to_mealPlanDetailFragment"
             app:destination="@id/mealPlanDetailFragment" />
     </fragment>
+  
     <fragment
         android:id="@+id/mealPlanDetailFragment"
         android:name="com.ltmb.fitness.scene.mealplandetail.MealPlanDetailFragment"

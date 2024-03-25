@@ -1,4 +1,4 @@
-package com.ltmb.fitness.scene.workoutselection
+package com.ltmb.fitness.widget.workoutselection
 
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseBottomSheetDialogFragment

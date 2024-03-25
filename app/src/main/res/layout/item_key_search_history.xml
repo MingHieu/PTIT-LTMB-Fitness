@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="callback"
+            type="com.ltmb.fitness.scene.search.KeySearchCallback" />
+
+        <variable
+            name="keySearch"
+            type="com.ltmb.fitness.uimodel.KeySearchUiModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:paddingVertical="16dp"
+        android:onClick="@{() -> callback.onItemClick(keySearch.value)}">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_history" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_weight="1"
+            android:text="@{keySearch.value}"
+            android:textColor="?colorText"
+            android:textSize="16sp"
+            tools:text="History" />
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_close"
+            android:onClick="@{() -> callback.onDeleteItem(keySearch.id)}"/>
+    </LinearLayout>
+</layout>
