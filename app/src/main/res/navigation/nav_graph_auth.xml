@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_auth"
-    app:startDestination="@id/reportFragment">
+    app:startDestination="@id/startAppFragment">
 
     <fragment
         android:id="@+id/startAppFragment"
@@ -102,11 +102,42 @@
         android:id="@+id/selectAgeFragment"
         tools:layout="@layout/fragment_select_age"
         android:name="com.ltmb.fitness.scene.selectage.SelectAgeFragment"
-        android:label="SelectAgeFragment" />
+        android:label="SelectAgeFragment" >
+        <action
+            android:id="@+id/to_select_height"
+            app:destination="@id/selectHeightFragment" />
+    </fragment>
     <fragment
         android:id="@+id/reportFragment"
         tools:layout="@layout/fragment_report"
         android:name="com.ltmb.fitness.scene.report.ReportFragment"
         android:label="ReportFragment" />
 
+    <fragment
+        android:id="@+id/selectHeightFragment"
+        tools:layout="@layout/fragment_select_height"
+        android:name="com.ltmb.fitness.scene.selectheight.SelectHeightFragment"
+        android:label="SelectHeightFragment" >
+        <action
+            android:id="@+id/to_select_weight"
+            app:destination="@id/selectWeightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectWeightFragment"
+        tools:layout="@layout/fragment_select_weight"
+        android:name="com.ltmb.fitness.scene.selectweight.SelectWeightFragment"
+        android:label="SelectWeightFragment" >
+        <action
+            android:id="@+id/to_select_plan"
+            app:destination="@id/selectPlanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectPlanFragment"
+        tools:layout="@layout/fragment_select_plan"
+        android:name="com.ltmb.fitness.scene.selectplan.SelectPlanFragment"
+        android:label="SelectPlanFragment" >
+        <action
+            android:id="@+id/to_main"
+            app:destination="@+id/nav_graph_home" />
+    </fragment>
 </navigation>

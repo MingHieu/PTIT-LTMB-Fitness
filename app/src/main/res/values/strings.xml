@@ -133,6 +133,21 @@
     <string name="select_age_title">Enter Your Age</string>
     <string name="select_age_sub_title">Your age helps us design suitable workouts.</string>
 
+    <!--    Select height-->
+    <string name="select_height_status">4/10</string>
+    <string name="select_height_title">Enter Your Height</string>
+    <string name="select_height_sub_title">Please provide your height in centimeters.</string>
+
+    <!--    Select weight-->
+    <string name="select_weight_status">5/10</string>
+    <string name="select_weight_title">Enter Your Weight</string>
+    <string name="select_weight_sub_title">Please provide your weight in kilograms.</string>
+
+    <!--    Select week plant-->
+    <string name="select_plan_status">10/10</string>
+    <string name="select_plan_title">Select Your Weekly Workout Plan</string>
+    <string name="select_plan_sub_title">How often do you plan to work out each week? Well create a schedule for you.</string>
+
     <string name="select_end_title">Creating Personalized Workout Plan For You</string>
     <string name="select_end_sub_title">Please Wait...</string>
     <string name="select_end_progress">75%</string>
@@ -144,5 +159,12 @@
     <string name="select_get_started_img_title">20 mins • Intermediate</string>
     <string name="select_get_started_goto">Go to Homepage</string>
     <string name="select_get_started">Get Started</string>
+
+    <!--    Report-->
+    <string name="report">Report</string>
+    <string name="report_workout">workouts</string>
+    <string name="report_minute">minutes</string>
+    <string name="report_kcal">kcal</string>
+    <string name="report_statistics">Statistics</string>
 
 </resources>

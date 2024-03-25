@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.ltmb.fitness.scene.selectage.SelectAgeViewModel" />
+            type="com.ltmb.fitness.scene.selectplan.SelectPlanViewModel" />
     </data>
 
     <LinearLayout
@@ -32,7 +32,7 @@
                 android:layout_gravity="center"
                 android:layout_marginHorizontal="80dp"
                 android:max="100"
-                android:progress="30"
+                android:progress="100"
                 android:progressTint="?colorPrimary" />
 
 
@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginEnd="20dp"
                 android:gravity="end|center"
-                android:text="@string/select_age_status"
+                android:text="@string/select_plan_status"
                 android:textColor="?colorText"
                 android:textSize="16sp" />
         </FrameLayout>
@@ -50,9 +50,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="@string/select_age_title"
+            android:paddingHorizontal="40dp"
+            android:lineSpacingExtra="8dp"
+            android:text="@string/select_plan_title"
             android:textColor="?colorText"
             android:textSize="26sp"
+            android:layout_marginBottom="16dp"
             android:textStyle="bold" />
 
         <TextView
@@ -60,7 +63,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
-            android:text="@string/select_age_sub_title"
+            android:paddingHorizontal="40dp"
+            android:lineSpacingExtra="8dp"
+            android:text="@string/select_plan_sub_title"
             android:textColor="?colorSubText" />
 
         <LinearLayout
@@ -78,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="?colorText"
-                android:text="Years"/>
+                android:text="Days"/>
 
         </LinearLayout>
 
@@ -111,8 +116,8 @@
                 android:stateListAnimator="@null"
                 android:layout_weight="0.45"
                 android:text="@string/start_app_continue"
-                android:onClick="@{()-> viewModel.onClickContinue()}"
                 android:textSize="12sp"
+                android:onClick="@{()-> viewModel.onClickContinue()}"
                 app:cornerRadius="60dp" />
         </LinearLayout>
     </LinearLayout>
