@@ -51,5 +51,15 @@
         android:id="@+id/mealPlanFragment"
         android:name="com.ltmb.fitness.scene.mealplan.MealPlanFragment"
         android:label="MealPlanFragment"
-        tools:layout="@layout/fragment_meal_plan" />
+        tools:layout="@layout/fragment_meal_plan">
+        <action
+            android:id="@+id/to_mealPlanDetailFragment"
+            app:destination="@id/mealPlanDetailFragment" />
+    </fragment>
+  
+    <fragment
+        android:id="@+id/mealPlanDetailFragment"
+        android:name="com.ltmb.fitness.scene.mealplandetail.MealPlanDetailFragment"
+        android:label="MealPlanDetailFragment"
+        tools:layout="@layout/fragment_meal_plan_detail"/>
 </navigation>

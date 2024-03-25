@@ -22,11 +22,59 @@
 
         <!--        <include layout="@layout/view_action_bar_view" />-->
 
-        <com.ltmb.fitness.widget.actionbarview.ActionBarView
+        <!--        <com.ltmb.fitness.widget.actionbarview.ActionBarView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:abv_title="@string/muscle"-->
+        <!--            app:abv_viewModel="@{viewModel}" />-->
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/meal_tabLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:abv_title="@string/meal_plan_screen_title"
-            app:abv_viewModel="@{viewModel}" />
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="fixed"
+            app:tabPaddingBottom="0dp"
+            app:tabPaddingEnd="0dp"
+            app:tabPaddingStart="5dp"
+            app:tabPaddingTop="5dp"
+            app:tabTextAppearance="@style/MyCustomTabLayoutRanking">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/meal_tabItem1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:icon="@drawable/ic_muscles"
+                android:text="@string/muscle"
+                android:textSize="16sp" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/meal_tabItem2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:icon="@drawable/ic_gain_weight"
+                android:text="@string/ranking_tab_icon2"
+                android:textSize="16sp"
+                tools:text="Gain Weight"
+                />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/ranking_tabItem3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:icon="@drawable/ic_lose_weight"
+                android:text="@string/ranking_tab_icon3"
+                tools:text="Lose Weight"/>
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/meal_tabItem4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:icon="@drawable/ic_favorite"
+                android:text="@string/ranking_tab_icon3"
+                tools:text="Favorite"/>
+
+        </com.google.android.material.tabs.TabLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -49,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:clipToPadding="false"
+                android:onClick="@{() -> viewModel.goToMealPlanDetail()}"
                 android:padding="16dp"
                 app:adapter="@{mealPlanAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

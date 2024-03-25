@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ltmb.fitness.scene.mealplandetail.MealPlanDetailViewModel" />
+
+    </data>
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,13 +24,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="@drawable/img_food_sample" />
+                android:background="@{viewModel.getDrawable(context,viewModel.mealPlan.thumbnail)}"
+                tools:background="@drawable/img_food_sample" />
 
             <com.ltmb.fitness.widget.actionbarview.ActionBarView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:abv_color="@color/white"
-                app:abv_title="" />
+                app:abv_title=""
+                app:abv_viewModel="@{viewModel}" />
         </FrameLayout>
 
         <ScrollView
@@ -56,6 +66,7 @@
                             android:textColor="?colorText"
                             android:textSize="24sp"
                             android:textStyle="bold"
+                            android:text="@{viewModel.mealPlan.name}"
                             tools:text="Spiced Chicken" />
 
                         <ImageView
@@ -72,6 +83,7 @@
                         android:lineSpacingExtra="6sp"
                         android:textColor="?colorSubText"
                         android:textSize="16sp"
+                        android:text="@{viewModel.mealPlan.description}"
                         tools:text="Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes. Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes. Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes. Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes." />
                 </LinearLayout>
 
@@ -113,6 +125,7 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="?colorText"
                                 android:textStyle="bold"
+                                android:text="@{Double.toString(viewModel.mealPlan.calors)}"
                                 tools:text="564" />
 
                         </LinearLayout>
@@ -156,6 +169,7 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="?colorText"
                                 android:textStyle="bold"
+                                android:text="@{Double.toString(viewModel.mealPlan.sugars) + `g`}"
                                 tools:text="2.8g" />
 
                         </LinearLayout>
@@ -199,12 +213,121 @@
                                 android:layout_height="wrap_content"
                                 android:textColor="?colorText"
                                 android:textStyle="bold"
+                                android:text="@{Double.toString(viewModel.mealPlan.protein) + `g`}"
                                 tools:text="33.3g" />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:layout_weight="1"
+                            android:textColor="?colorSubText"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            android:text="@string/more_like_this" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="1dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/border"
+                            app:cardCornerRadius="30dp"
+                            app:cardUseCompatPadding="true"
+                            imageUrl="@drawable/img_food_sample">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/img_food_sample" />
+
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="1dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/border"
+                            app:cardCornerRadius="30dp"
+                            app:cardUseCompatPadding="true"
+                            imageUrl="@drawable/img_food_sample">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/img_food_sample" />
+
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="1dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/border"
+                            app:cardCornerRadius="30dp"
+                            app:cardUseCompatPadding="true"
+                            imageUrl="@drawable/img_food_sample">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:src="@drawable/img_food_sample" />
+
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
         </ScrollView>
 
@@ -214,6 +337,8 @@
             android:layout_height="160dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="60dp"
-            android:src="@drawable/img_food_sample" />
+            android:imageResource="@{viewModel.mealPlan.thumbnail}"
+            tools:src="@drawable/img_food_sample" />
+
     </FrameLayout>
 </layout>
