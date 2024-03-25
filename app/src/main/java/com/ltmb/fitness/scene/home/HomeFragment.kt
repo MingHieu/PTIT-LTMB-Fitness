@@ -17,7 +17,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         super.initialize()
 
         binding.workoutPlanAdapter = WorkoutPlanAdapter(object : WorkoutPlanCallback {
-            override fun onItemClick() {
+//            override fun onItemClick() {
+//                viewModel.onWorkoutPlanClick()
+//            }
+
+            override fun onItemClick(workoutPlanId: String) {
                 viewModel.onWorkoutPlanClick()
             }
 
