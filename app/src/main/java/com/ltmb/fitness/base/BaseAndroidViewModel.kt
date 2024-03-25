@@ -15,6 +15,9 @@ abstract class BaseAndroidViewModel(application: Application) : AndroidViewModel
     private val _navigation = MutableLiveData<Event<NavigationCommand>>()
     val navigation: LiveData<Event<NavigationCommand>> = _navigation
 
+    private val _loading = MutableLiveData(false)
+    val loading: LiveData<Boolean> = _loading
+
     fun navigate(directions: NavDirections) {
         _navigation.value = Event(NavigationCommand.ToDirection(directions))
     }
@@ -33,6 +36,10 @@ abstract class BaseAndroidViewModel(application: Application) : AndroidViewModel
 
     fun navigateBack() {
         _navigation.value = Event(NavigationCommand.Back)
+    }
+
+    fun setLoading(value: Boolean) {
+        _loading.value = value
     }
 
     protected fun getString(@StringRes resId: Int): String {

@@ -18,6 +18,17 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
     override fun initialize() {
         super.initialize()
 
+        binding.keySearchHistoryAdapter = KeySearchHistoryAdapter(object : KeySearchCallback {
+            override fun onItemClick(keySearch: String) {
+                binding.searchBox.setValue(keySearch)
+            }
+
+            override fun onDeleteItem(id: String) {
+                viewModel.deleteKeySearchHistory(id)
+            }
+
+        })
+
         binding.searchAdapter = SearchAdapter(object : SearchCallback {
             override fun onSearchItemClick() {
                 TODO("Not yet implemented")

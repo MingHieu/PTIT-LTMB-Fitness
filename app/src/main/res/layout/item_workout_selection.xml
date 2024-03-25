@@ -9,7 +9,7 @@
 
         <variable
             name="callback"
-            type="com.ltmb.fitness.scene.workoutselection.WorkoutCallback" />
+            type="com.ltmb.fitness.widget.workoutselection.WorkoutCallback" />
 
         <variable
             name="workoutSelection"

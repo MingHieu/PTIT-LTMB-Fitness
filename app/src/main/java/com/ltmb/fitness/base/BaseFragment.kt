@@ -1,5 +1,6 @@
 package com.ltmb.fitness.base
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +13,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.createViewModelLazy
 import androidx.lifecycle.HasDefaultViewModelProviderFactory
-import androidx.navigation.NavOptions
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
@@ -69,6 +69,7 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
 
         observeNavigation()
         handleBackButton()
+        observeLoading()
     }
 
     private fun observeNavigation() {
@@ -101,18 +102,26 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
 
     open fun getExtras(): FragmentNavigator.Extras = FragmentNavigatorExtras()
 
-    open fun getNavOptions(): NavOptions {
-        return NavOptions.Builder()
-            .setEnterAnim(androidx.appcompat.R.anim.abc_slide_in_bottom)
-            .setExitAnim(androidx.appcompat.R.anim.abc_fade_out)
-            .setPopEnterAnim(androidx.appcompat.R.anim.abc_fade_in)
-            .setPopExitAnim(androidx.appcompat.R.anim.abc_slide_out_bottom)
-            .build()
-    }
-
     private fun handleBackButton() {
         view?.findViewById<ImageView>(R.id.action_back_button)?.setOnClickListener {
             viewModel.navigateBack()
+        }
+    }
+
+    private val loadingDialog: AlertDialog by lazy {
+        AlertDialog.Builder(requireContext(), R.style.TransparentDialog)
+            .setView(R.layout.view_loading)
+            .setCancelable(false)
+            .create()
+    }
+
+    private fun observeLoading() {
+        viewModel.loading.observeNonNull(viewLifecycleOwner) { isLoading ->
+            if (isLoading) {
+                loadingDialog.show()
+            } else {
+                loadingDialog.hide()
+            }
         }
     }
 }

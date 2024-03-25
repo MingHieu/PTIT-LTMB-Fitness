@@ -1,18 +1,24 @@
 package com.ltmb.fitness.scene.workoutplandetail
 
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
 import com.ltmb.fitness.databinding.FragmentWorkoutPlanDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WorkoutPlanDetailFragment :
     BaseFragment<WorkoutPlanDetailViewModel, FragmentWorkoutPlanDetailBinding>() {
 
     override val layoutId get() = R.layout.fragment_workout_plan_detail
+    private val args: WorkoutPlanDetailFragmentArgs by navArgs()
 
     override fun initialize() {
         super.initialize()
+
+        viewModel.getWorkoutPlanDetail(args.workoutPlanId)
 
         binding.workoutAdapter =
             WorkoutAdapter(object : WorkoutCallback {

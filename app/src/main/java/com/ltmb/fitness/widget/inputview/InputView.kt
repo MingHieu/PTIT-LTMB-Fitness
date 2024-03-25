@@ -23,7 +23,7 @@ fun setOnClick(input: InputView, cb: () -> Unit) {
 }
 
 @BindingAdapter("iv_onTextChanged")
-fun setOnTextChanged(input: InputView, cb: (text: String) -> Unit) {
+fun setOnTextChanged(input: InputView, cb: ((text: String) -> Unit)) {
     input.onTextChanged = cb
 }
 
@@ -204,5 +204,9 @@ class InputView @JvmOverloads constructor(
             val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.showSoftInput(binding.ivEditText, InputMethodManager.SHOW_IMPLICIT)
         }, 100)
+    }
+
+    fun setValue(value: String) {
+        binding.ivEditText.setText(value)
     }
 }
