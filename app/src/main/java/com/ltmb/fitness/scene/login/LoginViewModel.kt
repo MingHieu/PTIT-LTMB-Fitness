@@ -12,7 +12,7 @@ class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ) : BaseAndroidViewModel(application) {
 
-    fun onLoginClick() {
-        navigate(LoginFragmentDirections.toHome())
+    fun onClickLogin() {
+        navigate(LoginFragmentDirections.toSelectGender())
     }
 }

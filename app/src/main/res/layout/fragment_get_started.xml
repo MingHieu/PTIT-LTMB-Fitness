@@ -58,6 +58,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:stateListAnimator="@null"
                 android:onClick="@{()-> viewModel.onClickSignup()}"
                 android:text="@string/get_started_signup"
                 app:cornerRadius="60dp" />
@@ -66,6 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
+                android:stateListAnimator="@null"
                 android:backgroundTint="?colorInputBackground"
                 android:onClick="@{()-> viewModel.onClickLogin()}"
                 android:text="@string/get_started_login"

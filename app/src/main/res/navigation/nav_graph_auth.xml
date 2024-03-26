@@ -1,29 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_auth"
-    app:startDestination="@id/startApp1Fragment">
+    app:startDestination="@id/startAppFragment">
+
+    <fragment
+        android:id="@+id/startAppFragment"
+        android:name="com.ltmb.fitness.scene.startapp.StartAppFragment"
+        android:label="StartAppFragment"
+        tools:layout="@layout/fragment_start_app" >
+        <action
+            android:id="@+id/to_start_app_1"
+            app:destination="@id/startApp1Fragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/startApp1Fragment"
         android:name="com.ltmb.fitness.scene.startapp1.StartApp1Fragment"
-        android:label="StartApp1Fragment">
+        android:label="StartApp1Fragment"
+        tools:layout="@layout/fragment_start_app_1">
         <action
             android:id="@+id/to_start_app_2"
             app:destination="@id/startApp2Fragment" />
+        <action
+            android:id="@+id/to_getStarted"
+            app:destination="@id/getStartedFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/startApp2Fragment"
+        tools:layout="@layout/fragment_start_app_2"
         android:name="com.ltmb.fitness.scene.startapp2.StartApp2Fragment"
         android:label="StartApp2Fragment">
         <action
             android:id="@+id/to_start_app_3"
             app:destination="@id/startApp3Fragment" />
+        <action
+            android:id="@+id/action_startApp2Fragment_to_getStartedFragment"
+            app:destination="@id/getStartedFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/startApp3Fragment"
+        tools:layout="@layout/fragment_start_app_3"
         android:name="com.ltmb.fitness.scene.startapp3.StartApp3Fragment"
         android:label="StartApp3Fragment">
         <action
@@ -33,6 +53,7 @@
 
     <fragment
         android:id="@+id/getStartedFragment"
+        tools:layout="@layout/fragment_get_started"
         android:name="com.ltmb.fitness.scene.getstarted.GetStartedFragment"
         android:label="GetStartedFragment">
         <action
@@ -45,6 +66,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
+        tools:layout="@layout/fragment_login"
         android:name="com.ltmb.fitness.scene.login.LoginFragment"
         android:label="LoginFragment">
         <action
@@ -52,14 +74,70 @@
             app:destination="@+id/nav_graph_home"
             app:popUpTo="@id/nav_graph_all"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/to_select_gender"
+            app:destination="@id/selectGenderFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/signupFragment"
+        tools:layout="@layout/fragment_signup"
         android:name="com.ltmb.fitness.scene.signup.SignupFragment"
         android:label="SignupFragment">
         <action
             android:id="@+id/to_signup_login"
             app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectGenderFragment"
+        tools:layout="@layout/fragment_select_gender"
+        android:name="com.ltmb.fitness.scene.selectgender.SelectGenderFragment"
+        android:label="SelectGenderFragment" >
+        <action
+            android:id="@+id/to_select_age"
+            app:destination="@id/selectAgeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectAgeFragment"
+        tools:layout="@layout/fragment_select_age"
+        android:name="com.ltmb.fitness.scene.selectage.SelectAgeFragment"
+        android:label="SelectAgeFragment" >
+        <action
+            android:id="@+id/to_select_height"
+            app:destination="@id/selectHeightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportFragment"
+        tools:layout="@layout/fragment_report"
+        android:name="com.ltmb.fitness.scene.report.ReportFragment"
+        android:label="ReportFragment" />
+
+    <fragment
+        android:id="@+id/selectHeightFragment"
+        tools:layout="@layout/fragment_select_height"
+        android:name="com.ltmb.fitness.scene.selectheight.SelectHeightFragment"
+        android:label="SelectHeightFragment" >
+        <action
+            android:id="@+id/to_select_weight"
+            app:destination="@id/selectWeightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectWeightFragment"
+        tools:layout="@layout/fragment_select_weight"
+        android:name="com.ltmb.fitness.scene.selectweight.SelectWeightFragment"
+        android:label="SelectWeightFragment" >
+        <action
+            android:id="@+id/to_select_plan"
+            app:destination="@id/selectPlanFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/selectPlanFragment"
+        tools:layout="@layout/fragment_select_plan"
+        android:name="com.ltmb.fitness.scene.selectplan.SelectPlanFragment"
+        android:label="SelectPlanFragment" >
+        <action
+            android:id="@+id/to_main"
+            app:destination="@+id/nav_graph_home" />
     </fragment>
 </navigation>
