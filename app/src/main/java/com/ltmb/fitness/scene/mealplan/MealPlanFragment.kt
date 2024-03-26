@@ -11,7 +11,8 @@ class MealPlanFragment : BaseFragment<MealPlanViewModel, FragmentMealPlanBinding
         super.initialize()
         binding.mealPlanAdapter = MealPlanAdapter(object : MealPlanCallBack {
             override fun onItemClick() {
-                TODO("Not yet implemented")
+                viewModel.goToMealPlanDetail()
+//                TODO("Not yet implemented")
             }
         })
     }

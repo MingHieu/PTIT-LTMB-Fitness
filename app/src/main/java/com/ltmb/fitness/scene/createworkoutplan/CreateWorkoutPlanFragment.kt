@@ -4,7 +4,7 @@ import androidx.fragment.app.DialogFragment
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
 import com.ltmb.fitness.databinding.FragmentCreateWorkoutPlanBinding
-import com.ltmb.fitness.scene.workoutselection.WorkoutSelectionFragment
+import com.ltmb.fitness.widget.workoutselection.WorkoutSelectionFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

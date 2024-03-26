@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_workout_plan"
-    app:startDestination="@+id/workoutPlanDetailFragment"
-    xmlns:tools="http://schemas.android.com/tools">
+    app:startDestination="@+id/workoutPlanDetailFragment">
 
     <fragment
         android:id="@+id/workoutPlanDetailFragment"
         android:name="com.ltmb.fitness.scene.workoutplandetail.WorkoutPlanDetailFragment"
         android:label="WorkoutPlanDetailFragment"
         tools:layout="@layout/fragment_workout_plan_detail">
+        <argument
+            android:name="workoutPlanId"
+            app:argType="string" />
         <action
             android:id="@+id/to_workout_detail"
             app:destination="@id/workoutDetailFragment"

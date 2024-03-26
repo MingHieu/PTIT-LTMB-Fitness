@@ -9,4 +9,5 @@ data class MealPlanUiModel(
     val name: String,
     val kcal: Double,
     val type: String,
+    val categorie: String
 ) : ListAdapterItem, Serializable

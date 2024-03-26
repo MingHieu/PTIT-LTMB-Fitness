@@ -11,10 +11,13 @@
     <string name="common_skip">Skip</string>
     <string name="common_save">Save</string>
     <string name="common_require">*</string>
+    <string name="search">Search</string>
     <string name="search_all_filter">All</string>
     <string name="search_workout_filter">Workout</string>
     <string name="search_food_filter">Food</string>
     <string name="results">Results</string>
+    <string name="text">Text</string>
+    <string name="video">Video</string>
 
     <!-- Home -->
     <string name="home_screen_title">Home</string>
@@ -112,6 +115,8 @@
     <string name="calories">Calories</string>
     <string name="sugars">Sugars</string>
     <string name="protein">Protein</string>
+    <string name="muscle">Muscle</string>
+    <string name="more_like_this">More Like This:</string>
 
     <!-- Profile-->
     <string name="profile">Profile</string>
@@ -167,4 +172,42 @@
     <string name="report_kcal">kcal</string>
     <string name="report_statistics">Statistics</string>
 
+
+    <string name="workout_preferences">Workout Preferences</string>
+
+    <!--    Setting-->
+    <string name="settings">Settings</string>
+    <string name="personal_info">Personal Info</string>
+    <string name="account_security">Account &amp; Security</string>
+    <string name="billing_subscriptions">Billing &amp; Subscriptions</string>
+    <string name="payment_methods">Payment Methods</string>
+    <string name="linked_accounts">Linked Accounts</string>
+    <string name="app_appearance">Settings</string>
+    <string name="data_analytics">Data Analytics</string>
+    <string name="help_support">Hellp &amp; Support</string>
+    <string name="logout">Logout</string>
+    <string name="weight">Weight</string>
+    <string name="gender">Gender</string>
+    <string name="man">Man</string>
+    <string name="workout_focus_area">Workout Focus Area</string>
+    <string name="full_body">Full Body</string>
+    <string name="age">Age</string>
+    <string name="_28_years">28 years</string>
+    <string name="height">Height</string>
+    <string name="_185_cm">185 cm</string>
+    <string name="_76_kg">76 kg</string>
+    <string name="weekly_workout_plan">Weekly Workout Plan</string>
+    <string name="_4_days">4 days</string>
+    <string name="training_rest">Training Rest</string>
+    <string name="_20_secs">20 secs</string>
+    <string name="countdown_time">Countdown Time</string>
+    <string name="_10_secs">10 secs</string>
+    <string name="sound_options">Sound Options</string>
+    <string name="weight_unit">Weight Unit</string>
+    <string name="kg">kg</string>
+    <string name="height_unit">Height Unit</string>
+    <string name="cm">cm</string>
+    <string name="remind_me_to_workout">Remind me to Workout</string>
+    <string name="keep_the_screen_on">Keep the Screen On</string>
+    <string name="clear_cache">Clear Cache</string>
 </resources>
