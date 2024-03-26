@@ -1,10 +1,8 @@
 package com.ltmb.fitness.scene.report;
 
-import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.github.mikephil.charting.charts.BarChart;
@@ -21,6 +19,7 @@ import java.util.Random;
 public class ReportActivity extends AppCompatActivity {
 
     BarChart barChart;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +65,7 @@ public class ReportActivity extends AppCompatActivity {
 
     }
 
-    private ArrayList<BarEntry> barEntries(){
+    private ArrayList<BarEntry> barEntries() {
         ArrayList<BarEntry> barEntries = new ArrayList<>();
         Random random = new Random();
         barEntries.add(new BarEntry(1, 200 + random.nextInt(300)));

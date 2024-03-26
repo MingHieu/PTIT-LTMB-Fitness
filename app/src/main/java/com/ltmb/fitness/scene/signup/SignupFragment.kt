@@ -9,4 +9,20 @@ import dagger.hilt.android.AndroidEntryPoint
 class SignupFragment : BaseFragment<SignupViewModel, FragmentSignupBinding>() {
     override val layoutId get() = R.layout.fragment_signup
 
+    override fun initialize() {
+        super.initialize()
+
+        binding.inputEmail.onTextChanged = { text ->
+            viewModel.setEmail(text)
+        }
+
+        binding.inputPassword.onTextChanged = { text ->
+            viewModel.setPassword(text)
+        }
+
+        binding.inputConfirmPassword.onTextChanged = { text ->
+            viewModel.setConfirmPassword(text)
+        }
+    }
+
 }

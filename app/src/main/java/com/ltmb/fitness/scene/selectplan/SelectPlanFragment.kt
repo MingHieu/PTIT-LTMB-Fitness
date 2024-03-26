@@ -9,11 +9,10 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class SelectPlanFragment() : BaseFragment<SelectPlanViewModel, FragmentSelectPlanBinding>(){
+class SelectPlanFragment() : BaseFragment<SelectPlanViewModel, FragmentSelectPlanBinding>() {
     override val layoutId: Int get() = R.layout.fragment_select_plan
 
-    constructor(parcel: Parcel) : this() {
-    }
+    constructor(parcel: Parcel) : this()
 
     override fun initialize() {
         super.initialize()
@@ -26,8 +25,6 @@ class SelectPlanFragment() : BaseFragment<SelectPlanViewModel, FragmentSelectPla
         numberPicker.value = 4
 
     }
-
-
 
 
 }

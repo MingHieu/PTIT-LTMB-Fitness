@@ -2,7 +2,6 @@ package com.ltmb.fitness.scene.selectage
 
 
 import android.os.Parcel
-import android.os.Parcelable
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
 import com.ltmb.fitness.databinding.FragmentSelectAgeBinding
@@ -13,8 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SelectAgeFragment() : BaseFragment<SelectAgeViewModel, FragmentSelectAgeBinding>() {
     override val layoutId: Int get() = R.layout.fragment_select_age
 
-    constructor(parcel: Parcel) : this() {
-    }
+    constructor(parcel: Parcel) : this()
 
     override fun initialize() {
         super.initialize()

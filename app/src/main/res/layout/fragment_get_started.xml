@@ -12,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?colorBackground"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -58,8 +59,8 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:stateListAnimator="@null"
                 android:onClick="@{()-> viewModel.onClickSignup()}"
+                android:stateListAnimator="@null"
                 android:text="@string/get_started_signup"
                 app:cornerRadius="60dp" />
 
@@ -67,9 +68,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="10dp"
-                android:stateListAnimator="@null"
                 android:backgroundTint="?colorInputBackground"
                 android:onClick="@{()-> viewModel.onClickLogin()}"
+                android:stateListAnimator="@null"
                 android:text="@string/get_started_login"
                 android:textColor="?colorPrimary"
                 app:cornerRadius="60dp" />

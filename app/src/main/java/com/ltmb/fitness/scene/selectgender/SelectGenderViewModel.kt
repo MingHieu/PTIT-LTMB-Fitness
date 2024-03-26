@@ -12,7 +12,7 @@ class SelectGenderViewModel @Inject constructor(application: Application) :
     BaseAndroidViewModel(application) {
     val genderSelection = MutableLiveData(GenderUiModel.MALE)
 
-    fun onClickContinue(){
+    fun onClickContinue() {
         navigate(SelectGenderFragmentDirections.toSelectAge())
     }
 }
