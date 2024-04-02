@@ -10,4 +10,8 @@ class UserRepository @Inject constructor(
 ) {
 
     suspend fun fetchUserDetails() = remoteDataSource.fetchUserDetails()
+
+    suspend fun createNewUser(userId: String){
+        remoteDataSource.createNewUser(userId)
+    }
 }

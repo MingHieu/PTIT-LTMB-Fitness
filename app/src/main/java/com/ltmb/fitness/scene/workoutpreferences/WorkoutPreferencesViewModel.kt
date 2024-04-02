@@ -6,5 +6,4 @@ import javax.inject.Inject
 
 class WorkoutPreferencesViewModel @Inject constructor(
     application: Application,
-) : BaseAndroidViewModel(application) {
-}
+) : BaseAndroidViewModel(application)

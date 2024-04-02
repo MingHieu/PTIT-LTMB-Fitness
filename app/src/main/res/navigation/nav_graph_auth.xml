@@ -3,141 +3,146 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_auth"
-    app:startDestination="@id/startAppFragment">
-
-    <fragment
-        android:id="@+id/startAppFragment"
-        android:name="com.ltmb.fitness.scene.startapp.StartAppFragment"
-        android:label="StartAppFragment"
-        tools:layout="@layout/fragment_start_app" >
-        <action
-            android:id="@+id/to_start_app_1"
-            app:destination="@id/startApp1Fragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/startApp1Fragment"
-        android:name="com.ltmb.fitness.scene.startapp1.StartApp1Fragment"
-        android:label="StartApp1Fragment"
-        tools:layout="@layout/fragment_start_app_1">
-        <action
-            android:id="@+id/to_start_app_2"
-            app:destination="@id/startApp2Fragment" />
-        <action
-            android:id="@+id/to_getStarted"
-            app:destination="@id/getStartedFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/startApp2Fragment"
-        tools:layout="@layout/fragment_start_app_2"
-        android:name="com.ltmb.fitness.scene.startapp2.StartApp2Fragment"
-        android:label="StartApp2Fragment">
-        <action
-            android:id="@+id/to_start_app_3"
-            app:destination="@id/startApp3Fragment" />
-        <action
-            android:id="@+id/action_startApp2Fragment_to_getStartedFragment"
-            app:destination="@id/getStartedFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/startApp3Fragment"
-        tools:layout="@layout/fragment_start_app_3"
-        android:name="com.ltmb.fitness.scene.startapp3.StartApp3Fragment"
-        android:label="StartApp3Fragment">
-        <action
-            android:id="@+id/to_getStarted"
-            app:destination="@id/getStartedFragment" />
-    </fragment>
+    app:startDestination="@id/getStartedFragment">
 
     <fragment
         android:id="@+id/getStartedFragment"
-        tools:layout="@layout/fragment_get_started"
         android:name="com.ltmb.fitness.scene.getstarted.GetStartedFragment"
-        android:label="GetStartedFragment">
+        android:label="GetStartedFragment"
+        tools:layout="@layout/fragment_get_started">
         <action
             android:id="@+id/to_login"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
         <action
             android:id="@+id/to_signup"
-            app:destination="@id/signupFragment" />
+            app:destination="@id/signupFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
         android:id="@+id/loginFragment"
-        tools:layout="@layout/fragment_login"
         android:name="com.ltmb.fitness.scene.login.LoginFragment"
-        android:label="LoginFragment">
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/to_home"
             app:destination="@+id/nav_graph_home"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/nav_graph_all"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/to_select_gender"
-            app:destination="@id/selectGenderFragment" />
+            app:destination="@id/selectGenderFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
         android:id="@+id/signupFragment"
-        tools:layout="@layout/fragment_signup"
         android:name="com.ltmb.fitness.scene.signup.SignupFragment"
-        android:label="SignupFragment">
+        android:label="SignupFragment"
+        tools:layout="@layout/fragment_signup">
         <action
             android:id="@+id/to_signup_login"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/to_home"
+            app:destination="@+id/nav_graph_home"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@+id/nav_graph_all"
+            app:popUpToInclusive="true"/>
     </fragment>
 
     <fragment
         android:id="@+id/selectGenderFragment"
-        tools:layout="@layout/fragment_select_gender"
         android:name="com.ltmb.fitness.scene.selectgender.SelectGenderFragment"
-        android:label="SelectGenderFragment" >
+        android:label="SelectGenderFragment"
+        tools:layout="@layout/fragment_select_gender">
         <action
             android:id="@+id/to_select_age"
-            app:destination="@id/selectAgeFragment" />
+            app:destination="@id/selectAgeFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
     <fragment
         android:id="@+id/selectAgeFragment"
-        tools:layout="@layout/fragment_select_age"
         android:name="com.ltmb.fitness.scene.selectage.SelectAgeFragment"
-        android:label="SelectAgeFragment" >
+        android:label="SelectAgeFragment"
+        tools:layout="@layout/fragment_select_age">
         <action
             android:id="@+id/to_select_height"
-            app:destination="@id/selectHeightFragment" />
+            app:destination="@id/selectHeightFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
     <fragment
         android:id="@+id/reportFragment"
-        tools:layout="@layout/fragment_report"
         android:name="com.ltmb.fitness.scene.report.ReportFragment"
-        android:label="ReportFragment" />
+        android:label="ReportFragment"
+        tools:layout="@layout/fragment_report" />
 
     <fragment
         android:id="@+id/selectHeightFragment"
-        tools:layout="@layout/fragment_select_height"
         android:name="com.ltmb.fitness.scene.selectheight.SelectHeightFragment"
-        android:label="SelectHeightFragment" >
+        android:label="SelectHeightFragment"
+        tools:layout="@layout/fragment_select_height">
         <action
             android:id="@+id/to_select_weight"
-            app:destination="@id/selectWeightFragment" />
+            app:destination="@id/selectWeightFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
     <fragment
         android:id="@+id/selectWeightFragment"
-        tools:layout="@layout/fragment_select_weight"
         android:name="com.ltmb.fitness.scene.selectweight.SelectWeightFragment"
-        android:label="SelectWeightFragment" >
+        android:label="SelectWeightFragment"
+        tools:layout="@layout/fragment_select_weight">
         <action
             android:id="@+id/to_select_plan"
-            app:destination="@id/selectPlanFragment" />
+            app:destination="@id/selectPlanFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
     <fragment
         android:id="@+id/selectPlanFragment"
-        tools:layout="@layout/fragment_select_plan"
         android:name="com.ltmb.fitness.scene.selectplan.SelectPlanFragment"
-        android:label="SelectPlanFragment" >
+        android:label="SelectPlanFragment"
+        tools:layout="@layout/fragment_select_plan">
         <action
-            android:id="@+id/to_main"
-            app:destination="@+id/nav_graph_home" />
+            android:id="@+id/to_home"
+            app:destination="@+id/nav_graph_home"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@+id/nav_graph_all"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>

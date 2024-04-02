@@ -9,7 +9,7 @@ import javax.inject.Inject
 class SelectAgeViewModel @Inject constructor(application: Application) :
     BaseAndroidViewModel(application) {
 
-        fun onClickContinue(){
-            navigate(SelectAgeFragmentDirections.toSelectHeight())
-        }
+    fun onClickContinue() {
+        navigate(SelectAgeFragmentDirections.toSelectHeight())
+    }
 }

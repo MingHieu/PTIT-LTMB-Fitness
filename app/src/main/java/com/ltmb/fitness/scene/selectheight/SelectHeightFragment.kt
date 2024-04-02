@@ -9,11 +9,10 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class SelectHeightFragment() : BaseFragment<SelectHeightViewModel, FragmentSelectHeightBinding>(){
+class SelectHeightFragment() : BaseFragment<SelectHeightViewModel, FragmentSelectHeightBinding>() {
     override val layoutId: Int get() = R.layout.fragment_select_height
 
-    constructor(parcel: Parcel) : this() {
-    }
+    constructor(parcel: Parcel) : this()
 
     override fun initialize() {
         super.initialize()
@@ -26,8 +25,6 @@ class SelectHeightFragment() : BaseFragment<SelectHeightViewModel, FragmentSelec
         numberPicker.value = 170
 
     }
-
-
 
 
 }
