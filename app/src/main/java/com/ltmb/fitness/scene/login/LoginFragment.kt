@@ -23,10 +23,10 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             viewModel.setPassword(text)
         }
 
-        viewModel.isHandleLoginFailed.observeNonNull(viewLifecycleOwner) { isHandled ->
-            if (!isHandled) {
-                Toast.makeText(requireContext(), "Ngu", Toast.LENGTH_LONG).show()
-                viewModel.isHandleLoginFailed.value = true
+        viewModel.isShowToast.observeNonNull(viewLifecycleOwner) { isHandled ->
+            if (isHandled) {
+                Toast.makeText(requireContext(), viewModel.messageError, Toast.LENGTH_LONG).show()
+                viewModel.isShowToast.value = false
             }
         }
     }

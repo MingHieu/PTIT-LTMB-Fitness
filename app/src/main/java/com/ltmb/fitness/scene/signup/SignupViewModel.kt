@@ -1,10 +1,12 @@
 package com.ltmb.fitness.scene.signup
 
 import android.app.Application
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.data.remote.model.auth.LoginRequestModel
 import com.ltmb.fitness.data.repository.AuthRepository
+import com.ltmb.fitness.data.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -12,13 +14,15 @@ import javax.inject.Inject
 @HiltViewModel
 class SignupViewModel @Inject constructor(
     application: Application,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val userRepository: UserRepository
 ) : BaseAndroidViewModel(application) {
 
     private var _email = ""
     private var _password = ""
     private var _confirmPassword = ""
-
+    val isShowToast = MutableLiveData(false)
+    var messageError = ""
     fun setEmail(text: String) {
         _email = text
     }
@@ -43,9 +47,18 @@ class SignupViewModel @Inject constructor(
         }
         viewModelScope.launch {
             setLoading(true)
-            authRepository.register(LoginRequestModel(_email, _password))
+            try {
+                val firebaseUser = authRepository.register(LoginRequestModel(_email, _password))
+                if (firebaseUser != null) {
+                    userRepository.createNewUser(firebaseUser.uid)
+                }
+                navigate(SignupFragmentDirections.toHome())
+            } catch (e: Exception) {
+                println("------------------------Loi dang ky: $e")
+                messageError = e.message.toString()
+                isShowToast.value = true
+            }
             setLoading(false)
-            navigate(SignupFragmentDirections.toHome())
         }
     }
 

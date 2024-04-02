@@ -19,19 +19,21 @@ class LoginViewModel @Inject constructor(
     private var _email = ""
     private var _password = ""
 
-    val isHandleLoginFailed = MutableLiveData(true)
+    val isShowToast = MutableLiveData(false)
+    var messageError = ""
 
     fun onClickLogin() {
 //        navigate(LoginFragmentDirections.toSelectGender())
         println("Email: $_email, Password: $_password")
         viewModelScope.launch {
             setLoading(true)
-            val result =
+            try {
                 authRepository.login(LoginRequestModel(email = _email, password = _password))
-            if (result == null) {
-                isHandleLoginFailed.value = false
-            } else {
                 navigate(LoginFragmentDirections.toHome())
+            }catch (e: Exception){
+                println("-----------------Loi dang nhap: $e")
+                messageError = e.message.toString()
+                isShowToast.value = true
             }
             setLoading(false)
         }
