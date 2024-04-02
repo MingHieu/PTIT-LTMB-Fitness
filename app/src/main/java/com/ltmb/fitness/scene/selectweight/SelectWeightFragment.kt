@@ -2,7 +2,6 @@ package com.ltmb.fitness.scene.selectweight
 
 
 import android.os.Parcel
-import android.os.Parcelable
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
 import com.ltmb.fitness.databinding.FragmentSelectWeightBinding
@@ -13,8 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class SelectWeightFragment() : BaseFragment<SelectWeightViewModel, FragmentSelectWeightBinding>() {
     override val layoutId: Int get() = R.layout.fragment_select_weight
 
-    constructor(parcel: Parcel) : this() {
-    }
+    constructor(parcel: Parcel) : this()
 
     override fun initialize() {
         super.initialize()

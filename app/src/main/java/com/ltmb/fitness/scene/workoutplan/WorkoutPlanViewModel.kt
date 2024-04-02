@@ -22,7 +22,7 @@ class WorkoutPlanViewModel @Inject constructor(
     private val _workoutPlans = MutableLiveData<List<WorkoutPlanUiModel>>()
     val workoutPlans: LiveData<List<WorkoutPlanUiModel>> = _workoutPlans
 
-    private var searchJob: Job? = null;
+    private var searchJob: Job? = null
 
     init {
         viewModelScope.launch {

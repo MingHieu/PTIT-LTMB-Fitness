@@ -9,4 +9,10 @@ import dagger.hilt.android.AndroidEntryPoint
 class StartAppFragment : BaseFragment<StartAppViewModel, FragmentStartAppBinding>() {
 
     override val layoutId get() = R.layout.fragment_start_app
+
+    override fun initialize() {
+        super.initialize()
+
+        viewModel.authenticate()
+    }
 }

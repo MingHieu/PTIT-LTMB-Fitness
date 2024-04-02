@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_start_app"
+    app:startDestination="@id/startAppFragment">
+
+    <fragment
+        android:id="@+id/startAppFragment"
+        android:name="com.ltmb.fitness.scene.startapp.StartAppFragment"
+        android:label="StartAppFragment"
+        tools:layout="@layout/fragment_start_app">
+        <action
+            android:id="@+id/to_start_app_1"
+            app:destination="@id/startApp1Fragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@id/startAppFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/to_home"
+            app:destination="@+id/nav_graph_home"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@+id/nav_graph_all"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/to_auth"
+            app:destination="@+id/nav_graph_auth"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@+id/nav_graph_all"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/startApp1Fragment"
+        android:name="com.ltmb.fitness.scene.startapp1.StartApp1Fragment"
+        android:label="StartApp1Fragment"
+        tools:layout="@layout/fragment_start_app_1">
+        <action
+            android:id="@+id/to_start_app_2"
+            app:destination="@id/startApp2Fragment" />
+        <action
+            android:id="@+id/to_getStarted"
+            app:destination="@id/getStartedFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/startApp2Fragment"
+        android:name="com.ltmb.fitness.scene.startapp2.StartApp2Fragment"
+        android:label="StartApp2Fragment"
+        tools:layout="@layout/fragment_start_app_2">
+        <action
+            android:id="@+id/to_start_app_3"
+            app:destination="@id/startApp3Fragment" />
+        <action
+            android:id="@+id/action_startApp2Fragment_to_getStartedFragment"
+            app:destination="@id/getStartedFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/startApp3Fragment"
+        android:name="com.ltmb.fitness.scene.startapp3.StartApp3Fragment"
+        android:label="StartApp3Fragment"
+        tools:layout="@layout/fragment_start_app_3">
+        <action
+            android:id="@+id/to_getStarted"
+            app:destination="@+id/nav_graph_auth"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popUpTo="@+id/nav_graph_all"
+            app:popUpToInclusive="true"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+</navigation>

@@ -37,7 +37,11 @@ class MealPlanViewModel @Inject constructor(
 
     fun goToMealPlanDetail() {
 
-        NotificationHelper.showNotification(context, "Thông báo", "Chào mừng bạn đến với ứng dụng của tôi!")
+        NotificationHelper.showNotification(
+            context,
+            "Thông báo",
+            "Chào mừng bạn đến với ứng dụng của tôi!"
+        )
         navigate(MealPlanFragmentDirections.toMealPlanDetailFragment())
     }
 
