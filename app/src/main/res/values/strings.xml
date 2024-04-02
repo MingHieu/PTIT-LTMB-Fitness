@@ -210,4 +210,7 @@
     <string name="remind_me_to_workout">Remind me to Workout</string>
     <string name="keep_the_screen_on">Keep the Screen On</string>
     <string name="clear_cache">Clear Cache</string>
+
+    // FCM
+    <string name="fcm_chanel_id"> fitness </string>
 </resources>
