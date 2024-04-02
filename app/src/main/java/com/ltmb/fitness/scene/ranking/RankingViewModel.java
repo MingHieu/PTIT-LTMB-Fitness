@@ -14,4 +14,8 @@ public class RankingViewModel extends BaseAndroidViewModel {
     public RankingViewModel(Application application) {
         super(application);
     }
+
+    public void init() {
+
+    }
 }
