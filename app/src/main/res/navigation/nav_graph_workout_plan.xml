@@ -19,7 +19,11 @@
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom" />
+            app:popExitAnim="@anim/slide_out_bottom">
+            <argument
+                android:name="workoutList"
+                app:argType="com.ltmb.fitness.uimodel.WorkoutUiModel[]" />
+        </action>
     </fragment>
 
     <fragment
@@ -27,6 +31,9 @@
         android:name="com.ltmb.fitness.scene.workoutdetail.WorkoutDetailFragment"
         android:label="WorkoutDetailFragment"
         tools:layout="@layout/fragment_workout_detail">
+        <argument
+            android:name="workoutList"
+            app:argType="com.ltmb.fitness.uimodel.WorkoutUiModel[]" />
         <action
             android:id="@+id/to_workout_finish"
             app:destination="@id/workoutFinishFragment"

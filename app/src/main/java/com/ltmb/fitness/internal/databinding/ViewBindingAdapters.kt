@@ -1,6 +1,8 @@
 package com.ltmb.fitness.internal.databinding
 
+import android.net.Uri
 import android.widget.ImageView
+import android.widget.VideoView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -44,4 +46,12 @@ fun setImageUrl(view: ImageView, url: String?) {
         .placeholder(R.drawable.animation_skeleton)
         .error(R.drawable.animation_skeleton)
         .into(view)
+}
+
+@BindingAdapter("videoUri")
+fun setVideoUri(view: VideoView, uri: String?) {
+    if (uri.isNullOrEmpty()) {
+        return
+    }
+    view.setVideoURI(Uri.parse(uri))
 }

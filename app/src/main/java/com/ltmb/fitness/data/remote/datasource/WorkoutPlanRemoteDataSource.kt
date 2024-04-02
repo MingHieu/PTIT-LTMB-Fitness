@@ -50,7 +50,9 @@ class WorkoutPlanRemoteDataSource @Inject constructor(
         workoutPlanData?.let { data ->
             val workouts = (data["workouts"] as? List<DocumentReference>)
                 ?.mapNotNull { workoutReference ->
-                    workoutReference.get().await().toObject(WorkoutModel::class.java)
+                    workoutReference.get().await().toObject(WorkoutModel::class.java)?.apply {
+                        id = workoutReference.id
+                    }
                 } ?: emptyList()
 
             WorkoutPlanDetailModel(
