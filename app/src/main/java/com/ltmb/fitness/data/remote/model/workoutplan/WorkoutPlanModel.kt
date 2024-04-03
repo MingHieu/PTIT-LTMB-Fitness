@@ -1,6 +1,7 @@
 package com.ltmb.fitness.data.remote.model.workoutplan
 
 import com.google.firebase.firestore.DocumentReference
+import com.ltmb.fitness.uimodel.BookmarkWorkoutPlanUiModel
 import com.ltmb.fitness.uimodel.WorkoutPlanUiModel
 
 data class WorkoutPlanModel(
@@ -12,7 +13,8 @@ data class WorkoutPlanModel(
     var duration: Long = 0,
     var kcal: Long = 0,
     var bodyAreaId: String = "",
-    var workouts: List<DocumentReference> = listOf()
+    var workouts: List<DocumentReference> = listOf(),
+    var userId: String = ""
 ) {
 
     fun toWorkoutPlanUiModel(): WorkoutPlanUiModel =
@@ -22,5 +24,16 @@ data class WorkoutPlanModel(
             name = name,
             level = level,
             duration = duration
+        )
+
+    fun toBookmarkWorkoutPlanUiModel(): BookmarkWorkoutPlanUiModel =
+        BookmarkWorkoutPlanUiModel(
+            id = id,
+            thumbnail = thumbnail,
+            name = name,
+            level = level,
+            duration = duration,
+            selecting = false,
+            selected = false
         )
 }

@@ -3,14 +3,18 @@ package com.ltmb.fitness.internal.injection.viewmodel
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.ltmb.fitness.base.BaseAndroidViewModel
+import com.ltmb.fitness.data.repository.WorkoutPlanRepository
 import com.ltmb.fitness.uimodel.BookmarkWorkoutPlanUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class BookmarkViewModel @Inject constructor(
-    application: Application
+    application: Application,
+    private val workoutPlanRepository: WorkoutPlanRepository
 ) : BaseAndroidViewModel(application) {
 
     private val _workoutPlans = MutableLiveData<List<BookmarkWorkoutPlanUiModel>>()
@@ -21,22 +25,15 @@ class BookmarkViewModel @Inject constructor(
     private var selected = MutableLiveData(false)
 
     init {
-        val workoutPlansList = mutableListOf<BookmarkWorkoutPlanUiModel>()
+        getUserBookmarkWorkoutPlanList()
+    }
 
-        for (i in 1..10) {
-            val workoutPlan = BookmarkWorkoutPlanUiModel(
-                id = "$i",
-                thumbnail = "https://wallpaperbat.com/img/69222-wallpaper-power-pose-back-fitness-gym-image-for-desktop.jpg",
-                name = "Full Body Workout $i",
-                level = "Intermediate",
-                duration = 60,
-                selecting = false,
-                selected = false
-            )
-            workoutPlansList.add(workoutPlan)
+    fun getUserBookmarkWorkoutPlanList() {
+        viewModelScope.launch {
+            setLoading(true)
+            _workoutPlans.value = workoutPlanRepository.getUserBookmarkWorkoutPlanList()
+            setLoading(false)
         }
-
-        _workoutPlans.value = workoutPlansList
     }
 
     fun changeItemSelecting(isSelecting: Boolean) {
@@ -72,8 +69,16 @@ class BookmarkViewModel @Inject constructor(
     }
 
     fun deleteItems() {
-        val workoutPlansList = _workoutPlans.value!!.filter { !it.selected }
-        _workoutPlans.value = workoutPlansList
-        selecting.value = false
+        viewModelScope.launch {
+            val deleteItemIds = _workoutPlans.value!!.filter { it.selected }.map { it.id }
+            if (deleteItemIds.isNotEmpty()) {
+                setLoading(true)
+                workoutPlanRepository.deleteUserBookmarkWorkoutPlanList(deleteItemIds)
+                val newItemList = _workoutPlans.value!!.filter { !it.selected }
+                _workoutPlans.value = newItemList
+                setLoading(false)
+            }
+            selecting.value = false
+        }
     }
 }

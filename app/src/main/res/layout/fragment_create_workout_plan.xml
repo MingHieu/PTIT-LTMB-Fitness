@@ -66,6 +66,7 @@
 
 
                         <com.ltmb.fitness.widget.inputview.InputView
+                            android:id="@+id/name_input"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/name_input_hint"
@@ -89,6 +90,7 @@
                             android:textSize="16sp" />
 
                         <com.ltmb.fitness.widget.inputview.InputView
+                            android:id="@+id/description_input"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/description_input_hint"
@@ -152,6 +154,7 @@
             <com.google.android.material.button.MaterialButton
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:onClick="@{() -> viewModel.saveData()}"
                 android:stateListAnimator="@null"
                 android:text="@string/common_save"
                 app:cornerRadius="60dp" />

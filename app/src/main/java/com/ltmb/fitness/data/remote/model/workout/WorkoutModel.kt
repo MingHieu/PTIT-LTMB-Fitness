@@ -7,6 +7,7 @@ data class WorkoutModel(
     val name: String = "",
     val thumbnail: String = "",
     val duration: Long = 0,
+    val kcal: Long = 0,
     val video: String = "",
     val tutorialText: String = ""
 ) {
@@ -17,6 +18,7 @@ data class WorkoutModel(
             name = name,
             thumbnail = thumbnail,
             duration = duration,
+            kcal = kcal,
             video = video,
             tutorialText = tutorialText
         )

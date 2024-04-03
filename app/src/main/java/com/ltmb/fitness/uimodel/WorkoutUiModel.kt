@@ -14,6 +14,7 @@ data class WorkoutUiModel(
     val thumbnail: String,
     val name: String,
     val duration: Long,
+    val kcal: Long,
     val video: String,
     val tutorialText: String,
 ) : ListAdapterItem, Serializable, Parcelable {

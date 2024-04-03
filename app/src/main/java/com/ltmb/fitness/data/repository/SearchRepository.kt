@@ -32,7 +32,7 @@ class SearchRepository @Inject constructor(
                     value = it["value"] as String,
                     createdAt = (it["createdAt"] as Double).toLong()
                 )
-            } ?: emptyList()
+            }.orEmpty()
         } else {
             emptyList()
         }
