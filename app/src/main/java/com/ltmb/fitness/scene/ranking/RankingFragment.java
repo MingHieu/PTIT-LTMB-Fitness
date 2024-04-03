@@ -1,14 +1,10 @@
 package com.ltmb.fitness.scene.ranking;
 
-import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -28,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class RankingFragment extends BaseFragment<RankingViewModel, FragmentRankingBinding> {
     private ScheduleService scheduleService;
+
     @Override
     public int getLayoutId() {
         return R.layout.fragment_ranking;

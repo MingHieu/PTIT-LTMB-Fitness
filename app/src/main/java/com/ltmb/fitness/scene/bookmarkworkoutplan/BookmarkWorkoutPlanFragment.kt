@@ -1,38 +1,45 @@
 package com.ltmb.fitness.scene.bookmarkworkoutplan
 
+import androidx.fragment.app.viewModels
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
 import com.ltmb.fitness.databinding.FragmentBookmarkWorkoutPlanBinding
 import com.ltmb.fitness.internal.extension.observeNonNull
+import com.ltmb.fitness.internal.injection.viewmodel.BookmarkViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class BookmarkWorkoutPlanFragment :
     BaseFragment<BookmarkWorkoutPlanViewModel, FragmentBookmarkWorkoutPlanBinding>() {
+
     override val layoutId get() = R.layout.fragment_bookmark_workout_plan
+
+    private val bookmarkViewModel by viewModels<BookmarkViewModel>()
 
     override fun initialize() {
         super.initialize()
 
+        binding.bookmarkViewModel = bookmarkViewModel
+
         binding.adapter = BookmarkWorkoutPlanAdapter(object : BookmarkWorkoutPlanCallback {
-            override fun onItemClick() {
-                viewModel.onItemClick()
+            override fun onItemClick(id: String) {
+                viewModel.onItemClick(id)
             }
 
             override fun onItemLongClick(): Boolean {
-                viewModel.setSelectingValue(true)
+                bookmarkViewModel.setSelectingValue(true)
                 return true
             }
 
             override fun onItemSelectedChanged(id: String, isSelected: Boolean) {
-                viewModel.changeItemSelected(id, isSelected)
+                bookmarkViewModel.changeItemSelected(id, isSelected)
             }
         })
 
         binding.workoutPlanRecyclerView.itemAnimator = null
 
-        viewModel.selecting.observeNonNull(viewLifecycleOwner) {
-            viewModel.changeItemSelecting(it)
+        bookmarkViewModel.selecting.observeNonNull(viewLifecycleOwner) {
+            bookmarkViewModel.changeItemSelecting(it)
         }
     }
 }

@@ -30,7 +30,7 @@ class LoginViewModel @Inject constructor(
             try {
                 authRepository.login(LoginRequestModel(email = _email, password = _password))
                 navigate(LoginFragmentDirections.toHome())
-            }catch (e: Exception){
+            } catch (e: Exception) {
                 println("-----------------Loi dang nhap: $e")
                 messageError = e.message.toString()
                 isShowToast.value = true

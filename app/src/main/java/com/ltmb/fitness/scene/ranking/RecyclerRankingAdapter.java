@@ -73,9 +73,9 @@ public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRanking
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            username = (TextView) itemView.findViewById(R.id.rankingUserName);
-            avt = (ImageView) itemView.findViewById(R.id.rankingItemAvt);
-            experience = (TextView) itemView.findViewById(R.id.rankingExperience);
+            username = itemView.findViewById(R.id.rankingUserName);
+            avt = itemView.findViewById(R.id.rankingItemAvt);
+            experience = itemView.findViewById(R.id.rankingExperience);
         }
     }
 }

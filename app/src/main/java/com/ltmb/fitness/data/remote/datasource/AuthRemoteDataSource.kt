@@ -1,6 +1,5 @@
 package com.ltmb.fitness.data.remote.datasource
 
-import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.ltmb.fitness.data.remote.BaseRemoteDataSource
 import com.ltmb.fitness.data.remote.model.auth.LoginRequestModel

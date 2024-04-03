@@ -12,6 +12,10 @@
             type="com.ltmb.fitness.scene.bookmarkworkoutplan.BookmarkWorkoutPlanAdapter" />
 
         <variable
+            name="bookmarkViewModel"
+            type="com.ltmb.fitness.internal.injection.viewmodel.BookmarkViewModel" />
+
+        <variable
             name="viewModel"
             type="com.ltmb.fitness.scene.bookmarkworkoutplan.BookmarkWorkoutPlanViewModel" />
     </data>
@@ -49,7 +53,7 @@
                     android:paddingHorizontal="16dp"
                     app:adapter="@{adapter}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:submitList="@{viewModel.bookmarkWorkoutPlans}"
+                    app:submitList="@{bookmarkViewModel.workoutPlans}"
                     tools:listitem="@layout/item_bookmark_workout_plan" />
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
@@ -57,7 +61,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:visibility="@{viewModel.selecting ? View.VISIBLE : View.GONE}">
+            android:visibility="@{bookmarkViewModel.selecting ? View.VISIBLE : View.GONE}">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -65,7 +69,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/border_top"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.setSelectingValue(false)}">
+                android:onClick="@{() -> bookmarkViewModel.setSelectingValue(false)}">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -82,7 +86,7 @@
                 android:layout_weight="1"
                 android:background="?colorError"
                 android:gravity="center"
-                android:onClick="@{() -> viewModel.deleteItems()}">
+                android:onClick="@{() -> bookmarkViewModel.deleteItems()}">
 
                 <TextView
                     android:layout_width="wrap_content"

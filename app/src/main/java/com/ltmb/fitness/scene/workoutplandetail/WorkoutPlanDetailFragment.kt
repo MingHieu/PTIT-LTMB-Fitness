@@ -13,7 +13,7 @@ class WorkoutPlanDetailFragment :
     BaseFragment<WorkoutPlanDetailViewModel, FragmentWorkoutPlanDetailBinding>() {
 
     override val layoutId get() = R.layout.fragment_workout_plan_detail
-    private val args: WorkoutPlanDetailFragmentArgs by navArgs()
+    private val args by navArgs<WorkoutPlanDetailFragmentArgs>()
 
     override fun initialize() {
         super.initialize()

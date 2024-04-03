@@ -6,7 +6,7 @@ import com.ltmb.fitness.databinding.ItemWorkoutDraggableBinding
 import com.ltmb.fitness.internal.extension.executeAfter
 import com.ltmb.fitness.uimodel.WorkoutUiModel
 
-class WorkoutAdapter() :
+class WorkoutAdapter :
     BaseListAdapter<ItemWorkoutDraggableBinding, WorkoutUiModel>() {
 
     override val layoutRes: Int get() = R.layout.item_workout_draggable

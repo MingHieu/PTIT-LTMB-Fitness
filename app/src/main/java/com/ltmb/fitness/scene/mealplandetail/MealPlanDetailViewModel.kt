@@ -15,21 +15,21 @@ import javax.inject.Inject
 
 class MealPlanDetailViewModel @Inject constructor(
     application: Application
-) : BaseAndroidViewModel(application){
+) : BaseAndroidViewModel(application) {
     private val _mealPlanDetail = MutableLiveData<MealPlanDetailUiModel>()
     val mealPlan: LiveData<MealPlanDetailUiModel>
         get() = _mealPlanDetail
 
     init {
-            val mealPlanDetail = MealPlanDetailUiModel(
-                id = "11",
-                thumbnail = R.drawable.img_meal_sample,
-                name = "Meal Banana",
-                description = "Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes. Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes. Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes. Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes.",
-                calors = 20.2,
-                sugars = 30.2,
-                protein = 40.1
-            )
+        val mealPlanDetail = MealPlanDetailUiModel(
+            id = "11",
+            thumbnail = R.drawable.img_meal_sample,
+            name = "Meal Banana",
+            description = "Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes. Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes. Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes. Healthy comport food í only a timer away. From low-card soups to healthy meat main dishes.",
+            calors = 20.2,
+            sugars = 30.2,
+            protein = 40.1
+        )
         _mealPlanDetail.value = mealPlanDetail
     }
 

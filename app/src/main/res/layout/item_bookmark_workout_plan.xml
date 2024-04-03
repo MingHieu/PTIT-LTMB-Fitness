@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:gravity="center_vertical"
-        android:onClick="@{() -> callback.onItemClick()}"
+        android:onClick="@{() -> callback.onItemClick(bookmarkWorkoutPlan.id)}"
         android:onLongClick="@{() -> callback.onItemLongClick()}"
         android:orientation="horizontal">
 
