@@ -147,23 +147,23 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.workouts.get(viewModel.current).tutorialText}"
+                        android:text="@{viewModel.workouts.get(viewModel.current).tutorialTextFormat}"
                         android:textColor="?colorText"
                         android:textSize="16sp"
                         android:visibility="@{viewModel.tutorialType == TutorialType.TEXT ? View.VISIBLE : View.GONE}"
                         tools:text="Tutorial Text" />
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
                         android:layout_gravity="center"
                         android:visibility="@{viewModel.tutorialType == TutorialType.VIDEO ? View.VISIBLE : View.GONE}"
                         app:cardCornerRadius="8dp">
 
-                        <VideoView
+                        <WebView
                             android:layout_width="match_parent"
                             android:layout_height="200dp"
-                            app:videoUri="@{viewModel.workouts.get(viewModel.current).video}" />
+                            app:webUrl="@{viewModel.workouts.get(viewModel.current).video}" />
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
             </ScrollView>

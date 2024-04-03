@@ -21,8 +21,6 @@ class BookmarkViewModel @Inject constructor(
     private var selected = MutableLiveData(false)
 
     init {
-        println("init bookmark view model")
-
         val workoutPlansList = mutableListOf<BookmarkWorkoutPlanUiModel>()
 
         for (i in 1..10) {

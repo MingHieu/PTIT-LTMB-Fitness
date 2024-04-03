@@ -23,6 +23,9 @@
             <argument
                 android:name="workoutList"
                 app:argType="com.ltmb.fitness.uimodel.WorkoutUiModel[]" />
+            <argument
+                android:name="workoutPlanDetail"
+                app:argType="com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel" />
         </action>
     </fragment>
 
@@ -34,6 +37,9 @@
         <argument
             android:name="workoutList"
             app:argType="com.ltmb.fitness.uimodel.WorkoutUiModel[]" />
+        <argument
+            android:name="workoutPlanDetail"
+            app:argType="com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel" />
         <action
             android:id="@+id/to_workout_finish"
             app:destination="@id/workoutFinishFragment"
@@ -42,7 +48,11 @@
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out_bottom"
             app:popUpTo="@id/workoutPlanDetailFragment"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="false">
+            <argument
+                android:name="workoutPlanDetail"
+                app:argType="com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel" />
+        </action>
     </fragment>
 
     <fragment
@@ -50,9 +60,21 @@
         android:name="com.ltmb.fitness.scene.workoutfinish.WorkoutFinishFragment"
         android:label="WorkoutFinishFragment"
         tools:layout="@layout/fragment_workout_finish">
+        <argument
+            android:name="workoutPlanDetail"
+            app:argType="com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel" />
         <action
             android:id="@+id/to_home"
             app:destination="@+id/nav_graph_home"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@id/nav_graph_all"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/to_report"
+            app:destination="@+id/nav_graph_progress"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"

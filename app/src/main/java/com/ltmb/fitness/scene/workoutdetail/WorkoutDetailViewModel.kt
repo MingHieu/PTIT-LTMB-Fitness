@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.uimodel.TutorialType
+import com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel
 import com.ltmb.fitness.uimodel.WorkoutUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -17,6 +18,8 @@ import javax.inject.Inject
 class WorkoutDetailViewModel @Inject constructor(
     application: Application
 ) : BaseAndroidViewModel(application) {
+
+    var workoutPlanDetail: WorkoutPlanDetailUiModel = WorkoutPlanDetailUiModel()
 
     private val _workouts = MutableLiveData<List<WorkoutUiModel>>()
     val workouts: LiveData<List<WorkoutUiModel>> = _workouts
@@ -57,7 +60,7 @@ class WorkoutDetailViewModel @Inject constructor(
             paused.value = true
             updateTimeLeft()
         } else {
-            navigate(WorkoutDetailFragmentDirections.toWorkoutFinish())
+            navigate(WorkoutDetailFragmentDirections.toWorkoutFinish(workoutPlanDetail))
         }
     }
 

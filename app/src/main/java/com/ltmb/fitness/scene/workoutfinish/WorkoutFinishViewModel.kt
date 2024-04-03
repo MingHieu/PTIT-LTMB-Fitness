@@ -12,10 +12,20 @@ import javax.inject.Inject
 class WorkoutFinishViewModel @Inject constructor(
     application: Application
 ) : BaseAndroidViewModel(application) {
+
     private val _workoutPlan = MutableLiveData<WorkoutPlanDetailUiModel>()
     val workoutPlan: LiveData<WorkoutPlanDetailUiModel> = _workoutPlan
+
+    fun setWorkoutPlanValue(value: WorkoutPlanDetailUiModel) {
+        _workoutPlan.value = value
+    }
 
     fun onGoHomeClick() {
         navigate(WorkoutFinishFragmentDirections.toHome())
     }
+
+    fun onViewReportClick() {
+        navigate(WorkoutFinishFragmentDirections.toReport())
+    }
 }
+

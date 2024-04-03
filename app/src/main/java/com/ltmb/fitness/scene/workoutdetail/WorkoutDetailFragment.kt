@@ -15,10 +15,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class WorkoutDetailFragment : BaseFragment<WorkoutDetailViewModel, FragmentWorkoutDetailBinding>() {
 
     override val layoutId get() = R.layout.fragment_workout_detail
-    private val args: WorkoutDetailFragmentArgs by navArgs()
+    private val args by navArgs<WorkoutDetailFragmentArgs>()
 
     override fun initialize() {
         super.initialize()
+
+        viewModel.workoutPlanDetail = args.workoutPlanDetail
 
         viewModel.setWorkoutList(args.workoutList.toList())
 

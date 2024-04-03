@@ -1,6 +1,6 @@
 package com.ltmb.fitness.scene.home
 
-import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
 import com.ltmb.fitness.databinding.FragmentHomeBinding
@@ -13,10 +13,12 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     override val layoutId get() = R.layout.fragment_home
 
-    private val bookmarkViewModel by viewModels<BookmarkViewModel>()
+    private lateinit var bookmarkViewModel: BookmarkViewModel
 
     override fun initialize() {
         super.initialize()
+
+        bookmarkViewModel = ViewModelProvider(requireActivity())[BookmarkViewModel::class.java]
 
         binding.bookmarkViewModel = bookmarkViewModel
 

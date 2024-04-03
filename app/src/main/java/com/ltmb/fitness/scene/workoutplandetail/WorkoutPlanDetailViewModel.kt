@@ -45,7 +45,12 @@ class WorkoutPlanDetailViewModel @Inject constructor(
 
     fun onStartClick() {
         workouts.value?.let { workoutsList ->
-            navigate(WorkoutPlanDetailFragmentDirections.toWorkoutDetail(workoutsList.toTypedArray()))
+            navigate(
+                WorkoutPlanDetailFragmentDirections.toWorkoutDetail(
+                    workoutsList.toTypedArray(),
+                    workoutPlan.value ?: WorkoutPlanDetailUiModel()
+                )
+            )
         }
     }
 }

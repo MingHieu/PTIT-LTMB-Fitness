@@ -9,7 +9,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class BodyAreaFragment : BaseFragment<BodyAreaViewModel, FragmentBodyAreaBinding>() {
     override val layoutId get() = R.layout.fragment_body_area
-    private val args: BodyAreaFragmentArgs by navArgs()
+    private val args by navArgs<BodyAreaFragmentArgs>()
 
     override fun initialize() {
         super.initialize()

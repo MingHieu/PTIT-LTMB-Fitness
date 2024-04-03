@@ -20,4 +20,6 @@ data class WorkoutUiModel(
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getDurationInMinutesAndSeconds(): String = convertSecondsToMinutesAndSeconds(duration)
+
+    fun getTutorialTextFormat() = tutorialText.replace("\\n", System.lineSeparator())
 }
