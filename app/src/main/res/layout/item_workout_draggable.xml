@@ -6,10 +6,6 @@
     <data>
 
         <variable
-            name="callback"
-            type="com.ltmb.fitness.scene.workoutplandetail.WorkoutCallback" />
-
-        <variable
             name="workout"
             type="com.ltmb.fitness.uimodel.WorkoutUiModel" />
     </data>

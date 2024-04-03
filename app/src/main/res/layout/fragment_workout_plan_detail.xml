@@ -154,7 +154,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="6dp"
-                                android:text="@{viewModel.workoutPlan.durationInMinutes, default=0}"
+                                android:text='@{viewModel.workoutPlan.duration > 0 ? viewModel.workoutPlan.durationInMinutes : "0"}'
                                 android:textColor="?colorText"
                                 android:textStyle="bold"
                                 tools:text="10" />

@@ -20,12 +20,7 @@ class WorkoutPlanDetailFragment :
 
         viewModel.getWorkoutPlanDetail(args.workoutPlanId)
 
-        binding.workoutAdapter =
-            WorkoutAdapter(object : WorkoutCallback {
-                override fun onItemClick() {
-                    TODO("Not yet implemented")
-                }
-            })
+        binding.workoutAdapter = WorkoutAdapter()
 
         binding.itemTouchHelper = ItemTouchHelper(object :
             ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN or ItemTouchHelper.UP, 0) {
