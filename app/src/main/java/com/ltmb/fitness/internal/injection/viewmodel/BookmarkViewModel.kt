@@ -37,17 +37,19 @@ class BookmarkViewModel @Inject constructor(
     }
 
     fun changeItemSelecting(isSelecting: Boolean) {
-        val workoutPlansList = _workoutPlans.value!!.map {
-            val newItem = it.copy()
-            newItem.selecting = isSelecting
-            if (!isSelecting) {
-                newItem.selected = false
+        _workoutPlans.value?.let { list ->
+            val workoutPlansList = list.map {
+                val newItem = it.copy()
+                newItem.selecting = isSelecting
+                if (!isSelecting) {
+                    newItem.selected = false
+                }
+                newItem
             }
-            newItem
-        }
-        _workoutPlans.value = workoutPlansList
-        if (!isSelecting) {
-            selected.value = false
+            _workoutPlans.value = workoutPlansList
+            if (!isSelecting) {
+                selected.value = false
+            }
         }
     }
 
