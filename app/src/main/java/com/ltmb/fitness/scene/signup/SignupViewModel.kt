@@ -23,6 +23,7 @@ class SignupViewModel @Inject constructor(
     private var _confirmPassword = ""
     val isShowToast = MutableLiveData(false)
     var messageError = ""
+
     fun setEmail(text: String) {
         _email = text
     }
@@ -35,16 +36,35 @@ class SignupViewModel @Inject constructor(
         _confirmPassword = text
     }
 
-    fun validate(): Boolean = true
+    fun getEmail(): String {
+        return this._email
+    }
+
+    fun getPassword(): String {
+        return this._password
+    }
+
+    fun getConfirmPassword(): String {
+        return this._confirmPassword
+    }
+
+    private fun validate(): Boolean {
+        if( _password != _confirmPassword){
+            messageError = "Retype password do not match!"
+            isShowToast.value = true
+            return false
+        }
+        return true
+    }
 
     fun onClickLogin() {
         navigate(SignupFragmentDirections.toSignupLogin())
     }
 
     fun onClickSignup() {
-        if (!validate()) {
-            return
-        }
+//        if (!validate()) {
+//            return
+//        }
         viewModelScope.launch {
             setLoading(true)
             try {
@@ -52,7 +72,7 @@ class SignupViewModel @Inject constructor(
                 if (firebaseUser != null) {
                     userRepository.createNewUser(firebaseUser.uid)
                 }
-                navigate(SignupFragmentDirections.toHome())
+                navigate(SignupFragmentDirections.toSelectGender())
             } catch (e: Exception) {
                 println("------------------------Loi dang ky: $e")
                 messageError = e.message.toString()

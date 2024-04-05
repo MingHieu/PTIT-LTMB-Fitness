@@ -89,6 +89,7 @@
                 android:layout_weight="0.45"
                 android:backgroundTint="?colorInputBackground"
                 android:text="@string/start_app_skip"
+                android:onClick="@{() -> viewModel.onClickSkip()}"
                 android:stateListAnimator="@null"
                 android:textColor="?colorPrimary"
                 app:cornerRadius="60dp" />

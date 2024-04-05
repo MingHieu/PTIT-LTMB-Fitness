@@ -62,14 +62,12 @@
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out_bottom" />
         <action
-            android:id="@+id/to_home"
-            app:destination="@+id/nav_graph_home"
+            android:id="@+id/to_select_gender"
+            app:destination="@id/selectGenderFragment"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom"
-            app:popUpTo="@+id/nav_graph_all"
-            app:popUpToInclusive="true"/>
+            app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
 
     <fragment
@@ -98,11 +96,6 @@
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out_bottom" />
     </fragment>
-    <fragment
-        android:id="@+id/reportFragment"
-        android:name="com.ltmb.fitness.scene.report.ReportFragment"
-        android:label="ReportFragment"
-        tools:layout="@layout/fragment_report" />
 
     <fragment
         android:id="@+id/selectHeightFragment"
