@@ -72,6 +72,15 @@
             <argument
                 android:name="workoutPlanDetail"
                 app:argType="com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel" />
+            <argument
+                android:name="workouts"
+                app:argType="long" />
+            <argument
+                android:name="time"
+                app:argType="long" />
+            <argument
+                android:name="kcal"
+                app:argType="long" />
         </action>
     </fragment>
 
@@ -83,6 +92,15 @@
         <argument
             android:name="workoutPlanDetail"
             app:argType="com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel" />
+        <argument
+            android:name="workouts"
+            app:argType="long" />
+        <argument
+            android:name="time"
+            app:argType="long" />
+        <argument
+            android:name="kcal"
+            app:argType="long" />
         <action
             android:id="@+id/to_home"
             app:destination="@+id/nav_graph_home"

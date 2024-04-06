@@ -4,4 +4,5 @@ object FirestoreCollections {
     const val WORKOUT = "workouts"
     const val WORKOUT_PLAN = "workout_plans"
     const val USER = "users"
+    const val WORKOUT_HISTORY = "workout_history"
 }

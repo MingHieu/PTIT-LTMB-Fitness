@@ -1,5 +1,6 @@
 package com.ltmb.fitness.internal.databinding
 
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
@@ -52,5 +53,18 @@ fun setWebViewUrl(view: WebView, url: String?) {
     if (url.isNullOrEmpty()) {
         return
     }
-    view.loadUrl(url)
+    val embedUrl = url.replace("watch?v=", "embed/")
+    val videoStr =
+        """
+            <iframe 
+                width="${view.width}" 
+                height="${view.height}" 
+                src="$embedUrl" 
+                frameborder="0" 
+                allowfullscreen>
+            </iframe>
+        """.trimIndent()
+    view.loadData(videoStr, "text/html", "utf-8")
+    view.settings.javaScriptEnabled = true
+    view.webChromeClient = WebChromeClient()
 }

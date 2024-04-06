@@ -87,13 +87,13 @@ dependencies {
     // Lottie
     implementation("com.airbnb.android:lottie:6.4.0")
     
-    // Lombok
-    compileOnly("org.projectlombok:lombok:1.18.30")
-    
     //Circle Image
     implementation("de.hdodenhof:circleimageview:2.1.0")
 
     // MPAndroidChart
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+
+    // Youtube
+    implementation("com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.28")
 
 }
