@@ -1,5 +1,7 @@
 package com.ltmb.fitness.scene.ranking;
 
+import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +18,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+@FunctionalInterface
+interface RecyclerRankingCallback {
+    void onItemClick(String id);
+}
+
 public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRankingAdapter.ViewHolder> {
     List<RankingPersonUiModel> localDataSet;
+    RecyclerRankingCallback cb;
 
     /**
      * Initialize the dataset of the Adapter
@@ -25,8 +33,9 @@ public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRanking
      * @param dataSet String[] containing the data to populate views to be used
      *                by RecyclerView
      */
-    public RecyclerRankingAdapter(List<RankingPersonUiModel> dataSet) {
+    public RecyclerRankingAdapter(List<RankingPersonUiModel> dataSet, RecyclerRankingCallback cb) {
         this.localDataSet = dataSet;
+        this.cb = cb;
     }
 
     // Create new views (invoked by the layout manager)
@@ -36,7 +45,7 @@ public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRanking
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_ranking_person, viewGroup, false);
 
-        return new ViewHolder(view);
+        return new ViewHolder(view, this.cb);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -71,11 +80,21 @@ public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRanking
         TextView username, experience;
         ImageView avt;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, RecyclerRankingCallback cb) {
             super(itemView);
-            username = itemView.findViewById(R.id.rankingUserName);
-            avt = itemView.findViewById(R.id.rankingItemAvt);
-            experience = itemView.findViewById(R.id.rankingExperience);
+            username = (TextView) itemView.findViewById(R.id.rankingUserName);
+            avt = (ImageView) itemView.findViewById(R.id.rankingItemAvt);
+            experience = (TextView) itemView.findViewById(R.id.rankingExperience);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Lấy position của item đã click
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        cb.onItemClick("123");
+                    }
+                }
+            });
         }
     }
 }

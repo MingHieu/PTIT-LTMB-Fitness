@@ -1,5 +1,7 @@
 package com.ltmb.fitness.scene.ranking;
 
+import android.util.Log;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +24,13 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
     @Override
     public void initialize() {
 
-        RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(fetchData());
+        RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(fetchData(), new RecyclerRankingCallback() {
+            @Override
+            public void onItemClick(String id) {
+                Log.d("Personal Profile Id", id);
+                getViewModel().navigateToProfile(id);
+            }
+        });
         RecyclerView recyclerView = binding.listRankingDailyTrainingHours;
         recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(recyclerRankingAdapter);

@@ -1,4 +1,4 @@
-package com.ltmb.fitness.scene.ranking;
+package com.ltmb.fitness.scene.profile;
 
 import android.app.Application;
 
@@ -9,9 +9,9 @@ import javax.inject.Inject;
 import dagger.hilt.android.lifecycle.HiltViewModel;
 
 @HiltViewModel
-public class RankingViewModel extends BaseAndroidViewModel {
+public class ProfileViewModel  extends BaseAndroidViewModel {
     @Inject
-    public RankingViewModel(Application application) {
+    public ProfileViewModel(Application application) {
         super(application);
     }
 
@@ -19,7 +19,7 @@ public class RankingViewModel extends BaseAndroidViewModel {
 
     }
 
-    public void navigateToProfile(String id) {
-        this.navigate(RankingFragmentDirections.toProfile(id));
+    public void navigateToProfile() {
+//        navigate(Profi);
     }
 }
