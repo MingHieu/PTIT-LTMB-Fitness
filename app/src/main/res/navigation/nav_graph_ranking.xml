@@ -13,5 +13,22 @@
         <argument
             android:name="@string/arg_show_bottom_nav"
             android:defaultValue="true" />
+        <action
+            android:id="@+id/to_profile"
+            app:destination="@id/profileFragment">
+            <argument
+                android:name="idProfile"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.ltmb.fitness.scene.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile">
+        <argument
+            android:name="idProfile"
+            app:argType="string" />
     </fragment>
 </navigation>
