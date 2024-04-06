@@ -6,6 +6,7 @@
     <string name="common_cancel">Cancel</string>
     <string name="search_workout">Search workout plan …</string>
     <string name="common_delete">Delete</string>
+    <string name="common_resume">Resume</string>
     <string name="common_pause">Pause</string>
     <string name="common_previous">Previous</string>
     <string name="common_skip">Skip</string>
@@ -210,4 +211,7 @@
     <string name="remind_me_to_workout">Remind me to Workout</string>
     <string name="keep_the_screen_on">Keep the Screen On</string>
     <string name="clear_cache">Clear Cache</string>
+
+    // FCM
+    <string name="fcm_chanel_id"> fitness </string>
 </resources>

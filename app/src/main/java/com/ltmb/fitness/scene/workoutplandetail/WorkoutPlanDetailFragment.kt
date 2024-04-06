@@ -13,19 +13,14 @@ class WorkoutPlanDetailFragment :
     BaseFragment<WorkoutPlanDetailViewModel, FragmentWorkoutPlanDetailBinding>() {
 
     override val layoutId get() = R.layout.fragment_workout_plan_detail
-    private val args: WorkoutPlanDetailFragmentArgs by navArgs()
+    private val args by navArgs<WorkoutPlanDetailFragmentArgs>()
 
     override fun initialize() {
         super.initialize()
 
         viewModel.getWorkoutPlanDetail(args.workoutPlanId)
 
-        binding.workoutAdapter =
-            WorkoutAdapter(object : WorkoutCallback {
-                override fun onItemClick() {
-                    TODO("Not yet implemented")
-                }
-            })
+        binding.workoutAdapter = WorkoutAdapter()
 
         binding.itemTouchHelper = ItemTouchHelper(object :
             ItemTouchHelper.SimpleCallback(ItemTouchHelper.DOWN or ItemTouchHelper.UP, 0) {

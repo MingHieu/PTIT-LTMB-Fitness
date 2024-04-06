@@ -3,10 +3,13 @@ package com.ltmb.fitness.data.remote.model.workout
 import com.ltmb.fitness.uimodel.WorkoutUiModel
 
 data class WorkoutModel(
-    val id: String = "",
+    var id: String = "",
     val name: String = "",
     val thumbnail: String = "",
     val duration: Long = 0,
+    val kcal: Long = 0,
+    val video: String = "",
+    val tutorialText: String = ""
 ) {
 
     fun toWorkoutUiModel() =
@@ -14,6 +17,11 @@ data class WorkoutModel(
             id = id,
             name = name,
             thumbnail = thumbnail,
-            duration = duration
+            duration = duration,
+            kcal = kcal,
+            video = video,
+            tutorialText = tutorialText
         )
 }
+
+

@@ -1,17 +1,20 @@
 package com.ltmb.fitness.data.remote.datasource
 
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.ltmb.fitness.data.remote.BaseRemoteDataSource
 import com.ltmb.fitness.data.remote.FirestoreCollections
 import com.ltmb.fitness.data.remote.model.workout.WorkoutModel
+import com.ltmb.fitness.data.remote.model.workoutplan.BookmarkWorkoutPlanModel
 import com.ltmb.fitness.data.remote.model.workoutplan.WorkoutPlanDetailModel
 import com.ltmb.fitness.data.remote.model.workoutplan.WorkoutPlanModel
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class WorkoutPlanRemoteDataSource @Inject constructor(
-    firestore: FirebaseFirestore,
+    private val firestore: FirebaseFirestore,
+    private val auth: FirebaseAuth
 ) : BaseRemoteDataSource() {
 
     private val collection = firestore.collection(FirestoreCollections.WORKOUT_PLAN)
@@ -43,6 +46,48 @@ class WorkoutPlanRemoteDataSource @Inject constructor(
             .toList()
     }
 
+    suspend fun getUserBookmarkWorkoutPlanList() = invoke {
+        collection
+            .whereEqualTo("userId", auth.currentUser?.uid)
+            .get().await()
+            .documents
+            .mapNotNull { document ->
+                document.toObject(WorkoutPlanModel::class.java)?.apply {
+                    id = document.id
+                }
+            }
+            .toList()
+    }
+
+    suspend fun saveUserBookmarkWorkoutPlan(model: BookmarkWorkoutPlanModel): DocumentReference =
+        invoke {
+            val data = hashMapOf(
+                "name" to model.name,
+                "description" to model.description,
+                "thumbnail" to model.thumbnail,
+                "level" to model.level,
+                "duration" to model.duration,
+                "kcal" to model.kcal,
+                "workouts" to model.workoutIds.map { collection.document(it) }.toList(),
+                "userId" to auth.currentUser?.uid
+            )
+            if (model.id.isBlank()) {
+                collection.add(data).await()
+            } else {
+                collection.document(model.id).set(data)
+                collection.document(model.id)
+            }
+        }
+
+    suspend fun deleteUserBookmarkWorkoutPlanList(ids: List<String>): Void = invoke {
+        val batch = firestore.batch()
+        ids.forEach { id ->
+            val reference = collection.document(id)
+            batch.delete(reference)
+        }
+        batch.commit().await()
+    }
+
     suspend fun getWorkoutPlanDetail(workoutPlanId: String) = invoke {
         val workoutPlanDocument = collection.document(workoutPlanId).get().await()
         val workoutPlanData = workoutPlanDocument.data
@@ -50,8 +95,10 @@ class WorkoutPlanRemoteDataSource @Inject constructor(
         workoutPlanData?.let { data ->
             val workouts = (data["workouts"] as? List<DocumentReference>)
                 ?.mapNotNull { workoutReference ->
-                    workoutReference.get().await().toObject(WorkoutModel::class.java)
-                } ?: emptyList()
+                    workoutReference.get().await().toObject(WorkoutModel::class.java)?.apply {
+                        id = workoutReference.id
+                    }
+                }.orEmpty()
 
             WorkoutPlanDetailModel(
                 id = workoutPlanId,

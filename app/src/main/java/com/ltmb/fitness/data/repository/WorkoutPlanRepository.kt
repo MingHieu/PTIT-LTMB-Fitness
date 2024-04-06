@@ -1,6 +1,8 @@
 package com.ltmb.fitness.data.repository
 
 import com.ltmb.fitness.data.remote.datasource.WorkoutPlanRemoteDataSource
+import com.ltmb.fitness.data.remote.model.workoutplan.BookmarkWorkoutPlanModel
+import com.ltmb.fitness.uimodel.BookmarkWorkoutPlanUiModel
 import com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel
 import com.ltmb.fitness.uimodel.WorkoutPlanUiModel
 import javax.inject.Inject
@@ -33,6 +35,38 @@ class WorkoutPlanRepository @Inject constructor(
             println(e)
         }
         return workoutPlanList
+    }
+
+    suspend fun getUserBookmarkWorkoutPlanList(): List<BookmarkWorkoutPlanUiModel> {
+        var workoutPlanList = listOf<BookmarkWorkoutPlanUiModel>()
+        try {
+            workoutPlanList = remoteDataSource
+                .getUserBookmarkWorkoutPlanList()
+                .map { it.toBookmarkWorkoutPlanUiModel() }
+        } catch (e: Exception) {
+            println(e)
+        }
+        return workoutPlanList
+    }
+
+    suspend fun saveUserBookmarkWorkoutPlan(model: BookmarkWorkoutPlanModel): Boolean {
+        try {
+            remoteDataSource.saveUserBookmarkWorkoutPlan(model)
+            return true
+        } catch (e: Exception) {
+            println(e)
+        }
+        return false
+    }
+
+    suspend fun deleteUserBookmarkWorkoutPlanList(ids: List<String>): Boolean {
+        try {
+            remoteDataSource.deleteUserBookmarkWorkoutPlanList(ids)
+            return true
+        } catch (e: Exception) {
+            println(e)
+        }
+        return false
     }
 
     suspend fun getWorkoutPlanDetail(workoutPlanId: String): WorkoutPlanDetailUiModel {

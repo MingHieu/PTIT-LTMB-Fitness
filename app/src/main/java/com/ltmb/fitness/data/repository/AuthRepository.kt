@@ -1,7 +1,5 @@
 package com.ltmb.fitness.data.repository
 
-import android.widget.Toast
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.google.firebase.auth.FirebaseUser
 import com.ltmb.fitness.data.remote.datasource.AuthRemoteDataSource
 import com.ltmb.fitness.data.remote.model.auth.LoginRequestModel
@@ -14,7 +12,7 @@ class AuthRepository @Inject constructor(
 ) {
 
     suspend fun login(requestModel: LoginRequestModel): FirebaseUser? {
-            return remoteDataSource.login(requestModel)
+        return remoteDataSource.login(requestModel)
     }
 
 
