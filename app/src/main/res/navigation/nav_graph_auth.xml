@@ -38,7 +38,7 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out_bottom"
-            app:popUpTo="@id/nav_graph_all"
+            app:popUpTo="@+id/nav_graph_all"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/to_select_gender"

@@ -16,6 +16,6 @@ class WorkoutFinishFragment : BaseFragment<WorkoutFinishViewModel, FragmentWorko
     override fun initialize() {
         super.initialize()
 
-        viewModel.setWorkoutPlanValue(args.workoutPlanDetail)
+        viewModel.createHistory(args.workoutPlanDetail, args.workouts, args.time, args.kcal)
     }
 }

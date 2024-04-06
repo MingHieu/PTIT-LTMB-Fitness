@@ -19,12 +19,16 @@ class HomeViewModel @Inject constructor(
 
     init {
         _bodyAreas.value = listOf(
-            BodyAreaUiModel(id = "1", name = "Shoulders", drawableRes = R.drawable.img_shoulder),
-            BodyAreaUiModel(id = "2", name = "Chest", drawableRes = R.drawable.img_chest),
-            BodyAreaUiModel(id = "3", name = "Arms", drawableRes = R.drawable.img_arm),
-            BodyAreaUiModel(id = "4", name = "Back", drawableRes = R.drawable.img_back),
-            BodyAreaUiModel(id = "5", name = "Stomach", drawableRes = R.drawable.img_stomach),
-            BodyAreaUiModel(id = "6", name = "Legs", drawableRes = R.drawable.img_leg)
+            BodyAreaUiModel(
+                id = "shoulder",
+                name = "Shoulders",
+                drawableRes = R.drawable.img_shoulder
+            ),
+            BodyAreaUiModel(id = "chest", name = "Chest", drawableRes = R.drawable.img_chest),
+            BodyAreaUiModel(id = "arm", name = "Arms", drawableRes = R.drawable.img_arm),
+            BodyAreaUiModel(id = "back", name = "Back", drawableRes = R.drawable.img_back),
+            BodyAreaUiModel(id = "stomach", name = "Stomach", drawableRes = R.drawable.img_stomach),
+            BodyAreaUiModel(id = "leg", name = "Legs", drawableRes = R.drawable.img_leg)
         )
     }
 

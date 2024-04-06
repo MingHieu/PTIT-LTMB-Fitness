@@ -12,7 +12,8 @@ data class WorkoutPlanDetailModel(
     var duration: Long = 0,
     var kcal: Long = 0,
     var bodyAreaId: String = "",
-    var workouts: List<WorkoutModel> = listOf()
+    var workouts: List<WorkoutModel> = listOf(),
+    var userId: String = ""
 ) {
 
     fun toWorkoutPlanDetailUiModel() = WorkoutPlanDetailUiModel(
@@ -23,5 +24,7 @@ data class WorkoutPlanDetailModel(
         workouts = workouts.map { it.toWorkoutUiModel() },
         duration = duration,
         kcal = kcal,
+        level = level,
+        userId = userId,
     )
 }

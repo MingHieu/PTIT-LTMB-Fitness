@@ -16,7 +16,7 @@
         <action
             android:id="@+id/to_login"
             app:destination="@+id/nav_graph_auth"
-            app:popUpTo="@id/nav_graph_all"
+            app:popUpTo="@+id/nav_graph_all"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/to_person_info"

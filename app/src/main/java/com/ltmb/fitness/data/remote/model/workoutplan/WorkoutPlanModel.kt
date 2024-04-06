@@ -12,7 +12,7 @@ data class WorkoutPlanModel(
     var level: String = "",
     var duration: Long = 0,
     var kcal: Long = 0,
-    var bodyAreaId: String = "",
+    var muscle: String = "",
     var workouts: List<DocumentReference> = listOf(),
     var userId: String = ""
 ) {

@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.data.remote.model.workoutplan.BookmarkWorkoutPlanModel
 import com.ltmb.fitness.data.repository.WorkoutPlanRepository
+import com.ltmb.fitness.data.repository.WorkoutRepository
 import com.ltmb.fitness.uimodel.WorkoutSelectionUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -15,10 +16,11 @@ import javax.inject.Inject
 @HiltViewModel
 class CreateWorkoutPlanViewModel @Inject constructor(
     application: Application,
-    private val workoutPlanRepository: WorkoutPlanRepository
+    private val workoutPlanRepository: WorkoutPlanRepository,
+    private val workoutRepository: WorkoutRepository
 ) : BaseAndroidViewModel(application) {
 
-    val model = BookmarkWorkoutPlanModel()
+    var model = BookmarkWorkoutPlanModel()
 
     private val _workouts = MutableLiveData<List<WorkoutSelectionUiModel>>()
     val workouts: LiveData<List<WorkoutSelectionUiModel>> = _workouts
@@ -30,21 +32,28 @@ class CreateWorkoutPlanViewModel @Inject constructor(
     val toastText = MutableLiveData("")
 
     init {
-        val workouts = mutableListOf<WorkoutSelectionUiModel>()
+        getWorkoutList()
+    }
 
-        for (i in 1..10) {
-            val workout = WorkoutSelectionUiModel(
-                id = "$i",
-                thumbnail = "https://wallpaperbat.com/img/69222-wallpaper-power-pose-back-fitness-gym-image-for-desktop.jpg",
-                name = "Full Body Workout $i",
-                duration = 120,
-                kcal = 100,
-                selected = false
-            )
-            workouts.add(workout)
+    fun updateWorkoutListSelected() {
+        _workouts.value?.let { list ->
+            _workouts.value = list.map {
+                if (model.workoutIds.contains(it.id)) {
+                    it.selected = true
+                }
+                it.copy()
+            }
         }
 
-        _workouts.value = workouts
+    }
+
+    private fun getWorkoutList() {
+        viewModelScope.launch {
+            setLoading(true)
+            _workouts.value = workoutRepository.getWorkoutList()
+            updateWorkoutListSelected()
+            setLoading(false)
+        }
     }
 
     private fun validate(): Boolean {
@@ -73,6 +82,7 @@ class CreateWorkoutPlanViewModel @Inject constructor(
                 val workoutsMap = _workouts.value.orEmpty().associateBy { it.id }
 
                 model.thumbnail = workoutsMap[ids.first()]?.thumbnail.orEmpty()
+                model.level = workoutsMap[ids.first()]?.level.orEmpty()
 
                 val totalDuration = ids.mapNotNull { id -> workoutsMap[id]?.duration }.sum()
                 model.duration = totalDuration

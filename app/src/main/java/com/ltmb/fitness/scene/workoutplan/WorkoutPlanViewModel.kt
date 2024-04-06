@@ -8,8 +8,6 @@ import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.data.repository.WorkoutPlanRepository
 import com.ltmb.fitness.uimodel.WorkoutPlanUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,19 +20,15 @@ class WorkoutPlanViewModel @Inject constructor(
     private val _workoutPlans = MutableLiveData<List<WorkoutPlanUiModel>>()
     val workoutPlans: LiveData<List<WorkoutPlanUiModel>> = _workoutPlans
 
-    private var searchJob: Job? = null
+    val workoutPlansSearch = MutableLiveData<List<WorkoutPlanUiModel>>()
+
+    val keySearch = MutableLiveData("")
 
     init {
         viewModelScope.launch {
-            _workoutPlans.value = workoutPlanRepository.getWorkoutPlanList()
-        }
-    }
-
-    fun onSearch(keySearch: String) {
-        searchJob?.cancel()
-        searchJob = viewModelScope.launch {
-            delay(500)
-            _workoutPlans.value = workoutPlanRepository.getWorkoutPlanList(keySearch)
+            val list = workoutPlanRepository.getWorkoutPlanList()
+            _workoutPlans.value = list
+            workoutPlansSearch.value = list
         }
     }
 

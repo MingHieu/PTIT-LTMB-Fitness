@@ -44,4 +44,9 @@ class BookmarkWorkoutPlanFragment :
             bookmarkViewModel.changeItemSelecting(it)
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        bookmarkViewModel.selecting.value = false
+    }
 }
