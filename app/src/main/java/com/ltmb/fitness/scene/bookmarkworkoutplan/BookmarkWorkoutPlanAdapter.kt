@@ -7,7 +7,7 @@ import com.ltmb.fitness.internal.extension.executeAfter
 import com.ltmb.fitness.uimodel.BookmarkWorkoutPlanUiModel
 
 interface BookmarkWorkoutPlanCallback {
-    fun onItemClick()
+    fun onItemClick(id: String)
 
     fun onItemLongClick(): Boolean
 

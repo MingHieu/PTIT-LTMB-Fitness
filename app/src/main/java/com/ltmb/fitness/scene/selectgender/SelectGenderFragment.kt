@@ -1,6 +1,5 @@
 package com.ltmb.fitness.scene.selectgender
 
-import android.content.res.ColorStateList
 import android.graphics.PorterDuff
 import androidx.core.content.ContextCompat
 import com.ltmb.fitness.R
@@ -27,17 +26,28 @@ class SelectGenderFragment : BaseFragment<SelectGenderViewModel, FragmentSelectG
         }
 
         viewModel.genderSelection.observeNonNull(viewLifecycleOwner) {
-            val primaryColor = getColorInTheme(requireContext(), androidx.appcompat.R.attr.colorPrimary)
+            val primaryColor =
+                getColorInTheme(requireContext(), androidx.appcompat.R.attr.colorPrimary)
             val secondaryColor = ContextCompat.getColor(requireContext(), R.color.bombay)
 
             when (it) {
                 GenderUiModel.MALE -> {
                     binding.maleSelectionShadow.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
-                    binding.femaleSelectionShadow.setColorFilter(secondaryColor, PorterDuff.Mode.SRC_IN)
+                    binding.femaleSelectionShadow.setColorFilter(
+                        secondaryColor,
+                        PorterDuff.Mode.SRC_IN
+                    )
                 }
+
                 GenderUiModel.FEMALE -> {
-                    binding.femaleSelectionShadow.setColorFilter(primaryColor, PorterDuff.Mode.SRC_IN)
-                    binding.maleSelectionShadow.setColorFilter(secondaryColor, PorterDuff.Mode.SRC_IN)
+                    binding.femaleSelectionShadow.setColorFilter(
+                        primaryColor,
+                        PorterDuff.Mode.SRC_IN
+                    )
+                    binding.maleSelectionShadow.setColorFilter(
+                        secondaryColor,
+                        PorterDuff.Mode.SRC_IN
+                    )
                 }
             }
         }

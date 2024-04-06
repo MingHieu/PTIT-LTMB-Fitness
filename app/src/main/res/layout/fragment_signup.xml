@@ -13,6 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?colorBackground"
         android:orientation="vertical">
 
         <com.ltmb.fitness.widget.actionbarview.ActionBarView
@@ -67,6 +68,7 @@
                 android:textSize="16sp" />
 
             <com.ltmb.fitness.widget.inputview.InputView
+                android:id="@+id/input_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -85,6 +87,7 @@
                 android:textSize="16sp" />
 
             <com.ltmb.fitness.widget.inputview.InputView
+                android:id="@+id/input_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -104,6 +107,7 @@
                 android:textSize="16sp" />
 
             <com.ltmb.fitness.widget.inputview.InputView
+                android:id="@+id/input_confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -138,7 +142,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:onClick="@{() -> viewModel.onClickLogin()}"
+                android:onClick="@{() -> viewModel.onClickSignup()}"
                 android:text="@string/signup"
                 app:cornerRadius="60dp" />
         </LinearLayout>

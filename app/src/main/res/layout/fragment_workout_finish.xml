@@ -82,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="6dp"
-                        android:text="@{String.valueOf(viewModel.workoutPlan.workoutsNumber), default=0}"
+                        android:text="@{Integer.toString(viewModel.workoutPlan.workouts.size()), default=0}"
                         android:textColor="?colorText"
                         android:textSize="16sp"
                         android:textStyle="bold"
@@ -188,6 +188,7 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:stateListAnimator="@null"
+                    android:onClick="@{() -> viewModel.onViewReportClick()}"
                     android:text="@string/view_report"
                     android:textAllCaps="false"
                     app:cornerRadius="60dp" />

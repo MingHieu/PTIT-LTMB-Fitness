@@ -1,5 +1,6 @@
 package com.ltmb.fitness.internal.databinding
 
+import android.webkit.WebView
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.databinding.ViewDataBinding
@@ -44,4 +45,12 @@ fun setImageUrl(view: ImageView, url: String?) {
         .placeholder(R.drawable.animation_skeleton)
         .error(R.drawable.animation_skeleton)
         .into(view)
+}
+
+@BindingAdapter("webUrl")
+fun setWebViewUrl(view: WebView, url: String?) {
+    if (url.isNullOrEmpty()) {
+        return
+    }
+    view.loadUrl(url)
 }

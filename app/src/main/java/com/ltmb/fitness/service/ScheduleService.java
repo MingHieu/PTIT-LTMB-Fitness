@@ -5,16 +5,15 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 
-import androidx.fragment.app.Fragment;
-
 import com.ltmb.fitness.boardcast.MyBroadcastReceiver;
 
-public class ScheduleService  {
-    private Context context;
+public class ScheduleService {
+    private final Context context;
 
     public ScheduleService(Context context) {
         this.context = context;
     }
+
     private void setAlarm(long triggerAtMillis, PendingIntent alarmIntent) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAtMillis, alarmIntent);

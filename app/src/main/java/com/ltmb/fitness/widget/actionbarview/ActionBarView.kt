@@ -24,7 +24,7 @@ fun setViewModel(actionBarView: ActionBarView, vm: BaseAndroidViewModel) {
 
 @BindingAdapter("abv_title")
 fun setAbvTitle(actionBarView: ActionBarView, title: String?) {
-    actionBarView.setTitle(title ?: "")
+    actionBarView.setTitle(title.orEmpty())
 }
 
 class ActionBarView @JvmOverloads constructor(

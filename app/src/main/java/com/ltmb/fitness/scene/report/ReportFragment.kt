@@ -44,7 +44,7 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
 
         val days = arrayOf("2", "3", "4", "5", "6", "7", "8")
 
-        val xAxis: XAxis = barChart.getXAxis()
+        val xAxis: XAxis = barChart.xAxis
         xAxis.valueFormatter = IndexAxisValueFormatter(days)
         xAxis.setCenterAxisLabels(true)
         xAxis.position = XAxis.XAxisPosition.BOTTOM
@@ -58,10 +58,10 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
         val groupSpace = 0.4f
         barData.barWidth = 0.12f
 
-        barChart.getXAxis().setAxisMinimum(0f)
-        barChart.getXAxis()
-            .setAxisMaximum(0 + barChart.getBarData().getGroupWidth(groupSpace, barSpace) * 7)
-        barChart.getAxisLeft().setAxisMinimum(0f)
+        barChart.xAxis.setAxisMinimum(0f)
+        barChart.xAxis
+            .setAxisMaximum(0 + barChart.barData.getGroupWidth(groupSpace, barSpace) * 7)
+        barChart.axisLeft.setAxisMinimum(0f)
 
         barChart.groupBars(0f, groupSpace, barSpace)
 
@@ -83,7 +83,8 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
         dataSet.color = Color.RED
         dataSet.setDrawFilled(true)
         dataSet.fillColor = Color.BLUE // Màu fill
-        dataSet.fillAlpha = 128 // Độ trong suốt của fill color (0-255), 255 là hoàn toàn không trong suốt
+        dataSet.fillAlpha =
+            128 // Độ trong suốt của fill color (0-255), 255 là hoàn toàn không trong suốt
 
         val lineData = LineData(dataSet)
         lineChart.data = lineData
@@ -106,7 +107,7 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
         return barEntries
     }
 
-    fun pieChart(){
+    fun pieChart() {
         val pieChart: PieChart = binding.pieChart
 
         // Dữ liệu mẫu

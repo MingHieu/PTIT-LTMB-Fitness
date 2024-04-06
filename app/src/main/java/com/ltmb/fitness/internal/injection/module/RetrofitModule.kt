@@ -23,7 +23,7 @@ object RetrofitModule {
     private const val CLIENT_TIME_OUT = 120L
 
     @Provides
-    fun provideBaseUrl(): String = "https://vtpost-crm-api.vnit.top/auth-service/rest/api/v1/"
+    fun provideBaseUrl(): String = "http://localhost:8080"
 
     @Provides
     @Singleton

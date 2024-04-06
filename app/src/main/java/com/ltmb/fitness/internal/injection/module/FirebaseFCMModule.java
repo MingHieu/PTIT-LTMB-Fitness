@@ -1,15 +1,8 @@
 package com.ltmb.fitness.internal.injection.module;
 
-import static androidx.activity.result.ActivityResultCallerKt.registerForActivityResult;
-
-import android.Manifest;
-import android.os.Build;
 import android.util.Log;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

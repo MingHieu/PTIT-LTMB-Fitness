@@ -31,7 +31,11 @@
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom" />
+            app:popExitAnim="@anim/slide_out_bottom">
+            <argument
+                android:name="workoutPlanId"
+                app:argType="string" />
+        </action>
         <action
             android:id="@+id/to_bookmark_workout_plan"
             app:destination="@id/bookmarkWorkoutPlanFragment"
@@ -80,7 +84,11 @@
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom" />
+            app:popExitAnim="@anim/slide_out_bottom">
+            <argument
+                android:name="workoutPlanId"
+                app:argType="string" />
+        </action>
         <action
             android:id="@+id/to_create_workout_plan"
             app:destination="@id/createWorkoutPlanFragment"

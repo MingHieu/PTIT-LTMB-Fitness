@@ -3,20 +3,28 @@ package com.ltmb.fitness.scene.search
 import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
 import com.ltmb.fitness.base.BaseAndroidViewModel
+import com.ltmb.fitness.data.repository.SearchRepository
 import com.ltmb.fitness.uimodel.ExerciseSearchUiModel
 import com.ltmb.fitness.uimodel.KeySearchUiModel
 import com.ltmb.fitness.uimodel.SearchFilter
 import com.ltmb.fitness.uimodel.SearchUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import java.util.Date
 import javax.inject.Inject
 
 @HiltViewModel
 class SearchViewModel @Inject constructor(
-    application: Application
+    application: Application,
+    private val searchRepository: SearchRepository
 ) : BaseAndroidViewModel(application) {
 
-    private val _keySearchHistory = MutableLiveData<List<KeySearchUiModel>>()
+    private val _keySearchHistory =
+        MutableLiveData(searchRepository.getKeySearchHistory().sortedByDescending { it.createdAt })
     val keySearchHistory: LiveData<List<KeySearchUiModel>> = _keySearchHistory
 
     private val _keySearch = MutableLiveData("")
@@ -28,7 +36,37 @@ class SearchViewModel @Inject constructor(
     private val _filterSelected = MutableLiveData(SearchFilter.ALL)
     val filterSelected: LiveData<SearchFilter> = _filterSelected
 
-    init {
+    private var searchJob: Job? = null
+
+    fun onSearch(text: String) {
+        _keySearch.value = text
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            delay(500)
+            if (text.isNotEmpty()) {
+                setLoading(true)
+                saveKeySearchToHistory(text)
+                fetchSearchResults(text)
+                setLoading(false)
+            }
+        }
+    }
+
+    private fun saveKeySearchToHistory(text: String) {
+        var keySearchList = _keySearchHistory.value!!.toMutableList()
+        keySearchList.add(
+            KeySearchUiModel(
+                id = "${Date().time}",
+                value = text,
+                createdAt = Date().time
+            )
+        )
+        keySearchList = keySearchList.sortedByDescending { it.createdAt }.toMutableList()
+        _keySearchHistory.value = keySearchList
+        searchRepository.saveKeySearchHistory(keySearchList)
+    }
+
+    private fun fetchSearchResults(text: String) {
         _searchResults.value = listOf(
             ExerciseSearchUiModel(
                 "1",
@@ -45,32 +83,15 @@ class SearchViewModel @Inject constructor(
                 null
             )
         )
-
-        _keySearchHistory.value = listOf(
-            KeySearchUiModel(id = "1", value = "wor"),
-            KeySearchUiModel(id = "2", value = "workout"),
-            KeySearchUiModel(id = "3", value = "world"),
-            KeySearchUiModel(id = "4", value = "word"),
-            KeySearchUiModel(id = "5", value = "worry"),
-            KeySearchUiModel(id = "6", value = "work"),
-            KeySearchUiModel(id = "7", value = "wonder"),
-            KeySearchUiModel(id = "8", value = "worth"),
-            KeySearchUiModel(id = "9", value = "worn"),
-            KeySearchUiModel(id = "10", value = "worm"),
-        )
     }
 
     fun deleteKeySearchHistory(id: String) {
         val newHistory = _keySearchHistory.value!!.filter { it.id != id }
         _keySearchHistory.value = newHistory
+        searchRepository.saveKeySearchHistory(newHistory)
     }
 
     fun setFilterSelected(filter: SearchFilter) {
         _filterSelected.value = filter
-    }
-
-    fun onSearch(text: String) {
-        println("Search: $text")
-        _keySearch.value = text
     }
 }

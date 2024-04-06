@@ -12,7 +12,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.Build;
-import android.util.Log;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
@@ -24,7 +23,7 @@ import java.util.Date;
 
 public class NotificationService {
     private final int NOTIFICATION_CODE = 100;
-    private Context context;
+    private final Context context;
 
     public NotificationService(Context context) {
         this.context = context;
@@ -42,7 +41,7 @@ public class NotificationService {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE);
         builder.setContentIntent(pendingIntent);
 
-        Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources() , R.raw.animation_firework);
+        Bitmap largeIcon = BitmapFactory.decodeResource(context.getResources(), R.raw.animation_firework);
         builder.setLargeIcon(largeIcon);
 
         MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.music_notification);
@@ -57,7 +56,7 @@ public class NotificationService {
             // Check Permission
             if (ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS)
                     != PackageManager.PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions( (Activity) context,
+                ActivityCompat.requestPermissions((Activity) context,
                         new String[]{Manifest.permission.POST_NOTIFICATIONS},
                         NOTIFICATION_CODE);
             }
