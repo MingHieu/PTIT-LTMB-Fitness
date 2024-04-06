@@ -18,6 +18,7 @@ class WorkoutPlanRemoteDataSource @Inject constructor(
 ) : BaseRemoteDataSource() {
 
     private val collection = firestore.collection(FirestoreCollections.WORKOUT_PLAN)
+    private val workoutCollection = firestore.collection(FirestoreCollections.WORKOUT)
 
     suspend fun getWorkoutPlanList(keySearch: String) = invoke {
         collection
@@ -35,7 +36,7 @@ class WorkoutPlanRemoteDataSource @Inject constructor(
 
     suspend fun getWorkoutPlanListByBodyArea(bodyAreaId: String) = invoke {
         collection
-            .whereEqualTo("bodyAreaId", bodyAreaId)
+            .whereEqualTo("muscle", bodyAreaId)
             .get().await()
             .documents
             .mapNotNull { document ->
@@ -68,13 +69,13 @@ class WorkoutPlanRemoteDataSource @Inject constructor(
                 "level" to model.level,
                 "duration" to model.duration,
                 "kcal" to model.kcal,
-                "workouts" to model.workoutIds.map { collection.document(it) }.toList(),
+                "workouts" to model.workoutIds.map { workoutCollection.document(it) }.toList(),
                 "userId" to auth.currentUser?.uid
             )
             if (model.id.isBlank()) {
                 collection.add(data).await()
             } else {
-                collection.document(model.id).set(data)
+                collection.document(model.id).set(data).await()
                 collection.document(model.id)
             }
         }
@@ -109,7 +110,8 @@ class WorkoutPlanRemoteDataSource @Inject constructor(
                 duration = data["duration"] as? Long ?: 0,
                 kcal = data["kcal"] as? Long ?: 0,
                 bodyAreaId = data["bodyAreaId"] as? String ?: "",
-                workouts = workouts
+                workouts = workouts,
+                userId = data["userId"] as? String ?: ""
             )
         }
     }

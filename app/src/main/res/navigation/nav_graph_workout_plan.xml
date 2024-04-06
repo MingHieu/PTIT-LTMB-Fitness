@@ -27,6 +27,26 @@
                 android:name="workoutPlanDetail"
                 app:argType="com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel" />
         </action>
+        <action
+            android:id="@+id/to_bookmark"
+            app:destination="@id/bookmarkWorkoutPlanFragment2"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@+id/bodyAreaFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/to_edit"
+            app:destination="@id/createWorkoutPlanFragment2"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/slide_out_bottom">
+            <argument
+                android:name="workoutPlan"
+                app:argType="com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel" />
+        </action>
     </fragment>
 
     <fragment
@@ -70,7 +90,7 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out_bottom"
-            app:popUpTo="@id/nav_graph_all"
+            app:popUpTo="@+id/nav_graph_all"
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/to_report"
@@ -79,8 +99,25 @@
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
             app:popExitAnim="@anim/slide_out_bottom"
-            app:popUpTo="@id/nav_graph_all"
+            app:popUpTo="@+id/nav_graph_all"
             app:popUpToInclusive="true" />
     </fragment>
 
+    <fragment
+        android:id="@+id/bookmarkWorkoutPlanFragment2"
+        android:name="com.ltmb.fitness.scene.bookmarkworkoutplan.BookmarkWorkoutPlanFragment"
+        android:label="BookmarkWorkoutPlanFragment"
+        tools:layout="@layout/fragment_bookmark_workout_plan" />
+
+    <fragment
+        android:id="@+id/createWorkoutPlanFragment2"
+        android:name="com.ltmb.fitness.scene.createworkoutplan.CreateWorkoutPlanFragment"
+        android:label="CreateWorkoutPlanFragment"
+        tools:layout="@layout/fragment_create_workout_plan">
+        <argument
+            android:name="workoutPlan"
+            android:defaultValue="@null"
+            app:argType="com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel"
+            app:nullable="true" />
+    </fragment>
 </navigation>

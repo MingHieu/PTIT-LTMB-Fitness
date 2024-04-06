@@ -1,5 +1,6 @@
 package com.ltmb.fitness.data.remote.model.workout
 
+import com.ltmb.fitness.uimodel.WorkoutSelectionUiModel
 import com.ltmb.fitness.uimodel.WorkoutUiModel
 
 data class WorkoutModel(
@@ -9,7 +10,11 @@ data class WorkoutModel(
     val duration: Long = 0,
     val kcal: Long = 0,
     val video: String = "",
-    val tutorialText: String = ""
+    val muscle: String = "",
+    val level: String = "",
+    val equipment: String = "",
+    val type: String = "",
+    val instructions: String = ""
 ) {
 
     fun toWorkoutUiModel() =
@@ -20,7 +25,18 @@ data class WorkoutModel(
             duration = duration,
             kcal = kcal,
             video = video,
-            tutorialText = tutorialText
+            tutorialText = instructions
+        )
+
+    fun toWorkoutSelectionUiModel() =
+        WorkoutSelectionUiModel(
+            id = id,
+            name = name,
+            thumbnail = thumbnail,
+            duration = duration,
+            kcal = kcal,
+            level = level,
+            selected = false
         )
 }
 
