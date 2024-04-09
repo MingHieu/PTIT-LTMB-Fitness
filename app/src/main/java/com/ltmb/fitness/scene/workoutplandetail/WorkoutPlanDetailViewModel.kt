@@ -29,9 +29,6 @@ class WorkoutPlanDetailViewModel @Inject constructor(
     val reloadData = MutableLiveData(false)
 
     fun getWorkoutPlanDetail(id: String) {
-        if (_workoutPlan.value != null) {
-            return
-        }
         viewModelScope.launch {
             setLoading(true)
             _workoutPlan.value = workoutPlanRepository.getWorkoutPlanDetail(id)

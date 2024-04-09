@@ -33,6 +33,7 @@ class CreateWorkoutPlanFragment :
 
         val workoutPlan = args.workoutPlan
         if (workoutPlan != null) {
+            binding.actionBar.setTitle(getString(R.string.update_workout_plan_screen_title))
             viewModel.model = BookmarkWorkoutPlanModel(
                 id = workoutPlan.id,
                 name = workoutPlan.name,
