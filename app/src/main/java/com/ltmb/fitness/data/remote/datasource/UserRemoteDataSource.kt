@@ -9,24 +9,28 @@ import com.google.firebase.firestore.firestore
 import com.ltmb.fitness.data.remote.BaseRemoteDataSource
 import com.ltmb.fitness.data.remote.FirestoreCollections
 import com.ltmb.fitness.data.remote.UserCollections
+import com.ltmb.fitness.data.remote.model.user.UserModel
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class UserRemoteDataSource @Inject constructor(
-    private val db: FirebaseFirestore,
+    db: FirebaseFirestore,
     private val auth: AuthRemoteDataSource
 ) : BaseRemoteDataSource() {
 
+    private val collection = db.collection(FirestoreCollections.USER)
+
     suspend fun createNewUser(userId: String) = invoke {
-        db.collection(FirestoreCollections.USER)
-            .document(userId)
+        collection.document(userId)
             .set(hashMapOf<String, Any>())
     }
 
-    suspend fun addGender(isGender: Boolean) = invoke {
+    suspend fun updateUser(userModel: UserModel) = invoke {
         auth.getCurrentUser()?.let {
-            db.collection(FirestoreCollections.USER)
-                .document(it.uid)
-                .set(hashMapOf(UserCollections.GENDER to isGender))
+            collection.document(it.uid)
+                .set(userModel)
+                .await()
         }
     }
+
 }

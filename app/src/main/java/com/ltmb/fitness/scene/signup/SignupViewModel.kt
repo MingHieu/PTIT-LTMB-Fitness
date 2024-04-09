@@ -62,9 +62,9 @@ class SignupViewModel @Inject constructor(
     }
 
     fun onClickSignup() {
-//        if (!validate()) {
-//            return
-//        }
+        if (!validate()) {
+            return
+        }
         viewModelScope.launch {
             setLoading(true)
             try {
