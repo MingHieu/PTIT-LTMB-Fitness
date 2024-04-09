@@ -35,21 +35,24 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
             }
         })
         binding.searchBox.focus()
+        binding.searchBox.setValue(viewModel.keySearch.value.orEmpty())
         binding.searchBox.onTextChanged = { text ->
             viewModel.onSearch(text)
         }
 
         viewModel.filterSelected.observeNonNull(viewLifecycleOwner) { it1 ->
-            val filterValues = listOf(SearchFilter.ALL, SearchFilter.WORKOUT, SearchFilter.FOOD)
+            val filterValues = listOf(SearchFilter.ALL, SearchFilter.BEGINNER, SearchFilter.INTERMEDIATE, SearchFilter.ADVANCED)
             val filterBtnList = listOf(
                 binding.filterAllButton,
-                binding.filterWorkoutButton,
-                binding.filterFoodButton
+                binding.filterWorkoutBeginnerButton,
+                binding.filterWorkoutIntermediateButton,
+                binding.filterWorkoutAdvancedButton
             )
             val filterTextList = listOf(
                 binding.filterAllText,
-                binding.filterWorkoutText,
-                binding.filterFoodText
+                binding.filterWorkoutBeginnerText,
+                binding.filterWorkoutIntermediateText,
+                binding.filterWorkoutAdvancedText
             )
             filterValues.zip(filterBtnList.zip(filterTextList)) { value, (btn, text) ->
                 val isSelected = value == it1

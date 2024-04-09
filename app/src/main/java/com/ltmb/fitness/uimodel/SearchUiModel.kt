@@ -13,7 +13,7 @@ sealed class SearchUiModel : ListAdapterItem, Serializable {
 }
 
 enum class SearchFilter {
-    ALL, WORKOUT, FOOD
+    ALL, BEGINNER, INTERMEDIATE, ADVANCED
 }
 
 data class ExerciseSearchUiModel(

@@ -45,6 +45,7 @@ class SearchViewModel @Inject constructor(
             delay(500)
             if (text.isNotEmpty()) {
                 setLoading(true)
+                delay(500)
                 saveKeySearchToHistory(text)
                 fetchSearchResults(text)
                 setLoading(false)
