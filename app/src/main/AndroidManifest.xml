@@ -33,14 +33,12 @@
 
         <service
             android:name="com.ltmb.fitness.internal.injection.module.FirebaseFCMModule"
-            android:exported="false"
-            tools:ignore="WrongManifestParent">
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <receiver android:name="com.ltmb.fitness.boardcast.MyBroadcastReceiver" >
+            <receiver android:name="com.ltmb.fitness.boardcast.MyBroadcastReceiver" >
         </receiver>
     </application>
 

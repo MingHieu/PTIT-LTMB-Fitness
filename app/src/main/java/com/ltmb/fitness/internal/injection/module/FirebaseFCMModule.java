@@ -25,8 +25,14 @@ public class FirebaseFCMModule extends FirebaseMessagingService {
                         Log.d("FirebaseFCMModule", token);
                     }
                 });
-        // cU7tKg2HSRGOt2k0rbeUJp:APA91bHzolIA0NSeDoa7akDXJgUpQCQTSMQcPJklnv3fzsjjTkuehYi4pqxASuARSeaQ1AECGx-ckv-kNhb6AwiftBUHb3Js75G6t_XYGCEenbQT4M7m1aJodaBR9ULIbiN1raCsVp9A
         return task.getResult();
+    }
+
+    public static void sendNotificationFCM(String deviceToken, String name) {
+//        String deviceToken = "...";
+//        RemoteMessage message = RemoteMessage.
+//
+//        String response = FirebaseMessaging.getInstance().
     }
 
     @Override

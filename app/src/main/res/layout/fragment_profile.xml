@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:padding="10dp">
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
                 android:layout_width="80dp"
@@ -42,64 +42,70 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dp"
                 android:text="@string/name"
                 android:textColor="?colorText"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:text="Name" />
-            <com.ltmb.fitness.widget.inputview.InputView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/name"
-                android:textColorHint="?colorPrimary"
                 android:textSize="18sp"
-                android:textStyle="italic"
-                app:iv_background="?colorInputBackground"
-                app:iv_enabled="false"
-                tools:hint="Duy" />
+                android:textStyle="bold"
+                tools:text="Nguyễn Nhật Duy Hiếu - B20DCCN056" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginBottom="6dp"
                 android:text="@string/name"
-                android:textColor="?colorText"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:text="User" />
-            <com.ltmb.fitness.widget.inputview.InputView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/name"
-                android:text="@string/change_avatar"
-                android:textColorHint="?colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:iv_background="?colorInputBackground"
-                app:iv_enabled="false"
-                tools:hint="DuyLH1109" />
-            <TextView
+                android:textColor="@color/gray"
+                android:textSize="14sp"
+                tools:text="ngdanh2k2@gmail.com" />
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="6dp"
-                android:text="@string/name"
-                android:textColor="?colorText"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                tools:text="Email" />
-            <com.ltmb.fitness.widget.inputview.InputView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/name"
-                android:text="@string/change_avatar"
-                android:textColorHint="?colorPrimary"
-                android:textSize="18sp"
-                android:textStyle="italic"
-                app:iv_background="?colorInputBackground"
-                app:iv_enabled="false"
-                tools:hint="duy1192002@gmai.com" />
+                android:layout_marginBottom="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@color/gallery"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:layout_marginRight="10dp"
+                    tools:text="18 Ages" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@color/gallery"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    android:layout_marginRight="10dp"
+                    tools:text="170cm" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:background="@color/gallery"
+                    android:paddingHorizontal="20dp"
+                    android:paddingVertical="10dp"
+                    tools:text="60kg" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gửi lời mời tập luyện" />
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="2dp"
+                    android:src="@drawable/ic_share" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </layout>
