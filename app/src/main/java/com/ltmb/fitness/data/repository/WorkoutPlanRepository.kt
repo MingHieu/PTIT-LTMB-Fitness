@@ -3,6 +3,7 @@ package com.ltmb.fitness.data.repository
 import com.ltmb.fitness.data.remote.datasource.WorkoutPlanRemoteDataSource
 import com.ltmb.fitness.data.remote.model.workoutplan.BookmarkWorkoutPlanModel
 import com.ltmb.fitness.uimodel.BookmarkWorkoutPlanUiModel
+import com.ltmb.fitness.uimodel.SearchUiModel
 import com.ltmb.fitness.uimodel.WorkoutPlanDetailUiModel
 import com.ltmb.fitness.uimodel.WorkoutPlanUiModel
 import javax.inject.Inject
@@ -12,6 +13,18 @@ import javax.inject.Singleton
 class WorkoutPlanRepository @Inject constructor(
     private val remoteDataSource: WorkoutPlanRemoteDataSource
 ) {
+
+    suspend fun searchWorkoutPlan(name: String = "", level: String = ""): List<SearchUiModel> {
+        var result = listOf<SearchUiModel>()
+        try {
+            result = remoteDataSource
+                .searchWorkoutPlan(name, level)
+                .map { it.toSearchUiModel() }
+        } catch (e: Exception) {
+            println(e)
+        }
+        return result
+    }
 
     suspend fun getWorkoutPlanList(keySearch: String = ""): List<WorkoutPlanUiModel> {
         var workoutPlanList = listOf<WorkoutPlanUiModel>()

@@ -18,8 +18,11 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
     override fun initialize() {
         super.initialize()
 
+        viewModel.ignoreFilterFirstTime = true
+
         binding.keySearchHistoryAdapter = KeySearchHistoryAdapter(object : KeySearchCallback {
             override fun onItemClick(keySearch: String) {
+                viewModel.instantSearch = true
                 binding.searchBox.setValue(keySearch)
             }
 
@@ -30,18 +33,35 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
         })
 
         binding.searchAdapter = SearchAdapter(object : SearchCallback {
-            override fun onSearchItemClick() {
-                TODO("Not yet implemented")
+            override fun onSearchItemClick(id: String) {
+                viewModel.goToSearchDetail(id)
             }
         })
         binding.searchBox.focus()
         binding.searchBox.setValue(viewModel.keySearch.value.orEmpty())
+        if (!viewModel.keySearch.value.isNullOrEmpty()) {
+            viewModel.ignoreSearchFirstTime = true
+        }
         binding.searchBox.onTextChanged = { text ->
-            viewModel.onSearch(text)
+            if (viewModel.ignoreSearchFirstTime) {
+                viewModel.ignoreSearchFirstTime = false
+            } else {
+                viewModel.onSearch(text)
+            }
         }
 
         viewModel.filterSelected.observeNonNull(viewLifecycleOwner) { it1 ->
-            val filterValues = listOf(SearchFilter.ALL, SearchFilter.BEGINNER, SearchFilter.INTERMEDIATE, SearchFilter.ADVANCED)
+            if (viewModel.ignoreFilterFirstTime) {
+                viewModel.ignoreFilterFirstTime = false
+                return@observeNonNull
+            }
+            viewModel.onChangeFilter()
+            val filterValues = listOf(
+                SearchFilter.ALL,
+                SearchFilter.BEGINNER,
+                SearchFilter.INTERMEDIATE,
+                SearchFilter.ADVANCED
+            )
             val filterBtnList = listOf(
                 binding.filterAllButton,
                 binding.filterWorkoutBeginnerButton,

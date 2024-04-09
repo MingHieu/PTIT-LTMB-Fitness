@@ -12,8 +12,11 @@ sealed class SearchUiModel : ListAdapterItem, Serializable {
     open fun getImagePath(): String = "https://placehold.co/100x100"
 }
 
-enum class SearchFilter {
-    ALL, BEGINNER, INTERMEDIATE, ADVANCED
+enum class SearchFilter(val value: String) {
+    ALL(""),
+    BEGINNER("Beginner"),
+    INTERMEDIATE("Intermediate"),
+    ADVANCED("Advanced")
 }
 
 data class ExerciseSearchUiModel(

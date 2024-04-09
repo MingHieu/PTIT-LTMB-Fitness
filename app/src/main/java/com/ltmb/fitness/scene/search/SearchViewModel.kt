@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.data.repository.SearchRepository
-import com.ltmb.fitness.uimodel.ExerciseSearchUiModel
+import com.ltmb.fitness.data.repository.WorkoutPlanRepository
 import com.ltmb.fitness.uimodel.KeySearchUiModel
 import com.ltmb.fitness.uimodel.SearchFilter
 import com.ltmb.fitness.uimodel.SearchUiModel
@@ -20,7 +20,8 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     application: Application,
-    private val searchRepository: SearchRepository
+    private val searchRepository: SearchRepository,
+    private val workoutPlanRepository: WorkoutPlanRepository
 ) : BaseAndroidViewModel(application) {
 
     private val _keySearchHistory =
@@ -38,15 +39,44 @@ class SearchViewModel @Inject constructor(
 
     private var searchJob: Job? = null
 
+    var ignoreFilterFirstTime = true
+
+    var ignoreSearchFirstTime = false
+
+    var instantSearch = false
+
+    val showResult = MutableLiveData(false)
+
     fun onSearch(text: String) {
-        _keySearch.value = text
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
-            delay(500)
+            if (text.isBlank()) {
+                _keySearch.value = ""
+                showResult.value = false
+                _searchResults.value = listOf()
+                return@launch
+            }
+            if (!instantSearch) {
+                delay(1000)
+            } else {
+                instantSearch = false
+            }
+            _keySearch.value = text
             if (text.isNotEmpty()) {
                 setLoading(true)
-                delay(500)
                 saveKeySearchToHistory(text)
+                fetchSearchResults(text)
+                setLoading(false)
+            }
+
+        }
+    }
+
+    fun onChangeFilter() {
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            _keySearch.value?.let { text ->
+                setLoading(true)
                 fetchSearchResults(text)
                 setLoading(false)
             }
@@ -55,6 +85,9 @@ class SearchViewModel @Inject constructor(
 
     private fun saveKeySearchToHistory(text: String) {
         var keySearchList = _keySearchHistory.value!!.toMutableList()
+        if (keySearchList.any { keySearch -> keySearch.value == text }) {
+            return
+        }
         keySearchList.add(
             KeySearchUiModel(
                 id = "${Date().time}",
@@ -67,23 +100,10 @@ class SearchViewModel @Inject constructor(
         searchRepository.saveKeySearchHistory(keySearchList)
     }
 
-    private fun fetchSearchResults(text: String) {
-        _searchResults.value = listOf(
-            ExerciseSearchUiModel(
-                "1",
-                "Name",
-                120,
-                "Beginner",
-                "https://wallpaperbat.com/img/69222-wallpaper-power-pose-back-fitness-gym-image-for-desktop.jpg"
-            ),
-            ExerciseSearchUiModel(
-                "2",
-                "Name",
-                90,
-                "Beginner",
-                null
-            )
-        )
+    private suspend fun fetchSearchResults(text: String) {
+        _searchResults.value =
+            workoutPlanRepository.searchWorkoutPlan(text, filterSelected.value?.value.orEmpty())
+        showResult.value = true
     }
 
     fun deleteKeySearchHistory(id: String) {
@@ -94,5 +114,9 @@ class SearchViewModel @Inject constructor(
 
     fun setFilterSelected(filter: SearchFilter) {
         _filterSelected.value = filter
+    }
+
+    fun goToSearchDetail(id: String) {
+        navigate(SearchFragmentDirections.toWorkoutPlanDetail(id))
     }
 }

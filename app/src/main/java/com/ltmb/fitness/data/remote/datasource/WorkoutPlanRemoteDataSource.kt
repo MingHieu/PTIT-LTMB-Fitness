@@ -20,6 +20,25 @@ class WorkoutPlanRemoteDataSource @Inject constructor(
     private val collection = firestore.collection(FirestoreCollections.WORKOUT_PLAN)
     private val workoutCollection = firestore.collection(FirestoreCollections.WORKOUT)
 
+    suspend fun searchWorkoutPlan(name: String, level: String) = invoke {
+        val query = if (level.isNotBlank()) {
+            collection.whereEqualTo("level", level)
+        } else {
+            collection
+        }
+        query
+            .whereGreaterThanOrEqualTo("name", name)
+            .whereLessThanOrEqualTo("name", "$name\uf7ff")
+            .get().await()
+            .documents
+            .mapNotNull { document ->
+                document.toObject(WorkoutPlanModel::class.java)?.apply {
+                    id = document.id
+                }
+            }
+            .toList()
+    }
+
     suspend fun getWorkoutPlanList(keySearch: String) = invoke {
         collection
             .whereGreaterThanOrEqualTo("name", keySearch)

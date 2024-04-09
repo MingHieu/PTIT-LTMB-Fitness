@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:paddingHorizontal="16dp"
-            android:visibility="@{viewModel.keySearch.empty ? View.VISIBLE : View.GONE}"
+            android:visibility="@{viewModel.showResult ? View.GONE : View.VISIBLE}"
             app:adapter="@{keySearchHistoryAdapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:submitList="@{viewModel.keySearchHistory}"
@@ -64,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="@{viewModel.keySearch.empty ? View.GONE : View.VISIBLE}">
+            android:visibility="@{viewModel.showResult ? View.VISIBLE : View.GONE}">
 
             <HorizontalScrollView
                 android:layout_width="wrap_content"
@@ -75,8 +75,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
-                    android:padding="16dp"
-                    android:visibility="@{viewModel.searchResults.size() > 0 ? View.VISIBLE : View.GONE}">
+                    android:padding="16dp">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/filter_all_button"
@@ -194,7 +193,6 @@
                 android:textColor="?colorText"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:visibility="@{!viewModel.keySearch.empty &amp;&amp; !viewModel.loading ? View.VISIBLE : View.GONE}"
                 tools:text="9 Results" />
 
             <androidx.recyclerview.widget.RecyclerView
