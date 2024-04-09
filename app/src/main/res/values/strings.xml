@@ -14,6 +14,9 @@
     <string name="common_require">*</string>
     <string name="search">Search</string>
     <string name="search_all_filter">All</string>
+    <string name="search_workout_beginner_filter">Beginner</string>
+    <string name="search_workout_intermediate_filter">Intermediate</string>
+    <string name="search_workout_advanced_filter">Advanced</string>
     <string name="search_workout_filter">Workout</string>
     <string name="search_food_filter">Food</string>
     <string name="results">Results</string>

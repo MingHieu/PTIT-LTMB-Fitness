@@ -117,6 +117,9 @@ abstract class BaseFragment<VM : BaseAndroidViewModel, B : ViewDataBinding> : Fr
 
     private fun observeLoading() {
         viewModel.loading.observeNonNull(viewLifecycleOwner) { isLoading ->
+            if (viewModel.useCustomLoading) {
+                return@observeNonNull
+            }
             if (isLoading) {
                 loadingDialog.show()
             } else {

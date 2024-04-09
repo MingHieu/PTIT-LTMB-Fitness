@@ -2,6 +2,7 @@ package com.ltmb.fitness.data.remote.model.workoutplan
 
 import com.google.firebase.firestore.DocumentReference
 import com.ltmb.fitness.uimodel.BookmarkWorkoutPlanUiModel
+import com.ltmb.fitness.uimodel.ExerciseSearchUiModel
 import com.ltmb.fitness.uimodel.WorkoutPlanUiModel
 
 data class WorkoutPlanModel(
@@ -35,5 +36,14 @@ data class WorkoutPlanModel(
             duration = duration,
             selecting = false,
             selected = false
+        )
+
+    fun toSearchUiModel(): ExerciseSearchUiModel =
+        ExerciseSearchUiModel(
+            id = id,
+            thumbnail = thumbnail,
+            name = name,
+            level = level,
+            duration = duration
         )
 }
