@@ -14,6 +14,10 @@ class SignupFragment : BaseFragment<SignupViewModel, FragmentSignupBinding>() {
     override fun initialize() {
         super.initialize()
 
+        binding.inputEmail.setValue(viewModel.getEmail())
+        binding.inputPassword.setValue(viewModel.getPassword())
+        binding.inputConfirmPassword.setValue(viewModel.getConfirmPassword())
+
         binding.inputEmail.onTextChanged = { text ->
             viewModel.setEmail(text)
         }

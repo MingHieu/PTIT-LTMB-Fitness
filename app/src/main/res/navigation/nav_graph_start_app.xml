@@ -48,12 +48,14 @@
             android:id="@+id/to_start_app_2"
             app:destination="@id/startApp2Fragment" />
         <action
-            android:id="@+id/to_getStarted"
-            app:destination="@id/getStartedFragment"
+            android:id="@+id/to_auth"
+            app:destination="@+id/nav_graph_auth"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom" />
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@+id/nav_graph_all"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -65,12 +67,14 @@
             android:id="@+id/to_start_app_3"
             app:destination="@id/startApp3Fragment" />
         <action
-            android:id="@+id/action_startApp2Fragment_to_getStartedFragment"
-            app:destination="@id/getStartedFragment"
+            android:id="@+id/to_auth"
+            app:destination="@+id/nav_graph_auth"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/slide_out_bottom" />
+            app:popExitAnim="@anim/slide_out_bottom"
+            app:popUpTo="@+id/nav_graph_all"
+            app:popUpToInclusive="true" />
     </fragment>
 
     <fragment
@@ -79,7 +83,7 @@
         android:label="StartApp3Fragment"
         tools:layout="@layout/fragment_start_app_3">
         <action
-            android:id="@+id/to_getStarted"
+            android:id="@+id/to_auth"
             app:destination="@+id/nav_graph_auth"
             app:enterAnim="@anim/slide_in_bottom"
             app:exitAnim="@anim/fade_out"

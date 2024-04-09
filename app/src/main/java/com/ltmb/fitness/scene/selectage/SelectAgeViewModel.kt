@@ -12,4 +12,8 @@ class SelectAgeViewModel @Inject constructor(application: Application) :
     fun onClickContinue() {
         navigate(SelectAgeFragmentDirections.toSelectHeight())
     }
+
+    fun onClickSkip(){
+        navigate(SelectAgeFragmentDirections.toHome())
+    }
 }

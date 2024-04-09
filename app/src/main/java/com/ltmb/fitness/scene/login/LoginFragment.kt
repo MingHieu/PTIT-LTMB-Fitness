@@ -15,6 +15,9 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
     override fun initialize() {
         super.initialize()
 
+        binding.inputEmail.setValue(viewModel.getEmail())
+        binding.inputPassword.setValue(viewModel.getPassword())
+
         binding.inputEmail.onTextChanged = { text ->
             viewModel.setEmail(text)
         }

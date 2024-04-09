@@ -13,4 +13,7 @@ class SelectHeightViewModel @Inject constructor(application: Application) :
         navigate(SelectHeightFragmentDirections.toSelectWeight())
     }
 
+    fun onClickSkip(){
+        navigate(SelectHeightFragmentDirections.toHome())
+    }
 }

@@ -22,6 +22,21 @@ class LoginViewModel @Inject constructor(
     val isShowToast = MutableLiveData(false)
     var messageError = ""
 
+    fun setEmail(text: String) {
+        _email = text
+    }
+
+    fun setPassword(text: String) {
+        _password = text
+    }
+
+    fun getEmail(): String {
+        return this._email
+    }
+    fun getPassword():String{
+        return this._password
+    }
+
     fun onClickLogin() {
 //        navigate(LoginFragmentDirections.toSelectGender())
         println("Email: $_email, Password: $_password")
@@ -39,11 +54,4 @@ class LoginViewModel @Inject constructor(
         }
     }
 
-    fun setEmail(text: String) {
-        _email = text
-    }
-
-    fun setPassword(text: String) {
-        _password = text
-    }
 }

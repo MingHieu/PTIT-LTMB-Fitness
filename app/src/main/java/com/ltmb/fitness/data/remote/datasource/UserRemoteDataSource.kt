@@ -1,5 +1,6 @@
 package com.ltmb.fitness.data.remote.datasource
 
+
 import android.content.ContentValues.TAG
 import android.util.Log
 import com.google.firebase.Firebase
@@ -7,38 +8,29 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.firestore
 import com.ltmb.fitness.data.remote.BaseRemoteDataSource
 import com.ltmb.fitness.data.remote.FirestoreCollections
-import com.ltmb.fitness.data.remote.api.UserService
+import com.ltmb.fitness.data.remote.UserCollections
+import com.ltmb.fitness.data.remote.model.user.UserModel
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class UserRemoteDataSource @Inject constructor(
-    private val service: UserService,
-    private val db: FirebaseFirestore = Firebase.firestore
+    db: FirebaseFirestore,
+    private val auth: AuthRemoteDataSource
 ) : BaseRemoteDataSource() {
 
-    suspend fun fetchUserDetails() = invoke {
-        service.fetchUserDetails()
-    }
+    private val collection = db.collection(FirestoreCollections.USER)
 
     suspend fun createNewUser(userId: String) = invoke {
-        // Create a new user with a first and last name
-        val user = hashMapOf(
-            "firstName" to "Ada",
-            "lastName" to "Lovelace",
-            "gender" to false,
-            "age" to 18,
-            "height" to 170,
-            "weight" to 60
-        )
+        collection.document(userId)
+            .set(hashMapOf<String, Any>())
+    }
 
-        db.collection(FirestoreCollections.USER)
-            .document(userId)
-            .set(user)
-            .addOnSuccessListener {
-                Log.d(TAG, "DocumentSnapshot added with ID: $userId")
-            }
-            .addOnFailureListener { e ->
-                Log.w(TAG, "Error adding document", e)
-            }
+    suspend fun updateUser(userModel: UserModel) = invoke {
+        auth.getCurrentUser()?.let {
+            collection.document(it.uid)
+                .set(userModel)
+                .await()
+        }
     }
 
 }

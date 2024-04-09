@@ -12,4 +12,7 @@ class StartApp1ViewModel @Inject constructor(
     fun onClickContinue() {
         navigate(StartApp1FragmentDirections.toStartApp2())
     }
+    fun onClickSkip(){
+        navigate(StartApp1FragmentDirections.toAuth())
+    }
 }

@@ -1,6 +1,7 @@
 package com.ltmb.fitness.data.repository
 
 import com.ltmb.fitness.data.remote.datasource.UserRemoteDataSource
+import com.ltmb.fitness.data.remote.model.user.UserModel
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -9,9 +10,12 @@ class UserRepository @Inject constructor(
     private val remoteDataSource: UserRemoteDataSource
 ) {
 
-    suspend fun fetchUserDetails() = remoteDataSource.fetchUserDetails()
-
-    suspend fun createNewUser(userId: String) {
+    suspend fun createNewUser(userId: String){
         remoteDataSource.createNewUser(userId)
     }
+
+    suspend fun updateUser(userModel: UserModel){
+        remoteDataSource.updateUser(userModel)
+    }
+
 }
