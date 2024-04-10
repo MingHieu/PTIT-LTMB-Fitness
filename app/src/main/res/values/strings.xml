@@ -70,6 +70,7 @@
 
     <!-- Create Workout Plan -->
     <string name="create_workout_plan_screen_title">Create Workout Plan</string>
+    <string name="update_workout_plan_screen_title">Update Workout Plan</string>
     <string name="name_input_label">Name</string>
     <string name="name_input_hint">Ex: Gain Weight Quickly</string>
     <string name="description_input_label">Description</string>

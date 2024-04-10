@@ -75,17 +75,21 @@ class WorkoutDetailFragment : BaseFragment<WorkoutDetailViewModel, FragmentWorko
             AbstractYouTubePlayerListener() {
 
             override fun onReady(youTubePlayer: YouTubePlayer) {
-                viewModel.current.observeNonNull(viewLifecycleOwner) { current ->
-                    viewModel.workouts.value?.let { workouts ->
-                        val videoUrl = workouts.get(current).video
-                        val regex = Regex(".*(?:youtu.be/|v/|u/\\w/|embed/|watch\\?v=)([^#&?]*).*")
-                        val matchResult = regex.find(videoUrl)
-                        val videoId = matchResult?.groupValues?.get(1)
-                        videoId?.let { id ->
-                            youTubePlayer.loadVideo(id, 0F)
-                            youTubePlayer.pause()
+                try {
+                    viewModel.current.observeNonNull(viewLifecycleOwner) { current ->
+                        viewModel.workouts.value?.let { workouts ->
+                            val videoUrl = workouts.get(current).video
+                            val regex =
+                                Regex(".*(?:youtu.be/|v/|u/\\w/|embed/|watch\\?v=)([^#&?]*).*")
+                            val matchResult = regex.find(videoUrl)
+                            val videoId = matchResult?.groupValues?.get(1)
+                            videoId?.let { id ->
+                                youTubePlayer.loadVideo(id, 0F)
+                                youTubePlayer.pause()
+                            }
                         }
                     }
+                } catch (_: Exception) {
                 }
             }
         })
