@@ -91,6 +91,7 @@
                 android:text="@string/start_app_skip"
                 android:stateListAnimator="@null"
                 android:textColor="?colorPrimary"
+                android:onClick="@{() -> viewModel.onClickSkip()}"
                 app:cornerRadius="60dp" />
 
             <Space

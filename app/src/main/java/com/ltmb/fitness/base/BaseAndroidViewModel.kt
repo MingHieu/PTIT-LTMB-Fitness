@@ -18,6 +18,8 @@ abstract class BaseAndroidViewModel(application: Application) : AndroidViewModel
     private val _loading = MutableLiveData(false)
     val loading: LiveData<Boolean> = _loading
 
+    var useCustomLoading = false
+
     fun navigate(directions: NavDirections) {
         _navigation.value = Event(NavigationCommand.ToDirection(directions))
     }

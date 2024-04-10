@@ -11,14 +11,14 @@
 
         <variable
             name="search"
-            type="com.ltmb.fitness.uimodel.SearchUiModel" />
+            type="com.ltmb.fitness.uimodel.ExerciseSearchUiModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:onClick="@{()->callback.onSearchItemClick()}"
+        android:onClick="@{()->callback.onSearchItemClick(search.id)}"
         android:orientation="horizontal">
 
         <androidx.cardview.widget.CardView

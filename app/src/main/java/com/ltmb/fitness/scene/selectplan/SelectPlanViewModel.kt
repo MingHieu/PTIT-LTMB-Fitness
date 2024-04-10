@@ -12,4 +12,8 @@ class SelectPlanViewModel @Inject constructor(application: Application) :
     fun onClickContinue() {
         navigate(SelectPlanFragmentDirections.toHome())
     }
+
+    fun onClickSkip(){
+        navigate(SelectPlanFragmentDirections.toHome())
+    }
 }

@@ -12,6 +12,7 @@ data class WorkoutSelectionUiModel(
     val name: String,
     val duration: Long,
     val kcal: Long,
+    val level: String,
     var selected: Boolean
 ) : ListAdapterItem, Serializable {
 

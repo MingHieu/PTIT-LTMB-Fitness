@@ -12,5 +12,9 @@ class WorkoutSelectionViewModel @Inject constructor(
     application: Application
 ) : BaseAndroidViewModel(application) {
 
+    val keySearch = MutableLiveData("")
+
     val workouts = MutableLiveData<List<WorkoutSelectionUiModel>>()
+
+    val workoutsSearch = MutableLiveData<List<WorkoutSelectionUiModel>>()
 }

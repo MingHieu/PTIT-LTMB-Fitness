@@ -34,6 +34,12 @@ class WorkoutDetailViewModel @Inject constructor(
 
     private var _countDown: Job? = null
 
+    private var totalTime = 0L
+
+    private var totalWorkouts = 0L
+
+    private var totalKcal = 0L
+
     fun setWorkoutList(list: List<WorkoutUiModel>) {
         _workouts.value = list
         current.value = 0
@@ -60,7 +66,14 @@ class WorkoutDetailViewModel @Inject constructor(
             paused.value = true
             updateTimeLeft()
         } else {
-            navigate(WorkoutDetailFragmentDirections.toWorkoutFinish(workoutPlanDetail))
+            navigate(
+                WorkoutDetailFragmentDirections.toWorkoutFinish(
+                    workoutPlanDetail,
+                    totalWorkouts,
+                    totalTime,
+                    totalKcal
+                )
+            )
         }
     }
 
@@ -76,11 +89,16 @@ class WorkoutDetailViewModel @Inject constructor(
             while (timeLeft.value!! > 0) {
                 if (paused.value == false) {
                     delay(1000)
+                    totalTime += 1
                     timeLeft.postValue(timeLeft.value!! - 1)
                 }
             }
 
             if (paused.value == false) {
+                totalWorkouts += 1
+                current.value?.let {
+                    totalKcal += workouts.value?.get(it)?.kcal ?: 0
+                }
                 onSkipClick()
             }
         }

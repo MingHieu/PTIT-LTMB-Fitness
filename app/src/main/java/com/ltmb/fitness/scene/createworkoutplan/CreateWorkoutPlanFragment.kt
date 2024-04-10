@@ -3,8 +3,10 @@ package com.ltmb.fitness.scene.createworkoutplan
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
+import com.ltmb.fitness.data.remote.model.workoutplan.BookmarkWorkoutPlanModel
 import com.ltmb.fitness.databinding.FragmentCreateWorkoutPlanBinding
 import com.ltmb.fitness.internal.extension.observeNonNull
 import com.ltmb.fitness.internal.injection.viewmodel.BookmarkViewModel
@@ -20,13 +22,29 @@ class CreateWorkoutPlanFragment :
 
     override val layoutId get() = R.layout.fragment_create_workout_plan
 
-
     private lateinit var bookmarkViewModel: BookmarkViewModel
+
+    private val args by navArgs<CreateWorkoutPlanFragmentArgs>()
 
     override fun initialize() {
         super.initialize()
 
         bookmarkViewModel = ViewModelProvider(requireActivity())[BookmarkViewModel::class.java]
+
+        val workoutPlan = args.workoutPlan
+        if (workoutPlan != null) {
+            viewModel.model = BookmarkWorkoutPlanModel(
+                id = workoutPlan.id,
+                name = workoutPlan.name,
+                description = workoutPlan.description,
+                thumbnail = workoutPlan.thumbnail,
+                level = workoutPlan.level,
+                duration = workoutPlan.duration,
+                kcal = workoutPlan.kcal,
+                workoutIds = workoutPlan.workouts.map { it.id }
+            )
+            viewModel.updateWorkoutListSelected()
+        }
 
         binding.nameInput.setValue(viewModel.model.name)
 

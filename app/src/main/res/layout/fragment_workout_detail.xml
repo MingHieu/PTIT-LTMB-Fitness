@@ -136,7 +136,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginVertical="16dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:visibility="@{viewModel.tutorialType == TutorialType.TEXT ? View.VISIBLE : View.GONE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -150,23 +151,22 @@
                         android:text="@{viewModel.workouts.get(viewModel.current).tutorialTextFormat}"
                         android:textColor="?colorText"
                         android:textSize="16sp"
-                        android:visibility="@{viewModel.tutorialType == TutorialType.TEXT ? View.VISIBLE : View.GONE}"
                         tools:text="Tutorial Text" />
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_gravity="center"
-                        android:visibility="@{viewModel.tutorialType == TutorialType.VIDEO ? View.VISIBLE : View.GONE}"
-                        app:cardCornerRadius="8dp">
-
-                        <WebView
-                            android:layout_width="match_parent"
-                            android:layout_height="200dp"
-                            app:webUrl="@{viewModel.workouts.get(viewModel.current).video}" />
-                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
             </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:visibility="@{viewModel.tutorialType == TutorialType.VIDEO ? View.VISIBLE : View.GONE}">
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtube_player_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"

@@ -31,7 +31,7 @@ class BookmarkViewModel @Inject constructor(
     fun getUserBookmarkWorkoutPlanList() {
         viewModelScope.launch {
             setLoading(true)
-            _workoutPlans.value = workoutPlanRepository.getUserBookmarkWorkoutPlanList()
+            _workoutPlans.value = workoutPlanRepository.getUserBookmarkWorkoutPlanList().reversed()
             setLoading(false)
         }
     }

@@ -9,6 +9,8 @@ import com.ltmb.fitness.databinding.FragmentWorkoutDetailBinding
 import com.ltmb.fitness.internal.extension.observeNonNull
 import com.ltmb.fitness.internal.util.functional.getColorInTheme
 import com.ltmb.fitness.uimodel.TutorialType
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer
+import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.listeners.AbstractYouTubePlayerListener
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -68,5 +70,24 @@ class WorkoutDetailFragment : BaseFragment<WorkoutDetailViewModel, FragmentWorko
                     ContextCompat.getDrawable(requireContext(), R.drawable.ic_pause)
             }
         }
+
+        binding.youtubePlayerView.addYouTubePlayerListener(object :
+            AbstractYouTubePlayerListener() {
+
+            override fun onReady(youTubePlayer: YouTubePlayer) {
+                viewModel.current.observeNonNull(viewLifecycleOwner) { current ->
+                    viewModel.workouts.value?.let { workouts ->
+                        val videoUrl = workouts.get(current).video
+                        val regex = Regex(".*(?:youtu.be/|v/|u/\\w/|embed/|watch\\?v=)([^#&?]*).*")
+                        val matchResult = regex.find(videoUrl)
+                        val videoId = matchResult?.groupValues?.get(1)
+                        videoId?.let { id ->
+                            youTubePlayer.loadVideo(id, 0F)
+                            youTubePlayer.pause()
+                        }
+                    }
+                }
+            }
+        })
     }
 }

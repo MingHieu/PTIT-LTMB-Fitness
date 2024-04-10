@@ -39,7 +39,7 @@
             android:paddingHorizontal="16dp"
             app:adapter="@{adapter}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:submitList="@{viewModel.workouts}"
-            tools:listitem="@layout/item_search" />
+            app:submitList="@{viewModel.workoutsSearch}"
+            tools:listitem="@layout/item_workout_selection" />
     </LinearLayout>
 </layout>

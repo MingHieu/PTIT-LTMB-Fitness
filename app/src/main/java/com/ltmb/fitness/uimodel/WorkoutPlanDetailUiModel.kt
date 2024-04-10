@@ -17,6 +17,8 @@ data class WorkoutPlanDetailUiModel(
     val workouts: List<WorkoutUiModel> = listOf(),
     val duration: Long = 0,
     val kcal: Long = 0,
+    val level: String = "",
+    val userId: String = ""
 ) : ListAdapterItem, Serializable, Parcelable {
 
     @RequiresApi(Build.VERSION_CODES.O)

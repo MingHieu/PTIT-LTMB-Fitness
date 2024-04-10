@@ -12,4 +12,8 @@ class SelectWeightViewModel @Inject constructor(application: Application) :
     fun onClickContinue() {
         navigate(SelectWeightFragmentDirections.toSelectPlan())
     }
+
+    fun onClickSkip(){
+        navigate(SelectWeightFragmentDirections.toHome())
+    }
 }

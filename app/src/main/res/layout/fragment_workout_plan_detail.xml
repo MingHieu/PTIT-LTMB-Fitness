@@ -5,6 +5,8 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="workoutAdapter"
             type="com.ltmb.fitness.scene.workoutplandetail.WorkoutAdapter" />
@@ -59,15 +61,37 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="6dp"
-                        android:text="@{viewModel.workoutPlan.name}"
-                        android:textColor="?colorText"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        tools:text="Yoga &amp; Mindfulness" />
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="6dp"
+                            android:layout_weight="1"
+                            android:text="@{viewModel.workoutPlan.name}"
+                            android:textColor="?colorText"
+                            android:textSize="22sp"
+                            android:textStyle="bold"
+                            tools:text="Yoga &amp; Mindfulness" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:onClick="@{() -> viewModel.onBookmarkClick()}"
+                            android:src="@drawable/ic_bookmark"
+                            android:visibility="@{viewModel.workoutPlan.userId.blank ? View.VISIBLE: View.GONE}" />
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:onClick="@{() -> viewModel.onEditClick()}"
+                            android:src="@drawable/ic_edit"
+                            android:visibility="@{viewModel.workoutPlan.userId.blank ? View.GONE: View.VISIBLE}" />
+                    </LinearLayout>
+
 
                     <TextView
                         android:layout_width="wrap_content"

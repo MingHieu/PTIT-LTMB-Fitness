@@ -3,6 +3,7 @@ package com.ltmb.fitness.widget.workoutselection
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseBottomSheetDialogFragment
 import com.ltmb.fitness.databinding.FragmentWorkoutSelectionBinding
+import com.ltmb.fitness.internal.extension.observeNonNull
 import com.ltmb.fitness.uimodel.WorkoutSelectionUiModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,6 +24,22 @@ class WorkoutSelectionFragment(
         super.initialize()
 
         viewModel.workouts.value = workoutList
+
+        binding.searchBox.setValue(viewModel.keySearch.value.orEmpty())
+
+        binding.searchBox.onTextChanged = {
+            viewModel.keySearch.value = it
+        }
+
+        viewModel.keySearch.observeNonNull(viewLifecycleOwner) { searchQuery ->
+            viewModel.workouts.value?.let { list ->
+                viewModel.workoutsSearch.value = if (searchQuery.isBlank()) {
+                    list
+                } else {
+                    list.filter { it.name.lowercase().contains(searchQuery.lowercase()) }
+                }
+            }
+        }
 
         binding.adapter = WorkoutSelectionAdapter(object : WorkoutCallback {
             override fun onItemClick() {

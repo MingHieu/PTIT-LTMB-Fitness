@@ -10,6 +10,6 @@ class StartApp3ViewModel @Inject constructor(
     application: Application,
 ) : BaseAndroidViewModel(application) {
     fun onClickContinue() {
-        navigate(StartApp3FragmentDirections.toGetStarted())
+        navigate(StartApp3FragmentDirections.toAuth())
     }
 }
