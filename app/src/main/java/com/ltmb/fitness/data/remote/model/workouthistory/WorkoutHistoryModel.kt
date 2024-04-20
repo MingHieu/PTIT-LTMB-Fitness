@@ -4,10 +4,10 @@ import com.google.firebase.firestore.DocumentReference
 import java.util.Date
 
 data class WorkoutHistoryModel(
-    val workoutPlan: DocumentReference,
-    val createdAt: Date,
-    val workouts: Long,
-    val times: Long,
-    val kcal: Long,
-    val userId: String
+    val workoutPlan: DocumentReference? = null,
+    val createdAt: Date? = null,
+    val workouts: Long = 0L,
+    val times: Long = 0L,
+    val kcal: Long = 0L,
+    val userId: String = ""
 )

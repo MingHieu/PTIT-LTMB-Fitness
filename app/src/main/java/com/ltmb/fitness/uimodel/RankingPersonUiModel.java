@@ -1,17 +1,24 @@
 package com.ltmb.fitness.uimodel;
 
 public class RankingPersonUiModel {
+    String id;
     String avt;
     String name;
-    int experience;
+    long experience;
 
     public RankingPersonUiModel() {
     }
 
-    public RankingPersonUiModel(String avt, String name, int experience) {
+    public RankingPersonUiModel(String id, String avt, String name, long experience) {
+        this.id = id;
         this.avt = avt;
         this.name = name;
         this.experience = experience;
+    }
+
+    public String getId() { return this.id; }
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getAvt() {
@@ -30,11 +37,11 @@ public class RankingPersonUiModel {
         this.name = name;
     }
 
-    public int getExperience() {
+    public long getExperience() {
         return experience;
     }
 
-    public void setExperience(int experience) {
+    public void setExperience(long experience) {
         this.experience = experience;
     }
 }

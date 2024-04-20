@@ -5,17 +5,30 @@ import android.util.Log;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.Tasks;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.ltmb.fitness.R;
 import com.ltmb.fitness.base.BaseFragment;
+import com.ltmb.fitness.data.remote.FirestoreCollections;
+import com.ltmb.fitness.data.remote.model.user.UserModel;
+import com.ltmb.fitness.data.remote.model.workouthistory.WorkoutHistoryModel;
 import com.ltmb.fitness.databinding.FragmentRankingDailytraninghoursBinding;
 import com.ltmb.fitness.internal.util.CircleTransform;
 import com.ltmb.fitness.uimodel.RankingPersonUiModel;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewModel, FragmentRankingDailytraninghoursBinding> {
+    private final FirebaseFirestore fireStore = FirebaseFirestore.getInstance();
     @Override
     public int getLayoutId() {
         return R.layout.fragment_ranking_dailytraninghours;
@@ -23,48 +36,119 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
 
     @Override
     public void initialize() {
+        getViewModel().setLoading(true);
+        new Thread(() -> {
+            try {
+                List<RankingPersonUiModel> list = this.fetchData();
+                RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(list, new RecyclerRankingCallback() {
+                    @Override
+                    public void onItemClick(String id) {
+                        Log.d("Personal Profile Id", id);
+                        getViewModel().navigateToProfile(id);
+                    }
+                });
 
-        RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(fetchData(), new RecyclerRankingCallback() {
-            @Override
-            public void onItemClick(String id) {
-                Log.d("Personal Profile Id", id);
-                getViewModel().navigateToProfile(id);
+                // Chuyển cập nhật UI về luồng chính
+                getActivity().runOnUiThread(() -> {
+                    RecyclerView recyclerView = binding.listRankingDailyTrainingHours;
+                    recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
+                    recyclerView.setAdapter(recyclerRankingAdapter);
+                    this.uploadTopAvatar(list.get(0).getAvt(), list.get(1).getAvt(), list.get(2).getAvt());
+                    getViewModel().setLoading(false);
+                });
             }
-        });
-        RecyclerView recyclerView = binding.listRankingDailyTrainingHours;
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
-        recyclerView.setAdapter(recyclerRankingAdapter);
+            catch (Exception e) {
+                Log.e("Ranking Fragment", e.getMessage());
+            }
+        }).start();
     }
 
-    private List<RankingPersonUiModel> fetchData() {
-        String urlAvt1 = "https://scontent.fhan15-2.fna.fbcdn.net/v/t39.30808-6/414926233_4356201574605158_2142184248890356244_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGNP5lUjCrq349Te6Zqiesn77kriFuXyf7vuSuIW5fJ_ixCuTsl1TmFg5Jzn6RQVRO7bQS_dEs1r8XwgXaP6kan&_nc_ohc=KStj93fj1ZUAX9_yO-w&_nc_ht=scontent.fhan15-2.fna&oh=00_AfBgZw0WLO3ccIMUYAKYyBhI-z4CU5R9vA-6nWSt9vRILg&oe=65FA9098";
-        String urlAvt2 = "https://scontent.fhan5-6.fna.fbcdn.net/v/t1.6435-9/102444094_2680182698969893_8249210568847174462_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEpyWFN1aHT1Q45FPGkchUpqtFTrNTNgcKq0VOs1M2BwrRXL6vTZUMtGoOTMfNzdpvj3s1BoHA-X340WCbZDB5q&_nc_ohc=1_t04TVkCjoAX8DO_ta&_nc_ht=scontent.fhan5-6.fna&oh=00_AfBQKgErp6yj_sU2c4zZFWW1XLy8W4_V4O-8NnITKTe3eg&oe=661D0BF4";
-        String urlAvt3 = "https://scontent.fsgn5-5.fna.fbcdn.net/v/t39.30808-6/272434633_3162373927417432_3106694300020144035_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeFCtXM9Q1a4jnvjwgyakiTMZ2MnzryXhPtnYyfOvJeE-28WjXn7MzE5F9BZiPb1gUMuf_mtMxsUM51TOc4MfidX&_nc_ohc=BDqPTFyU3OMAX8onvBX&_nc_ht=scontent.fsgn5-5.fna&oh=00_AfDUiTaDP370tDE-l5ffezNJXCVR-i6fijkJdpMS62Hh0A&oe=65FB7C67";
-        String urlAvt4 = "https://scontent.fhan5-9.fna.fbcdn.net/v/t39.30808-6/358154656_4220490354842948_3086160310882159875_n.jpg?stp=cp6_dst-jpg&_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGF7pbQOjp8Sx0dZt1x45xB-3r1qwswL_z7evWrCzAv_BVbxyL9-6L_R2wRtCjLc0lpTl9OWez32JxcHHTHKYXA&_nc_ohc=7OEngh9D5HkAX_-pQKC&_nc_ht=scontent.fhan5-9.fna&oh=00_AfBr6bc9eXI32hwCtievpZGrFPP3xHdr0vceYfXEZfZ0HA&oe=65FAED2F";
-        String urlAvt5 = "https://scontent.fhan15-2.fna.fbcdn.net/v/t1.6435-9/123082932_3370335039858488_567240001107576423_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeHatGevnIYrlVfAxRXRrHpoHyNAx2OGL50fI0DHY4YvnZ7xKpJ3Rh3o8XeTfrKaY3htKm_1xc16EKRryNji-09X&_nc_ohc=G3EeOM2rddwAX-BUCyk&_nc_ht=scontent.fhan15-2.fna&oh=00_AfDoh-O1DGLKfkDfGFv5dOX6pi286376CVFHqspeRjZ0KA&oe=661D01CF";
+    public Map<String, UserModel> mapUser() throws ExecutionException, InterruptedException {
+        // Get All
+        CollectionReference users = fireStore.collection(FirestoreCollections.USER);
+        // Map Key -> UserModel
+        Map<String, UserModel> map = new HashMap<>();
+        // Fetch
+        QuerySnapshot snapshot = Tasks.await(users.get());
+        for(QueryDocumentSnapshot documentSnapshot: snapshot) {
+            UserModel u = documentSnapshot.toObject(UserModel.class);
+            Log.d("User", u.toString());
+            map.put(documentSnapshot.getId(), u);
+        }
+        Log.d("UserSize:", String.valueOf(map.size()));
+        for(String i: map.keySet()) {
+            Log.d("Userid: ", i);
+        }
+        return map;
+    }
 
+    private List<RankingPersonUiModel> fetchData() throws ExecutionException, InterruptedException {
+        // Fetch users
+        Map<String, UserModel> users = this.mapUser();
         List<RankingPersonUiModel> data = new ArrayList<>();
-        data.add(new RankingPersonUiModel(urlAvt1, "Nguyễn Đức Anh", 332));
-        data.add(new RankingPersonUiModel(urlAvt2, "Lê Hồng Duy", 332));
-        data.add(new RankingPersonUiModel(urlAvt3, "Lê Hồng Duy", 196));
-        data.add(new RankingPersonUiModel(urlAvt4, "Nguyễn Đức Anh", 185));
-        data.add(new RankingPersonUiModel(urlAvt5, "Nguyễn Đức Anh", 172));
 
+        // Fetch workout history
+        CollectionReference workouts = fireStore.collection(FirestoreCollections.WORKOUT_HISTORY);
+        QuerySnapshot snapshot = Tasks.await(workouts.get());
+
+        // Map Id -> RankingPersonUiModel
+        Map<String, RankingPersonUiModel> map = new HashMap<>();
+        for (QueryDocumentSnapshot document : snapshot) {
+            WorkoutHistoryModel workoutHistoryModel = document.toObject(WorkoutHistoryModel.class);
+            String id = workoutHistoryModel.getUserId();
+            Log.d("WorkoutId:", id);
+            // Find User
+            if(users.containsKey(id)) {
+                UserModel userModel = users.get(id);
+                RankingPersonUiModel rankingPersonUiModel = map.get(id);
+                if(rankingPersonUiModel == null) {
+                    String name = userModel.getFirstName() + " " + userModel.getLastName();
+                    rankingPersonUiModel = new RankingPersonUiModel(id, userModel.getAvatar(), name, 0);
+                }
+                // Update workoutHistoryModel
+                long time = rankingPersonUiModel.getExperience() + workoutHistoryModel.getTimes();
+                rankingPersonUiModel.setExperience(time);
+                map.put(id, rankingPersonUiModel);
+            }
+        }
+        for(String userId: users.keySet()) {
+            RankingPersonUiModel rankingPersonUiModel = map.get(userId);
+            if(rankingPersonUiModel == null) {
+                UserModel userModel = users.get(userId);
+                String name = userModel.getFirstName() + " " + userModel.getLastName();
+                rankingPersonUiModel = new RankingPersonUiModel(userId, userModel.getAvatar(), name, 0);
+            }
+            data.add(rankingPersonUiModel);
+        }
+        Log.d("WorkoutSize: ", String.valueOf(data.size()));
+        for(RankingPersonUiModel i: data) {
+            Log.d("Workout: ", i.toString());
+        }
+        data.sort(new Comparator<RankingPersonUiModel>() {
+            @Override
+            public int compare(RankingPersonUiModel t1, RankingPersonUiModel t2) {
+                return (int) (t2.getExperience() - t1.getExperience());
+            }
+        });
+
+
+        return data;
+    }
+
+    private void uploadTopAvatar(String avt1, String avt2, String avt3) {
         Picasso.get()
-                .load(urlAvt1)
+                .load(avt1)
                 .transform(new CircleTransform())
                 .into(this.binding.avtRankingTop1);
 
         Picasso.get()
-                .load(urlAvt2)
+                .load(avt2)
                 .transform(new CircleTransform())
                 .into(this.binding.avtRankingTop2);
 
         Picasso.get()
-                .load(urlAvt3)
+                .load(avt3)
                 .transform(new CircleTransform())
                 .into(this.binding.avtRankingTop3);
-
-        return data;
     }
 }

@@ -1,34 +1,36 @@
 package com.ltmb.fitness.internal.injection.module;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
+import java.util.Objects;
+import java.util.concurrent.ExecutionException;
+
+@SuppressLint("MissingFirebaseInstanceTokenRefresh")
 public class FirebaseFCMModule extends FirebaseMessagingService {
 
     public static String getDeviceToken() {
-        Task<String> task = FirebaseMessaging.getInstance().getToken()
-                .addOnCompleteListener(new OnCompleteListener<String>() {
-                    @Override
-                    public void onComplete(@NonNull Task<String> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w("FirebaseFCMModule", "Fetching FCM registration token failed", task.getException());
-                            return;
-                        }
-                        String token = task.getResult();
-                        Log.d("FirebaseFCMModule", token);
-                    }
-                });
-        return task.getResult();
+        try {
+            return Tasks.await(FirebaseMessaging.getInstance().getToken());
+            // cU7tKg2HSRGOt2k0rbeUJp:APA91bHzolIA0NSeDoa7akDXJgUpQCQTSMQcPJklnv3fzsjjTkuehYi4pqxASuARSeaQ1AECGx-ckv-kNhb6AwiftBUHb3Js75G6t_XYGCEenbQT4M7m1aJodaBR9ULIbiN1raCsVp9A
+        }
+        catch (Exception e) {
+            Log.e("GetDeviceToken", Objects.requireNonNull(e.getMessage()));
+            return "";
+        }
     }
 
     public static void sendNotificationFCM(String deviceToken, String name) {
+        Log.d("FCM", "SEND");
 //        String deviceToken = "...";
 //        RemoteMessage message = RemoteMessage.
 //
@@ -42,7 +44,7 @@ public class FirebaseFCMModule extends FirebaseMessagingService {
         Log.d("FirebaseFCMModule", "From: " + remoteMessage.getFrom());
 
         // Check if message contains a data payload.
-        if (remoteMessage.getData().size() > 0) {
+        if (!remoteMessage.getData().isEmpty()) {
             Log.d("FirebaseFCMModule", "Message data payload: " + remoteMessage.getData());
         }
 

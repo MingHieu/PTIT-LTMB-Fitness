@@ -45,7 +45,7 @@ public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRanking
         View view = LayoutInflater.from(viewGroup.getContext())
                 .inflate(R.layout.item_ranking_person, viewGroup, false);
 
-        return new ViewHolder(view, this.cb);
+        return new ViewHolder(view, this.cb, localDataSet);
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -77,21 +77,23 @@ public class RecyclerRankingAdapter extends RecyclerView.Adapter<RecyclerRanking
      * (custom ViewHolder)
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
+        List<RankingPersonUiModel> localDataSet;
         TextView username, experience;
         ImageView avt;
 
-        public ViewHolder(@NonNull View itemView, RecyclerRankingCallback cb) {
+        public ViewHolder(@NonNull View itemView, RecyclerRankingCallback cb, List<RankingPersonUiModel> localDataSet) {
             super(itemView);
+
+            this.localDataSet = localDataSet;
             username = (TextView) itemView.findViewById(R.id.rankingUserName);
             avt = (ImageView) itemView.findViewById(R.id.rankingItemAvt);
             experience = (TextView) itemView.findViewById(R.id.rankingExperience);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // Lấy position của item đã click
                     int position = getAdapterPosition();
                     if (position != RecyclerView.NO_POSITION) {
-                        cb.onItemClick("123");
+                        cb.onItemClick(localDataSet.get(position).getId());
                     }
                 }
             });

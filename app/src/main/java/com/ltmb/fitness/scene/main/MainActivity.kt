@@ -1,5 +1,6 @@
 package com.ltmb.fitness.scene.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
@@ -42,5 +43,10 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
 
     private fun shouldShowBottomNav(args: Bundle?): Boolean {
         return args?.getBoolean(getString(R.string.arg_show_bottom_nav)) == true
+    }
+
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        navController.handleDeepLink(intent)
     }
 }
