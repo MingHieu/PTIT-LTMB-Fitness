@@ -70,6 +70,9 @@ class ReportViewModel @Inject constructor(
         val startDayOfNextMonth = startDayOfNextMonth(startDayOfMonth)
         println("--------------------ViewModel: ${startDayOfMonth}")
         println("--------------------ViewModel: ${startDayOfNextMonth}")
+        viewModelScope.launch {
+            _workoutHistoryList.value = workoutHistoryRepository.getWorkoutHistory(startDayOfMonth, startDayOfNextMonth)
+        }
     }
 
 }
