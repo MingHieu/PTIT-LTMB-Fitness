@@ -176,7 +176,8 @@
     <string name="report_minute">minutes</string>
     <string name="report_kcal">kcal</string>
     <string name="report_statistics">Statistics</string>
-
+    <string name="report_month">Month</string>
+    <string name="report_today">Today</string>
 
     <string name="workout_preferences">Workout Preferences</string>
 

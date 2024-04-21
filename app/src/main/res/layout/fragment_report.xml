@@ -11,6 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -32,9 +33,9 @@
                         <ImageView
                             android:layout_width="24dp"
                             android:layout_height="24dp"
+                            android:importantForAccessibility="no"
                             android:src="@drawable/ic_run"
-                            app:tint="?colorPrimary"
-                            android:importantForAccessibility="no" />
+                            app:tint="?colorPrimary" />
                     </LinearLayout>
 
                     <TextView
@@ -51,10 +52,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="16dp"
                     android:layout_marginTop="20dp"
-                    android:paddingVertical="16dp"
                     android:background="@drawable/border_report"
-                    android:layout_marginHorizontal="16dp">
+                    android:paddingVertical="16dp">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -62,28 +63,30 @@
                         android:layout_weight="0.333"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
+                            android:importantForAccessibility="no"
                             android:src="@drawable/ic_report_run"
-                            android:importantForAccessibility="no"
                             app:tint="@color/orange" />
-                        <TextView
-                            android:layout_marginTop="8dp"
-                            android:textSize="16sp"
-                            android:textColor="?colorText"
-                            android:textStyle="bold"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="124"/>
 
                         <TextView
-                            android:layout_marginTop="8dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:text="@string/report_workout"/>
+                            android:text="124"
+                            android:textColor="?colorText"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="@string/report_workout" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -92,28 +95,30 @@
                         android:layout_weight="0.333"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
+                            android:importantForAccessibility="no"
                             android:src="@drawable/ic_clock"
-                            android:importantForAccessibility="no"
                             app:tint="?colorSecondary" />
-                        <TextView
-                            android:layout_marginTop="8dp"
-                            android:textSize="16sp"
-                            android:textColor="?colorText"
-                            android:textStyle="bold"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="1860"/>
 
                         <TextView
-                            android:layout_marginTop="8dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:text="@string/report_minute"/>
+                            android:text="1860"
+                            android:textColor="?colorText"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="@string/report_minute" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -122,28 +127,30 @@
                         android:layout_weight="0.333"
                         android:gravity="center"
                         android:orientation="vertical">
+
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/ic_report_fire"
                             android:importantForAccessibility="no"
+                            android:src="@drawable/ic_report_fire"
                             app:tint="@color/orange" />
-                        <TextView
-                            android:layout_marginTop="8dp"
-                            android:textSize="16sp"
-                            android:textColor="?colorText"
-                            android:textStyle="bold"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:text="16570"/>
 
                         <TextView
-                            android:layout_marginTop="8dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:text="@string/report_kcal"/>
+                            android:text="16570"
+                            android:textColor="?colorText"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="@string/report_kcal" />
                     </LinearLayout>
 
                 </LinearLayout>
@@ -152,37 +159,103 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
-                android:padding="12dp"
-                android:background="@drawable/border_report"
-                android:layout_marginHorizontal="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_report"
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
                         android:text="@string/report_statistics"
                         android:textColor="?colorText"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                        android:layout_centerVertical="true"
+                        android:textStyle="bold"
                         tools:ignore="RelativeOverlap" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="RelativeOverlap">
+
+                        <Button
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:id="@+id/report_Today"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="?colorInputBackground"
+                            android:stateListAnimator="@null"
+                            android:text="@string/report_today"
+                            android:textAllCaps="false"
+                            android:textColor="?colorPrimary"
+                            app:cornerRadius="50dp" />
+
+                        <Button
+                            android:id="@+id/report_Month"
+                            style="?android:attr/buttonBarButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:backgroundTint="?colorOnPrimary"
+                            android:stateListAnimator="@null"
+                            android:text="@string/report_month"
+                            android:textAllCaps="false"
+                            android:textColor="?colorText"
+                            app:cornerRadius="50dp" />
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChar"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_report"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:text="Weight"
+                        android:textColor="?colorText"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        tools:ignore="RelativeOverlap" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_corners"
-                        android:paddingVertical="8dp"
-                        android:textColor="?colorText"
-                        android:paddingHorizontal="10dp"
                         android:layout_alignParentEnd="true"
-                        android:text="This Week >"/>
+                        android:background="@drawable/rounded_corners"
+                        android:paddingHorizontal="14dp"
+                        android:paddingVertical="8dp"
+                        android:text="Last 6 Months >"
+                        android:textColor="?colorText" />
 
 
                 </RelativeLayout>
@@ -190,61 +263,18 @@
                 <com.github.mikephil.charting.charts.BarChart
                     android:id="@+id/barChart"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"/>
+                    android:layout_height="300dp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="20dp"
-                android:padding="12dp"
-                android:background="@drawable/border_report"
-                android:layout_marginHorizontal="16dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:gravity="center"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="Weight"
-                        android:textColor="?colorText"
-                        android:textStyle="bold"
-                        android:textSize="16sp"
-                        android:layout_centerVertical="true"
-                        tools:ignore="RelativeOverlap" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_corners"
-                        android:paddingVertical="8dp"
-                        android:textColor="?colorText"
-                        android:paddingHorizontal="14dp"
-                        android:layout_alignParentEnd="true"
-                        android:text="Last 6 Months >"/>
-
-
-                </RelativeLayout>
-
-                <com.github.mikephil.charting.charts.LineChart
-                    android:id="@+id/lineChart"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:padding="12dp"
-                android:background="@drawable/border_report"
                 android:layout_marginHorizontal="16dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_marginTop="20dp"
+                android:background="@drawable/border_report"
+                android:orientation="vertical"
+                android:padding="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -255,10 +285,8 @@
                         android:layout_height="match_parent"
                         android:text="BMI (kg/m2): 22.2"
                         android:textColor="?colorText"
-                        android:textStyle="bold"
                         android:textSize="16sp"
-                         />
-
+                        android:textStyle="bold" />
 
 
                 </LinearLayout>
@@ -266,7 +294,7 @@
                 <com.github.mikephil.charting.charts.PieChart
                     android:id="@+id/pieChart"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"/>
+                    android:layout_height="300dp" />
 
             </LinearLayout>
 
