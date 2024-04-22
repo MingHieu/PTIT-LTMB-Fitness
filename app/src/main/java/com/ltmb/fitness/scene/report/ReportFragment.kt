@@ -2,6 +2,7 @@ package com.ltmb.fitness.scene.report
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.LineChart
@@ -19,11 +20,14 @@ import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
+import com.ltmb.fitness.data.remote.model.user.UserModel
 import com.ltmb.fitness.data.remote.model.workouthistory.WorkoutHistoryModel
 import com.ltmb.fitness.databinding.FragmentReportBinding
 import com.ltmb.fitness.internal.extension.observeNonNull
 import com.ltmb.fitness.internal.util.functional.getColorInTheme
+import com.ltmb.fitness.uimodel.GenderUiModel
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.DecimalFormat
 import java.util.Calendar
 import java.util.Date
 import java.util.Random
@@ -36,6 +40,10 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
 
     override fun initialize() {
         super.initialize()
+
+        viewModel.getWorkoutHistoryToday()
+        viewModel.getUser()
+        viewModel.getWorkoutHistory7day()
 
         binding.reportToday.setOnClickListener {
             viewModel.selectReport.value = true
@@ -59,7 +67,6 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
                 binding.reportToday.setBackgroundColor(hintColor)
                 binding.reportMonth.setTextColor(textColor)
                 binding.reportMonth.setBackgroundColor(whiteColor)
-
             } else {
                 binding.reportMonth.setTextColor(primaryColor)
                 binding.reportMonth.setBackgroundColor(hintColor)
@@ -68,13 +75,9 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
             }
         }
 
-        val barChart: BarChart = binding.barChart
-        drawBarChart(barChart)
+//        drawBarChart(binding.barChart)
 
         val lineChart: LineChart = binding.lineChart
-
-
-        viewModel.getWorkoutHistoryToday()
 
         viewModel.workoutHistoryList.observeNonNull(viewLifecycleOwner) { workoutHistoryList ->
             if (viewModel.selectReport.value == true) {
@@ -84,29 +87,49 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
             }
         }
 
-//        val lineChart: LineChart = binding.lineChart
-//
-//        val entries = arrayListOf(
-//            Entry(0f, 62f),
-//            Entry(1f, 69f),
-//            Entry(2f, 64f),
-//            Entry(3f, 75f),
-//            Entry(4f, 68f)
-//        )
-//
-//        val dataSet = LineDataSet(entries, "Data Set 1")
-//        dataSet.color = Color.RED
-//        dataSet.setDrawFilled(true)
-//        dataSet.fillColor = Color.BLUE // Màu fill
-//        dataSet.fillAlpha =
-//            128 // Độ trong suốt của fill color (0-255), 255 là hoàn toàn không trong suốt
-//
-//        val lineData = LineData(dataSet)
-//        lineChart.data = lineData
-//        lineChart.invalidate()
+        viewModel.workoutHistory7day.observeNonNull(viewLifecycleOwner) {workoutHistory7day->
+            drawBarChart(binding.barChart, workoutHistory7day)
 
-//        pieChart()
+        }
+        viewModel.userModel.observeNonNull(viewLifecycleOwner) { userModel ->
+            println(userModel)
+            val weight = userModel.weight.toDouble()
+            val height = userModel.height.toDouble() / 100
+            val age = userModel.age
+            val gender = userModel.gender
+            val df = DecimalFormat("#.##")
+            val bmi = viewModel.calculatorBMI(weight, height)
+            val bfp = viewModel.calculateBFP(weight, height, age, gender)
+            binding.tvBmi.text = "BMI: ${df.format(bmi)} kg/m²"
+            binding.tvBfp.text = "BFP: ${df.format(bfp)}%"
 
+            binding.bfpStatus.removeAllViews()
+            var stringArr = resources.getStringArray(R.array.report_status_bfp_male)
+            if (userModel.gender == GenderUiModel.FEMALE) {
+                stringArr = resources.getStringArray(R.array.report_status_bfp_female)
+            }
+            for (value in stringArr) {
+                val textView = TextView(requireContext())
+                textView.text = value
+                textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                binding.bfpStatus.addView(textView)
+            }
+        }
+
+        val stringArr = resources.getStringArray(R.array.report_status_bmi)
+        for (value in stringArr) {
+            val textView = TextView(requireContext())
+            textView.text = value
+            textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            binding.bmiStatus.addView(textView)
+        }
+
+    }
+
+    private fun setWorkoutTimeKcal(workout: Long, time: Long, kcal: Long) {
+        binding.tvWorkout.text = workout.toString()
+        binding.tvTime.text = time.toString()
+        binding.tvKcal.text = kcal.toString()
     }
 
     private fun drawLineChart(lineChart: LineChart, entries: ArrayList<Entry>) {
@@ -142,13 +165,20 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
 
         return calendar.get(Calendar.HOUR_OF_DAY)
     }
+
     private fun drawLineChartDay(
         lineChart: LineChart,
         workoutHistoryList: List<WorkoutHistoryModel>
     ) {
+        var totalWorkout = 0L
+        var totalTime = 0L
+        var totalKcal = 0L
         val map = mutableMapOf<Int, Long>()
         val entries = ArrayList<Entry>()
         for (wh in workoutHistoryList) {
+            totalWorkout += wh.workouts
+            totalTime += wh.times
+            totalKcal += wh.kcal
             val hours = getHourOfDay(wh.createdAt)
             if (map.containsKey(hours)) {
                 map[hours] = map[hours]!! + wh.times
@@ -165,27 +195,35 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
             }
         }
         drawLineChart(lineChart, entries)
+        setWorkoutTimeKcal(totalWorkout, totalTime, totalKcal)
     }
+
     private fun getDayOfMonth(date: Date): Int {
         val calendar = Calendar.getInstance()
         calendar.time = date
 
         return calendar.get(Calendar.DAY_OF_MONTH)
     }
+
     private fun drawLineChartMonth(
         lineChart: LineChart,
         workoutHistoryList: List<WorkoutHistoryModel>
     ) {
+        var totalWorkout = 0L
+        var totalTime = 0L
+        var totalKcal = 0L
         val map = mutableMapOf<Int, Long>()
         val entries = ArrayList<Entry>()
         for (wh in workoutHistoryList) {
+            totalWorkout += wh.workouts
+            totalTime += wh.times
+            totalKcal += wh.kcal
             val day = getDayOfMonth(wh.createdAt)
             if (map.containsKey(day)) {
                 map[day] = map[day]!! + wh.times
             } else {
                 map[day] = wh.times
             }
-            println("Fragment: day ${day}")
         }
         val calendar = Calendar.getInstance()
         calendar.time = Date()
@@ -198,6 +236,7 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
             }
         }
         drawLineChart(lineChart, entries)
+        setWorkoutTimeKcal(totalWorkout, totalTime, totalKcal)
     }
 
     private fun barEntries(type: Int): ArrayList<BarEntry> {
@@ -217,21 +256,63 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
         return barEntries
     }
 
+    private fun putMap(key: Int, value: Long, map: MutableMap<Int, Long>){
+        if(map.containsKey(key)){
+            map[key] = map[key]!! + value
+        }else{
+            map[key] = value
+        }
+    }
+    private fun getMapEntry(map: MutableMap<Int, Long>): ArrayList<BarEntry> {
+        val listEntry = ArrayList<BarEntry>()
+        val today = viewModel.startToday()
+        val calendar = Calendar.getInstance()
+        calendar.time = today
+        calendar.add(Calendar.DAY_OF_YEAR, - 7)
+        val day = getDayOfMonth(calendar.time)
+        for(i in day + 1  until  day + 8){
+            if(map.containsKey(i)){
+                listEntry.add(BarEntry(i.toFloat(), map[i]!!.toFloat()))
+                println("---------------${i}: ${map[i]}")
+            }else{
+                listEntry.add(BarEntry(i.toFloat(), 0f))
+                println("----------------${i}: 0")
+            }
+        }
+        return listEntry
+    }
+    private fun drawBarChart(barChart: BarChart, workoutHistory7day: List<WorkoutHistoryModel>) {
+        val mapWorkout = mutableMapOf<Int, Long>()
+        val mapTime = mutableMapOf<Int, Long>()
+        val mapKcal = mutableMapOf<Int, Long>()
+        for (wh in workoutHistory7day) {
+            val day = getDayOfMonth(wh.createdAt)
+            putMap(day, wh.workouts, mapWorkout)
+            putMap(day, wh.times, mapTime)
+            putMap(day, wh.kcal, mapKcal)
+        }
 
-    private fun drawBarChart(barChart: BarChart) {
-        val barDataSet1 = BarDataSet(barEntries(1), "Workout")
+        val barDataSet1 = BarDataSet(getMapEntry(mapWorkout), "Workout")
         barDataSet1.setColor(Color.RED)
-        val barDataSet2 = BarDataSet(barEntries(2), "Minute")
+        val barDataSet2 = BarDataSet(getMapEntry(mapTime), "Minute")
         barDataSet2.setColor(Color.GREEN)
-        val barDataSet3 = BarDataSet(barEntries(3), "Kcal")
+        val barDataSet3 = BarDataSet(getMapEntry(mapKcal), "Kcal")
         barDataSet3.setColor(Color.YELLOW)
 
         val barData = BarData(barDataSet1, barDataSet2, barDataSet3)
 
         barChart.setData(barData)
 
-        val days = arrayOf("2", "3", "4", "5", "6", "7", "CN")
-
+        val today = viewModel.startToday()
+        val calendar = Calendar.getInstance()
+        calendar.time = today
+        calendar.add(Calendar.DAY_OF_YEAR, - 7)
+        val day = getDayOfMonth(calendar.time)
+        val stringArray = ArrayList<String>()
+        for(i in day +1 until day+8){
+            stringArray.add(i.toString())
+        }
+        val days = stringArray.toTypedArray()
         val xAxis: XAxis = barChart.xAxis
         xAxis.valueFormatter = IndexAxisValueFormatter(days)
         xAxis.setCenterAxisLabels(true)
@@ -259,44 +340,6 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
 
 
         barChart.invalidate()
-    }
-
-    fun pieChart() {
-        val pieChart: PieChart = binding.pieChart
-
-        // Dữ liệu mẫu
-        val entries = listOf(
-            PieEntry(25f, "A"),
-            PieEntry(20f, "B"),
-            PieEntry(15f, "C"),
-            PieEntry(10f, "D"),
-            PieEntry(30f, "E")
-        )
-
-        val dataSet = PieDataSet(entries, "Pie Chart")
-
-        // Thiết lập màu cho các phần
-        val colors = listOf(Color.BLUE, Color.GREEN, Color.RED, Color.YELLOW, Color.MAGENTA)
-        dataSet.colors = colors
-
-        // Góc 180 độ
-        pieChart.rotationAngle = 180f
-
-        // Biểu thị phần được chọn
-        dataSet.selectionShift = 5f
-
-        // Tạo dữ liệu cho PieChart
-        val pieData = PieData(dataSet)
-
-        // Tắt hiển thị label và hiển thị phần trăm
-        pieData.setDrawValues(false)
-        pieChart.description.isEnabled = false
-
-        // Đặt dữ liệu cho PieChart
-        pieChart.data = pieData
-
-        // Cập nhật PieChart
-        pieChart.invalidate()
     }
 
 }

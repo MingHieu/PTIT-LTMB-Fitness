@@ -72,11 +72,11 @@
                             app:tint="@color/orange" />
 
                         <TextView
+                            android:id="@+id/tv_workout"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:text="124"
                             android:textColor="?colorText"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -104,11 +104,11 @@
                             app:tint="?colorSecondary" />
 
                         <TextView
+                            android:id="@+id/tv_time"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:text="1860"
                             android:textColor="?colorText"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -136,11 +136,11 @@
                             app:tint="@color/orange" />
 
                         <TextView
+                            android:id="@+id/tv_kcal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:gravity="center"
-                            android:text="16570"
                             android:textColor="?colorText"
                             android:textSize="16sp"
                             android:textStyle="bold" />
@@ -189,8 +189,8 @@
                         tools:ignore="RelativeOverlap">
 
                         <Button
-                            style="?android:attr/buttonBarButtonStyle"
                             android:id="@+id/report_Today"
+                            style="?android:attr/buttonBarButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:backgroundTint="?colorInputBackground"
@@ -235,27 +235,19 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center">
+                    >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_centerVertical="true"
-                        android:text="Weight"
+                        android:text="@string/report_7_day"
                         android:textColor="?colorText"
                         android:textSize="16sp"
                         android:textStyle="bold"
                         tools:ignore="RelativeOverlap" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:background="@drawable/rounded_corners"
-                        android:paddingHorizontal="14dp"
-                        android:paddingVertical="8dp"
-                        android:text="Last 6 Months >"
-                        android:textColor="?colorText" />
+
 
 
                 </RelativeLayout>
@@ -272,29 +264,54 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="20dp"
-                android:background="@drawable/border_report"
+
                 android:orientation="vertical"
                 android:padding="12dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="BMI (kg/m2): 22.2"
+                        android:id="@+id/tv_bmi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="BMI: 22.22 kg/m²"
                         android:textColor="?colorText"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/bmi_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_bfp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="BFP: 10%"
+                        android:textColor="?colorText"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_marginStart="20dp"
+                        android:id="@+id/bfp_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
-                <com.github.mikephil.charting.charts.PieChart
-                    android:id="@+id/pieChart"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp" />
 
             </LinearLayout>
 

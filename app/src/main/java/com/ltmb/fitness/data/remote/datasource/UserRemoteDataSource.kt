@@ -10,6 +10,7 @@ import com.ltmb.fitness.data.remote.BaseRemoteDataSource
 import com.ltmb.fitness.data.remote.FirestoreCollections
 import com.ltmb.fitness.data.remote.UserCollections
 import com.ltmb.fitness.data.remote.model.user.UserModel
+import com.ltmb.fitness.uimodel.GenderUiModel
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
@@ -31,6 +32,19 @@ class UserRemoteDataSource @Inject constructor(
                 .set(userModel)
                 .await()
         }
+    }
+    suspend fun getUser() = invoke{
+        val document = auth.getCurrentUser()?.let {
+            collection.document(it.uid)
+                .get()
+                .await()
+        }
+        UserModel(
+            gender = GenderUiModel.valueOf(document?.data!!["gender"].toString()),
+            age = (document.data!!["age"] as Long).toInt(),
+            height = (document.data!!["height"] as Long).toInt(),
+            weight = (document.data!!["weight"] as Long).toInt()
+        )
     }
 
 }
