@@ -1,5 +1,6 @@
 package com.ltmb.fitness.data.remote.model.workouthistory
 
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentReference
 import java.util.Date
 

@@ -176,7 +176,32 @@
     <string name="report_minute">minutes</string>
     <string name="report_kcal">kcal</string>
     <string name="report_statistics">Statistics</string>
-
+    <string name="report_month">Month</string>
+    <string name="report_today">Today</string>
+    <string name="report_bmi">Today</string>
+    <string name="report_bfp">Today</string>
+    <string name="report_7_day">Last 7 days</string>
+    <string-array name="report_status_bmi">
+        <item>Dưới 18.5: Nhẹ cân</item>
+        <item>Từ 18.5 - 24.9: Bình thường</item>
+        <item>Từ 25.0 - 29.9: Thừa cân</item>
+        <item>Từ 25-30%: Mỡ cơ bản</item>
+        <item>Từ 30.0 trở lên: Béo phì</item>
+    </string-array>
+    <string-array name="report_status_bfp_male">
+        <item>Dưới 6%: Rất gầy</item>
+        <item>Từ 6-17%: Gầy</item>
+        <item>Từ 18-24%: Lý tưởng</item>
+        <item>Từ 25-30%: Mỡ cơ bản</item>
+        <item>Trên 30%: Béo phì</item>
+    </string-array>
+    <string-array name="report_status_bfp_female">
+        <item>Dưới 14%: Rất gầy</item>
+        <item>Từ 14-20%: Gầy</item>
+        <item>Từ 21-24%: Lý tưởng</item>
+        <item>Từ 25-31%: Mỡ cơ bản</item>
+        <item>Trên 31%: Béo phì</item>
+    </string-array>
 
     <string name="workout_preferences">Workout Preferences</string>
 
