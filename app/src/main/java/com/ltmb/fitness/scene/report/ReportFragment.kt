@@ -262,21 +262,23 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
         }else{
             map[key] = value
         }
+        println("-------------- ${key}: $value")
     }
     private fun getMapEntry(map: MutableMap<Int, Long>): ArrayList<BarEntry> {
         val listEntry = ArrayList<BarEntry>()
         val today = viewModel.startToday()
         val calendar = Calendar.getInstance()
         calendar.time = today
-        calendar.add(Calendar.DAY_OF_YEAR, - 7)
-        val day = getDayOfMonth(calendar.time)
-        for(i in day + 1  until  day + 8){
-            if(map.containsKey(i)){
-                listEntry.add(BarEntry(i.toFloat(), map[i]!!.toFloat()))
-                println("---------------${i}: ${map[i]}")
+        calendar.add(Calendar.DAY_OF_YEAR, -7)
+        for(i in 0  until  7){
+            calendar.add(Calendar.DAY_OF_YEAR, 1)
+            val day = getDayOfMonth(calendar.time)
+            if(map.containsKey(day)){
+                listEntry.add(BarEntry(day.toFloat(), map[day]!!.toFloat()))
+//                println("---------------${i}: ${map[i]}")
             }else{
-                listEntry.add(BarEntry(i.toFloat(), 0f))
-                println("----------------${i}: 0")
+                listEntry.add(BarEntry(day.toFloat(), 0f))
+//                println("----------------${i}: 0")
             }
         }
         return listEntry
@@ -306,11 +308,12 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
         val today = viewModel.startToday()
         val calendar = Calendar.getInstance()
         calendar.time = today
-        calendar.add(Calendar.DAY_OF_YEAR, - 7)
-        val day = getDayOfMonth(calendar.time)
+        calendar.add(Calendar.DAY_OF_YEAR, -7)
         val stringArray = ArrayList<String>()
-        for(i in day +1 until day+8){
-            stringArray.add(i.toString())
+        for(i in 0 until 7){
+            calendar.add(Calendar.DAY_OF_YEAR, 1)
+            val day = getDayOfMonth(calendar.time)
+            stringArray.add(day.toString())
         }
         val days = stringArray.toTypedArray()
         val xAxis: XAxis = barChart.xAxis
