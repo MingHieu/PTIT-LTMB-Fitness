@@ -18,20 +18,6 @@ class SettingViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ) : BaseAndroidViewModel(application) {
 
-    fun showConfirmationDialog(context: Context, message: String, onConfirm: () -> Unit) {
-        AlertDialog.Builder(context)
-            .setMessage(message)
-            .setPositiveButton("Confirm") { dialog, _ ->
-                onConfirm.invoke()
-                dialog.dismiss()
-            }
-            .setNegativeButton("Cancel") { dialog, _ ->
-                dialog.dismiss()
-            }
-            .create()
-            .show()
-    }
-
     fun goToPersonalInfo() {
         navigate(SettingFragmentDirections.toPersonInfo())
     }
@@ -46,4 +32,5 @@ class SettingViewModel @Inject constructor(
             navigate(SettingFragmentDirections.toLogin())
         }
     }
+
 }

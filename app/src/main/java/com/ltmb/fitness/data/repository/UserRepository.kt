@@ -18,4 +18,8 @@ class UserRepository @Inject constructor(
         remoteDataSource.updateUser(userModel)
     }
 
+    suspend fun getUser(): UserModel {
+        return remoteDataSource.getUser()
+    }
+
 }

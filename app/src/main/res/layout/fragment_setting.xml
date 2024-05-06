@@ -57,15 +57,15 @@
                 android:layout_height="50dp"
                 android:layout_marginBottom="12dp"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:onClick="@{() -> viewModel.goToWorkoutPreferences()}">
+                android:onClick="@{() -> viewModel.goToWorkoutPreferences()}"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -81,12 +81,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow1"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow1"
+                            android:text="@string/workout_preferences"
                             android:textColor="?colorWorkoutTitle"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/workout_preferences" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -102,15 +102,15 @@
                 android:layout_height="50dp"
                 android:layout_marginBottom="12dp"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:onClick="@{() -> viewModel.goToPersonalInfo()}">>
+                android:onClick="@{() -> viewModel.goToPersonalInfo()}"
+                android:orientation="horizontal">>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -126,12 +126,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow2"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow2"
+                            android:text="@string/personal_info"
                             android:textColor="?colorWorkoutTitle"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/personal_info" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -153,8 +153,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -170,12 +170,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow3"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow3"
+                            android:text="@string/account_security"
                             android:textColor="?colorWorkoutTitle"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/account_security" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -185,7 +185,6 @@
                     android:layout_height="24dp"
                     android:src="@drawable/ic_arrow_right" />
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -199,8 +198,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -216,12 +215,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow4"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow4"
+                            android:text="@string/billing_subscriptions"
                             android:textColor="?colorWorkoutTitle"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/billing_subscriptions" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -243,8 +242,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -260,12 +259,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow5"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow5"
+                            android:text="@string/payment_methods"
                             android:textColor="?colorWorkoutTitle"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/payment_methods" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -287,8 +286,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -304,12 +303,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow6"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow6"
+                            android:text="@string/linked_accounts"
                             android:textColor="?colorWorkoutTitle"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/linked_accounts" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -331,8 +330,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -348,12 +347,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow7"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow7"
+                            android:text="@string/app_appearance"
                             android:textColor="?colorWorkoutTitle"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/app_appearance" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -375,8 +374,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -392,12 +391,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow8"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow8"
+                            android:text="@string/data_analytics"
                             android:textColor="?colorWorkoutTitle"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/data_analytics" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -419,8 +418,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -436,12 +435,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow9"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow9"
+                            android:text="@string/help_support"
                             android:textColor="?colorWorkoutTitle"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/help_support" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
@@ -453,19 +452,19 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_logout"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="12dp"
                 android:gravity="center"
-                android:orientation="horizontal"
-                android:onClick="@{() -> viewModel.logout()}">>
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -481,12 +480,12 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_toEndOf="@id/imgArrow10"
                             android:layout_marginStart="8dp"
+                            android:layout_toEndOf="@id/imgArrow10"
+                            android:text="@string/logout"
                             android:textColor="?colorWarring"
                             android:textSize="18sp"
-                            android:textStyle="bold"
-                            android:text="@string/logout" />
+                            android:textStyle="bold" />
                     </RelativeLayout>
                 </LinearLayout>
 
