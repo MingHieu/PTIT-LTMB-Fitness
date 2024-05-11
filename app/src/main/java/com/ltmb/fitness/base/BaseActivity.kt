@@ -41,7 +41,6 @@ abstract class BaseActivity<VM : BaseAndroidViewModel, B : ViewDataBinding> : Ap
         if (uri != null) {
             val data = uri.lastPathSegment;
             if (data != null) {
-                this.navigate(RankingFragmentDirections.toProfile(data))
             };
         }
     }

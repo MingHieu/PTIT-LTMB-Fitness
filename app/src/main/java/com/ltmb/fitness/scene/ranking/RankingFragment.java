@@ -2,6 +2,7 @@ package com.ltmb.fitness.scene.ranking;
 
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -56,15 +57,13 @@ public class RankingFragment extends BaseFragment<RankingViewModel, FragmentRank
         ).attach();
         this.setUpTabLayoutIcon(tabLayout);
 
-//        String fcmToken = FirebaseFCMModule.getDeviceToken();
-
 //        this.scheduleService.setRemindWork(System.currentTimeMillis() + 10 * 1000);
 //        Log.d("ScheduleService", "123");
-
+//
 //        Intent intent = new Intent(this.getContext(), MyBroadcastReceiver.class);
 //        PendingIntent pendingIntent = PendingIntent.getBroadcast(
 //                this.getContext(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
-
+//
 //        AlarmManager alarmManager = (AlarmManager) this.getContext().getSystemService(Context.ALARM_SERVICE);
 //        alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 10 * 1000, pendingIntent);
 //        this.scheduleService.setRemindWork(System.currentTimeMillis() + 10 * 1000);

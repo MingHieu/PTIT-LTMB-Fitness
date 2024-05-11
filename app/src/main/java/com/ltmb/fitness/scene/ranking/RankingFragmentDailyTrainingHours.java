@@ -16,6 +16,7 @@ import com.ltmb.fitness.data.remote.FirestoreCollections;
 import com.ltmb.fitness.data.remote.model.user.UserModel;
 import com.ltmb.fitness.data.remote.model.workouthistory.WorkoutHistoryModel;
 import com.ltmb.fitness.databinding.FragmentRankingDailytraninghoursBinding;
+import com.ltmb.fitness.internal.injection.module.FirebaseFCMModule;
 import com.ltmb.fitness.internal.util.CircleTransform;
 import com.ltmb.fitness.uimodel.RankingPersonUiModel;
 import com.squareup.picasso.Picasso;
@@ -39,6 +40,8 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
         getViewModel().setLoading(true);
         new Thread(() -> {
             try {
+                String fcmToken = FirebaseFCMModule.getDeviceToken();
+
                 List<RankingPersonUiModel> list = this.fetchData();
                 RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(list, new RecyclerRankingCallback() {
                     @Override
@@ -77,6 +80,7 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
     }
 
     private List<RankingPersonUiModel> fetchData() throws ExecutionException, InterruptedException {
+
         // Fetch users
         Map<String, UserModel> users = this.mapUser();
         List<RankingPersonUiModel> data = new ArrayList<>();
