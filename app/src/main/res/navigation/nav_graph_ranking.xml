@@ -30,5 +30,6 @@
         <argument
             android:name="idProfile"
             app:argType="string" />
+        <deepLink app:uri="fitness.com/profile/{idProfile}" />
     </fragment>
 </navigation>
