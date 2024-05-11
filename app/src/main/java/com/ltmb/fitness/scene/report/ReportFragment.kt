@@ -179,13 +179,13 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
             totalWorkout += wh.workouts
             totalTime += wh.times
             totalKcal += wh.kcal
-            val hours = getHourOfDay(wh.createdAt)
-            if (map.containsKey(hours)) {
-                map[hours] = map[hours]!! + wh.times
-            } else {
-                map[hours] = wh.times
-            }
-            println("Fragment: hours ${wh.createdAt.hours}")
+//            val hours = getHourOfDay(wh.createdAt)
+//            if (map.containsKey(hours)) {
+//                map[hours] = map[hours]!! + wh.times
+//            } else {
+//                map[hours] = wh.times
+//            }
+//            println("Fragment: hours ${wh.createdAt.hours}")
         }
         for (i in 0 until 24) {
             if (map.containsKey(i)) {
@@ -218,12 +218,12 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
             totalWorkout += wh.workouts
             totalTime += wh.times
             totalKcal += wh.kcal
-            val day = getDayOfMonth(wh.createdAt)
-            if (map.containsKey(day)) {
-                map[day] = map[day]!! + wh.times
-            } else {
-                map[day] = wh.times
-            }
+//            val day = getDayOfMonth(wh.createdAt)
+//            if (map.containsKey(day)) {
+//                map[day] = map[day]!! + wh.times
+//            } else {
+//                map[day] = wh.times
+//            }
         }
         val calendar = Calendar.getInstance()
         calendar.time = Date()
@@ -286,10 +286,10 @@ class ReportFragment : BaseFragment<ReportViewModel, FragmentReportBinding>() {
         val mapTime = mutableMapOf<Int, Long>()
         val mapKcal = mutableMapOf<Int, Long>()
         for (wh in workoutHistory7day) {
-            val day = getDayOfMonth(wh.createdAt)
-            putMap(day, wh.workouts, mapWorkout)
-            putMap(day, wh.times, mapTime)
-            putMap(day, wh.kcal, mapKcal)
+//            val day = getDayOfMonth(wh.createdAt)
+//            putMap(day, wh.workouts, mapWorkout)
+//            putMap(day, wh.times, mapTime)
+//            putMap(day, wh.kcal, mapKcal)
         }
 
         val barDataSet1 = BarDataSet(getMapEntry(mapWorkout), "Workout")

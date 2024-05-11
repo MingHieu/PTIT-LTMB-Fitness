@@ -43,7 +43,6 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
                 RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(list, new RecyclerRankingCallback() {
                     @Override
                     public void onItemClick(String id) {
-                        Log.d("Personal Profile Id", id);
                         getViewModel().navigateToProfile(id);
                     }
                 });
@@ -72,12 +71,7 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
         QuerySnapshot snapshot = Tasks.await(users.get());
         for(QueryDocumentSnapshot documentSnapshot: snapshot) {
             UserModel u = documentSnapshot.toObject(UserModel.class);
-            Log.d("User", u.toString());
             map.put(documentSnapshot.getId(), u);
-        }
-        Log.d("UserSize:", String.valueOf(map.size()));
-        for(String i: map.keySet()) {
-            Log.d("Userid: ", i);
         }
         return map;
     }
@@ -96,7 +90,6 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
         for (QueryDocumentSnapshot document : snapshot) {
             WorkoutHistoryModel workoutHistoryModel = document.toObject(WorkoutHistoryModel.class);
             String id = workoutHistoryModel.getUserId();
-            Log.d("WorkoutId:", id);
             // Find User
             if(users.containsKey(id)) {
                 UserModel userModel = users.get(id);
@@ -111,6 +104,7 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
                 map.put(id, rankingPersonUiModel);
             }
         }
+
         for(String userId: users.keySet()) {
             RankingPersonUiModel rankingPersonUiModel = map.get(userId);
             if(rankingPersonUiModel == null) {
@@ -120,18 +114,13 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
             }
             data.add(rankingPersonUiModel);
         }
-        Log.d("WorkoutSize: ", String.valueOf(data.size()));
-        for(RankingPersonUiModel i: data) {
-            Log.d("Workout: ", i.toString());
-        }
+
         data.sort(new Comparator<RankingPersonUiModel>() {
             @Override
             public int compare(RankingPersonUiModel t1, RankingPersonUiModel t2) {
                 return (int) (t2.getExperience() - t1.getExperience());
             }
         });
-
-
         return data;
     }
 

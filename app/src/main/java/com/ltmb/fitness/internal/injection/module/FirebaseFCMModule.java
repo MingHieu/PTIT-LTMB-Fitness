@@ -30,11 +30,20 @@ public class FirebaseFCMModule extends FirebaseMessagingService {
     }
 
     public static void sendNotificationFCM(String deviceToken, String name) {
-        Log.d("FCM", "SEND");
-//        String deviceToken = "...";
-//        RemoteMessage message = RemoteMessage.
+//        Notification notification = Notification.builder()
+//                .setTitle("PushNotification")
+//                .setBody("DucAnh23050")
+//                .setImage("https://scontent.fhan15-2.fna.fbcdn.net/v/t1.6435-9/56229242_2791146221110709_8539822219260329984_n.jpg?_nc_cat=103&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=wec_YRK4baYAX9x932m&_nc_ht=scontent.fhan15-2.fna&oh=00_AfB8GJUuU2KL0xNWJ9EvuZMBJLrIaWa2dZotcHxs1ZyE_g&oe=64F4083A")
+//                .build();
 //
-//        String response = FirebaseMessaging.getInstance().
+//        Message message = Message.builder()
+//                .setNotification(notification)
+//                .putData("score", "850")
+//                .putData("time", "2:45")
+//                .putData("test", "ducanhdz2002")
+//                .setToken(registrationToken)
+//                .build();
+
     }
 
     @Override

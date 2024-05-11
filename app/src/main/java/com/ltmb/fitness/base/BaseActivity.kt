@@ -2,7 +2,9 @@ package com.ltmb.fitness.base
 
 import android.content.Context
 import android.graphics.Rect
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
@@ -12,6 +14,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.ltmb.fitness.BR
 import com.ltmb.fitness.internal.util.functional.lazyThreadSafetyNone
+import com.ltmb.fitness.scene.ranking.RankingFragmentDirections
 
 abstract class BaseActivity<VM : BaseAndroidViewModel, B : ViewDataBinding> : AppCompatActivity() {
 
@@ -31,6 +34,16 @@ abstract class BaseActivity<VM : BaseAndroidViewModel, B : ViewDataBinding> : Ap
         binding.setVariable(BR.viewModel, viewModel)
         binding.lifecycleOwner = this
         initialize()
+
+        // Deeplink Profile Id
+        val action: String? = intent?.action
+        val uri: Uri? = intent?.data
+        if (uri != null) {
+            val data = uri.lastPathSegment;
+            if (data != null) {
+                this.navigate(RankingFragmentDirections.toProfile(data))
+            };
+        }
     }
 
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
