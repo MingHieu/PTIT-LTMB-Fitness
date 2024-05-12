@@ -42,8 +42,8 @@ public class RankingFragment extends BaseFragment<RankingViewModel, FragmentRank
         ViewPagerAdapter vpAdapter = new ViewPagerAdapter(getActivity());
         List<Fragment> listFragmentTab = new ArrayList<>();
         listFragmentTab.add(new RankingFragmentDailyTrainingHours());
-        listFragmentTab.add(new RankingFragmentDailyTrainingHours());
-        listFragmentTab.add(new RankingFragmentDailyTrainingHours());
+        listFragmentTab.add(new RankingFragmentWeeklyTrainingDays()); // Change Kcal
+        listFragmentTab.add(new RankingFragmentTotalTrainingDayd());
 
         vpAdapter.addFragment(listFragmentTab.get(0), getString(R.string.ranking_tab_icon1));
         vpAdapter.addFragment(listFragmentTab.get(1), getString(R.string.ranking_tab_icon2));

@@ -40,8 +40,6 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
         getViewModel().setLoading(true);
         new Thread(() -> {
             try {
-                String fcmToken = FirebaseFCMModule.getDeviceToken();
-                Log.d("Token: ", fcmToken);
                 List<RankingPersonUiModel> list = this.fetchData();
                 RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(list, new RecyclerRankingCallback() {
                     @Override
@@ -52,7 +50,7 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
 
                 // Chuyển cập nhật UI về luồng chính
                 getActivity().runOnUiThread(() -> {
-                    RecyclerView recyclerView = binding.listRankingDailyTrainingHours;
+                    RecyclerView recyclerView = binding.listRanking;
                     recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
                     recyclerView.setAdapter(recyclerRankingAdapter);
                     this.uploadTopAvatar(list.get(0).getAvt(), list.get(1).getAvt(), list.get(2).getAvt());
