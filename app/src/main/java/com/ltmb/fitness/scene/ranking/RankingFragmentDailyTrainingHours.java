@@ -41,7 +41,7 @@ public class RankingFragmentDailyTrainingHours extends BaseFragment<RankingViewM
         new Thread(() -> {
             try {
                 String fcmToken = FirebaseFCMModule.getDeviceToken();
-
+                Log.d("Token: ", fcmToken);
                 List<RankingPersonUiModel> list = this.fetchData();
                 RecyclerRankingAdapter recyclerRankingAdapter = new RecyclerRankingAdapter(list, new RecyclerRankingCallback() {
                     @Override

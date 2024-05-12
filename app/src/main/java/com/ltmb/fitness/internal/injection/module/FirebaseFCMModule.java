@@ -3,20 +3,44 @@ package com.ltmb.fitness.internal.injection.module;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
-import androidx.annotation.NonNull;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+import com.ltmb.fitness.base.NotificationBase;
 
+
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Objects;
-import java.util.concurrent.ExecutionException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+
 
 @SuppressLint("MissingFirebaseInstanceTokenRefresh")
 public class FirebaseFCMModule extends FirebaseMessagingService {
+    private NotificationBase notificationBase = new NotificationBase();
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        notificationBase = new NotificationBase();
+        notificationBase.createNotificationChannel(this);
+    }
 
     public static String getDeviceToken() {
         try {
@@ -29,25 +53,46 @@ public class FirebaseFCMModule extends FirebaseMessagingService {
         }
     }
 
-    public static void sendNotificationFCM(String deviceToken, String name) {
-//        Notification notification = Notification.builder()
-//                .setTitle("PushNotification")
-//                .setBody("DucAnh23050")
-//                .setImage("https://scontent.fhan15-2.fna.fbcdn.net/v/t1.6435-9/56229242_2791146221110709_8539822219260329984_n.jpg?_nc_cat=103&cb=99be929b-59f725be&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=wec_YRK4baYAX9x932m&_nc_ht=scontent.fhan15-2.fna&oh=00_AfB8GJUuU2KL0xNWJ9EvuZMBJLrIaWa2dZotcHxs1ZyE_g&oe=64F4083A")
-//                .build();
-//
-//        Message message = Message.builder()
-//                .setNotification(notification)
-//                .putData("score", "850")
-//                .putData("time", "2:45")
-//                .putData("test", "ducanhdz2002")
-//                .setToken(registrationToken)
-//                .build();
+    public static void sendNotificationFCM(String fcmToken, String title, String body) {
+        OkHttpClient client = new OkHttpClient();
+        String url = "http://103.95.197.219:8080";
 
+        JSONObject jsonBody = new JSONObject();
+        try {
+            jsonBody.put("fcmToken", fcmToken);
+            jsonBody.put("title", title);
+            jsonBody.put("body", body);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        RequestBody requestBody = RequestBody.create(jsonBody.toString(), MediaType.parse("application/json; charset=utf-8"));
+
+        Request request = new Request.Builder()
+                .url(url)
+                .post(requestBody)
+                .build();
+
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                e.printStackTrace();
+            }
+            @Override
+            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                if (response.isSuccessful()) {
+                    String responseData = response.body().string();
+                    Log.d("FirebaseFCMModule", responseData);
+                } else {
+                    Log.d("Response Code: ", String.valueOf(response.code()));
+                }
+            }
+        });
     }
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
+
         // TODO(developer): Handle FCM messages here.
         // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
         Log.d("FirebaseFCMModule", "From: " + remoteMessage.getFrom());
@@ -59,7 +104,11 @@ public class FirebaseFCMModule extends FirebaseMessagingService {
 
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
-            Log.d("FirebaseFCMModule", "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            String title = remoteMessage.getNotification().getTitle();
+            String body = remoteMessage.getNotification().getBody();
+            Log.d("FirebaseFCMModule", body);
+            Log.d("FirebaseFCMModule", title);
+            notificationBase.createNotification(this, title, body);
         }
     }
 }

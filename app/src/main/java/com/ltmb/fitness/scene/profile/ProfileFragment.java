@@ -1,5 +1,6 @@
 package com.ltmb.fitness.scene.profile;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
@@ -40,6 +41,7 @@ public class ProfileFragment extends BaseFragment<ProfileViewModel, FragmentProf
         return R.layout.fragment_profile;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void initialize() {
         super.initialize();
@@ -53,15 +55,17 @@ public class ProfileFragment extends BaseFragment<ProfileViewModel, FragmentProf
                 getActivity().runOnUiThread(() -> {
                     String name = userModel.getFirstName() + " " + userModel.getLastName();
                     binding.profleName.setText((name));
-                    binding.profileAge.setText(String.valueOf(userModel.getAge()));
-                    binding.profileHeight.setText(String.valueOf(userModel.getHeight()));
-                    binding.profileWeight.setText(String.valueOf(userModel.getWeight()));
+                    binding.profileAge.setText(userModel.getAge() + " ages");
+                    binding.profileHeight.setText(userModel.getHeight() + " cm");
+                    binding.profileWeight.setText(userModel.getWeight() + " kg");
                     this.uploadAvatar(userModel.getAvatar());
                     this.getViewModel().setLoading(false);
                     this.binding.profileGuiTapLuyen.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            FirebaseFCMModule.sendNotificationFCM(userModel.getDeviceToken(), "Nguyễn Đức Anh !");
+                            String title = "Nguyễn Đức Anh đã gửi lời mời luyện tập thách đấu";
+                            String body = "Nguyễn Đức Anh đã gửi lời mời luyện tập thách đấu tới bạn !! Hãy vào tập luyện nhé";
+                            FirebaseFCMModule.sendNotificationFCM(userModel.getDeviceToken(), title, body);
                         }
                     });
                 });
