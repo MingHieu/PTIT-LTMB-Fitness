@@ -21,10 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:background="@{viewModel.getDrawable(context,viewModel.mealPlan.thumbnail)}"
+                app:imageUrl="@{viewModel.mealPlan.thumbnail}"
                 tools:background="@drawable/img_food_sample" />
 
             <com.ltmb.fitness.widget.actionbarview.ActionBarView
@@ -337,7 +337,7 @@
             android:layout_height="160dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="60dp"
-            android:imageResource="@{viewModel.mealPlan.thumbnail}"
+            app:imageUrl="@{viewModel.mealPlan.thumbnail}"
             tools:src="@drawable/img_food_sample" />
 
     </FrameLayout>

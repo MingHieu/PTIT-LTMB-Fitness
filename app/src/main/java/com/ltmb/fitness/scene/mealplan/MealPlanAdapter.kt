@@ -7,7 +7,7 @@ import com.ltmb.fitness.internal.extension.executeAfter
 import com.ltmb.fitness.uimodel.MealPlanUiModel
 
 interface MealPlanCallBack {
-    fun onItemClick()
+    fun onItemClick(mealPlanId: String)
 }
 
 class MealPlanAdapter(private val mealPlaneCb: MealPlanCallBack) :

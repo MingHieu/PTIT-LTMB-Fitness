@@ -61,6 +61,9 @@
     <string name="minutes">minutes</string>
     <string name="kcal">kcal</string>
     <string name="start_workout">start</string>
+    <string name="gain_weight">Gain Weight</string>
+    <string name="lose_weight">Lose Weight</string>
+    <string name="favorite">Favorite</string>
 
     <!-- Workout -->
     <string name="congratulations">Congratulations!</string>
@@ -127,6 +130,9 @@
     <string name="profile">Profile</string>
     <string name="change_avatar">Change avatar</string>
     <string name="name">Name</string>
+    <string name="user">User</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
     <string name="delete_account">Delete Account</string>
 
     <!--    Select-->

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/discoverFragment"
         android:name="com.ltmb.fitness.scene.discover.DiscoverFragment"
-        android:label="DiscoverFragment"
+        android:label="DiscoverFragmenttt"
         tools:layout="@layout/fragment_discover">
         <argument
             android:name="@string/arg_show_bottom_nav"
@@ -54,12 +54,21 @@
         tools:layout="@layout/fragment_meal_plan">
         <action
             android:id="@+id/to_mealPlanDetailFragment"
-            app:destination="@id/mealPlanDetailFragment" />
+            app:destination="@id/mealPlanDetailFragment">
+            <argument
+                android:name="mealPlanId"
+                app:argType="string" />
+        </action>
     </fragment>
   
     <fragment
         android:id="@+id/mealPlanDetailFragment"
         android:name="com.ltmb.fitness.scene.mealplandetail.MealPlanDetailFragment"
         android:label="MealPlanDetailFragment"
-        tools:layout="@layout/fragment_meal_plan_detail"/>
+        tools:layout="@layout/fragment_meal_plan_detail">
+        <argument
+            android:name="mealPlanId"
+            app:argType="string" />
+    </fragment>
+
 </navigation>

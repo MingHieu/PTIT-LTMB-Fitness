@@ -533,67 +533,7 @@
                     android:src="@drawable/ic_on_off" />
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="12dp"
-                android:gravity="center"
-                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginBottom="12dp"
-                        android:text="@string/keep_the_screen_on"
-                        android:textColor="?colorWorkoutTitle"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        tools:text="Keep the Screen On" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="34dp"
-                    android:layout_height="34dp"
-                    android:src="@drawable/ic_on_off" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="12dp"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="bottom"
-                        android:layout_marginBottom="12dp"
-                        android:text="@string/clear_cache"
-                        android:textColor="?colorWorkoutTitle"
-                        android:textSize="18sp"
-                        android:textStyle="normal"
-                        tools:text="Clear Cache" />
-                </LinearLayout>
-
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_arrow_right" />
-            </LinearLayout>
 
         </LinearLayout>
 
