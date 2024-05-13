@@ -27,6 +27,11 @@ class SelectPlanFragment() : BaseFragment<SelectPlanViewModel, FragmentSelectPla
             viewModel.onClickSkip()
         }
 
+        binding.btnContinute.setOnClickListener {
+            userViewModel.updateUser()
+            viewModel.onClickContinue()
+        }
+
         val numberPicker = binding.numberPickerAge
 
         numberPicker.minValue = 1

@@ -4,10 +4,10 @@ import com.ltmb.fitness.uimodel.GenderUiModel
 
 data class UserModel(
     var gender: GenderUiModel = GenderUiModel.MALE,
-    var age: Int = 0,
-    var height: Int = 0,
-    var weight: Int = 0,
-    var dayPlan: Int = 0,
+    var age: Int = 18,
+    var height: Int = 170,
+    var weight: Int = 50,
+    var dayPlan: Int = 1,
     var deviceToken: String = ""
 )
 
