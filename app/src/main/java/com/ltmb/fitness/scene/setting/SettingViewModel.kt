@@ -22,6 +22,7 @@ class SettingViewModel @Inject constructor(
         navigate(SettingFragmentDirections.toPersonInfo())
     }
 
+
     fun goToWorkoutPreferences() {
         navigate(SettingFragmentDirections.toWorkoutPreferencesFragment())
     }
