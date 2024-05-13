@@ -42,9 +42,10 @@ class SettingViewModel @Inject constructor(
     }
 
      fun sendEmail(context: Context) {
-        setLoading(true)
         CoroutineScope(Dispatchers.Main).launch {
+            setLoading(true)
             delay(2000) // "Ngủ" trong 2 giây trước khi gửi email
+            setLoading(false)
             val emailIntent = Intent(Intent.ACTION_SEND)
             emailIntent.type = "text/plain"
             emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("hongduy11092002@gmail.com"))
@@ -53,15 +54,13 @@ class SettingViewModel @Inject constructor(
             if (emailIntent.resolveActivity(context.packageManager) != null) {
                 context.startActivity(Intent.createChooser(emailIntent, "Send email..."))
                 // Hiển thị popup thông báo khi gửi email thành công
-                Toast.makeText(context, "Email sent successfully!", Toast.LENGTH_LONG).show()
             } else {
                 // Hiển thị thông báo khi không tìm thấy ứng dụng email
                 Toast.makeText(context, "No email app found!", Toast.LENGTH_SHORT).show()
             }
-            setLoading(false)
-
-
         }
+         Toast.makeText(context, "Send email...", Toast.LENGTH_LONG).show()
+
 
     }
 
