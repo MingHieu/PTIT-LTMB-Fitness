@@ -24,9 +24,11 @@ class MealPlanDetailRemoteDataSource @Inject constructor(
             .get().await()
             .documents
             .mapNotNull { document ->
-                document.toObject(MealDetailModel::class.java)?.apply {
+                val tmp = document.toObject(MealDetailModel::class.java)?.apply {
                     id = document.id
                 }
+                println("xyz $tmp")
+                tmp
             }
             .firstOrNull()
     }

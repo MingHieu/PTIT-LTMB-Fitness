@@ -54,13 +54,16 @@ class MealPlanDetailViewModel @Inject constructor(
 
 
     fun getMealPlanDetail(id: String) {
-        println(id)
         viewModelScope.launch {
             setLoading(true)
             _mealPlanDetail.value = mealPlanDetailRepository.getMealPlanDetail(id)
             _mealFavorite.value = _mealPlanDetail.value?.mealLikeThis
             setLoading(false)
         }
+    }
+
+    fun onBookmarkClick(){
+
     }
 
 }

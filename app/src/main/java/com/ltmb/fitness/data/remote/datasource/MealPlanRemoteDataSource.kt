@@ -5,8 +5,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.ltmb.fitness.data.remote.BaseRemoteDataSource
 import com.ltmb.fitness.data.remote.FirestoreCollections
 import com.ltmb.fitness.data.remote.model.meal.MealModel
-import com.ltmb.fitness.data.remote.model.mealdetail.MealDetailModel
-import com.ltmb.fitness.data.remote.model.workoutplan.WorkoutPlanModel
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 

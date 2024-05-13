@@ -1,6 +1,6 @@
 package com.ltmb.fitness.data.remote.model.mealdetail
 
-import com.google.firebase.firestore.DocumentReference
+import com.google.firebase.firestore.PropertyName
 import com.ltmb.fitness.uimodel.MealPlanDetailUiModel
 
 data class MealDetailModel(
@@ -11,8 +11,9 @@ data class MealDetailModel(
     val calors: Double = 0.0,
     val sugars: Double = 0.0,
     val protein: Double = 0.0,
-    var mealsLikeThis: List<MealDetailModel> = listOf(),
-    var isFavorite: Int = 0
+    @get:PropertyName("isFavorite")
+    val isFavorite: Long = 0,
+    val mealsLikeThis: List<MealDetailModel> = listOf(),
 ) {
 
     fun toMealDetailUiModel() =
@@ -24,6 +25,6 @@ data class MealDetailModel(
             calors = calors,
             sugars = sugars,
             protein = protein,
-            isFavorite = isFavorite,
+            isFavorite = isFavorite
         )
 }

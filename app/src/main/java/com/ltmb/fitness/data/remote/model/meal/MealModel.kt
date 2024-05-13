@@ -1,7 +1,7 @@
 package com.ltmb.fitness.data.remote.model.meal
 
+import com.google.firebase.firestore.PropertyName
 import com.ltmb.fitness.uimodel.MealPlanUiModel
-import com.ltmb.fitness.uimodel.WorkoutUiModel
 
 data class MealModel(
     var id: String = "",
@@ -9,7 +9,9 @@ data class MealModel(
     val name: String = "",
     val kcal: Double = 0.0,
     val type: String = "",
-    val categorie: String = "")
+    val category: String = "",
+    @get:PropertyName("isFavorite")
+    val isFavorite: Long = 0)
 {
     fun toMealUiModel() =
         MealPlanUiModel(
@@ -18,7 +20,8 @@ data class MealModel(
             name = name,
             kcal = kcal,
             type = type,
-            categorie = categorie
+            category = category,
+            isFavorite = isFavorite
         )
 }
 

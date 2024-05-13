@@ -14,7 +14,7 @@ data class MealPlanDetailUiModel(
     val calors: Double = 0.0,
     val sugars: Double = 0.0,
     val protein: Double = 0.0,
-    val isFavorite: Int = 0,
+    val isFavorite: Long = 0,
     val mealLikeThis: List<MealPlanUiModel> = listOf(),
 
     ) : ListAdapterItem, Serializable, Parcelable
