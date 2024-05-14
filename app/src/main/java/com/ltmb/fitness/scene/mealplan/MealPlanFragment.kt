@@ -4,6 +4,7 @@ import com.google.android.material.tabs.TabLayout
 import com.ltmb.fitness.R
 import com.ltmb.fitness.base.BaseFragment
 import com.ltmb.fitness.databinding.FragmentMealPlanBinding
+import com.ltmb.fitness.internal.extension.observeNonNull
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,6 +19,22 @@ class MealPlanFragment : BaseFragment<MealPlanViewModel, FragmentMealPlanBinding
 //                TODO("Not yet implemented")
             }
         })
+
+        binding.searchBox.setValue(viewModel.keySearch.value.orEmpty())
+
+        binding.searchBox.onTextChanged = {
+            viewModel.keySearch.value = it
+        }
+
+        viewModel.keySearch.observeNonNull(viewLifecycleOwner) { searchQuery ->
+            viewModel.mealPlans.value?.let { list ->
+                viewModel.mealPlansSearch.value = if (searchQuery.isBlank()) {
+                    list
+                } else {
+                    list.filter { it.name.lowercase().contains(searchQuery.lowercase()) }
+                }
+            }
+        }
 
         binding.mealTabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {

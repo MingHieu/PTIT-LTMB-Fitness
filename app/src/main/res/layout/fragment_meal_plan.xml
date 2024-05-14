@@ -104,7 +104,7 @@
                 android:padding="16dp"
                 app:adapter="@{mealPlanAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:submitList="@{viewModel.mealPlans}"
+                app:submitList="@{viewModel.mealPlansSearch}"
                 tools:listitem="@layout/item_meal_plan" />
 
         </LinearLayout>
