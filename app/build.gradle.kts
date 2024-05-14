@@ -96,4 +96,6 @@ dependencies {
     // Youtube
     implementation("com.pierfrancescosoffritti.androidyoutubeplayer:chromecast-sender:0.28")
 
+    implementation ("com.squareup.picasso:picasso:2.71828")
+
 }

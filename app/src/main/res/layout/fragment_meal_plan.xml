@@ -12,6 +12,10 @@
         <variable
             name="viewModel"
             type="com.ltmb.fitness.scene.mealplan.MealPlanViewModel" />
+
+        <variable
+            name="mealPlan"
+            type="com.ltmb.fitness.uimodel.MealPlanUiModel" />
     </data>
 
     <LinearLayout
@@ -53,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:icon="@drawable/ic_gain_weight"
-                android:text="@string/ranking_tab_icon2"
+                android:text="@string/gain_weight"
                 android:textSize="16sp"
                 tools:text="Gain Weight"
                 />
@@ -63,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:icon="@drawable/ic_lose_weight"
-                android:text="@string/ranking_tab_icon3"
+                android:text="@string/lose_weight"
                 tools:text="Lose Weight"/>
 
             <com.google.android.material.tabs.TabItem
@@ -71,7 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:icon="@drawable/ic_favorite"
-                android:text="@string/ranking_tab_icon3"
+                android:text="@string/favorite"
                 tools:text="Favorite"/>
 
         </com.google.android.material.tabs.TabLayout>
@@ -97,11 +101,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
                 android:clipToPadding="false"
-                android:onClick="@{() -> viewModel.goToMealPlanDetail()}"
                 android:padding="16dp"
                 app:adapter="@{mealPlanAdapter}"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:submitList="@{viewModel.mealPlans}"
+                app:submitList="@{viewModel.mealPlansSearch}"
                 tools:listitem="@layout/item_meal_plan" />
 
         </LinearLayout>

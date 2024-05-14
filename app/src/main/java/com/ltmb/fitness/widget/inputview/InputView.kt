@@ -27,6 +27,11 @@ fun setOnTextChanged(input: InputView, cb: ((text: String) -> Unit)) {
     input.onTextChanged = cb
 }
 
+@BindingAdapter("android:hint")
+fun setHint(inputView: InputView, hint: CharSequence) {
+    inputView.setHint(hint)
+}
+
 class InputView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
@@ -208,5 +213,9 @@ class InputView @JvmOverloads constructor(
 
     fun setValue(value: String) {
         binding.ivEditText.setText(value)
+    }
+
+    fun setHint(hint: CharSequence) {
+        binding.ivEditText.setHint(hint)
     }
 }

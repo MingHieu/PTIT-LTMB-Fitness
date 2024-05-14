@@ -4,45 +4,57 @@ import android.app.Application
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.ltmb.fitness.R
+import androidx.lifecycle.viewModelScope
 import com.ltmb.fitness.base.BaseAndroidViewModel
-import com.ltmb.fitness.internal.injection.module.NotificationHelper
+import com.ltmb.fitness.data.repository.MealPlanRepository
 import com.ltmb.fitness.uimodel.MealPlanUiModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class MealPlanViewModel @Inject constructor(
-    application: Application
+    application: Application,
+    private val mealPlanRepository: MealPlanRepository
 ) : BaseAndroidViewModel(application) {
     private val context: Context = application.applicationContext
+
     private val _mealPlane = MutableLiveData<List<MealPlanUiModel>>()
+
     val mealPlans: LiveData<List<MealPlanUiModel>> = _mealPlane
 
+    val mealPlansSearch = MutableLiveData<List<MealPlanUiModel>>()
+
+    val keySearch = MutableLiveData("")
+
     init {
-        val mealPlansList = mutableListOf<MealPlanUiModel>()
-
-        for (i in 1..10) {
-            val mealPlan = MealPlanUiModel(
-                id = "$i",
-                thumbnail = R.drawable.img_meal_sample,
-                name = "Meal $i",
-                kcal = (i * 10).toDouble(),
-                type = "Fruit",
-                categorie = "Muscle"
-            )
-            mealPlansList.add(mealPlan)
+        viewModelScope.launch {
+            val list = mealPlanRepository.filter("muscle")
+            _mealPlane.value = list
+            mealPlansSearch.value = list
         }
-
-        _mealPlane.value = mealPlansList
     }
 
-    fun goToMealPlanDetail() {
+    fun filter(category: String)
+    {
+        viewModelScope.launch {
+            val list = mealPlanRepository.filter(category)
+            _mealPlane.value = list
+            mealPlansSearch.value = list
+        }
+    }
 
-        NotificationHelper.showNotification(
-            context,
-            "Thông báo",
-            "Chào mừng bạn đến với ứng dụng của tôi!"
-        )
-        navigate(MealPlanFragmentDirections.toMealPlanDetailFragment())
+    fun filterFavorite()
+    {
+        viewModelScope.launch {
+            val list = mealPlanRepository.filterFavorite()
+            _mealPlane.value = list
+            mealPlansSearch.value = list
+        }
+    }
+
+    fun goToMealPlanDetail(mealPlanId: String) {
+        navigate(MealPlanFragmentDirections.toMealPlanDetailFragment(mealPlanId))
     }
 
 }

@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:onClick="@{() -> callback.onItemClick()}"
+        android:onClick="@{() -> callback.onItemClick(mealPlan.id)}"
         app:cardCornerRadius="8dp">
 
         <FrameLayout
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:scaleType="centerCrop"
-                app:imageResource="@{mealPlan.thumbnail}"
+                app:imageUrl="@{mealPlan.thumbnail}"
                 tools:src="@drawable/img_meal_sample" />
 
             <LinearLayout
