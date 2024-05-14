@@ -88,7 +88,7 @@
             <com.ltmb.fitness.widget.inputview.InputView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/name"
+                android:hint="DuyLH1109"
                 android:text="@string/change_avatar"
                 android:textColorHint="?colorPrimary"
                 android:textSize="18sp"
@@ -110,7 +110,7 @@
             <com.ltmb.fitness.widget.inputview.InputView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/name"
+                android:hint="*********"
                 android:textColorHint="?colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="italic"
@@ -131,26 +131,26 @@
             <com.ltmb.fitness.widget.inputview.InputView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:hint="@{String.valueOf(viewModel.userModel.weight)}"
+                android:hint="duy@gmail.com"
                 android:text="@string/change_avatar"
                 android:textColorHint="?colorPrimary"
                 android:textSize="18sp"
                 android:textStyle="italic"
                 app:iv_background="?colorInputBackground"
-                tools:hint="duy1192002@gmai.com" />
+                tools:hint="duy1192002@gmail.com" />
 
 
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="4dp"
-                android:backgroundTint="?colorInputBackground"
-                android:stateListAnimator="@null"
-                android:text="@string/delete_account"
-                android:textColor="?colorWarring"
-                android:textStyle="bold"
-                app:cornerRadius="32dp" />
+<!--            <com.google.android.material.button.MaterialButton-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_marginTop="4dp"-->
+<!--                android:backgroundTint="?colorInputBackground"-->
+<!--                android:stateListAnimator="@null"-->
+<!--                android:text="@string/delete_account"-->
+<!--                android:textColor="?colorWarring"-->
+<!--                android:textStyle="bold"-->
+<!--                app:cornerRadius="32dp" />-->
         </LinearLayout>
 
     </LinearLayout>

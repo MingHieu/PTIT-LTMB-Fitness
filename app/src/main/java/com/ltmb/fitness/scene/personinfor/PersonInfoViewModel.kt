@@ -7,8 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.ltmb.fitness.base.BaseAndroidViewModel
 import com.ltmb.fitness.data.remote.model.user.UserModel
 import com.ltmb.fitness.data.repository.UserRepository
-import com.ltmb.fitness.uimodel.MealPlanDetailUiModel
-import com.ltmb.fitness.uimodel.MealPlanUiModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -25,13 +23,15 @@ class PersonInfoViewModel @Inject constructor(
 
 //
     init {
-        viewModelScope.launch {
-            val list = userRepository.getUser()
-            _userModel.value = list;
+//        viewModelScope.launch {
+//            val list = userRepository.getUser()
+//            _userModel.value = list;
         }
-    println(userModel)
+//    println(userModel)
 
-    }
+//    }
+
+    fun init() {}
     fun getUser(){
         viewModelScope.launch {
             _userModel.value = userRepository.getUser()
